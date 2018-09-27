@@ -37,7 +37,7 @@ namespace DetailerCalculator
 
         private void BtnFt2Dec_Click(object sender, EventArgs e)
         {
-         TrigFunctions trigFunctions = new TrigFunctions();
+         Conversions trigFunctions = new Conversions();
 
          trigFunctions.FootToDecimal(12.0204);
         }
@@ -57,12 +57,13 @@ namespace DetailerCalculator
 
         private void BtnTrig_Click(object sender, EventArgs e)
         {
-         Angles angles = new Angles();
-
-         angles.Angle1 = 24.0204;
-         angles.Angle2 = 25.0205;
-         angles.Angle3 = 14.0523;
-         angles.Angle4 = 98.2404;
+         Angles angles = new Angles
+         {
+            Angle1 = 24.0204,
+            Angle2 = 25.0205,
+            Angle3 = 14.0523,
+            Angle4 = 98.2404
+         };
 
          FRMTrig trigForm = new FRMTrig(angles.Angle1, angles.Angle2, angles.Angle3, angles.Angle4);
 
@@ -83,6 +84,11 @@ namespace DetailerCalculator
 
             OutputWindow.Text = Convert.ToString(stack.Pop());
          }
+      }
+
+      private void AddButton_Click(object sender, EventArgs e)
+      {
+
       }
    }
 }
