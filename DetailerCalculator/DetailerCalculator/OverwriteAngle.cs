@@ -45,10 +45,10 @@ namespace DetailerCalculator
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            FRMDetailerCalculator.Angle1 = rboAngle1Overwrite.Text;
-            FRMDetailerCalculator.Angle2 = rboAngle2Overwrite.Text;
-            FRMDetailerCalculator.Angle3 = rboAngle3Overwrite.Text;
-            FRMDetailerCalculator.Angle4 = rboAngle4Overwrite.Text;
+            //FRMDetailerCalculator.Angle1 = rboAngle1Overwrite.Text;
+            //FRMDetailerCalculator.Angle2 = rboAngle2Overwrite.Text;
+            //FRMDetailerCalculator.Angle3 = rboAngle3Overwrite.Text;
+            //FRMDetailerCalculator.Angle4 = rboAngle4Overwrite.Text;
 
 
             this.Close();

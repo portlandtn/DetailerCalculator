@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetailerCalculator", "DetailerCalculator\DetailerCalculator.csproj", "{09AA89A5-3A25-4729-AA7C-A93172CCF76D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Math_UnitTests\UnitTests.csproj", "{5D51C033-BF9C-4655-BEEB-940572B4BE6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{09AA89A5-3A25-4729-AA7C-A93172CCF76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09AA89A5-3A25-4729-AA7C-A93172CCF76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09AA89A5-3A25-4729-AA7C-A93172CCF76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D51C033-BF9C-4655-BEEB-940572B4BE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D51C033-BF9C-4655-BEEB-940572B4BE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D51C033-BF9C-4655-BEEB-940572B4BE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D51C033-BF9C-4655-BEEB-940572B4BE6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

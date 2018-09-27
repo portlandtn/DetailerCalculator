@@ -45,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angles.cs" />
     <Compile Include="DetailerCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DetailerCalculator.Designer.cs">
       <DependentUpon>DetailerCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="MathFunctions.cs" />
     <Compile Include="OverwriteAngle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +67,7 @@
     <Compile Include="Trig.Designer.cs">
       <DependentUpon>Trig.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrigFunctions.cs" />
     <EmbeddedResource Include="DetailerCalculator.resx">
       <DependentUpon>DetailerCalculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,5 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

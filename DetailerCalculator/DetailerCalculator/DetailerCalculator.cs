@@ -14,22 +14,16 @@ namespace DetailerCalculator
 {
     public partial class FRMDetailerCalculator : Form
     {
-
-
-        public static string Angle1 = "";
-        public static string Angle2 = "";
-        public static string Angle3 = "";
-        public static string Angle4 = "";
+      
+        public static double Angle1 = 0;
+        public static double Angle2 = 0;
+        public static double Angle3 = 0;
+        public static double Angle4 = 0;
 
         public FRMDetailerCalculator()
         {
             InitializeComponent();
         }
-
-        //private void Label1_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void FRMDetailerCalculator_Load(object sender, EventArgs e)
         {
@@ -43,16 +37,9 @@ namespace DetailerCalculator
 
         private void BtnFt2Dec_Click(object sender, EventArgs e)
         {
-            string userEntry = txtNumberEntry.Text;
-            double answer = Convert.ToDouble(userEntry);
+         TrigFunctions trigFunctions = new TrigFunctions();
 
-            double feet = Math.Truncate(answer);
-            double inches = answer - feet;
-            inches = Math.Truncate(inches * 100);
-            double sixteenths = Math.Truncate(inches) - inches;
-            sixteenths = sixteenths / 16;
-
-            btnOutput.Text = feet.ToString();
+         trigFunctions.FootToDecimal(12.0204);
         }
 
         private void RboAngle1_CheckedChanged(object sender, EventArgs e)
@@ -60,7 +47,7 @@ namespace DetailerCalculator
             
         }
 
-        private void BtnOverwriteAngle1_Click(object sender, EventArgs e)
+      private void BtnOverwriteAngle1_Click(object sender, EventArgs e)
         {
             FRMOverwriteAngle settingsForm = new FRMOverwriteAngle();
 
@@ -70,15 +57,32 @@ namespace DetailerCalculator
 
         private void BtnTrig_Click(object sender, EventArgs e)
         {
-            Angle1 = rboAngle1.Text;
-            Angle2 = rboAngle2.Text;
-            Angle3 = rboAngle3.Text;
-            Angle4 = rboAngle4.Text;
+         Angles angles = new Angles();
 
-            FRMTrig trigForm = new FRMTrig();
+         angles.Angle1 = 24.0204;
+         angles.Angle2 = 25.0205;
+         angles.Angle3 = 14.0523;
+         angles.Angle4 = 98.2404;
+
+         FRMTrig trigForm = new FRMTrig(angles.Angle1, angles.Angle2, angles.Angle3, angles.Angle4);
 
             trigForm.Show();
         }
 
-    }
+      private void UserEntryBox_TextChanged(object sender, EventArgs e)
+      {
+         
+      }
+
+      private void DetailerCalculator_KeyPress(object sender, KeyPressEventArgs e)
+      {
+         if (e.KeyChar == Convert.ToInt16(Keys.Enter))
+         {
+            Stack<double> stack = new Stack<double>();
+            stack.Push(Convert.ToDouble(UserEntryBox.Text));
+
+            OutputWindow.Text = Convert.ToString(stack.Pop());
+         }
+      }
+   }
 }
