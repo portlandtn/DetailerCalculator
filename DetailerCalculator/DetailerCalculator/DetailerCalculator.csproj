@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Angles.cs" />
+    <Compile Include="Triangles.cs" />
     <Compile Include="AnglesTrig.cs" />
     <Compile Include="DetailerCalculator.cs">
       <SubType>Form</SubType>

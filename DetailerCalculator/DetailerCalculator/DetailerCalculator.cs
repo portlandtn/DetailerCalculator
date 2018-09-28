@@ -15,10 +15,7 @@ namespace DetailerCalculator
     public partial class FRMDetailerCalculator : Form
     {
       
-        public static double Angle1 = 0;
-        public static double Angle2 = 0;
-        public static double Angle3 = 0;
-        public static double Angle4 = 0;
+        public static double Angle = 0;
 
         public FRMDetailerCalculator()
         {
@@ -57,16 +54,17 @@ namespace DetailerCalculator
 
         private void BtnTrig_Click(object sender, EventArgs e)
         {
-         Angles angles = new Angles
-         {
-            Angle1 = 24.0204,
-            Angle2 = 25.0205,
-            Angle3 = 14.0523,
-            Angle4 = 98.2404
-         };
+         Triangle1 t1 = new Triangle1();
+         Triangle2 t2 = new Triangle2();
+         Triangle3 t3 = new Triangle3();
+         Triangle4 t4 = new Triangle4();
 
-         FRMTrig trigForm = new FRMTrig(angles.Angle1, angles.Angle2, angles.Angle3, angles.Angle4);
+         t1.Angle = 21.0208;
+         t2.Angle = 14.0635;
+         t3.Angle = 15.0809;
+         t4.Angle = 75.0458;
 
+         FRMTrig trigForm = new FRMTrig(t1.Angle, t2.Angle, t3.Angle, t4.Angle);
             trigForm.Show();
         }
 

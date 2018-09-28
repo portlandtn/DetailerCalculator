@@ -11,14 +11,15 @@ namespace UnitTests
       {
          //Arrange
          AnglesTrig aTrig = new AnglesTrig();
-         var number = 12.0204;
-         var expectedResponse = 12.0225;
+         var userBase = 12;
+         var rise = 1;
+         var expectedAngle = 4.7636;
 
          //Act
-         var response = aTrig.BaseRiseToAngle(number);
+         var angle = aTrig.BaseRiseToAngle(userBase, rise);
 
          //Assert
-         Assert.AreEqual(expectedResponse, response);
+         Assert.AreEqual(expectedAngle, angle);
       }
 
    }
