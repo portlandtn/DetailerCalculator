@@ -21,6 +21,5 @@ namespace UnitTests
          //Assert
          Assert.AreEqual(expectedAngle, angle);
       }
-
    }
 }
