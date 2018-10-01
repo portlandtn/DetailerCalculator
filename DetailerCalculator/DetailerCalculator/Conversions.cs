@@ -8,7 +8,7 @@ namespace DetailerCalculator
 {
    public class Conversions
    {
-      public double FootToDecimal(double userEntry)
+      public static double FootToDecimal(double userEntry)
       {
          //userEntry = 4.0608
 
@@ -29,7 +29,7 @@ namespace DetailerCalculator
 
       }
 
-      public double DecimalToFoot(double userEntry)
+      public static double DecimalToFoot(double userEntry)
       {
 
          //userEntry = 23.02604
@@ -49,16 +49,26 @@ namespace DetailerCalculator
          return Math.Round(feet + inches + sixteenths, 4); //12.0204
       }
 
-      public double AngleToRadians(double angle)
+      public static double AngleToRadians(double angle)
       {
          var radians = angle * Math.PI/180;
          return Math.Round(radians, 4);
       }
 
-      public double RadiansToAngle(double radians)
+      public static double RadiansToAngle(double radians)
       {
          var angle = radians * 180 / Math.PI;
          return Math.Round(angle, 4);
+      }
+
+      public static double InchDecimalToInchFeet(double inches)
+      {
+         var inchft = Math.Truncate(inches);
+         inches = inches - inchft;
+         inches = inches * 16;
+         var sixteenths = inches / 10000;
+
+         return inchft + sixteenths;
       }
    }
 }

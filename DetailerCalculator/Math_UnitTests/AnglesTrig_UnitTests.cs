@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DetailerCalculator;
+using System;
 
 namespace UnitTests
 {
@@ -7,19 +8,18 @@ namespace UnitTests
    public class AnglesTrig_UnitTests
    {
       [TestMethod]
-      public void BaseRiseToAngle_UnitTest()
+      public void BaseRiseToRadian_UnitTest()
       {
          //Arrange
-         AnglesTrig aTrig = new AnglesTrig();
-         var userBase = 12;
+         var bayse = 12;
          var rise = 1;
-         var expectedAngle = 4.7636;
+         var expectedRadian = 0.0831;
 
          //Act
-         var angle = aTrig.BaseRiseToAngle(userBase, rise);
+         var radian = Math.Round(AnglesTrig.BaseRiseToRadian(bayse, rise),4);
 
          //Assert
-         Assert.AreEqual(expectedAngle, angle);
+         Assert.AreEqual(expectedRadian, radian);
       }
    }
 }

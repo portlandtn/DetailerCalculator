@@ -10,14 +10,13 @@ namespace UnitTests
       public void Add_Standard_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 22.1115;
          var num2 = 0.0005;
          var expectedResponse = 22.112;
-         var detailingMathMethod = false;
+         bool isDetailingMethod = false;
 
          //Act
-         var response = mathFunc.AddNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.AddNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -27,14 +26,13 @@ namespace UnitTests
       public void Add_Detailing_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 22.1115;
          var num2 = 0.0005;
          var expectedResponse = 23.0004;
-         var detailingMathMethod = true;
+         bool isDetailingMethod = true;
 
          //Act
-         var response = mathFunc.AddNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.AddNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -44,14 +42,13 @@ namespace UnitTests
       public void Subtract_Standard_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 23.1102;
          var num2 = 0.0005;
          var expectedResponse = 23.1097;
-         var detailingMathMethod = false;
+         bool isDetailingMethod = false;
 
          //Act
-         var response = mathFunc.SubtractNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -61,14 +58,13 @@ namespace UnitTests
       public void Subtract_Detailing_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 23.1102;
-         var num2 = 0.0003;
-         var expectedResponse = 23.1015;
-         var detailingMathMethod = true;
+         var num2 = 0.0005;
+         var expectedResponse = 23.1013;
+         bool isDetailingMethod = true;
 
          //Act
-         var response = mathFunc.SubtractNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -78,13 +74,14 @@ namespace UnitTests
       public void Multiply_Standard_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 12.0204;
          var num2 = 14.0806;
          var expectedResponse = 169.2544;
-         var detailingMathMethod = false;
+         //171.0705
+         bool isDetailingMethod = false;
+
          //Act
-         var response = mathFunc.MultiplyNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -94,13 +91,13 @@ namespace UnitTests
       public void Multiply_Detailing_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
          var num1 = 12.0204;
          var num2 = 14.0806;
          var expectedResponse = 179.0109;
-         var detailingMathMethod = true;
+         bool isDetailingMethod = true;
+
          //Act
-         var response = mathFunc.MultiplyNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -110,13 +107,15 @@ namespace UnitTests
       public void Divide_Standard_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
-         var num1 = 12.0204;
-         var num2 = 14.0806;
-         var expectedResponse = 0.8537;
-         var detailingMathMethod = false;
+         var num1 = 23.0608;
+         var num2 = 15.0302;
+         var expectedResponse = 1.5343;
+         bool isDetailingMethod = false;
+
+         //1.0608
+
          //Act
-         var response = mathFunc.DivideNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.DivideNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -126,13 +125,13 @@ namespace UnitTests
       public void Divide_Detailing_UnitTest()
       {
          //Arrange
-         MathFunctions mathFunc = new MathFunctions();
-         var num1 = 12.0204;
-         var num2 = 14.0806;
-         var expectedResponse = 0.0915;
-         var detailingMathMethod = true;
+         var num1 = 23.0608;
+         var num2 = 15.0302;
+         var expectedResponse = 1.0608;
+         bool isDetailingMethod = true;
+
          //Act
-         var response = mathFunc.DivideNumbers(num1, num2, detailingMathMethod);
+         var response = MathFunctions.DivideNumbers(num1, num2, isDetailingMethod);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

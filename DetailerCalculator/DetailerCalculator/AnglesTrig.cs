@@ -9,14 +9,9 @@ namespace DetailerCalculator
    public class AnglesTrig
    {
 
-      public double BaseRiseToAngle(double userBase, double rise)
+      public static double BaseRiseToRadian(double bayse, double rise)
       {
-         Conversions c = new Conversions();
-         userBase = c.FootToDecimal(userBase);
-         rise = c.FootToDecimal(rise);
-         var radianA = Math.Atan(rise / userBase);
-         var angle = c.RadiansToAngle(radianA);
-         return angle;
+         return Math.Atan(rise / bayse);
       }
    }
 }

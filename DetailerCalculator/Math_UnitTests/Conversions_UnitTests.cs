@@ -11,7 +11,6 @@ namespace UnitTests
       public void FootToDecimal_UnitTest()
       {
          //Arrange
-         Conversions trigFunc = new Conversions();
          var foot1 = 4.06;
          var expectedDecimal1 = 4.5;
          var foot2 = 4.0608;
@@ -22,10 +21,10 @@ namespace UnitTests
          var expectedDecimal4 = -118.1667;
 
          //Act
-         var decimal1 = trigFunc.FootToDecimal(foot1);
-         var decimal2 = trigFunc.FootToDecimal(foot2);
-         var decimal3 = trigFunc.FootToDecimal(foot3);
-         var decimal4 = trigFunc.FootToDecimal(foot4);
+         var decimal1 = Conversions.FootToDecimal(foot1);
+         var decimal2 = Conversions.FootToDecimal(foot2);
+         var decimal3 = Conversions.FootToDecimal(foot3);
+         var decimal4 = Conversions.FootToDecimal(foot4);
 
          //Assert
          Assert.AreEqual(expectedDecimal1, decimal1);
@@ -38,7 +37,6 @@ namespace UnitTests
       public void DecimalToFoot_UnitTest()
       {
          //Arrange
-         Conversions trigFunc = new Conversions();
          var decNumber1 = 4.5;
          var expectedFoot1 = 4.06;
          var decNumber2 = 4.5417;
@@ -49,10 +47,10 @@ namespace UnitTests
          var expectedFoot4 = -118.02;
 
          //Act
-         var foot1 = trigFunc.DecimalToFoot(decNumber1);
-         var foot2 = trigFunc.DecimalToFoot(decNumber2);
-         var foot3 = trigFunc.DecimalToFoot(decNumber3);
-         var foot4 = trigFunc.DecimalToFoot(decNumber4);
+         var foot1 = Conversions.DecimalToFoot(decNumber1);
+         var foot2 = Conversions.DecimalToFoot(decNumber2);
+         var foot3 = Conversions.DecimalToFoot(decNumber3);
+         var foot4 = Conversions.DecimalToFoot(decNumber4);
 
          //Assert
          Assert.AreEqual(expectedFoot1, foot1);
@@ -65,12 +63,11 @@ namespace UnitTests
       public void AngleToRadians_UnitTest()
       {
          //Arrange
-         Conversions trigFunc = new Conversions();
          var angle = 4.7623;
          var expectedResponse = 0.0831;
 
          //Act
-         var response = trigFunc.AngleToRadians(angle);
+         var response = Conversions.AngleToRadians(angle);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -80,12 +77,11 @@ namespace UnitTests
       public void RadiansToAngle_UnitTest()
       {
          //Arrange
-         Conversions trigFunc = new Conversions();
          var radians = 0.2501;
          var expectedResponse = 14.3297;
 
          //Act
-         var response = trigFunc.RadiansToAngle(radians);
+         var response = Conversions.RadiansToAngle(radians);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

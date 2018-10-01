@@ -8,76 +8,54 @@ namespace DetailerCalculator
 {
    public class SidesTrig
    {
-      public double BaseRiseToSlope(double userBaseInFeet, double riseInFeet)
+      public static double BaseRiseToSlope(double bayse, double rise)
       {
-         Conversions c = new Conversions();
-         var userBase = c.FootToDecimal(userBaseInFeet);
-         var rise = c.FootToDecimal(riseInFeet);
-         double slope = Math.Sqrt((userBase * userBase) + (rise * rise));
-         slope = c.DecimalToFoot(slope);
+         double slope = Math.Sqrt((bayse * bayse) + (rise * rise));
          return Math.Round(slope, 4);
       }
 
-      public double BaseToSlope(double userBaseInFeet, double angleA)
+      public static double BaseToSlope(double bayse, double angleA)
       {
-         Conversions c = new Conversions();
-         var userBase = c.FootToDecimal(userBaseInFeet);
          var angleB = 90 - angleA;
-         var radianB = c.AngleToRadians(angleB);
-         double slope = userBase / Math.Sin(radianB);
-         slope = c.DecimalToFoot(slope);
+         var radianB = Conversions.AngleToRadians(angleB);
+         double slope = bayse / Math.Sin(radianB);
          return Math.Round(slope, 4);
       }
 
-      public double BaseToRise(double userBaseInFeet, double angleA)
+      public static double BaseToRise(double bayse, double angleA)
       {
-         Conversions c = new Conversions();
-         var userBase = c.FootToDecimal(userBaseInFeet);
          var angleB = 90 - angleA;
-         var radianB = c.AngleToRadians(angleB);
-         double rise = userBase / Math.Tan(radianB);
-         rise = c.DecimalToFoot(rise);
+         var radianB = Conversions.AngleToRadians(angleB);
+         double rise = bayse / Math.Tan(radianB);
          return Math.Round(rise, 4);
       }
 
-      public double SlopeToBase(double slopeInFeet, double angleA)
+      public static double SlopeToBase(double slope, double angleA)
       {
-         Conversions c = new Conversions();
-         var radianA = c.AngleToRadians(angleA);
-         var slope = c.FootToDecimal(slopeInFeet);
-         var response = Math.Cos(radianA) * slope;
-         response = c.DecimalToFoot(response);
-         return response;
+         var radianA = Conversions.AngleToRadians(angleA);
+         var bayse = Math.Cos(radianA) * slope;
+         return Math.Round(bayse,4);
       }
 
-      public double SlopeToRise(double slopeInFeet, double angleA)
+      public static double SlopeToRise(double slope, double angleA)
       {
-         Conversions c = new Conversions();
-         var radianA = c.AngleToRadians(angleA);
-         var slope = c.FootToDecimal(slopeInFeet);
+         var radianA = Conversions.AngleToRadians(angleA);
          var rise = Math.Sin(radianA) * slope;
-         rise = c.DecimalToFoot(rise);
-         return rise;
+         return Math.Round(rise,4);
       }
 
-      public double RiseToBase(double riseInFeet, double angleA)
+      public static double RiseToBase(double rise, double angleA)
       {
-         Conversions c = new Conversions();
-         var radianA = c.AngleToRadians(angleA);
-         var rise = c.FootToDecimal(riseInFeet);
-         var response = rise / Math.Tan(radianA);
-         response = c.DecimalToFoot(response);
-         return response;
+         var radianA = Conversions.AngleToRadians(angleA);
+         var bayse = rise / Math.Tan(radianA);
+         return Math.Round(bayse,4);
       }
 
-      public double RiseToSlope(double riseInFeet, double angleA)
+      public static double RiseToSlope(double rise, double angleA)
       {
-         Conversions c = new Conversions();
-         var radianA = c.AngleToRadians(angleA);
-         var rise = c.FootToDecimal(riseInFeet);
+         var radianA = Conversions.AngleToRadians(angleA);
          var slope = rise / Math.Sin(radianA);
-         slope = c.DecimalToFoot(slope);
-         return slope;
+         return Math.Round(slope,4);
       }
    }
 }
