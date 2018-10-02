@@ -39,38 +39,49 @@ namespace DetailerCalculator
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         double bayse = 14;
-         string rise = Convert.ToString(SidesTrig.BaseToRise(bayse, angle));
+         double bayse = DetermineNumberForTrig(UserEntryBox.Text);
+         double rise = SidesTrig.BaseToRise(bayse, angle);
+         OutputWindowStringBuilder(rise);
       }
 
       private void BaseToSlopeButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.BaseToSlope(14, angle));
+         double bayse = DetermineNumberForTrig(UserEntryBox.Text);
+         double slope = SidesTrig.BaseToSlope(bayse,angle);
+         OutputWindowStringBuilder(slope);
       }
 
       private void SlopeToBaseButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.SlopeToBase(14, angle));
+         double slope = DetermineNumberForTrig(UserEntryBox.Text);
+         double bayse = SidesTrig.SlopeToBase(slope, angle);
+         OutputWindowStringBuilder(bayse);
       }
 
       private void SlopeToRiseButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.SlopeToBase(14, angle));
+         double slope = DetermineNumberForTrig(UserEntryBox.Text);
+         double rise = SidesTrig.SlopeToRise(slope, angle);
+         OutputWindowStringBuilder(rise);
       }
 
       private void RiseToSlopeButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.RiseToSlope(14, angle));
+         double rise = DetermineNumberForTrig(UserEntryBox.Text);
+         double slope = SidesTrig.RiseToSlope(rise, angle);
+         OutputWindowStringBuilder(slope);
       }
 
       private void RiseToBaseButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.RiseToBase(14, angle));
+         double rise = DetermineNumberForTrig(UserEntryBox.Text);
+         double bayse = SidesTrig.RiseToBase(rise, angle);
+         OutputWindowStringBuilder(bayse);
       }
 
       private void FootToDecimalButton_Click(object sender, EventArgs e)
@@ -451,6 +462,11 @@ namespace DetailerCalculator
             double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
             return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
          }
+      }
+
+      private double DetermineNumberForTrig(string userEntry)
+      {
+         return (userEntry == "") ? _OutputWindowList[_OutputWindowList.Count - 1] : Convert.ToDouble(userEntry);
       }
    }
 }
