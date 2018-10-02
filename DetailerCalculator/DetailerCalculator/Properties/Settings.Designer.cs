@@ -25,10 +25,9 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
-        public string OutputWindow {
+        public global::System.Collections.Specialized.StringCollection OutputWindow {
             get {
-                return ((string)(this["OutputWindow"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["OutputWindow"]));
             }
             set {
                 this["OutputWindow"] = value;

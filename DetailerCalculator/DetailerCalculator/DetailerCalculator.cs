@@ -21,6 +21,7 @@ namespace DetailerCalculator
       Settings _Angle4 = new Settings();
       Settings _ActiveAngle = new Settings();
       Settings _MathMethod = new Settings();
+      List<double> _OutputWindowList = new List<double>();
 
       public FRMDetailerCalculator()
       {
@@ -121,22 +122,30 @@ namespace DetailerCalculator
 
       private void AddButton_Click(object sender, EventArgs e)
       {
-         OutputWindow.Text = Convert.ToString(AddNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod));
+         var sum = AddNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
+         OutputWindow.Text = Convert.ToString(sum);
+         UserEntryBox.Text = "";
       }
 
       private void SubtractButton_Click(object sender, EventArgs e)
       {
-         OutputWindow.Text = Convert.ToString(SubtractNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod));
+         var diff = SubtractNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text) - 6, _MathMethod.IsDetailingMathMethod);
+         OutputWindow.Text = Convert.ToString(diff);
+         UserEntryBox.Text = "";
       }
 
       private void MultiplyButton_Click(object sender, EventArgs e)
       {
-         OutputWindow.Text = Convert.ToString(MultiplyNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod));
+         var prod = MultiplyNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
+         OutputWindow.Text = Convert.ToString(prod);
+         UserEntryBox.Text = "";
       }
 
       private void DivideButton_Click(object sender, EventArgs e)
       {
-         OutputWindow.Text = Convert.ToString(MathFunctions.DivideNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod));
+         var quotient = DivideNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
+         OutputWindow.Text = Convert.ToString(quotient);
+         UserEntryBox.Text = "";
       }
 
       private void DropButton_Click(object sender, EventArgs e)
@@ -146,6 +155,7 @@ namespace DetailerCalculator
 
       private void ClearAllButton_Click(object sender, EventArgs e)
       {
+         _OutputWindowList.Clear();
          OutputWindow.Text = "";
       }
 
@@ -156,20 +166,89 @@ namespace DetailerCalculator
 
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
       {
-         List<double> list = new List<double>();
-
          if (e.KeyCode == Keys.Enter)
          {
-            OutputWindow.Text = OutputWindow.Text + "\n " + UserEntryBox.Text;
+            _OutputWindowList.Add(Convert.ToDouble(UserEntryBox.Text));
+
+            foreach (var item in _OutputWindowList)
+            {
+               OutputWindow.Text =  String.Join(Environment.NewLine, item);
+            }
+
             UserEntryBox.Text = "";
             e.Handled = true;
             e.SuppressKeyPress = true;
+         }
+
+         if (e.KeyCode == Keys.Add)
+         {
+            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               ArithmeticFunctionsFromKeys("Add", num1, num2);
+            }
+            else
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+               double num2 = Convert.ToDouble(UserEntryBox.Text);
+               ArithmeticFunctionsFromKeys("Add", num1, num2);
+            }
+         }
+
+         if (e.KeyCode == Keys.Subtract)
+         {
+            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               ArithmeticFunctionsFromKeys("Subtract", num1, num2);
+            }
+            else
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+               double num2 = Convert.ToDouble(UserEntryBox.Text);
+               ArithmeticFunctionsFromKeys("Subtract", num1, num2);
+            }
+         }
+
+         if (e.KeyCode == Keys.Multiply)
+         {
+            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               ArithmeticFunctionsFromKeys("Multiply", num1, num2);
+            }
+            else
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+               double num2 = Convert.ToDouble(UserEntryBox.Text);
+               ArithmeticFunctionsFromKeys("Multiply", num1, num2);
+            }
+         }
+
+         if (e.KeyCode == Keys.Divide)
+         {
+            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               ArithmeticFunctionsFromKeys("Divide", num1, num2);
+            }
+            else
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+               double num2 = Convert.ToDouble(UserEntryBox.Text);
+               ArithmeticFunctionsFromKeys("Divide", num1, num2);
+            }
          }
       }
 
       public void RestoreSettings()
       {
          OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
+
 
          double _Angle1 = Convert.ToDouble(Properties.Settings.Default["Angle1"]);
          double _Angle2 = Convert.ToDouble(Properties.Settings.Default["Angle2"]);
@@ -184,7 +263,6 @@ namespace DetailerCalculator
 
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
-         Properties.Settings.Default["OutputWindow"] = OutputWindow.Text;
          Properties.Settings.Default["Angle1"] = Convert.ToDouble(Angle1Label.Text);
          Properties.Settings.Default["Angle2"] = Convert.ToDouble(Angle2Label.Text);
          Properties.Settings.Default["Angle3"] = Convert.ToDouble(Angle3Label.Text);
@@ -353,6 +431,27 @@ namespace DetailerCalculator
          OverWriteAngleTextBox.Text = Convert.ToString(Conversions.RadiansToAngle(radians));
          OutputWindow.Text = Convert.ToString(Conversions.RadiansToAngle(radians));
          return angle;
+      }
+
+      private void ArithmeticFunctionsFromKeys(string function, double num1, double num2)
+      {
+         switch (function)
+         {
+            case "Add":
+               AddNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               break;
+            case "Subtract":
+               SubtractNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               break;
+            case "Multiply":
+               MultiplyNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               break;
+            case "Divide":
+               DivideNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               break;
+            default:
+               break;
+         }
       }
    }
 }
