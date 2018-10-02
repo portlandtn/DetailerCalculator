@@ -33,7 +33,7 @@ namespace DetailerCalculator
          RestoreSettings();
          _ActiveAngle.ActiveAngle = 1;
          _MathMethod.IsDetailingMathMethod = true;
-         this.ActiveControl = UserEntryBox;
+         ActiveControl = UserEntryBox;
       }
 
       private void BaseToRiseButton_Click(object sender, EventArgs e)
