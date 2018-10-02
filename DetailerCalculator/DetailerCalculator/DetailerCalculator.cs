@@ -124,33 +124,35 @@ namespace DetailerCalculator
       {
          var response = MathLogicUsingOutputWindow("Add", UserEntryBox.Text);
          UserEntryBox.Text = "";
-         OuputWindowStringBuilder(response);
+         OutputWindowStringBuilder(response);
       }
 
       private void SubtractButton_Click(object sender, EventArgs e)
       {
          var response = MathLogicUsingOutputWindow("Subtract", UserEntryBox.Text);
          UserEntryBox.Text = "";
-         OuputWindowStringBuilder(response);
+         OutputWindowStringBuilder(response);
       }
 
       private void MultiplyButton_Click(object sender, EventArgs e)
       {
          var response = MathLogicUsingOutputWindow("Multiply", UserEntryBox.Text);
          UserEntryBox.Text = "";
-         OuputWindowStringBuilder(response);
+         OutputWindowStringBuilder(response);
       }
 
       private void DivideButton_Click(object sender, EventArgs e)
       {
          var response = MathLogicUsingOutputWindow("Divide", UserEntryBox.Text);
          UserEntryBox.Text = "";
-         OuputWindowStringBuilder(response);
+         OutputWindowStringBuilder(response);
       }
 
       private void DropButton_Click(object sender, EventArgs e)
       {
-         OutputWindow.Text = OutputWindow.Text.Remove(OutputWindow.Text.LastIndexOf(Environment.NewLine));
+         _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+         OutputWindowStringBuilder(0);
+
       }
 
       private void ClearAllButton_Click(object sender, EventArgs e)
@@ -168,7 +170,7 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
-            OuputWindowStringBuilder(Convert.ToDouble(UserEntryBox.Text));
+            OutputWindowStringBuilder(Convert.ToDouble(UserEntryBox.Text));
 
             UserEntryBox.Text = "";
             e.Handled = true;
@@ -393,13 +395,13 @@ namespace DetailerCalculator
          double response;
          switch (function)
          {
-            
+
             case "Add":
                response = AddNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-         return response;
+               return response;
             case "Subtract":
                response = SubtractNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               return response; 
+               return response;
             case "Multiply":
                response = MultiplyNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
                return response; ;
@@ -411,10 +413,17 @@ namespace DetailerCalculator
          }
       }
 
-      private void OuputWindowStringBuilder(double stringToAdd)
+      private void OutputWindowStringBuilder(double stringToAdd)
       {
-         _OutputWindowList.Add(stringToAdd);
-         OutputWindow.Text = String.Join(Environment.NewLine, _OutputWindowList);
+         if (stringToAdd == 0)
+         {
+            OutputWindow.Text = String.Join(Environment.NewLine, _OutputWindowList);
+         }
+         else
+         {
+            _OutputWindowList.Add(stringToAdd);
+            OutputWindow.Text = String.Join(Environment.NewLine, _OutputWindowList);
+         }
       }
 
       private double MathLogicUsingOutputWindow(string function, string userEntryText)
@@ -425,7 +434,7 @@ namespace DetailerCalculator
             if (_OutputWindowList.Count >= 2)
             {
                double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count -1];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
                response = ArithmeticFunctionsFromKeys(function, num1, num2);
                return response;
             }
@@ -436,7 +445,7 @@ namespace DetailerCalculator
          }
          else if (_OutputWindowList.Count <= 2)
          {
-            double num1 = _OutputWindowList[_OutputWindowList.Count -1];
+            double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
             double num2 = Convert.ToDouble(UserEntryBox.Text);
             response = ArithmeticFunctionsFromKeys(function, num1, num2);
             return response;
@@ -444,7 +453,7 @@ namespace DetailerCalculator
          else
          {
             double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-            double num2 = _OutputWindowList[_OutputWindowList.Count -1];
+            double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
             response = ArithmeticFunctionsFromKeys(function, num1, num2);
             return response;
          }
