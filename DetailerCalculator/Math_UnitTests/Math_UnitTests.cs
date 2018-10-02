@@ -257,5 +257,140 @@ namespace UnitTests
          Assert.AreEqual(expectedResponse3, response3);
          Assert.AreEqual(expectedResponse4, response4);
       }
+
+      [TestMethod]
+      public void DoMath_Standard_Add_UnitTest()
+      {
+         //Arrange
+         var function = "Add";
+         double num1 = 2.0408;
+         double num2 = 1.0611;
+         var detailingMath = false;
+         var expectedResponse = 3.1019;
+
+         //Act
+         var response = MathFunctions.DoMath(function,num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Standard_Subtract_UnitTest()
+      {
+         //Arrange
+         var function = "Subtract";
+         double num1 = 2.0408;
+         double num2 = 2.9857;
+         var detailingMath = false;
+         var expectedResponse = -0.9449;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Standard_Multiply_UnitTest()
+      {
+         //Arrange
+         var function = "Multiply";
+         double num1 = 2.0408;
+         double num2 = 1.0509;
+         var detailingMath = false;
+         var expectedResponse = 2.1447;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Standard_Divide_UnitTest()
+      {
+         //Arrange
+         var function = "Divide";
+         double num1 = 2.0408;
+         double num2 = 3.5;
+         var detailingMath = false;
+         var expectedResponse = 0.5831;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Detailing_Add_UnitTest()
+      {
+         //Arrange
+         var function = "Add";
+         double num1 = 2.0408;
+         double num2 = 6.0208;
+         var detailingMath = true;
+         var expectedResponse = 8.07;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+      [TestMethod]
+      public void DoMath_Detailing_Subtract_UnitTest()
+      {
+         //Arrange
+         var function = "Subtract";
+         double num1 = 16.0208;
+         double num2 = 11.0515;
+         var detailingMath = true;
+         var expectedResponse = 4.0809;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Detailing_Multiply_UnitTest()
+      {
+         //Arrange
+         var function = "Multiply";
+         double num1 = 16.0205;
+         double num2 = 11.05;
+         var detailingMath = true;
+         var expectedResponse = 184.1006;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DoMath_Detailing_Divide_UnitTest()
+      {
+         //Arrange
+         var function = "Divide";
+         double num1 = 2.0408;
+         double num2 = 6.0208;
+         var detailingMath = true;
+         var expectedResponse = 0.0409;
+
+         //Act
+         var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
    }
 }

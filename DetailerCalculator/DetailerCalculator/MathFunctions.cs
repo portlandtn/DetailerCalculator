@@ -67,5 +67,22 @@ namespace DetailerCalculator
             return Math.Round(num1 / num2, 4);
          }
       }
+
+      public static double DoMath(string function, double num1, double num2, bool isDetailingMethod)
+      {
+         switch (function)
+         {
+            case "Add":
+               return MathFunctions.AddNumbers(num1, num2, isDetailingMethod);
+            case "Subtract":
+               return MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
+            case "Multiply":
+               return MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
+            case "Divide":
+               return MathFunctions.DivideNumbers(num1, num2, isDetailingMethod);
+            default:
+               return 0;
+         }
+      }
    }
 }
