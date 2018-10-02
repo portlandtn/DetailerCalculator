@@ -422,10 +422,10 @@ namespace DetailerCalculator
          double response;
          if (userEntryText == "")
          {
-            if (_OutputWindowList.Count > 2)
+            if (_OutputWindowList.Count >= 2)
             {
                double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               double num2 = _OutputWindowList[_OutputWindowList.Count -1];
                response = ArithmeticFunctionsFromKeys(function, num1, num2);
                return response;
             }
@@ -436,7 +436,7 @@ namespace DetailerCalculator
          }
          else if (_OutputWindowList.Count <= 2)
          {
-            double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+            double num1 = _OutputWindowList[_OutputWindowList.Count -1];
             double num2 = Convert.ToDouble(UserEntryBox.Text);
             response = ArithmeticFunctionsFromKeys(function, num1, num2);
             return response;
@@ -444,7 +444,7 @@ namespace DetailerCalculator
          else
          {
             double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-            double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+            double num2 = _OutputWindowList[_OutputWindowList.Count -1];
             response = ArithmeticFunctionsFromKeys(function, num1, num2);
             return response;
          }
