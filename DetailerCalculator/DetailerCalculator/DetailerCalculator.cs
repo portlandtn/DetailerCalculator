@@ -200,22 +200,6 @@ namespace DetailerCalculator
          }
       }
 
-      public void RestoreSettings()
-      {
-         OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
-
-
-         double _Angle1 = Convert.ToDouble(Properties.Settings.Default["Angle1"]);
-         double _Angle2 = Convert.ToDouble(Properties.Settings.Default["Angle2"]);
-         double _Angle3 = Convert.ToDouble(Properties.Settings.Default["Angle3"]);
-         double _Angle4 = Convert.ToDouble(Properties.Settings.Default["Angle4"]);
-
-         Angle1Label.Text = Convert.ToString(_Angle1);
-         Angle2Label.Text = Convert.ToString(_Angle2);
-         Angle3Label.Text = Convert.ToString(_Angle3);
-         Angle4Label.Text = Convert.ToString(_Angle4);
-      }
-
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
          Properties.Settings.Default["Angle1"] = Convert.ToDouble(Angle1Label.Text);
@@ -233,36 +217,6 @@ namespace DetailerCalculator
             OverWriteAngleTextBox.Text = "";
             e.Handled = true;
             e.SuppressKeyPress = true;
-         }
-      }
-
-      public void OverwriteAngle(int activeAngle)
-      {
-         switch (activeAngle)
-         {
-            case 1:
-               _Angle1.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
-               var angle = Math.Round(_Angle1.Angle, 4);
-               Angle1Label.Text = Convert.ToString(angle);
-               break;
-            case 2:
-               _Angle2.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle2.Angle, 4);
-               Angle2Label.Text = Convert.ToString(angle);
-               break;
-            case 3:
-               _Angle3.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle3.Angle, 4);
-               Angle3Label.Text = Convert.ToString(angle);
-               break;
-            case 4:
-               _Angle4.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle4.Angle, 4);
-               Angle4Label.Text = Convert.ToString(angle);
-               break;
-            default:
-               MessageBox.Show("Angle was not detected");
-               break;
          }
       }
 
@@ -303,24 +257,67 @@ namespace DetailerCalculator
          }
       }
 
-      private double AddNumbers(double num1, double num2, bool isDetailingMethod)
+      public void RestoreSettings()
       {
-         return MathFunctions.AddNumbers(num1, num2, isDetailingMethod);
+         OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
+
+
+         double _Angle1 = Convert.ToDouble(Properties.Settings.Default["Angle1"]);
+         double _Angle2 = Convert.ToDouble(Properties.Settings.Default["Angle2"]);
+         double _Angle3 = Convert.ToDouble(Properties.Settings.Default["Angle3"]);
+         double _Angle4 = Convert.ToDouble(Properties.Settings.Default["Angle4"]);
+
+         Angle1Label.Text = Convert.ToString(_Angle1);
+         Angle2Label.Text = Convert.ToString(_Angle2);
+         Angle3Label.Text = Convert.ToString(_Angle3);
+         Angle4Label.Text = Convert.ToString(_Angle4);
       }
 
-      private double SubtractNumbers(double num1, double num2, bool isDetailingMethod)
+      public void OverwriteAngle(int activeAngle)
       {
-         return MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
-      }
-
-      private double MultiplyNumbers(double num1, double num2, bool isDetailingMethod)
+         switch (activeAngle)
+         {
+            case 1:
+               _Angle1.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
+               var angle = Math.Round(_Angle1.Angle, 4);
+               Angle1Label.Text = Convert.ToString(angle);
+               break;
+            case 2:
+               _Angle2.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
+               angle = Math.Round(_Angle2.Angle, 4);
+               Angle2Label.Text = Convert.ToString(angle);
+               break;
+            case 3:
+               _Angle3.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
+               angle = Math.Round(_Angle3.Angle, 4);
+               Angle3Label.Text = Convert.ToString(angle);
+               break;
+            case 4:
+               _Angle4.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
+               angle = Math.Round(_Angle4.Angle, 4);
+               Angle4Label.Text = Convert.ToString(angle);
+               break;
+            default:
+               MessageBox.Show("Angle was not detected");
+               break;
+         }
+      }    
+      
+      private double DoMath(string function, double num1, double num2, bool isDetailingMethod)
       {
-         return MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
-      }
-
-      private double DivideNumbers(double num1, double num2, bool isDetailingMethod)
-      {
-         return MathFunctions.DivideNumbers(num1, num2, isDetailingMethod);
+         switch (function)
+         {
+            case "Add":
+               return MathFunctions.AddNumbers(num1, num2, isDetailingMethod); 
+            case "Subtract":
+               return MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
+            case "Multiply":
+               return MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
+            case "Divide":
+               return MathFunctions.DivideNumbers(num1, num2, isDetailingMethod);
+            default:
+               return 0;
+         }
       }
 
       private void FootToDecimal()
@@ -394,25 +391,7 @@ namespace DetailerCalculator
 
       private double ArithmeticFunctionsFromKeys(string function, double num1, double num2)
       {
-         double response;
-         switch (function)
-         {
-
-            case "Add":
-               response = AddNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               return response;
-            case "Subtract":
-               response = SubtractNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               return response;
-            case "Multiply":
-               response = MultiplyNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               return response; ;
-            case "Divide":
-               response = DivideNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               return response;
-            default:
-               return 0;
-         }
+         return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
       }
 
       private void OutputWindowStringBuilder(double stringToAdd)
