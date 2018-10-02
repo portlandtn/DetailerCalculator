@@ -21,10 +21,10 @@ namespace UnitTests
          var expectedDecimal4 = -118.1667;
 
          //Act
-         var decimal1 = Conversions.FootToDecimal(foot1);
-         var decimal2 = Conversions.FootToDecimal(foot2);
-         var decimal3 = Conversions.FootToDecimal(foot3);
-         var decimal4 = Conversions.FootToDecimal(foot4);
+         var decimal1 = Math.Round(Conversions.FootToDecimal(foot1), 4);
+         var decimal2 = Math.Round(Conversions.FootToDecimal(foot2), 4);
+         var decimal3 = Math.Round(Conversions.FootToDecimal(foot3), 4);
+         var decimal4 = Math.Round(Conversions.FootToDecimal(foot4), 4);
 
          //Assert
          Assert.AreEqual(expectedDecimal1, decimal1);
@@ -47,10 +47,10 @@ namespace UnitTests
          var expectedFoot4 = -118.02;
 
          //Act
-         var foot1 = Conversions.DecimalToFoot(decNumber1);
-         var foot2 = Conversions.DecimalToFoot(decNumber2);
-         var foot3 = Conversions.DecimalToFoot(decNumber3);
-         var foot4 = Conversions.DecimalToFoot(decNumber4);
+         var foot1 = Math.Round(Conversions.DecimalToFoot(decNumber1), 4);
+         var foot2 = Math.Round(Conversions.DecimalToFoot(decNumber2), 4);
+         var foot3 = Math.Round(Conversions.DecimalToFoot(decNumber3), 4);
+         var foot4 = Math.Round(Conversions.DecimalToFoot(decNumber4), 4);
 
          //Assert
          Assert.AreEqual(expectedFoot1, foot1);
@@ -63,28 +63,52 @@ namespace UnitTests
       public void AngleToRadians_UnitTest()
       {
          //Arrange
-         var angle = 4.7623;
-         var expectedResponse = 0.0831;
+         var angle1 = 4.7623;
+         var expectedRadians1 = 0.0831;
+         var angle2 = 24;
+         var expectedRadians2 = 0.4189;
+         var angle3 = 21.0208;
+         var expectedRadians3 = 0.3669;
+         var angle4 = 81.514;
+         var expectedRadians4 = 1.4227;
 
          //Act
-         var response = Conversions.AngleToRadians(angle);
+         var radians1 = Math.Round(Conversions.AngleToRadians(angle1), 4);
+         var radians2 = Math.Round(Conversions.AngleToRadians(angle2), 4);
+         var radians3 = Math.Round(Conversions.AngleToRadians(angle3), 4);
+         var radians4 = Math.Round(Conversions.AngleToRadians(angle4), 4);
 
          //Assert
-         Assert.AreEqual(expectedResponse, response);
+         Assert.AreEqual(expectedRadians1, radians1);
+         Assert.AreEqual(expectedRadians2, radians2);
+         Assert.AreEqual(expectedRadians3, radians3);
+         Assert.AreEqual(expectedRadians4, radians4);
       }
 
       [TestMethod]
       public void RadiansToAngle_UnitTest()
       {
          //Arrange
-         var radians = 0.2501;
-         var expectedResponse = 14.3297;
+         var radians1 = 0.2501;
+         var expectedAngle1 = 14.3297;
+         var radians2 = 0.715;
+         var expectedAngle2 = 40.9665;
+         var radians3 = 1.3128;
+         var expectedAngle3 = 75.2179;
+         var radians4 = 0.122;
+         var expectedAngle4 = 6.9901;
 
          //Act
-         var response = Conversions.RadiansToAngle(radians);
+         var angle1 = Math.Round(Conversions.RadiansToAngle(radians1), 4);
+         var angle2 = Math.Round(Conversions.RadiansToAngle(radians2), 4);
+         var angle3 = Math.Round(Conversions.RadiansToAngle(radians3), 4);
+         var angle4 = Math.Round(Conversions.RadiansToAngle(radians4), 4);
 
          //Assert
-         Assert.AreEqual(expectedResponse, response);
+         Assert.AreEqual(expectedAngle1, angle1);
+         Assert.AreEqual(expectedAngle2, angle2);
+         Assert.AreEqual(expectedAngle3, angle3);
+         Assert.AreEqual(expectedAngle4, angle4);
       }
    }
 }

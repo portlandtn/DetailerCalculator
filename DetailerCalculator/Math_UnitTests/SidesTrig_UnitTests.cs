@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DetailerCalculator;
+using System;
 
 namespace UnitTests
 {
@@ -10,12 +11,12 @@ namespace UnitTests
       public void BaseRiseToSlope_UnitTest()
       {
          //Arrange
-         var userBase = 3;
+         var bayse = 3;
          var userRise = 4;
          var expectedResponse = 5;
 
          //Act
-         var response = SidesTrig.BaseRiseToSlope(userBase, userRise);
+         var response = Math.Round(SidesTrig.BaseRiseToSlope(bayse, userRise), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -25,12 +26,12 @@ namespace UnitTests
       public void BaseToSlope_UnitTest()
       {
          //Arrange
-         var userBase = 12;
-         var angle = 26.565051;
-         var expectedResponse = 13.4167;
+         var bayse = 12;
+         var angle = 26.5651;
+         var expectedResponse = 13.4164;
 
          //Act
-         var response = SidesTrig.BaseToSlope(userBase, angle);
+         var response = Math.Round(SidesTrig.BaseToSlope(bayse, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -41,12 +42,12 @@ namespace UnitTests
       public void BaseToRise_UnitTest()
       {
          //Arrange
-         var userBase = 4.21;
-         var angle = 26.565051;
-         var expectedResponse = 2.1053;
+         var bayse = 4.21;
+         var angle = 26.5651;
+         var expectedResponse = 2.105;
 
          //Act
-         var response = SidesTrig.BaseToRise(userBase, angle);
+         var response = Math.Round(SidesTrig.BaseToRise(bayse, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -58,11 +59,11 @@ namespace UnitTests
       {
          //Arrange
          var slope = 5.418;
-         var angle = 26.565051;
-         var expectedResponse = 4.8461;
+         var angle = 26.5651;
+         var expectedResponse = 4.846;
 
          //Act
-         var response = SidesTrig.SlopeToBase(slope, angle);
+         var response = Math.Round(SidesTrig.SlopeToBase(slope, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -74,11 +75,11 @@ namespace UnitTests
       {
          //Arrange
          var slope = 9.615;
-         var angle = 26.565051;
-         var expectedResponse = 4.2995;
+         var angle = 26.5651;
+         var expectedResponse = 4.3;
 
          //Act
-         var response = SidesTrig.SlopeToRise(slope, angle);
+         var response = Math.Round(SidesTrig.SlopeToRise(slope, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -90,11 +91,11 @@ namespace UnitTests
       {
          //Arrange
          var rise = 1.5;
-         var angle = 26.565051;
-         var expectedResponse = 3.3544;
+         var angle = 26.5651;
+         var expectedResponse = 3.3541;
 
          //Act
-         var response = SidesTrig.RiseToSlope(rise, angle);
+         var response = Math.Round(SidesTrig.RiseToSlope(rise, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -106,11 +107,11 @@ namespace UnitTests
       {
          //Arrange
          var rise = 1.21;
-         var angle = 26.565051;
-         var expectedResponse = 2.4203;
+         var angle = 26.5651;
+         var expectedResponse = 2.42;
 
          //Act
-         var response = SidesTrig.RiseToBase(rise, angle);
+         var response = Math.Round(SidesTrig.RiseToBase(rise, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

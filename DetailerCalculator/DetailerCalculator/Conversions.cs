@@ -25,7 +25,7 @@ namespace DetailerCalculator
          sixteenths = Math.Round(sixteenths, 4); //0.0008
          sixteenths = sixteenths * 10000 / 16 / 12; //0.04166667
 
-         return Math.Round(feet + inches + sixteenths, 4); //4.5167
+         return feet + inches + sixteenths; //4.5167
 
       }
 
@@ -46,19 +46,19 @@ namespace DetailerCalculator
          sixteenths = sixteenths * 16; //0.31248 * 16 = 4.999968
          sixteenths = sixteenths / 10000; // 4.999968 / 10000 = 0.0004999968;
 
-         return Math.Round(feet + inches + sixteenths, 4); //12.0204
+         return feet + inches + sixteenths; //12.0204
       }
 
       public static double AngleToRadians(double angle)
       {
          var radians = angle * Math.PI/180;
-         return Math.Round(radians, 4);
+         return radians;
       }
 
       public static double RadiansToAngle(double radians)
       {
          var angle = radians * 180 / Math.PI;
-         return Math.Round(angle, 4);
+         return angle;
       }
 
       public static double InchDecimalToInchFeet(double inches)
