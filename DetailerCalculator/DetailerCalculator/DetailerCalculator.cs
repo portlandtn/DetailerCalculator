@@ -110,7 +110,7 @@ namespace DetailerCalculator
 
       private void UserEntryBox_TextChanged(object sender, EventArgs e)
       {
-         Regex regex = new Regex(@"[^0-9^+^\-^\/^\*^.]");
+         Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
          MatchCollection matches = regex.Matches(UserEntryBox.Text);
 
          if (matches.Count > 0)
@@ -122,30 +122,30 @@ namespace DetailerCalculator
 
       private void AddButton_Click(object sender, EventArgs e)
       {
-         var sum = AddNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
-         OutputWindow.Text = Convert.ToString(sum);
+         var response = MathLogicUsingOutputWindow("Add", UserEntryBox.Text);
          UserEntryBox.Text = "";
+         OuputWindowStringBuilder(response);
       }
 
       private void SubtractButton_Click(object sender, EventArgs e)
       {
-         var diff = SubtractNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text) - 6, _MathMethod.IsDetailingMathMethod);
-         OutputWindow.Text = Convert.ToString(diff);
+         var response = MathLogicUsingOutputWindow("Subtract", UserEntryBox.Text);
          UserEntryBox.Text = "";
+         OuputWindowStringBuilder(response);
       }
 
       private void MultiplyButton_Click(object sender, EventArgs e)
       {
-         var prod = MultiplyNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
-         OutputWindow.Text = Convert.ToString(prod);
+         var response = MathLogicUsingOutputWindow("Multiply", UserEntryBox.Text);
          UserEntryBox.Text = "";
+         OuputWindowStringBuilder(response);
       }
 
       private void DivideButton_Click(object sender, EventArgs e)
       {
-         var quotient = DivideNumbers(Convert.ToDouble(UserEntryBox.Text), Convert.ToDouble(UserEntryBox.Text), _MathMethod.IsDetailingMathMethod);
-         OutputWindow.Text = Convert.ToString(quotient);
+         var response = MathLogicUsingOutputWindow("Divide", UserEntryBox.Text);
          UserEntryBox.Text = "";
+         OuputWindowStringBuilder(response);
       }
 
       private void DropButton_Click(object sender, EventArgs e)
@@ -168,12 +168,7 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
-            _OutputWindowList.Add(Convert.ToDouble(UserEntryBox.Text));
-
-            foreach (var item in _OutputWindowList)
-            {
-               OutputWindow.Text =  String.Join(Environment.NewLine, item);
-            }
+            OuputWindowStringBuilder(Convert.ToDouble(UserEntryBox.Text));
 
             UserEntryBox.Text = "";
             e.Handled = true;
@@ -182,66 +177,22 @@ namespace DetailerCalculator
 
          if (e.KeyCode == Keys.Add)
          {
-            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-               ArithmeticFunctionsFromKeys("Add", num1, num2);
-            }
-            else
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
-               double num2 = Convert.ToDouble(UserEntryBox.Text);
-               ArithmeticFunctionsFromKeys("Add", num1, num2);
-            }
+            MathLogicUsingOutputWindow("Add", UserEntryBox.Text);
          }
 
          if (e.KeyCode == Keys.Subtract)
          {
-            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-               ArithmeticFunctionsFromKeys("Subtract", num1, num2);
-            }
-            else
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
-               double num2 = Convert.ToDouble(UserEntryBox.Text);
-               ArithmeticFunctionsFromKeys("Subtract", num1, num2);
-            }
+            MathLogicUsingOutputWindow("Subtract", UserEntryBox.Text);
          }
 
          if (e.KeyCode == Keys.Multiply)
          {
-            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-               ArithmeticFunctionsFromKeys("Multiply", num1, num2);
-            }
-            else
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
-               double num2 = Convert.ToDouble(UserEntryBox.Text);
-               ArithmeticFunctionsFromKeys("Multiply", num1, num2);
-            }
+            MathLogicUsingOutputWindow("Multiply", UserEntryBox.Text);
          }
 
          if (e.KeyCode == Keys.Divide)
          {
-            if (UserEntryBox.Text != "" && _OutputWindowList.Count > 1)
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
-               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-               ArithmeticFunctionsFromKeys("Divide", num1, num2);
-            }
-            else
-            {
-               double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
-               double num2 = Convert.ToDouble(UserEntryBox.Text);
-               ArithmeticFunctionsFromKeys("Divide", num1, num2);
-            }
+            MathLogicUsingOutputWindow("Divide", UserEntryBox.Text);
          }
       }
 
@@ -410,17 +361,21 @@ namespace DetailerCalculator
       private void OuputWindowTextCopy(object sender, MouseEventArgs e)
       {
          Clipboard.SetText(OutputWindow.Text);
-         ToolTip tt = new ToolTip();
-         tt.AutoPopDelay = 0;
-         tt.InitialDelay = 0;
+         ToolTip tt = new ToolTip
+         {
+            AutoPopDelay = 0,
+            InitialDelay = 0
+         };
          tt.SetToolTip(this.OutputWindow, "Text Copied");
       }
 
       private void OutputWindowClickToCopy(object sender, EventArgs e)
       {
-         ToolTip tt = new ToolTip();
-         tt.AutoPopDelay = 0;
-         tt.InitialDelay = 0;
+         ToolTip tt = new ToolTip
+         {
+            AutoPopDelay = 0,
+            InitialDelay = 0
+         };
          tt.SetToolTip(this.OutputWindow, "Click to copy this text");
       }
 
@@ -433,24 +388,65 @@ namespace DetailerCalculator
          return angle;
       }
 
-      private void ArithmeticFunctionsFromKeys(string function, double num1, double num2)
+      private double ArithmeticFunctionsFromKeys(string function, double num1, double num2)
       {
+         double response;
          switch (function)
          {
+            
             case "Add":
-               AddNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               break;
+               response = AddNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+         return response;
             case "Subtract":
-               SubtractNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               break;
+               response = SubtractNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               return response; 
             case "Multiply":
-               MultiplyNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               break;
+               response = MultiplyNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               return response; ;
             case "Divide":
-               DivideNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
-               break;
+               response = DivideNumbers(num1, num2, _MathMethod.IsDetailingMathMethod);
+               return response;
             default:
-               break;
+               return 0;
+         }
+      }
+
+      private void OuputWindowStringBuilder(double stringToAdd)
+      {
+         _OutputWindowList.Add(stringToAdd);
+         OutputWindow.Text = String.Join(Environment.NewLine, _OutputWindowList);
+      }
+
+      private double MathLogicUsingOutputWindow(string function, string userEntryText)
+      {
+         double response;
+         if (userEntryText == "")
+         {
+            if (_OutputWindowList.Count > 2)
+            {
+               double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+               double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+               response = ArithmeticFunctionsFromKeys(function, num1, num2);
+               return response;
+            }
+            else
+            {
+               return 0;
+            }
+         }
+         else if (_OutputWindowList.Count <= 2)
+         {
+            double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
+            double num2 = Convert.ToDouble(UserEntryBox.Text);
+            response = ArithmeticFunctionsFromKeys(function, num1, num2);
+            return response;
+         }
+         else
+         {
+            double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
+            double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
+            response = ArithmeticFunctionsFromKeys(function, num1, num2);
+            return response;
          }
       }
    }
