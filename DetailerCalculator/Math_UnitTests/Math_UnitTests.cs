@@ -91,16 +91,21 @@ namespace UnitTests
       public void Multiply_Detailing_UnitTest()
       {
          //Arrange
-         var num1 = 12.0204;
-         var num2 = 14.0806;
-         var expectedResponse = 179.0109;
+         var num1 = 2.06;
+         var num2 = 7.06;
+         var num3 = 2.08;
+         var num4 = 7.04;
+         var expectedResponse1 = 18.09;
+         var expectedResponse2 = 19.0611;
          bool isDetailingMethod = true;
 
          //Act
-         var response = MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
+         var response1 = MathFunctions.MultiplyNumbers(num1, num2, isDetailingMethod);
+         var response2 = MathFunctions.MultiplyNumbers(num3, num4, isDetailingMethod);
 
          //Assert
-         Assert.AreEqual(expectedResponse, response);
+         Assert.AreEqual(expectedResponse1, response1);
+         Assert.AreEqual(expectedResponse2, response2);
       }
 
       [TestMethod]

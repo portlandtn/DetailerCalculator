@@ -33,41 +33,43 @@ namespace DetailerCalculator
          RestoreSettings();
          _ActiveAngle.ActiveAngle = 1;
          _MathMethod.IsDetailingMathMethod = true;
+         this.ActiveControl = UserEntryBox;
       }
 
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         OutputWindow.Text = Convert.ToString(SidesTrig.BaseToRise(14, angle));
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double bayse= 14;
+         string rise = Convert.ToString(SidesTrig.BaseToRise(bayse, angle));
       }
 
       private void BaseToSlopeButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          OutputWindow.Text = Convert.ToString(SidesTrig.BaseToSlope(14, angle));
       }
 
       private void SlopeToBaseButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          OutputWindow.Text = Convert.ToString(SidesTrig.SlopeToBase(14, angle));
       }
 
       private void SlopeToRiseButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          OutputWindow.Text = Convert.ToString(SidesTrig.SlopeToBase(14, angle));
       }
 
       private void RiseToSlopeButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          OutputWindow.Text = Convert.ToString(SidesTrig.RiseToSlope(14, angle));
       }
 
       private void RiseToBaseButton_Click(object sender, EventArgs e)
       {
-         var angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
+         double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          OutputWindow.Text = Convert.ToString(SidesTrig.RiseToBase(14, angle));
       }
 
