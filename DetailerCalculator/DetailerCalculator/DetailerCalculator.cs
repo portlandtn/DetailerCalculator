@@ -39,7 +39,7 @@ namespace DetailerCalculator
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
          double angle = Settings.CurrentAngle(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
-         double bayse= 14;
+         double bayse = 14;
          string rise = Convert.ToString(SidesTrig.BaseToRise(bayse, angle));
       }
 
@@ -75,11 +75,27 @@ namespace DetailerCalculator
 
       private void FootToDecimalButton_Click(object sender, EventArgs e)
       {
-         FootToDecimal();
+         var f2d = FootToDecimal(UserEntryBox.Text);
+         if (f2d == 0)
+         {
+            return;
+         }
+         else
+         {
+            OutputWindowStringBuilder(f2d);
+         }
       }
       private void DecimalToFootButton_Click(object sender, EventArgs e)
       {
-         DecimalToFoot();
+         var d2f = DecimalToFoot(UserEntryBox.Text);
+         if (d2f == 0)
+         {
+            return;
+         }
+         else
+         {
+            OutputWindowStringBuilder(d2f);
+         }
       }
 
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
@@ -301,14 +317,14 @@ namespace DetailerCalculator
                MessageBox.Show("Angle was not detected");
                break;
          }
-      }    
-      
+      }
+
       private double DoMath(string function, double num1, double num2, bool isDetailingMethod)
       {
          switch (function)
          {
             case "Add":
-               return MathFunctions.AddNumbers(num1, num2, isDetailingMethod); 
+               return MathFunctions.AddNumbers(num1, num2, isDetailingMethod);
             case "Subtract":
                return MathFunctions.SubtractNumbers(num1, num2, isDetailingMethod);
             case "Multiply":
@@ -320,37 +336,43 @@ namespace DetailerCalculator
          }
       }
 
-      private void FootToDecimal()
+      private double FootToDecimal(string userEntry)
       {
-         string userEntry = UserEntryBox.Text;
          if (userEntry != "")
          {
-            var userEntryDouble = Convert.ToDouble(UserEntryBox.Text);
-            userEntryDouble = Conversions.FootToDecimal(userEntryDouble);
-            OutputWindow.Text = Convert.ToString(userEntryDouble);
+            var response = Convert.ToDouble(userEntry);
+            response = Conversions.FootToDecimal(response);
+            return response;
+         }
+         else if (_OutputWindowList.Count == 0)
+         {
+            return 0;
          }
          else
          {
-            var outputText = Convert.ToDouble(OutputWindow.Text);
-            outputText = Conversions.FootToDecimal(outputText);
-            OutputWindow.Text = Convert.ToString(outputText);
+            var response = _OutputWindowList[_OutputWindowList.Count - 1];
+            response = Conversions.FootToDecimal(response);
+            return response;
          }
       }
 
-      private void DecimalToFoot()
+      private double DecimalToFoot(string userEntry)
       {
-         string userEntry = UserEntryBox.Text;
          if (userEntry != "")
          {
-            var userEntryDouble = Convert.ToDouble(UserEntryBox.Text);
-            userEntryDouble = Conversions.DecimalToFoot(userEntryDouble);
-            OutputWindow.Text = Convert.ToString(userEntryDouble);
+            var response = Convert.ToDouble(userEntry);
+            response = Conversions.DecimalToFoot(response);
+            return response;
+         }
+         else if (_OutputWindowList.Count == 0)
+         {
+            return 0;
          }
          else
          {
-            var outputText = Convert.ToDouble(OutputWindow.Text);
-            outputText = Conversions.DecimalToFoot(outputText);
-            OutputWindow.Text = Convert.ToString(outputText);
+            var response = _OutputWindowList[_OutputWindowList.Count - 1];
+            response = Conversions.DecimalToFoot(response);
+            return response;
          }
       }
 
@@ -389,11 +411,6 @@ namespace DetailerCalculator
          return angle;
       }
 
-      private double ArithmeticFunctionsFromKeys(string function, double num1, double num2)
-      {
-         return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
-      }
-
       private void OutputWindowStringBuilder(double stringToAdd)
       {
          if (stringToAdd == 0)
@@ -409,15 +426,13 @@ namespace DetailerCalculator
 
       private double MathLogicUsingOutputWindow(string function, string userEntryText)
       {
-         double response;
          if (userEntryText == "")
          {
             if (_OutputWindowList.Count >= 2)
             {
                double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
                double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-               response = ArithmeticFunctionsFromKeys(function, num1, num2);
-               return response;
+               return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
             }
             else
             {
@@ -428,15 +443,13 @@ namespace DetailerCalculator
          {
             double num1 = _OutputWindowList[_OutputWindowList.Count - 1];
             double num2 = Convert.ToDouble(UserEntryBox.Text);
-            response = ArithmeticFunctionsFromKeys(function, num1, num2);
-            return response;
+            return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
          }
          else
          {
             double num1 = _OutputWindowList[_OutputWindowList.Count - 2];
             double num2 = _OutputWindowList[_OutputWindowList.Count - 1];
-            response = ArithmeticFunctionsFromKeys(function, num1, num2);
-            return response;
+            return DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
          }
       }
    }
