@@ -14,7 +14,7 @@ namespace DetailerCalculator
 
       public bool IsDetailingMathMethod { get; set; }
 
-      public static double CurrentAngle(int activeAngle, double angle1, double angle2, double angle3, double angle4)
+      public static double CurrentAngleValue(int activeAngle, double angle1, double angle2, double angle3, double angle4)
       {
          switch (activeAngle)
          {

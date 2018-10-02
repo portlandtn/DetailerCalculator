@@ -10,65 +10,55 @@ namespace DetailerCalculator
    {
       public static double FootToDecimal(double userEntry)
       {
-         //userEntry = 4.0608
-
          //determine feet
-         double feet = Math.Truncate(userEntry); //4
+         double feet = Math.Truncate(userEntry);
 
          //determine inches(feet)
-         double inches = Math.Round(userEntry - feet, 4); //.0608
-         double inch_feet = Math.Truncate(inches * 100); //6
+         double inches = Math.Round(userEntry - feet, 4);
+         double inch_feet = Math.Truncate(inches * 100);
          inches = inch_feet / 12; //0.5
 
          //determine sixteenths
-         double sixteenths = userEntry - feet - (inch_feet / 100); //0.0008xxxxxxxx;
-         sixteenths = Math.Round(sixteenths, 4); //0.0008
-         sixteenths = sixteenths * 10000 / 16 / 12; //0.04166667
+         double sixteenths = userEntry - feet - (inch_feet / 100);
+         sixteenths = Math.Round(sixteenths, 4); 
+         sixteenths = sixteenths * 10000 / 16 / 12;
 
-         return feet + inches + sixteenths; //4.5167
+         //Add them up
+         return feet + inches + sixteenths;
 
       }
 
       public static double DecimalToFoot(double userEntry)
       {
+         //determine feet
+         double feet = Math.Truncate(userEntry);
 
-         //userEntry = 23.02604
-
-         double feet = Math.Truncate(userEntry); //23
+         //determine inches
          double inches = userEntry - feet;
          inches = inches * 12;
          inches = Math.Truncate(inches);
          inches = inches / 100;
-         double sixteenths = userEntry - feet; //.02604
-         sixteenths = sixteenths * 12; //0.02604 * 12 = 0.31248
-         double tempInches = Math.Truncate(sixteenths); //truncate 0.31248 = 0
-         sixteenths = sixteenths - tempInches; // 0.31248 - 0 = 0.31248
-         sixteenths = sixteenths * 16; //0.31248 * 16 = 4.999968
-         sixteenths = sixteenths / 10000; // 4.999968 / 10000 = 0.0004999968;
 
-         return feet + inches + sixteenths; //12.0204
+         //determine sixteenths
+         double sixteenths = userEntry - feet;
+         sixteenths = sixteenths * 12;
+         double tempInches = Math.Truncate(sixteenths);
+         sixteenths = sixteenths - tempInches;
+         sixteenths = sixteenths * 16;
+         sixteenths = sixteenths / 10000;
+
+         //add them up
+         return feet + inches + sixteenths;
       }
 
       public static double AngleToRadians(double angle)
       {
-         var radians = angle * Math.PI/180;
-         return radians;
+         return angle * Math.PI/180;
       }
 
       public static double RadiansToAngle(double radians)
       {
-         var angle = radians * 180 / Math.PI;
-         return angle;
-      }
-
-      public static double InchDecimalToInchFeet(double inches)
-      {
-         var inchft = Math.Truncate(inches);
-         inches = inches - inchft;
-         inches = inches * 16;
-         var sixteenths = inches / 10000;
-
-         return inchft + sixteenths;
+         return radians * 180 / Math.PI;
       }
    }
 }

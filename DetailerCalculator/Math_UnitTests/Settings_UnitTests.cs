@@ -19,7 +19,7 @@ namespace UnitTests
          var expectedAngle = 1.1935;
 
          //Act
-         var angle = Settings.CurrentAngle(activeAngle, angle1, angle2, angle3, angle4);
+         var angle = Settings.CurrentAngleValue(activeAngle, angle1, angle2, angle3, angle4);
 
          //Assert
          Assert.AreEqual(expectedAngle, angle);
@@ -37,7 +37,7 @@ namespace UnitTests
          var expectedAngle = 2.4632;
 
          //Act
-         var angle = Settings.CurrentAngle(activeAngle, angle1, angle2, angle3, angle4);
+         var angle = Settings.CurrentAngleValue(activeAngle, angle1, angle2, angle3, angle4);
 
          //Assert
          Assert.AreEqual(expectedAngle, angle);
@@ -55,7 +55,7 @@ namespace UnitTests
          var expectedAngle = 3.4032;
 
          //Act
-         var angle = Settings.CurrentAngle(activeAngle, angle1, angle2, angle3, angle4);
+         var angle = Settings.CurrentAngleValue(activeAngle, angle1, angle2, angle3, angle4);
 
          //Assert
          Assert.AreEqual(expectedAngle, angle);
@@ -73,7 +73,7 @@ namespace UnitTests
          var expectedAngle = 14.0363;
 
          //Act
-         var angle = Settings.CurrentAngle(activeAngle, angle1, angle2, angle3, angle4);
+         var angle = Settings.CurrentAngleValue(activeAngle, angle1, angle2, angle3, angle4);
 
          //Assert
          Assert.AreEqual(expectedAngle, angle);
