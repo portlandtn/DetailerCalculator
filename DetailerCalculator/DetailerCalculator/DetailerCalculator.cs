@@ -39,59 +39,41 @@ namespace DetailerCalculator
 
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
-         double bayse = DetermineSingleNumberForMath(UserEntryBox.Text);
-         bayse = (_MathMethod.IsDetailingMathMethod == true) ? Conversions.FootToDecimal(bayse) : bayse;
-         double rise = SidesTrig.BaseToRise(bayse, _CurrentAngle.Angle);
-         rise = (_MathMethod.IsDetailingMathMethod ==true) ? Conversions.DecimalToFoot(rise) : rise;
-         OutputWindowStringBuilder(rise);
+         FunctionButtonClick("b2r", _CurrentAngle.Angle);
       }
 
       private void BaseToSlopeButton_Click(object sender, EventArgs e)
       {
-         double bayse = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double slope = SidesTrig.BaseToSlope(bayse, _CurrentAngle.Angle);
-         OutputWindowStringBuilder(slope);
+         FunctionButtonClick("b2s", _CurrentAngle.Angle);
       }
 
       private void SlopeToBaseButton_Click(object sender, EventArgs e)
       {
-         double slope = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double bayse = SidesTrig.SlopeToBase(slope, _CurrentAngle.Angle);
-         OutputWindowStringBuilder(bayse);
+         FunctionButtonClick("s2b", _CurrentAngle.Angle);
       }
 
       private void SlopeToRiseButton_Click(object sender, EventArgs e)
       {
-         double slope = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double rise = SidesTrig.SlopeToRise(slope, _CurrentAngle.Angle);
-         OutputWindowStringBuilder(rise);
+         FunctionButtonClick("s2r", _CurrentAngle.Angle);
       }
 
       private void RiseToSlopeButton_Click(object sender, EventArgs e)
       {
-         double rise = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double slope = SidesTrig.RiseToSlope(rise, _CurrentAngle.Angle);
-         OutputWindowStringBuilder(slope);
+         FunctionButtonClick("r2s", _CurrentAngle.Angle);
       }
 
       private void RiseToBaseButton_Click(object sender, EventArgs e)
       {
-         double rise = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double bayse = SidesTrig.RiseToBase(rise, _CurrentAngle.Angle);
-         OutputWindowStringBuilder(bayse);
+         FunctionButtonClick("r2b", _CurrentAngle.Angle);
       }
 
       private void FootToDecimalButton_Click(object sender, EventArgs e)
       {
-         var num = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var f2d = Conversions.FootToDecimal(num);
-         OutputWindowStringBuilder(f2d);
+         FunctionButtonClick("f2d");
       }
       private void DecimalToFootButton_Click(object sender, EventArgs e)
       {
-         var num = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var d2f = Conversions.DecimalToFoot(num);
-         OutputWindowStringBuilder(d2f);
+         FunctionButtonClick("d2f");
       }
 
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
@@ -139,38 +121,22 @@ namespace DetailerCalculator
 
       private void AddButton_Click(object sender, EventArgs e)
       {
-         var num1 = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var num2 = DetermineSecondNumberForMath(UserEntryBox.Text);
-         double response = MathFunctions.DoMath("Add", num1, num2, _MathMethod.IsDetailingMathMethod);
-         UserEntryBox.Text = "";
-         OutputWindowStringBuilder(response);
+         FunctionButtonClick("Add");
       }
 
       private void SubtractButton_Click(object sender, EventArgs e)
       {
-         var num1 = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var num2 = DetermineSecondNumberForMath(UserEntryBox.Text);
-         double response = MathFunctions.DoMath("Subtract", num1, num2, _MathMethod.IsDetailingMathMethod);
-         UserEntryBox.Text = "";
-         OutputWindowStringBuilder(response);
+         FunctionButtonClick("Subtract");
       }
 
       private void MultiplyButton_Click(object sender, EventArgs e)
       {
-         var num1 = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var num2 = DetermineSecondNumberForMath(UserEntryBox.Text);
-         double response = MathFunctions.DoMath("Multiply", num1, num2, _MathMethod.IsDetailingMathMethod);
-         UserEntryBox.Text = "";
-         OutputWindowStringBuilder(response);
+         FunctionButtonClick("Multiply");
       }
 
       private void DivideButton_Click(object sender, EventArgs e)
       {
-         var num1 = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var num2 = DetermineSecondNumberForMath(UserEntryBox.Text);
-         double response = MathFunctions.DoMath("Divide", num1, num2, _MathMethod.IsDetailingMathMethod);
-         UserEntryBox.Text = "";
-         OutputWindowStringBuilder(response);
+         FunctionButtonClick("Divide");
       }
 
       private void DropButton_Click(object sender, EventArgs e)
@@ -188,8 +154,8 @@ namespace DetailerCalculator
 
       private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
       {
-         var bayse = DetermineSingleNumberForMath(UserEntryBox.Text);
-         var rise = DetermineSecondNumberForMath(UserEntryBox.Text);
+         var bayse = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var rise = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          SetBaseRiseToAngle(bayse, rise);
       }
 
@@ -216,8 +182,8 @@ namespace DetailerCalculator
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
          {
-            var num1 = DetermineSingleNumberForMath(UserEntryBox.Text);
-            var num2 = DetermineSecondNumberForMath(UserEntryBox.Text);
+            var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+            var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             double response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
             OutputWindowStringBuilder(response);
@@ -344,46 +310,6 @@ namespace DetailerCalculator
          }
       }
 
-      private double FootToDecimal(string userEntry, int outputWindowListCount)
-      {
-         if (userEntry != "")
-         {
-            var response = Convert.ToDouble(userEntry);
-            response = Conversions.FootToDecimal(response);
-            return response;
-         }
-         else if (outputWindowListCount == 0)
-         {
-            return 0;
-         }
-         else
-         {
-            var response = _OutputWindowList[outputWindowListCount - 1];
-            response = Conversions.FootToDecimal(response);
-            return response;
-         }
-      }
-
-      private double DecimalToFoot(string userEntry)
-      {
-         if (userEntry != "")
-         {
-            var response = Convert.ToDouble(userEntry);
-            response = Conversions.DecimalToFoot(response);
-            return response;
-         }
-         else if (_OutputWindowList.Count == 0)
-         {
-            return 0;
-         }
-         else
-         {
-            var response = _OutputWindowList[_OutputWindowList.Count - 1];
-            response = Conversions.DecimalToFoot(response);
-            return response;
-         }
-      }
-
       private void UserEntryLostFocus(object sender, EventArgs e)
       {
          WarningNumbericEntryOnlyLabel.Visible = false;
@@ -431,22 +357,33 @@ namespace DetailerCalculator
          }
       }
 
-      private double DetermineSingleNumberForMath(string userEntry)
+      private void FunctionButtonClick(string function)
       {
-         if (userEntry == "" && _OutputWindowList.Count == 0)
+         var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+
+         if (function.Contains("2"))
          {
-            return 0;
+
          }
-         return (userEntry == "" && _OutputWindowList.Count >= 1) ? _OutputWindowList[_OutputWindowList.Count - 1] : 0;
+         if (function == "d2f" || function == "f2d")
+         {
+            var response = (function == "f2d") ? Conversions.FootToDecimal(num1) : Conversions.DecimalToFoot(num1);
+            OutputWindowStringBuilder(response);
+         }
+         else
+         {
+            double response = MathFunctions.DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
+            UserEntryBox.Text = "";
+            OutputWindowStringBuilder(response);
+         }
       }
 
-      private double DetermineSecondNumberForMath(string userEntry)
+      private void FunctionButtonClick(string function, double angle)
       {
-         if (userEntry == "" && _OutputWindowList.Count == 0)
-         {
-            return 0;
-         }
-         return (userEntry == "") ? _OutputWindowList[_OutputWindowList.Count - 1] : Convert.ToDouble(userEntry);
+         var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
+         OutputWindowStringBuilder(response);
       }
    }
 }
