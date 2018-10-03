@@ -412,7 +412,7 @@ namespace DetailerCalculator
 
          if (function == "d2f" || function == "f2d")
          {
-            var response = (function == "f2d") ? Conversions.FootToDecimal(num1) : Conversions.DecimalToFoot(num1);
+            var response = (function == "f2d") ? Conversions.FootToDecimal(num2) : Conversions.DecimalToFoot(num2);
             OutputWindowStringBuilder(Math.Round(response, 4), 1);
          }
          else
