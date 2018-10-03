@@ -138,8 +138,7 @@ namespace DetailerCalculator
       private void DropButton_Click(object sender, EventArgs e)
       {
          _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-         OutputWindowStringBuilder(0);
-
+         OutputWindowStringBuilder(0, 0);
       }
 
       private void ClearAllButton_Click(object sender, EventArgs e)
@@ -157,7 +156,7 @@ namespace DetailerCalculator
 
       private void PlusMinusButton_Click(object sender, EventArgs e)
       {
-         OutputWindowStringBuilder(Conversions.ChangeToNegative_Positive(_OutputWindowList[_OutputWindowList.Count - 1]));
+         OutputWindowStringBuilder(Conversions.ChangeToNegative_Positive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
       }
 
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
@@ -167,7 +166,7 @@ namespace DetailerCalculator
             try
             {
                double outputWindowDouble = (UserEntryBox.Text == "") ? _OutputWindowList[_OutputWindowList.Count - 1] : Convert.ToDouble(UserEntryBox.Text);
-               OutputWindowStringBuilder(outputWindowDouble);
+               OutputWindowStringBuilder(outputWindowDouble, 0);
             }
             catch (Exception)
             {
@@ -187,7 +186,7 @@ namespace DetailerCalculator
             var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             double response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
-            OutputWindowStringBuilder(response);
+            OutputWindowStringBuilder(response, 2);
             e.Handled = true;
             e.SuppressKeyPress = true;
          }
@@ -353,22 +352,62 @@ namespace DetailerCalculator
          OutputWindow.Text = Convert.ToString(angle);
       }
 
-      private void OutputWindowStringBuilder(double stringToAdd)
+      private void OutputWindowStringBuilder(double stringToAdd, int numbersToReplace)
       {
-         if (stringToAdd == 0)
+         if (numbersToReplace == 1)
          {
-            OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            if (stringToAdd == 0)
+            {
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
+            else
+            {
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               _OutputWindowList.Add(stringToAdd);
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
+         }
+         else if (numbersToReplace == 2)
+         {
+            if (stringToAdd == 0)
+            {
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
+            else
+            {
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               _OutputWindowList.Add(stringToAdd);
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
          }
          else
          {
-            _OutputWindowList.Add(stringToAdd);
-            OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            if (stringToAdd == 0)
+            {
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
+            else
+            {
+               _OutputWindowList.Add(stringToAdd);
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+            }
          }
 
-         if (_OutputWindowList.Count > 15)
-         {
-            _OutputWindowList.RemoveAt(0);
-         }
+         //if (stringToAdd == 0)
+         //{
+         //   OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+         //}
+         //else
+         //{
+         //   _OutputWindowList.Add(stringToAdd);
+         //   OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+         //}
+
+         //if (_OutputWindowList.Count > 15)
+         //{
+         //   _OutputWindowList.RemoveAt(0);
+         //}
       }
 
       private void FunctionButtonClick(string function)
@@ -379,13 +418,13 @@ namespace DetailerCalculator
          if (function == "d2f" || function == "f2d")
          {
             var response = (function == "f2d") ? Conversions.FootToDecimal(num1) : Conversions.DecimalToFoot(num1);
-            OutputWindowStringBuilder(Math.Round(response, 4));
+            OutputWindowStringBuilder(Math.Round(response, 4), 1);
          }
          else
          {
             double response = MathFunctions.DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
-            OutputWindowStringBuilder(Math.Round(response, 4));
+            OutputWindowStringBuilder(Math.Round(response, 4), 2);
          }
       }
 
@@ -393,7 +432,7 @@ namespace DetailerCalculator
       {
          var num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
          var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
-         OutputWindowStringBuilder(Math.Round(response, 4));
+         OutputWindowStringBuilder(Math.Round(response, 4), 1);
       }
 
       private void SetAngles(int angleNumber)
@@ -433,8 +472,8 @@ namespace DetailerCalculator
          _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
          _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
 
-         OutputWindowStringBuilder(numB);
-         OutputWindowStringBuilder(numA);
+         OutputWindowStringBuilder(numB, 0);
+         OutputWindowStringBuilder(numA, 0);
       }
    }
 }
