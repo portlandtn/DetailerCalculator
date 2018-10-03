@@ -149,14 +149,28 @@ namespace DetailerCalculator
 
       private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
       {
-         var bayse = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
-         var rise = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
-         SetBaseRiseToAngle(bayse, rise);
+         BaseLabel.Visible = true;
+         BaseTextBox.Visible = true;
+         BaseTextBox.Text = "";
+         RiseLabel.Visible = true;
+         RiseTextBox.Visible = true;
+         RiseTextBox.Text = "";
+         NewAngleButton.Visible = true;
       }
 
       private void PlusMinusButton_Click(object sender, EventArgs e)
       {
          OutputWindowStringBuilder(Conversions.ChangeToNegative_Positive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
+      }
+
+      private void NewAngleButton_Click(object sender, EventArgs e)
+      {
+         BaseRiseToAngle();
+         BaseLabel.Visible = false;
+         BaseTextBox.Visible = false;
+         RiseLabel.Visible = false;
+         RiseTextBox.Visible = false;
+         NewAngleButton.Visible = false;
       }
 
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
@@ -325,23 +339,19 @@ namespace DetailerCalculator
 
       private void OuputWindowTextCopy(object sender, MouseEventArgs e)
       {
-         Clipboard.SetText(OutputWindow.Text);
-         ToolTip tt = new ToolTip
+         try
          {
-            AutoPopDelay = 0,
-            InitialDelay = 0
-         };
-         tt.SetToolTip(this.OutputWindow, "Text Copied");
+            Clipboard.SetText(OutputWindow.Text);
+         }
+         catch (Exception)
+         {
+            return;
+         }
       }
 
       private void OutputWindowClickToCopy(object sender, EventArgs e)
       {
-         ToolTip tt = new ToolTip
-         {
-            AutoPopDelay = 0,
-            InitialDelay = 0
-         };
-         tt.SetToolTip(this.OutputWindow, "Click to copy this text");
+
       }
 
       private void SetBaseRiseToAngle(double bayse, double rise)
@@ -459,6 +469,114 @@ namespace DetailerCalculator
 
          OutputWindowStringBuilder(numB, 0);
          OutputWindowStringBuilder(numA, 0);
+      }
+
+      private void OutputWindow_MouseEnter(object sender, EventArgs e)
+      {
+         Button b = (Button)sender;
+         b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+      }
+
+      private void BaseRiseToAngle()
+      {
+         double angle = AnglesTrig.BaseRiseToRadian(Convert.ToDouble(BaseTextBox.Text), Convert.ToDouble(RiseTextBox.Text));
+         angle = Conversions.RadiansToAngle(angle);
+         OverWriteAngleTextBox.Text = Convert.ToString(angle);
+         SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+      }
+
+      private void BaseTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            try
+            {
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               BaseTextBox.Text = "";
+               RiseTextBox.Text = "";
+            }
+            catch (Exception)
+            {
+               return;
+            }
+            finally
+            {
+               UserEntryBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
+         }
+      }
+
+      private void RiseTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            try
+            {
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               BaseTextBox.Text = "";
+               RiseTextBox.Text = "";
+            }
+            catch (Exception)
+            {
+               return;
+            }
+            finally
+            {
+               UserEntryBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
+         }
+      }
+
+      private void BaseTextBox_TextChanged(object sender, EventArgs e)
+      {
+         if (BaseTextBox.Text == "")
+         {
+            OverWriteAngleTextBox.Text = "";
+            return;
+         }
+         if (RiseTextBox.Text != "")
+         {
+            try
+            {
+               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDouble(BaseTextBox.Text), Convert.ToDouble(RiseTextBox.Text));
+               var angle = Conversions.RadiansToAngle(radians);
+               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+            }
+            catch (Exception)
+            {
+               BaseTextBox.Text = "";
+               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               return;
+            }
+         }
+      }
+
+      private void RiseTextBox_TextChanged(object sender, EventArgs e)
+      {
+         if (RiseTextBox.Text == "")
+         {
+            OverWriteAngleTextBox.Text = "";
+            return;
+         }
+         if (BaseTextBox.Text != "")
+         {
+            try
+            {
+               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDouble(BaseTextBox.Text), Convert.ToDouble(RiseTextBox.Text));
+               var angle = Conversions.RadiansToAngle(radians);
+               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+            }
+            catch (Exception)
+            {
+               RiseTextBox.Text = "";
+               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               return;
+            }
+         }
       }
    }
 }

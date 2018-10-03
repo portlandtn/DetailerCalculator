@@ -45,6 +45,7 @@
          this.Angle2RadioButton = new System.Windows.Forms.RadioButton();
          this.Angle1RadioButton = new System.Windows.Forms.RadioButton();
          this.MathButtonsPanel = new System.Windows.Forms.Panel();
+         this.SwapButton = new System.Windows.Forms.Button();
          this.DecimalToFootButton = new System.Windows.Forms.Button();
          this.PlusMinusButton = new System.Windows.Forms.Button();
          this.DivideButton = new System.Windows.Forms.Button();
@@ -72,7 +73,11 @@
          this.AngleLabel = new System.Windows.Forms.Label();
          this.On12Label = new System.Windows.Forms.Label();
          this.WarningNumbericEntryOnlyLabel = new System.Windows.Forms.Label();
-         this.SwapButton = new System.Windows.Forms.Button();
+         this.BaseTextBox = new System.Windows.Forms.TextBox();
+         this.BaseLabel = new System.Windows.Forms.Label();
+         this.RiseTextBox = new System.Windows.Forms.TextBox();
+         this.RiseLabel = new System.Windows.Forms.Label();
+         this.NewAngleButton = new System.Windows.Forms.Button();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
@@ -123,6 +128,7 @@
          this.StandardMethodRadioButton.Text = "Standard";
          this.StandardMethodRadioButton.UseVisualStyleBackColor = true;
          this.StandardMethodRadioButton.CheckedChanged += new System.EventHandler(this.StandardMethodRadioButton_CheckedChanged);
+         this.StandardMethodRadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // DetailingMethodRadioButton
          // 
@@ -137,6 +143,7 @@
          this.DetailingMethodRadioButton.Text = "Detailing";
          this.DetailingMethodRadioButton.UseVisualStyleBackColor = true;
          this.DetailingMethodRadioButton.CheckedChanged += new System.EventHandler(this.DetailingMethodRadioButton_CheckedChanged);
+         this.DetailingMethodRadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // AnglePanel
          // 
@@ -206,6 +213,7 @@
          this.Angle4RadioButton.Text = "Angle 4: ";
          this.Angle4RadioButton.UseVisualStyleBackColor = true;
          this.Angle4RadioButton.CheckedChanged += new System.EventHandler(this.Angle4RadioButton_CheckedChanged);
+         this.Angle4RadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // Angle3RadioButton
          // 
@@ -218,6 +226,7 @@
          this.Angle3RadioButton.Text = "Angle 3: ";
          this.Angle3RadioButton.UseVisualStyleBackColor = true;
          this.Angle3RadioButton.CheckedChanged += new System.EventHandler(this.Angle3RadioButton_CheckedChanged);
+         this.Angle3RadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // AnglesLabel
          // 
@@ -240,6 +249,7 @@
          this.Angle2RadioButton.Text = "Angle 2: ";
          this.Angle2RadioButton.UseVisualStyleBackColor = true;
          this.Angle2RadioButton.CheckedChanged += new System.EventHandler(this.Angle2RadioButton_CheckedChanged);
+         this.Angle2RadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // Angle1RadioButton
          // 
@@ -254,6 +264,7 @@
          this.Angle1RadioButton.Text = "Angle 1: ";
          this.Angle1RadioButton.UseVisualStyleBackColor = true;
          this.Angle1RadioButton.CheckedChanged += new System.EventHandler(this.Angle1RadioBox_CheckedChanged);
+         this.Angle1RadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // MathButtonsPanel
          // 
@@ -271,6 +282,18 @@
          this.MathButtonsPanel.Size = new System.Drawing.Size(211, 89);
          this.MathButtonsPanel.TabIndex = 3;
          // 
+         // SwapButton
+         // 
+         this.SwapButton.Location = new System.Drawing.Point(3, 31);
+         this.SwapButton.Margin = new System.Windows.Forms.Padding(2);
+         this.SwapButton.Name = "SwapButton";
+         this.SwapButton.Size = new System.Drawing.Size(63, 23);
+         this.SwapButton.TabIndex = 9;
+         this.SwapButton.Text = "Swap";
+         this.SwapButton.UseVisualStyleBackColor = true;
+         this.SwapButton.Click += new System.EventHandler(this.SwapButton_Click);
+         this.SwapButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
+         // 
          // DecimalToFootButton
          // 
          this.DecimalToFootButton.Location = new System.Drawing.Point(138, 58);
@@ -281,6 +304,7 @@
          this.DecimalToFootButton.Text = "Dec to Ft";
          this.DecimalToFootButton.UseVisualStyleBackColor = true;
          this.DecimalToFootButton.Click += new System.EventHandler(this.DecimalToFootButton_Click);
+         this.DecimalToFootButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // PlusMinusButton
          // 
@@ -292,6 +316,7 @@
          this.PlusMinusButton.Text = "+/-";
          this.PlusMinusButton.UseVisualStyleBackColor = true;
          this.PlusMinusButton.Click += new System.EventHandler(this.PlusMinusButton_Click);
+         this.PlusMinusButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // DivideButton
          // 
@@ -303,6 +328,7 @@
          this.DivideButton.Text = "Divide";
          this.DivideButton.UseVisualStyleBackColor = true;
          this.DivideButton.Click += new System.EventHandler(this.DivideButton_Click);
+         this.DivideButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // MultiplyButton
          // 
@@ -314,6 +340,7 @@
          this.MultiplyButton.Text = "Multiply";
          this.MultiplyButton.UseVisualStyleBackColor = true;
          this.MultiplyButton.Click += new System.EventHandler(this.MultiplyButton_Click);
+         this.MultiplyButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // FootToDecimalButton
          // 
@@ -325,6 +352,7 @@
          this.FootToDecimalButton.Text = "Ft to Dec";
          this.FootToDecimalButton.UseVisualStyleBackColor = true;
          this.FootToDecimalButton.Click += new System.EventHandler(this.FootToDecimalButton_Click);
+         this.FootToDecimalButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // SubtractButton
          // 
@@ -336,6 +364,7 @@
          this.SubtractButton.Text = "Subtract";
          this.SubtractButton.UseVisualStyleBackColor = true;
          this.SubtractButton.Click += new System.EventHandler(this.SubtractButton_Click);
+         this.SubtractButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // AddButton
          // 
@@ -347,6 +376,7 @@
          this.AddButton.Text = "Add";
          this.AddButton.UseVisualStyleBackColor = true;
          this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+         this.AddButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // UserEntryBox
          // 
@@ -371,7 +401,9 @@
          this.OutputWindow.Text = "0";
          this.OutputWindow.TextAlign = System.Drawing.ContentAlignment.BottomRight;
          this.OutputWindow.UseVisualStyleBackColor = true;
+         this.OutputWindow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          this.OutputWindow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OuputWindowTextCopy);
+         this.OutputWindow.MouseEnter += new System.EventHandler(this.OutputWindow_MouseEnter);
          this.OutputWindow.MouseHover += new System.EventHandler(this.OutputWindowClickToCopy);
          // 
          // SideToSidePanel
@@ -398,6 +430,7 @@
          this.RiseToBaseButton.Text = "R to B";
          this.RiseToBaseButton.UseVisualStyleBackColor = true;
          this.RiseToBaseButton.Click += new System.EventHandler(this.RiseToBaseButton_Click);
+         this.RiseToBaseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // RiseToSlopeButton
          // 
@@ -409,6 +442,7 @@
          this.RiseToSlopeButton.Text = "R to S";
          this.RiseToSlopeButton.UseVisualStyleBackColor = true;
          this.RiseToSlopeButton.Click += new System.EventHandler(this.RiseToSlopeButton_Click);
+         this.RiseToSlopeButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // SlopeToRiseButton
          // 
@@ -420,6 +454,7 @@
          this.SlopeToRiseButton.Text = "S to R";
          this.SlopeToRiseButton.UseVisualStyleBackColor = true;
          this.SlopeToRiseButton.Click += new System.EventHandler(this.SlopeToRiseButton_Click);
+         this.SlopeToRiseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // SlopeToBaseButton
          // 
@@ -431,6 +466,7 @@
          this.SlopeToBaseButton.Text = "S to B";
          this.SlopeToBaseButton.UseVisualStyleBackColor = true;
          this.SlopeToBaseButton.Click += new System.EventHandler(this.SlopeToBaseButton_Click);
+         this.SlopeToBaseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // BaseToSlopeButton
          // 
@@ -442,6 +478,7 @@
          this.BaseToSlopeButton.Text = "B to S";
          this.BaseToSlopeButton.UseVisualStyleBackColor = true;
          this.BaseToSlopeButton.Click += new System.EventHandler(this.BaseToSlopeButton_Click);
+         this.BaseToSlopeButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // BaseToRiseButton
          // 
@@ -453,6 +490,7 @@
          this.BaseToRiseButton.Text = "B to R";
          this.BaseToRiseButton.UseVisualStyleBackColor = true;
          this.BaseToRiseButton.Click += new System.EventHandler(this.BaseToRiseButton_Click);
+         this.BaseToRiseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // SidesToAnglePanel
          // 
@@ -475,6 +513,7 @@
          this.ClearAllButton.Text = "Clear All";
          this.ClearAllButton.UseVisualStyleBackColor = true;
          this.ClearAllButton.Click += new System.EventHandler(this.ClearAllButton_Click);
+         this.ClearAllButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // DropButton
          // 
@@ -486,6 +525,7 @@
          this.DropButton.Text = "Drop";
          this.DropButton.UseVisualStyleBackColor = true;
          this.DropButton.Click += new System.EventHandler(this.DropButton_Click);
+         this.DropButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          // 
          // BaseRiseToAngleButton
          // 
@@ -569,22 +609,71 @@
          this.WarningNumbericEntryOnlyLabel.Text = "Numbers and operators allowed only!!";
          this.WarningNumbericEntryOnlyLabel.Visible = false;
          // 
-         // SwapButton
+         // BaseTextBox
          // 
-         this.SwapButton.Location = new System.Drawing.Point(3, 31);
-         this.SwapButton.Margin = new System.Windows.Forms.Padding(2);
-         this.SwapButton.Name = "SwapButton";
-         this.SwapButton.Size = new System.Drawing.Size(63, 23);
-         this.SwapButton.TabIndex = 9;
-         this.SwapButton.Text = "Swap";
-         this.SwapButton.UseVisualStyleBackColor = true;
-         this.SwapButton.Click += new System.EventHandler(this.SwapButton_Click);
+         this.BaseTextBox.Location = new System.Drawing.Point(196, 54);
+         this.BaseTextBox.Margin = new System.Windows.Forms.Padding(2);
+         this.BaseTextBox.Name = "BaseTextBox";
+         this.BaseTextBox.Size = new System.Drawing.Size(49, 20);
+         this.BaseTextBox.TabIndex = 18;
+         this.BaseTextBox.Visible = false;
+         this.BaseTextBox.TextChanged += new System.EventHandler(this.BaseTextBox_TextChanged);
+         this.BaseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BaseTextBox_KeyDown);
+         // 
+         // BaseLabel
+         // 
+         this.BaseLabel.AutoSize = true;
+         this.BaseLabel.Location = new System.Drawing.Point(158, 57);
+         this.BaseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+         this.BaseLabel.Name = "BaseLabel";
+         this.BaseLabel.Size = new System.Drawing.Size(34, 13);
+         this.BaseLabel.TabIndex = 19;
+         this.BaseLabel.Text = "Base:";
+         this.BaseLabel.Visible = false;
+         // 
+         // RiseTextBox
+         // 
+         this.RiseTextBox.Location = new System.Drawing.Point(196, 79);
+         this.RiseTextBox.Margin = new System.Windows.Forms.Padding(2);
+         this.RiseTextBox.Name = "RiseTextBox";
+         this.RiseTextBox.Size = new System.Drawing.Size(49, 20);
+         this.RiseTextBox.TabIndex = 20;
+         this.RiseTextBox.Visible = false;
+         this.RiseTextBox.TextChanged += new System.EventHandler(this.RiseTextBox_TextChanged);
+         this.RiseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RiseTextBox_KeyDown);
+         // 
+         // RiseLabel
+         // 
+         this.RiseLabel.AutoSize = true;
+         this.RiseLabel.Location = new System.Drawing.Point(161, 82);
+         this.RiseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+         this.RiseLabel.Name = "RiseLabel";
+         this.RiseLabel.Size = new System.Drawing.Size(31, 13);
+         this.RiseLabel.TabIndex = 21;
+         this.RiseLabel.Text = "Rise:";
+         this.RiseLabel.Visible = false;
+         // 
+         // NewAngleButton
+         // 
+         this.NewAngleButton.Location = new System.Drawing.Point(250, 78);
+         this.NewAngleButton.Name = "NewAngleButton";
+         this.NewAngleButton.Size = new System.Drawing.Size(75, 23);
+         this.NewAngleButton.TabIndex = 22;
+         this.NewAngleButton.Text = "New Angle";
+         this.NewAngleButton.UseVisualStyleBackColor = true;
+         this.NewAngleButton.Visible = false;
+         this.NewAngleButton.Click += new System.EventHandler(this.NewAngleButton_Click);
          // 
          // FRMDetailerCalculator
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(624, 370);
+         this.Controls.Add(this.NewAngleButton);
+         this.Controls.Add(this.RiseLabel);
+         this.Controls.Add(this.RiseTextBox);
+         this.Controls.Add(this.BaseLabel);
+         this.Controls.Add(this.BaseTextBox);
          this.Controls.Add(this.WarningNumbericEntryOnlyLabel);
          this.Controls.Add(this.On12Label);
          this.Controls.Add(this.AngleLabel);
@@ -606,6 +695,7 @@
          this.Text = "Detailer Calculator";
          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetailerCalculatorClosed);
          this.Load += new System.EventHandler(this.FRMDetailerCalculator_Load);
+         this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          this.MathMethodPanel.ResumeLayout(false);
          this.MathMethodPanel.PerformLayout();
          this.AnglePanel.ResumeLayout(false);
@@ -664,6 +754,11 @@
       private System.Windows.Forms.Label On12Label;
       private System.Windows.Forms.Label WarningNumbericEntryOnlyLabel;
       private System.Windows.Forms.Button SwapButton;
+      private System.Windows.Forms.TextBox BaseTextBox;
+      private System.Windows.Forms.Label BaseLabel;
+      private System.Windows.Forms.TextBox RiseTextBox;
+      private System.Windows.Forms.Label RiseLabel;
+      private System.Windows.Forms.Button NewAngleButton;
    }
 }
 
