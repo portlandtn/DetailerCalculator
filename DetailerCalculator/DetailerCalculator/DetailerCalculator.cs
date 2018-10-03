@@ -78,26 +78,30 @@ namespace DetailerCalculator
 
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
       {
-         _ActiveAngle.ActiveAngle = 1;
-         _CurrentAngle.Angle = _Angle1.Angle;
+         SetAngles(1);
+         //_ActiveAngle.ActiveAngle = 1;
+         //_CurrentAngle.Angle = _Angle1.Angle;
       }
 
       private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         _ActiveAngle.ActiveAngle = 2;
-         _CurrentAngle.Angle = _Angle2.Angle;
+         SetAngles(2);
+         //_ActiveAngle.ActiveAngle = 2;
+         //_CurrentAngle.Angle = _Angle2.Angle;
       }
 
       private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         _ActiveAngle.ActiveAngle = 3;
-         _CurrentAngle.Angle = _Angle3.Angle;
+         SetAngles(3);
+         //_ActiveAngle.ActiveAngle = 3;
+         //_CurrentAngle.Angle = _Angle3.Angle;
       }
 
       private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         _ActiveAngle.ActiveAngle = 4;
-         _CurrentAngle.Angle = _Angle4.Angle;
+         SetAngles(4);
+         //_ActiveAngle.ActiveAngle = 4;
+         //_CurrentAngle.Angle = _Angle4.Angle;
 
       }
 
@@ -226,10 +230,18 @@ namespace DetailerCalculator
             OverWriteAngleTextBox.Text = "";
             return;
          }
-
-         var radians = AnglesTrig.BaseRiseToRadian(12, Convert.ToDouble(SlopeTextBox.Text));
-         var angle = Conversions.RadiansToAngle(radians);
-         OverWriteAngleTextBox.Text = Convert.ToString(angle);
+         try
+         {
+            var radians = AnglesTrig.BaseRiseToRadian(12, Convert.ToDouble(SlopeTextBox.Text));
+            var angle = Conversions.RadiansToAngle(radians);
+            OverWriteAngleTextBox.Text = Convert.ToString(angle);
+         }
+         catch (Exception)
+         {
+            SlopeTextBox.Text = "";
+            MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+            return;
+         }
       }
 
       private void DetailingMethodRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -384,6 +396,31 @@ namespace DetailerCalculator
          var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
          OutputWindowStringBuilder(response);
+      }
+
+      private void SetAngles(int angleNumber)
+      {
+         switch (angleNumber)
+         {
+            case 1:
+               _ActiveAngle.ActiveAngle = 1;
+               _CurrentAngle.Angle = _Angle1.Angle;
+               break;
+            case 2:
+               _ActiveAngle.ActiveAngle = 2;
+               _CurrentAngle.Angle = _Angle2.Angle;
+               break;
+            case 3:
+               _ActiveAngle.ActiveAngle = 3;
+               _CurrentAngle.Angle = _Angle3.Angle;
+               break;
+            case 4:
+               _ActiveAngle.ActiveAngle = 4;
+               _CurrentAngle.Angle = _Angle4.Angle;
+               break;
+            default:
+               break;
+         }
       }
    }
 }
