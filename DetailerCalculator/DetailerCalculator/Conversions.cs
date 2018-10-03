@@ -60,5 +60,17 @@ namespace DetailerCalculator
       {
          return radians * 180 / Math.PI;
       }
+
+      public static double ChangeToNegative_Positive(double num)
+      {
+         try
+         {
+            return num * -1;
+         }
+         catch (Exception)
+         {
+            return 0;
+         }
+      }
    }
 }

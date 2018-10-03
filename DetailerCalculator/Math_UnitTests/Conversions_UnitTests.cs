@@ -110,5 +110,25 @@ namespace UnitTests
          Assert.AreEqual(expectedAngle3, angle3);
          Assert.AreEqual(expectedAngle4, angle4);
       }
+
+      [TestMethod]
+      public void ChangeToNegative_Positve_UnitTest()
+      {
+         //Arrange
+         double num1 = 21;
+         double num2 = -18;
+         double expectedResponse1 = -21;
+         double expectedResponse2 = 18;
+
+         //Act
+         double response1 = Conversions.ChangeToNegative_Positive(num1);
+         double response2 = Conversions.ChangeToNegative_Positive(num2);
+
+         //Assert
+         Assert.AreEqual(expectedResponse1, response1);
+         Assert.AreEqual(expectedResponse2, response2);
+
+
+      }
    }
 }

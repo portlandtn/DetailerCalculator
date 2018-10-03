@@ -63,5 +63,6 @@ namespace DetailerCalculator
                return 0;
          }
       }
+
    }
 }

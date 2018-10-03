@@ -155,6 +155,11 @@ namespace DetailerCalculator
          SetBaseRiseToAngle(bayse, rise);
       }
 
+      private void PlusMinusButton_Click(object sender, EventArgs e)
+      {
+         OutputWindowStringBuilder(Conversions.ChangeToNegative_Positive(_OutputWindowList[_OutputWindowList.Count - 1]));
+      }
+
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
       {
          if (e.KeyCode == Keys.Enter)
@@ -414,6 +419,22 @@ namespace DetailerCalculator
             default:
                break;
          }
+      }
+
+      private void SwapButton_Click(object sender, EventArgs e)
+      {
+         SwapBtn(_OutputWindowList[_OutputWindowList.Count - 1], _OutputWindowList[_OutputWindowList.Count - 2]);
+      }
+
+      private void SwapBtn(double num1, double num2)
+      {
+         double numB = num1;
+         double numA = num2;
+         _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+         _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+
+         OutputWindowStringBuilder(numB);
+         OutputWindowStringBuilder(numA);
       }
    }
 }

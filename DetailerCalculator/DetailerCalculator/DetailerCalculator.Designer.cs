@@ -72,6 +72,7 @@
          this.AngleLabel = new System.Windows.Forms.Label();
          this.On12Label = new System.Windows.Forms.Label();
          this.WarningNumbericEntryOnlyLabel = new System.Windows.Forms.Label();
+         this.SwapButton = new System.Windows.Forms.Button();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
@@ -256,6 +257,7 @@
          // 
          // MathButtonsPanel
          // 
+         this.MathButtonsPanel.Controls.Add(this.SwapButton);
          this.MathButtonsPanel.Controls.Add(this.DecimalToFootButton);
          this.MathButtonsPanel.Controls.Add(this.PlusMinusButton);
          this.MathButtonsPanel.Controls.Add(this.DivideButton);
@@ -289,6 +291,7 @@
          this.PlusMinusButton.TabIndex = 6;
          this.PlusMinusButton.Text = "+/-";
          this.PlusMinusButton.UseVisualStyleBackColor = true;
+         this.PlusMinusButton.Click += new System.EventHandler(this.PlusMinusButton_Click);
          // 
          // DivideButton
          // 
@@ -566,6 +569,17 @@
          this.WarningNumbericEntryOnlyLabel.Text = "Numbers and operators allowed only!!";
          this.WarningNumbericEntryOnlyLabel.Visible = false;
          // 
+         // SwapButton
+         // 
+         this.SwapButton.Location = new System.Drawing.Point(3, 31);
+         this.SwapButton.Margin = new System.Windows.Forms.Padding(2);
+         this.SwapButton.Name = "SwapButton";
+         this.SwapButton.Size = new System.Drawing.Size(63, 23);
+         this.SwapButton.TabIndex = 9;
+         this.SwapButton.Text = "Swap";
+         this.SwapButton.UseVisualStyleBackColor = true;
+         this.SwapButton.Click += new System.EventHandler(this.SwapButton_Click);
+         // 
          // FRMDetailerCalculator
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,6 +663,7 @@
       private System.Windows.Forms.Label AngleLabel;
       private System.Windows.Forms.Label On12Label;
       private System.Windows.Forms.Label WarningNumbericEntryOnlyLabel;
+      private System.Windows.Forms.Button SwapButton;
    }
 }
 
