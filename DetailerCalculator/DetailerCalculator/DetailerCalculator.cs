@@ -21,6 +21,7 @@ namespace DetailerCalculator
       Settings _Angle4 = new Settings();
       Settings _ActiveAngle = new Settings();
       Settings _MathMethod = new Settings();
+      Settings _CurrentAngle = new Settings();
       List<double> _OutputWindowList = new List<double>();
 
       public FRMDetailerCalculator()
@@ -38,50 +39,45 @@ namespace DetailerCalculator
 
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double bayse = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double rise = SidesTrig.BaseToRise(bayse, angle);
+         bayse = (_MathMethod.IsDetailingMathMethod == true) ? Conversions.FootToDecimal(bayse) : bayse;
+         double rise = SidesTrig.BaseToRise(bayse, _CurrentAngle.Angle);
+         rise = (_MathMethod.IsDetailingMathMethod ==true) ? Conversions.DecimalToFoot(rise) : rise;
          OutputWindowStringBuilder(rise);
       }
 
       private void BaseToSlopeButton_Click(object sender, EventArgs e)
       {
-         MessageBox.Show(Convert.ToString(_Angle1.Angle));
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double bayse = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double slope = SidesTrig.BaseToSlope(bayse, angle);
+         double slope = SidesTrig.BaseToSlope(bayse, _CurrentAngle.Angle);
          OutputWindowStringBuilder(slope);
       }
 
       private void SlopeToBaseButton_Click(object sender, EventArgs e)
       {
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double slope = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double bayse = SidesTrig.SlopeToBase(slope, angle);
+         double bayse = SidesTrig.SlopeToBase(slope, _CurrentAngle.Angle);
          OutputWindowStringBuilder(bayse);
       }
 
       private void SlopeToRiseButton_Click(object sender, EventArgs e)
       {
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double slope = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double rise = SidesTrig.SlopeToRise(slope, angle);
+         double rise = SidesTrig.SlopeToRise(slope, _CurrentAngle.Angle);
          OutputWindowStringBuilder(rise);
       }
 
       private void RiseToSlopeButton_Click(object sender, EventArgs e)
       {
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double rise = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double slope = SidesTrig.RiseToSlope(rise, angle);
+         double slope = SidesTrig.RiseToSlope(rise, _CurrentAngle.Angle);
          OutputWindowStringBuilder(slope);
       }
 
       private void RiseToBaseButton_Click(object sender, EventArgs e)
       {
-         double angle = Settings.CurrentAngleValue(_ActiveAngle.ActiveAngle, _Angle1.Angle, _Angle2.Angle, _Angle3.Angle, _Angle4.Angle);
          double rise = DetermineSingleNumberForMath(UserEntryBox.Text);
-         double bayse = SidesTrig.RiseToBase(rise, angle);
+         double bayse = SidesTrig.RiseToBase(rise, _CurrentAngle.Angle);
          OutputWindowStringBuilder(bayse);
       }
 
@@ -101,21 +97,25 @@ namespace DetailerCalculator
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
       {
          _ActiveAngle.ActiveAngle = 1;
+         _CurrentAngle.Angle = _Angle1.Angle;
       }
 
       private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          _ActiveAngle.ActiveAngle = 2;
+         _CurrentAngle.Angle = _Angle2.Angle;
       }
 
       private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          _ActiveAngle.ActiveAngle = 3;
+         _CurrentAngle.Angle = _Angle3.Angle;
       }
 
       private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          _ActiveAngle.ActiveAngle = 4;
+         _CurrentAngle.Angle = _Angle4.Angle;
 
       }
 
@@ -123,7 +123,6 @@ namespace DetailerCalculator
       {
 
          SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-
       }
 
       private void UserEntryBox_TextChanged(object sender, EventArgs e)
@@ -198,11 +197,21 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
-            OutputWindowStringBuilder(Convert.ToDouble(UserEntryBox.Text));
-
-            UserEntryBox.Text = "";
-            e.Handled = true;
-            e.SuppressKeyPress = true;
+            try
+            {
+               double outputWindowDouble = (UserEntryBox.Text == "") ? _OutputWindowList[_OutputWindowList.Count - 1] : Convert.ToDouble(UserEntryBox.Text);
+               OutputWindowStringBuilder(outputWindowDouble);
+            }
+            catch (Exception)
+            {
+               return;
+            }
+            finally
+            {
+               UserEntryBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
          }
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
@@ -213,6 +222,12 @@ namespace DetailerCalculator
             UserEntryBox.Text = "";
             OutputWindowStringBuilder(response);
             e.Handled = true;
+            e.SuppressKeyPress = true;
+         }
+
+         if (e.KeyCode == Keys.Escape)
+         {
+            UserEntryBox.Text = "";
             e.SuppressKeyPress = true;
          }
       }
@@ -257,6 +272,7 @@ namespace DetailerCalculator
          Properties.Settings.Default["Angle2"] = _Angle2.Angle;
          Properties.Settings.Default["Angle3"] = _Angle3.Angle;
          Properties.Settings.Default["Angle4"] = _Angle4.Angle;
+         Properties.Settings.Default["CurrentAngle"] = _Angle1.Angle;
          Properties.Settings.Default.Save();
       }
 
@@ -268,6 +284,7 @@ namespace DetailerCalculator
          _Angle2.Angle = Convert.ToDouble(Properties.Settings.Default["Angle2"]);
          _Angle3.Angle = Convert.ToDouble(Properties.Settings.Default["Angle3"]);
          _Angle4.Angle = Convert.ToDouble(Properties.Settings.Default["Angle4"]);
+         _CurrentAngle.Angle = Convert.ToDouble(Properties.Settings.Default["CurrentAngle"]);
 
          Angle1Label.Text = Convert.ToString(Math.Round(_Angle1.Angle, 4));
          Angle2Label.Text = Convert.ToString(Math.Round(_Angle2.Angle, 4));
@@ -283,21 +300,25 @@ namespace DetailerCalculator
                _Angle1.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                var angle = Math.Round(_Angle1.Angle, 4);
                Angle1Label.Text = Convert.ToString(angle);
+               _CurrentAngle.Angle = _Angle1.Angle;
                break;
             case 2:
                _Angle2.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle2.Angle, 4);
                Angle2Label.Text = Convert.ToString(angle);
+               _CurrentAngle.Angle = _Angle2.Angle;
                break;
             case 3:
                _Angle3.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle3.Angle, 4);
                Angle3Label.Text = Convert.ToString(angle);
+               _CurrentAngle.Angle = _Angle3.Angle;
                break;
             case 4:
                _Angle4.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle4.Angle, 4);
                Angle4Label.Text = Convert.ToString(angle);
+               _CurrentAngle.Angle = _Angle4.Angle;
                break;
             default:
                MessageBox.Show("Angle was not detected");
@@ -398,7 +419,7 @@ namespace DetailerCalculator
          {
             return 0;
          }
-         return (userEntry == "" && _OutputWindowList.Count > 1) ? _OutputWindowList[_OutputWindowList.Count - 2] : 0;
+         return (userEntry == "" && _OutputWindowList.Count >= 1) ? _OutputWindowList[_OutputWindowList.Count - 1] : 0;
       }
 
       private double DetermineSecondNumberForMath(string userEntry)

@@ -81,5 +81,17 @@ namespace DetailerCalculator.Properties {
                 this["Angle4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double CurrentAngle {
+            get {
+                return ((double)(this["CurrentAngle"]));
+            }
+            set {
+                this["CurrentAngle"] = value;
+            }
+        }
     }
 }
