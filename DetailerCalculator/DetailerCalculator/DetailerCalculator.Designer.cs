@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMDetailerCalculator));
          this.DetailerCalculatorLabel = new System.Windows.Forms.Label();
          this.MathMethodPanel = new System.Windows.Forms.Panel();
          this.MainMethodLabel = new System.Windows.Forms.Label();
@@ -585,6 +586,7 @@
          this.Controls.Add(this.AnglePanel);
          this.Controls.Add(this.MathMethodPanel);
          this.Controls.Add(this.DetailerCalculatorLabel);
+         this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.Margin = new System.Windows.Forms.Padding(2);
          this.Name = "FRMDetailerCalculator";
          this.Text = "Detailer Calculator";
