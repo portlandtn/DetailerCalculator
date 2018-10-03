@@ -150,7 +150,7 @@ namespace DetailerCalculator
 
       private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
       {
-         var bayse = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var bayse = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
          var rise = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          SetBaseRiseToAngle(bayse, rise);
       }
@@ -178,7 +178,7 @@ namespace DetailerCalculator
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
          {
-            var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+            var num1 = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
             var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             double response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
@@ -368,31 +368,27 @@ namespace DetailerCalculator
 
       private void FunctionButtonClick(string function)
       {
-         var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num1 = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
          var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
 
-         if (function.Contains("2"))
-         {
-
-         }
          if (function == "d2f" || function == "f2d")
          {
             var response = (function == "f2d") ? Conversions.FootToDecimal(num1) : Conversions.DecimalToFoot(num1);
-            OutputWindowStringBuilder(response);
+            OutputWindowStringBuilder(Math.Round(response, 4));
          }
          else
          {
             double response = MathFunctions.DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
-            OutputWindowStringBuilder(response);
+            OutputWindowStringBuilder(Math.Round(response, 4));
          }
       }
 
       private void FunctionButtonClick(string function, double angle)
       {
-         var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
          var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
-         OutputWindowStringBuilder(response);
+         OutputWindowStringBuilder(Math.Round(response, 4));
       }
 
       private void SetAngles(int angleNumber)

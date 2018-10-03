@@ -14,12 +14,18 @@ namespace DetailerCalculator
 
       public bool IsDetailingMathMethod { get; set; }
 
-      public static double DetermineFirstNumberForMath(int outputWindowListCount, List<double> outputWindowList)
+      public static double DetermineFirstNumberForMath(int totalNumbersRequired, int outputWindowListCount, List<double> outputWindowList)
       {
-
-         return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 2];
-
+         if (totalNumbersRequired == 2)
+         {
+            return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 2];
+         }
+         else
+         {
+            return (outputWindowList.Count == 0) ? 0 : outputWindowList[outputWindowListCount - 1];
+         }
       }
+
       public static double DetermineSecondNumberForMath(int outputWindowListCount, List<double> outputWindowList)
       {
          return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 1];
