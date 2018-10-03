@@ -14,10 +14,10 @@ namespace UnitTests
          //Arrange
          List<double> list = new List<double> { 1, 18, 42, 21 };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 21;
+         double expectedResponse = 42;
 
          //Act
-         double response = Settings.DetermineSingleNumberForMath(outputWindowListCount, list);
+         double response = Settings.DetermineFirstNumberForMath(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -33,7 +33,7 @@ namespace UnitTests
          double expectedResponse = 0;
 
          //Act
-         double response = Settings.DetermineSingleNumberForMath(outputWindowListCount, list);
+         double response = Settings.DetermineFirstNumberForMath(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -45,7 +45,7 @@ namespace UnitTests
          //Arrange
          List<double> list = new List<double> { 1, 18, 42, 21 };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 42;
+         double expectedResponse = 21;
 
          //Act
          double response = Settings.DetermineSecondNumberForMath(outputWindowListCount, list);

@@ -71,6 +71,7 @@ namespace DetailerCalculator
       {
          FunctionButtonClick("f2d");
       }
+
       private void DecimalToFootButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("d2f");
@@ -79,30 +80,21 @@ namespace DetailerCalculator
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
       {
          SetAngles(1);
-         //_ActiveAngle.ActiveAngle = 1;
-         //_CurrentAngle.Angle = _Angle1.Angle;
       }
 
       private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          SetAngles(2);
-         //_ActiveAngle.ActiveAngle = 2;
-         //_CurrentAngle.Angle = _Angle2.Angle;
       }
 
       private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          SetAngles(3);
-         //_ActiveAngle.ActiveAngle = 3;
-         //_CurrentAngle.Angle = _Angle3.Angle;
       }
 
       private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          SetAngles(4);
-         //_ActiveAngle.ActiveAngle = 4;
-         //_CurrentAngle.Angle = _Angle4.Angle;
-
       }
 
       private void OverwriteAngleButton_Click(object sender, EventArgs e)
@@ -158,7 +150,7 @@ namespace DetailerCalculator
 
       private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
       {
-         var bayse = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var bayse = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          var rise = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          SetBaseRiseToAngle(bayse, rise);
       }
@@ -186,7 +178,7 @@ namespace DetailerCalculator
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
          {
-            var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+            var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             double response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
@@ -367,11 +359,16 @@ namespace DetailerCalculator
             _OutputWindowList.Add(stringToAdd);
             OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
          }
+
+         if (_OutputWindowList.Count > 15)
+         {
+            _OutputWindowList.RemoveAt(0);
+         }
       }
 
       private void FunctionButtonClick(string function)
       {
-         var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
 
          if (function.Contains("2"))
@@ -393,7 +390,7 @@ namespace DetailerCalculator
 
       private void FunctionButtonClick(string function, double angle)
       {
-         var num1 = Settings.DetermineSingleNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num1 = Settings.DetermineFirstNumberForMath(_OutputWindowList.Count, _OutputWindowList);
          var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
          OutputWindowStringBuilder(response);
       }

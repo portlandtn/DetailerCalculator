@@ -14,14 +14,15 @@ namespace DetailerCalculator
 
       public bool IsDetailingMathMethod { get; set; }
 
-      public static double DetermineSingleNumberForMath(int outputWindowListCount, List<double> outputWindowList)
+      public static double DetermineFirstNumberForMath(int outputWindowListCount, List<double> outputWindowList)
       {
-         return (outputWindowList.Count == 0) ? 0 : outputWindowList[outputWindowListCount - 1];
-      }
 
+         return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 2];
+
+      }
       public static double DetermineSecondNumberForMath(int outputWindowListCount, List<double> outputWindowList)
       {
-         return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 2];
+         return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 1];
       }
 
       public static double FootToDecimalButtonClick(int outputWindowListCount, List<double> outputWindowList)
