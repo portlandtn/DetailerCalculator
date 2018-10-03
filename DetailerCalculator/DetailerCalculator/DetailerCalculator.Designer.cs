@@ -531,6 +531,7 @@
          this.SlopeTextBox.Size = new System.Drawing.Size(31, 20);
          this.SlopeTextBox.TabIndex = 14;
          this.SlopeTextBox.TextChanged += new System.EventHandler(this.SlopeTextBox_TextChanged);
+         this.SlopeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OverwiteAngleTextBox_KeyDown);
          // 
          // AngleLabel
          // 

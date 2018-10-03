@@ -236,10 +236,20 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
-            SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-            OverWriteAngleTextBox.Text = "";
-            e.Handled = true;
-            e.SuppressKeyPress = true;
+            if (OverWriteAngleTextBox.Text == "")
+            {
+               e.SuppressKeyPress = true;
+               return;
+            }
+            else
+            {
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               OverWriteAngleTextBox.Text = "";
+               SlopeTextBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
+
          }
       }
 
@@ -301,24 +311,32 @@ namespace DetailerCalculator
                var angle = Math.Round(_Angle1.Angle, 4);
                Angle1Label.Text = Convert.ToString(angle);
                _CurrentAngle.Angle = _Angle1.Angle;
+               SlopeTextBox.Text = "";
+               OverWriteAngleTextBox.Text = "";
                break;
             case 2:
                _Angle2.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle2.Angle, 4);
                Angle2Label.Text = Convert.ToString(angle);
                _CurrentAngle.Angle = _Angle2.Angle;
+               SlopeTextBox.Text = "";
+               OverWriteAngleTextBox.Text = "";
                break;
             case 3:
                _Angle3.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle3.Angle, 4);
                Angle3Label.Text = Convert.ToString(angle);
                _CurrentAngle.Angle = _Angle3.Angle;
+               SlopeTextBox.Text = "";
+               OverWriteAngleTextBox.Text = "";
                break;
             case 4:
                _Angle4.Angle = Convert.ToDouble(OverWriteAngleTextBox.Text);
                angle = Math.Round(_Angle4.Angle, 4);
                Angle4Label.Text = Convert.ToString(angle);
                _CurrentAngle.Angle = _Angle4.Angle;
+               SlopeTextBox.Text = "";
+               OverWriteAngleTextBox.Text = "";
                break;
             default:
                MessageBox.Show("Angle was not detected");
