@@ -354,60 +354,45 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder(double stringToAdd, int numbersToReplace)
       {
-         if (numbersToReplace == 1)
+         switch (numbersToReplace)
          {
-            if (stringToAdd == 0)
-            {
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
-            else
-            {
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               _OutputWindowList.Add(stringToAdd);
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
+            case 1:
+               if (stringToAdd == 0)
+               {
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               else
+               {
+                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+                  _OutputWindowList.Add(stringToAdd);
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               break;
+            case 2:
+               if (stringToAdd == 0)
+               {
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               else
+               {
+                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+                  _OutputWindowList.Add(stringToAdd);
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               break;
+            default:
+               if (stringToAdd == 0)
+               {
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               else
+               {
+                  _OutputWindowList.Add(stringToAdd);
+                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               }
+               break;
          }
-         else if (numbersToReplace == 2)
-         {
-            if (stringToAdd == 0)
-            {
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
-            else
-            {
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               _OutputWindowList.Add(stringToAdd);
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
-         }
-         else
-         {
-            if (stringToAdd == 0)
-            {
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
-            else
-            {
-               _OutputWindowList.Add(stringToAdd);
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-            }
-         }
-
-         //if (stringToAdd == 0)
-         //{
-         //   OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-         //}
-         //else
-         //{
-         //   _OutputWindowList.Add(stringToAdd);
-         //   OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-         //}
-
-         //if (_OutputWindowList.Count > 15)
-         //{
-         //   _OutputWindowList.RemoveAt(0);
-         //}
       }
 
       private void FunctionButtonClick(string function)
