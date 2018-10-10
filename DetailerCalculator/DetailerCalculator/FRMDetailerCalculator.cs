@@ -566,18 +566,25 @@ namespace DetailerCalculator
 
       private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
       {
-         //MessageBox.Show("Oy! It's just for looks. It's pretty. But it doesn't work yet!");
          _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
          SetOutputListRounding(_OutputWindowList);
       }
 
       private void SetOutputListRounding(List<decimal> outputWindowList)
       {
-         //foreach (var item in outputWindowList)
-         //{
-         //   item.ToString("F2", CultureInfo.InvariantCulture);
-         //   OutputWindowStringBuilder(item, 0);
-         //}
+         var tempList = new List<decimal>();
+
+         foreach (var item in outputWindowList)
+         {
+            var outputText = item.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+            tempList.Add(Convert.ToDecimal(outputText));
+            OutputWindow.Text = string.Join(Environment.NewLine, tempList);
+         }
+         _OutputWindowList.Clear();
+         foreach (var item in tempList)
+         {
+            _OutputWindowList.Add(item);
+         }
       }
 
       private void DropLastNumber()
