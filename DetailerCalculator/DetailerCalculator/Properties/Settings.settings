@@ -5,19 +5,19 @@
     <Setting Name="OutputWindow" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Angle1" Type="System.Double" Scope="User">
+    <Setting Name="Angle1" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Angle2" Type="System.Double" Scope="User">
+    <Setting Name="Angle2" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Angle3" Type="System.Double" Scope="User">
+    <Setting Name="Angle3" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Angle4" Type="System.Double" Scope="User">
+    <Setting Name="Angle4" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="CurrentAngle" Type="System.Double" Scope="User">
+    <Setting Name="CurrentAngle" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

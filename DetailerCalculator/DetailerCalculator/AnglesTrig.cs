@@ -9,9 +9,9 @@ namespace DetailerCalculator
    public class AnglesTrig
    {
 
-      public static double BaseRiseToRadian(double bayse, double rise)
+      public static decimal BaseRiseToRadian(decimal bayse, decimal rise)
       {
-         return Math.Atan(rise / bayse);
+         return Convert.ToDecimal(Math.Atan(Convert.ToDouble(rise / bayse)));
       }
    }
 }

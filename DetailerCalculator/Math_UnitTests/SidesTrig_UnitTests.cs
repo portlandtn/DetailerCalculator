@@ -11,9 +11,9 @@ namespace UnitTests
       public void BaseRiseToSlope_UnitTest()
       {
          //Arrange
-         var bayse = 3;
-         var userRise = 4;
-         var expectedResponse = 5;
+         var bayse = 3m;
+         var userRise = 4m;
+         var expectedResponse = 5m;
 
          //Act
          var response = Math.Round(SidesTrig.BaseRiseToSlope(bayse, userRise), 4);
@@ -26,9 +26,9 @@ namespace UnitTests
       public void BaseToSlope_UnitTest()
       {
          //Arrange
-         var bayse = 12;
-         var angle = 26.5651;
-         var expectedResponse = 13.4164;
+         var bayse = 12m;
+         var angle = 26.5651m;
+         var expectedResponse = 13.4164m;
 
          //Act
          var response = Math.Round(SidesTrig.BaseToSlope(bayse, angle), 4);
@@ -42,9 +42,9 @@ namespace UnitTests
       public void BaseToRise_UnitTest()
       {
          //Arrange
-         var bayse = 4.21;
-         var angle = 26.5651;
-         var expectedResponse = 2.105;
+         var bayse = 4.21m;
+         var angle = 26.5651m;
+         var expectedResponse = 2.105m;
 
          //Act
          var response = Math.Round(SidesTrig.BaseToRise(bayse, angle), 4);
@@ -58,9 +58,9 @@ namespace UnitTests
       public void SlopeToBase_UnitTest()
       {
          //Arrange
-         var slope = 5.418;
-         var angle = 26.5651;
-         var expectedResponse = 4.846;
+         var slope = 5.418m;
+         var angle = 26.5651m;
+         var expectedResponse = 4.846m;
 
          //Act
          var response = Math.Round(SidesTrig.SlopeToBase(slope, angle), 4);
@@ -74,9 +74,9 @@ namespace UnitTests
       public void SlopeToRise_UnitTest()
       {
          //Arrange
-         var slope = 9.615;
-         var angle = 26.5651;
-         var expectedResponse = 4.3;
+         var slope = 9.615m;
+         var angle = 26.5651m;
+         var expectedResponse = 4.3m;
 
          //Act
          var response = Math.Round(SidesTrig.SlopeToRise(slope, angle), 4);
@@ -90,9 +90,9 @@ namespace UnitTests
       public void RisetoSlope_UnitTest()
       {
          //Arrange
-         var rise = 1.5;
-         var angle = 26.5651;
-         var expectedResponse = 3.3541;
+         var rise = 1.5m;
+         var angle = 26.5651m;
+         var expectedResponse = 3.3541m;
 
          //Act
          var response = Math.Round(SidesTrig.RiseToSlope(rise, angle), 4);
@@ -106,9 +106,9 @@ namespace UnitTests
       public void RiseToBase_UnitTest()
       {
          //Arrange
-         var rise = 1.21;
-         var angle = 26.5651;
-         var expectedResponse = 2.42;
+         var rise = 1.21m;
+         var angle = 26.5651m;
+         var expectedResponse = 2.42m;
 
          //Act
          var response = Math.Round(SidesTrig.RiseToBase(rise, angle), 4);

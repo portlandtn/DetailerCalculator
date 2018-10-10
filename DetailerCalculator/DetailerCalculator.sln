@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetailerCalculator", "DetailerCalculator\DetailerCalculator.csproj", "{09AA89A5-3A25-4729-AA7C-A93172CCF76D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Math_UnitTests\UnitTests.csproj", "{5D51C033-BF9C-4655-BEEB-940572B4BE6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DetailerCalculator_UnitTests", "Math_UnitTests\DetailerCalculator_UnitTests.csproj", "{5D51C033-BF9C-4655-BEEB-940572B4BE6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

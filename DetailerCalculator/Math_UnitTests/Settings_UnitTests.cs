@@ -12,14 +12,14 @@ namespace UnitTests
      public void DetermineSingleNumberForMath_NonEmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { 1, 18, 42, 21 };
+         var list = new List<decimal> { 1m, 18m, 42m, 21m };
          int outputWindowListCount = list.Count;
-         double expectedResponse1 = 21;
-         double expectedResponse2 = 42;
+         var expectedResponse1 = 21m;
+         var expectedResponse2 = 42m;
 
          //Act
-         double response1 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
-         double response2 = Settings.DetermineFirstNumberForMath(2, outputWindowListCount, list);
+         var response1 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
+         var response2 = Settings.DetermineFirstNumberForMath(2, outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);
@@ -31,14 +31,14 @@ namespace UnitTests
       public void DetermineSingleNumberForMath_EmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { };
+         var list = new List<decimal> { };
          int outputWindowListCount = list.Count;
-         double expectedResponse1 = 0;
-         double expectedResponse2 = 0;
+         var expectedResponse1 = 0;
+         var expectedResponse2 = 0;
 
          //Act
-         double response1 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
-         double response2 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
+         var response1 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
+         var response2 = Settings.DetermineFirstNumberForMath(1, outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);
@@ -49,12 +49,12 @@ namespace UnitTests
       public void DetermineSecondNumberForMath_NonEmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { 1, 18, 42, 21 };
+         var list = new List<decimal> { 1m, 18m, 42m, 21m };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 21;
+         var expectedResponse = 21m;
 
          //Act
-         double response = Settings.DetermineSecondNumberForMath(outputWindowListCount, list);
+         var response = Settings.DetermineSecondNumberForMath(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -65,12 +65,12 @@ namespace UnitTests
       public void DetermineSecondNumberForMath_EmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { };
+         var list = new List<decimal> { };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 0;
+         var expectedResponse = 0;
 
          //Act
-         double response = Settings.DetermineSecondNumberForMath(outputWindowListCount, list);
+         var response = Settings.DetermineSecondNumberForMath(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -80,12 +80,12 @@ namespace UnitTests
       public void FoootToDecimalButtonClick_EmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { };
+         var list = new List<decimal> { };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 0;
+         var expectedResponse = 0;
 
          //Act
-         double response = Settings.FootToDecimalButtonClick(outputWindowListCount, list);
+         var response = Settings.FootToDecimalButtonClick(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -95,12 +95,12 @@ namespace UnitTests
       public void FootToDecimalButtonClick_NonEmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { 1.0204, 2.0608, 3.1112};
+         var list = new List<decimal> { 1.0204m, 2.0608m, 3.1112m};
          int outputWindowListCount = list.Count;
-         double expectedResponse = 3.9792;
+         var expectedResponse = 3.9792m;
 
          //Act
-         double response = Settings.FootToDecimalButtonClick(outputWindowListCount, list);
+         var response = Settings.FootToDecimalButtonClick(outputWindowListCount, list);
          response = Math.Round(response, 4);
 
          //Assert
@@ -111,12 +111,12 @@ namespace UnitTests
       public void DecimalToFoot_EmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { };
+         var list = new List<decimal> { };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 0;
+         var expectedResponse = 0;
 
          //Act
-         double response = Settings.DecimalToFootButtonClick(outputWindowListCount, list);
+         var response = Settings.DecimalToFootButtonClick(outputWindowListCount, list);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -126,12 +126,12 @@ namespace UnitTests
       public void DecimalToFoot_NonEmptyList_UnitTest()
       {
          //Arrange
-         List<double> list = new List<double> { 13.2154, 16.5, 21.0208 };
+         var list = new List<decimal> { 13.2154m, 16.5m, 21.0208m };
          int outputWindowListCount = list.Count;
-         double expectedResponse = 21.0004;
+         var expectedResponse = 21.0004m;
 
          //Act
-         double response = Settings.DecimalToFootButtonClick(outputWindowListCount, list);
+         var response = Settings.DecimalToFootButtonClick(outputWindowListCount, list);
          response = Math.Round(response, 4);
 
          //Assert
@@ -142,14 +142,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_b2s__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "b2s";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 1.0518;
+         var expectedResponse = 1.0518m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -160,14 +160,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_b2r__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "b2r";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 0.2551;
+         var expectedResponse = 0.2551m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -178,14 +178,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_s2b__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "s2b";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 0.9899;
+         var expectedResponse = 0.9899m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -196,14 +196,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_s2r__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "s2r";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 0.2475;
+         var expectedResponse = 0.2475m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -214,14 +214,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_r2b__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "r2b";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 4.0816;
+         var expectedResponse = 4.0816m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -232,14 +232,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_r2s__Standard_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "r2s";
          bool isDetailingMathMethod = false;
-         var expectedResponse = 4.2072;
+         var expectedResponse = 4.2072m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -251,14 +251,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_b2s__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "b2s";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 1.0211;
+         var expectedResponse = 1.0211m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -269,14 +269,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_b2r__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "b2r";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 0.0309;
+         var expectedResponse = 0.0309m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -287,14 +287,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_s2b__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "s2b";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 1.0113;
+         var expectedResponse = 1.0113m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -305,14 +305,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_s2r__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "s2r";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 0.0307;
+         var expectedResponse = 0.0307m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -323,14 +323,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_r2b__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "r2b";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 4.09;
+         var expectedResponse = 4.09m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
@@ -341,14 +341,14 @@ namespace UnitTests
       public void TrigFunctionButtonClick_r2s__Detailing_UnitTest()
       {
          //Arrange
-         double num = 1.0204;
-         double angle = 14.036243;
+         var num = 1.0204m;
+         var angle = 14.036243m;
          string function = "r2s";
          bool isDetailingMathMethod = true;
-         var expectedResponse = 4.1012;
+         var expectedResponse = 4.1012m;
 
          //Act
-         double response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
+         var response = Settings.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
 
          //Assert
