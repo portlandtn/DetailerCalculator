@@ -14,7 +14,7 @@ namespace DetailerCalculator
 
       public bool IsDetailingMathMethod { get; set; }
 
-      public int FixedDecimals { get; set; }
+      public string FixedDecimals { get; set; }
 
       public static decimal DetermineFirstNumberForMath(int totalNumbersRequired, int outputWindowListCount, List<decimal> outputWindowList)
       {

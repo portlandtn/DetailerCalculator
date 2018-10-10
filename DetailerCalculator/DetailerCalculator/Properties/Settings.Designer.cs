@@ -97,9 +97,9 @@ namespace DetailerCalculator.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal FixedDecimal {
+        public string FixedDecimal {
             get {
-                return ((decimal)(this["FixedDecimal"]));
+                return ((string)(this["FixedDecimal"]));
             }
             set {
                 this["FixedDecimal"] = value;

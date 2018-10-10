@@ -37,7 +37,6 @@ namespace DetailerCalculator
          _ActiveAngle.ActiveAngle = 1;
          _MathMethod.IsDetailingMathMethod = true;
          ActiveControl = UserEntryBox;
-         _FixedDecimal.FixedDecimals = 4;
       }
 
       private void BaseToRiseButton_Click(object sender, EventArgs e)
@@ -110,8 +109,11 @@ namespace DetailerCalculator
       {
          Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
          MatchCollection matches = regex.Matches(UserEntryBox.Text);
-
-         if (matches.Count > 0)
+         if (UserEntryBox.Text.Contains("F"))
+         {
+            return;
+         }
+         else if (matches.Count > 0)
          {
             WarningNumericEntryOnlyLabel.Visible = true;
             UserEntryBox.Text = "";
@@ -181,12 +183,21 @@ namespace DetailerCalculator
          {
             try
             {
-               decimal outputWindowDouble = (UserEntryBox.Text == "") ? _OutputWindowList[_OutputWindowList.Count - 1] : Convert.ToDecimal(UserEntryBox.Text);
-               OutputWindowStringBuilder(outputWindowDouble, 0);
+               decimal outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
+               if (outputWindowDecimal == 0)
+               {
+                  outputWindowDecimal = _OutputWindowList[_OutputWindowList.Count - 1];
+               }
+               else
+               {
+                  var fixedDecimal = _FixedDecimal.FixedDecimals;
+                  UserEntryBox.Text = Convert.ToDecimal(UserEntryBox.Text).ToString(fixedDecimal, CultureInfo.InvariantCulture);
+                  outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
+               }
+               OutputWindowStringBuilder(outputWindowDecimal, 0);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-               MessageBox.Show(ex.Message);
                return;
             }
             finally
@@ -281,7 +292,7 @@ namespace DetailerCalculator
          Properties.Settings.Default["Angle3"] = _Angle3.Angle;
          Properties.Settings.Default["Angle4"] = _Angle4.Angle;
          Properties.Settings.Default["CurrentAngle"] = _Angle1.Angle;
-         Properties.Settings.Default["FixedDecimal"] = Convert.ToDecimal(_FixedDecimal.FixedDecimals);
+         Properties.Settings.Default["FixedDecimal"] = _FixedDecimal.FixedDecimals;
          Properties.Settings.Default.Save();
       }
 
@@ -294,13 +305,13 @@ namespace DetailerCalculator
          _Angle3.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle3"]);
          _Angle4.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle4"]);
          _CurrentAngle.Angle = Convert.ToDecimal(Properties.Settings.Default["CurrentAngle"]);
-         _FixedDecimal.FixedDecimals = Convert.ToInt32(Properties.Settings.Default["FixedDecimal"]);
+         _FixedDecimal.FixedDecimals = Convert.ToString(Properties.Settings.Default["FixedDecimal"]);
 
          Angle1Label.Text = Convert.ToString(Math.Round(_Angle1.Angle, 4));
          Angle2Label.Text = Convert.ToString(Math.Round(_Angle2.Angle, 4));
          Angle3Label.Text = Convert.ToString(Math.Round(_Angle3.Angle, 4));
          Angle4Label.Text = Convert.ToString(Math.Round(_Angle4.Angle, 4));
-         RoundingNumberPicker.Value = _FixedDecimal.FixedDecimals;
+         RoundingNumberPicker.Value = Convert.ToDecimal(_FixedDecimal.FixedDecimals.Substring(1));
       }
 
       public void SetAngleLabelsText(int activeAngle)
@@ -370,32 +381,31 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder()
       {
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+         OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-            switch (numbersToReplace)
-            {
-               case 1:
-                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-                  _OutputWindowList.Add(numberToAdd);
-                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-                  break;
-               case 2:
-                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-                  _OutputWindowList.Add(numberToAdd);
-                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-                  break;
-            case 99:
+         switch (numbersToReplace)
+         {
+            case 1:
                _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+               _OutputWindowList.Add(Convert.ToDecimal(outputText));
                OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
                break;
-               default:
-                  _OutputWindowList.Add(numberToAdd);
-                  OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-                  break;
+            case 2:
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+               _OutputWindowList.Add(Convert.ToDecimal(outputText));
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               break;
+            default:
+               outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+               _OutputWindowList.Add(Convert.ToDecimal(outputText));
+               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+               break;
          }
       }
 
@@ -556,18 +566,18 @@ namespace DetailerCalculator
 
       private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
       {
-         MessageBox.Show("Oy! It's just for looks. Pretty. It doesn't work yet!");
-         //_FixedDecimal.FixedDecimals = Convert.ToInt32(RoundingNumberPicker.Value);
-         //SetOutputListRounding(_OutputWindowList);
+         //MessageBox.Show("Oy! It's just for looks. It's pretty. But it doesn't work yet!");
+         _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
+         SetOutputListRounding(_OutputWindowList);
       }
 
       private void SetOutputListRounding(List<decimal> outputWindowList)
       {
-         foreach (var item in outputWindowList)
-         {
-            item.ToString("F2", CultureInfo.InvariantCulture);
-            OutputWindowStringBuilder(item, 0);
-         }
+         //foreach (var item in outputWindowList)
+         //{
+         //   item.ToString("F2", CultureInfo.InvariantCulture);
+         //   OutputWindowStringBuilder(item, 0);
+         //}
       }
 
       private void DropLastNumber()
