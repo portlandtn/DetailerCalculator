@@ -11,9 +11,9 @@ namespace UnitTests
       public void BaseRiseToRadian_UnitTest()
       {
          //Arrange
-         var bayse = 12;
-         var rise = 1;
-         var expectedRadian = 0.0831;
+         var bayse = 12m;
+         var rise = 1m;
+         var expectedRadian = 0.0831m;
 
          //Act
          var radian = Math.Round(AnglesTrig.BaseRiseToRadian(bayse, rise),4);

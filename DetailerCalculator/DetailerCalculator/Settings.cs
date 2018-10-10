@@ -8,13 +8,15 @@ namespace DetailerCalculator
 {
    public class Settings
    {
-      public double Angle { get; set; }
+      public decimal Angle { get; set; }
 
       public int ActiveAngle { get; set; }
 
       public bool IsDetailingMathMethod { get; set; }
 
-      public static double DetermineFirstNumberForMath(int totalNumbersRequired, int outputWindowListCount, List<double> outputWindowList)
+      public string FixedDecimals { get; set; }
+
+      public static decimal DetermineFirstNumberForMath(int totalNumbersRequired, int outputWindowListCount, List<decimal> outputWindowList)
       {
          if (totalNumbersRequired == 2)
          {
@@ -26,22 +28,22 @@ namespace DetailerCalculator
          }
       }
 
-      public static double DetermineSecondNumberForMath(int outputWindowListCount, List<double> outputWindowList)
+      public static decimal DetermineSecondNumberForMath(int outputWindowListCount, List<decimal> outputWindowList)
       {
          return (outputWindowList.Count <= 1) ? 0 : outputWindowList[outputWindowListCount - 1];
       }
 
-      public static double FootToDecimalButtonClick(int outputWindowListCount, List<double> outputWindowList)
+      public static decimal FootToDecimalButtonClick(int outputWindowListCount, List<decimal> outputWindowList)
       {
          return (outputWindowListCount == 0) ? 0 : Conversions.FootToDecimal(outputWindowList[outputWindowListCount - 1]);
       }
 
-      public static double DecimalToFootButtonClick(int outputWindowListCount, List<double> outputWindowList)
+      public static decimal DecimalToFootButtonClick(int outputWindowListCount, List<decimal> outputWindowList)
       {
          return (outputWindowListCount == 0) ? 0 : Conversions.DecimalToFoot(outputWindowList[outputWindowListCount - 1]);
       }
 
-      public static double TrigFunctionButtonClick(double num, double angle, string function, bool isDetailingMathMethod)
+      public static decimal TrigFunctionButtonClick(decimal num, decimal angle, string function, bool isDetailingMathMethod)
       {
          num = (isDetailingMathMethod == true) ? Conversions.FootToDecimal(num) : num;
 

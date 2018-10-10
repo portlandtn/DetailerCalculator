@@ -8,19 +8,18 @@ namespace DetailerCalculator
 {
    public class Conversions
    {
-      public static double FootToDecimal(double userEntry)
+      public static decimal FootToDecimal(decimal userEntry)
       {
          //determine feet
-         double feet = Math.Truncate(userEntry);
+         decimal feet = Math.Truncate(userEntry);
 
          //determine inches(feet)
-         double inches = Math.Round(userEntry - feet, 4);
-         double inch_feet = Math.Truncate(inches * 100);
-         inches = inch_feet / 12; //0.5
+         decimal inches = userEntry - feet;
+         decimal inch_feet = Math.Truncate(inches * 100);
+         inches = inch_feet / 12;
 
          //determine sixteenths
-         double sixteenths = userEntry - feet - (inch_feet / 100);
-         sixteenths = Math.Round(sixteenths, 4); 
+         decimal sixteenths = userEntry - feet - (inch_feet / 100);
          sixteenths = sixteenths * 10000 / 16 / 12;
 
          //Add them up
@@ -28,40 +27,50 @@ namespace DetailerCalculator
 
       }
 
-      public static double DecimalToFoot(double userEntry)
+      public static decimal DecimalToFoot(decimal userEntry)
       {
+
          //determine feet
-         double feet = Math.Truncate(userEntry);
+         decimal feet = Math.Truncate(userEntry);
 
          //determine inches
-         double inches = userEntry - feet;
+         decimal inches = userEntry - feet;
          inches = inches * 12;
          inches = Math.Truncate(inches);
          inches = inches / 100;
 
          //determine sixteenths
-         double sixteenths = userEntry - feet;
+         decimal sixteenths = userEntry - feet;
          sixteenths = sixteenths * 12;
-         double tempInches = Math.Truncate(sixteenths);
+         decimal tempInches = Math.Truncate(sixteenths);
          sixteenths = sixteenths - tempInches;
          sixteenths = sixteenths * 16;
          sixteenths = sixteenths / 10000;
-
+         if(sixteenths >= 0.00155m)
+         {
+            inches = inches + 0.01m;
+            sixteenths = 0;
+         }
+         if (inches >= 0.1155m)
+         {
+            feet++;
+            inches = 0;
+         }
          //add them up
          return feet + inches + sixteenths;
       }
 
-      public static double AngleToRadians(double angle)
+      public static decimal AngleToRadians(decimal angle)
       {
-         return angle * Math.PI/180;
+         return angle * Convert.ToDecimal(Math.PI)/180;
       }
 
-      public static double RadiansToAngle(double radians)
+      public static decimal RadiansToAngle(decimal radians)
       {
-         return radians * 180 / Math.PI;
+         return radians * 180 / Convert.ToDecimal(Math.PI);
       }
 
-      public static double ChangeToNegative_Positive(double num)
+      public static decimal ChangeToNegative_Positive(decimal num)
       {
          try
          {

@@ -8,12 +8,12 @@ namespace DetailerCalculator
 {
    public class MathFunctions
    {
-      public static double AddNumbers(double num1, double num2, bool isDetailingMethod)
+      public static decimal AddNumbers(decimal num1, decimal num2, bool isDetailingMethod)
       {
          if (isDetailingMethod == true)
          {
-            num1 = Conversions.FootToDecimal(Convert.ToDouble(num1));
-            num2 = Conversions.FootToDecimal(Convert.ToDouble(num2));
+            num1 = Conversions.FootToDecimal(num1);
+            num2 = Conversions.FootToDecimal(num2);
             var response = num1 + num2;
             return Math.Round((Conversions.DecimalToFoot(response)), 4);
          }
@@ -23,12 +23,12 @@ namespace DetailerCalculator
          }
       }
 
-      public static double SubtractNumbers(double num1, double num2, bool isDetailingMethod)
+      public static decimal SubtractNumbers(decimal num1, decimal num2, bool isDetailingMethod)
       {
          if (isDetailingMethod == true)
          {
-            num1 = Conversions.FootToDecimal(Convert.ToDouble(num1));
-            num2 = Conversions.FootToDecimal(Convert.ToDouble(num2));
+            num1 = Conversions.FootToDecimal(num1);
+            num2 = Conversions.FootToDecimal(num2);
             var response = num1 - num2;
             return Math.Round((Conversions.DecimalToFoot(response)), 4);
          }
@@ -38,12 +38,12 @@ namespace DetailerCalculator
          }
       }
 
-      public static double MultiplyNumbers(double num1, double num2, bool isDetailingMethod)
+      public static decimal MultiplyNumbers(decimal num1, decimal num2, bool isDetailingMethod)
       {
          if (isDetailingMethod == true)
          {
-            num1 = Conversions.FootToDecimal(Convert.ToDouble(num1));
-            num2 = Conversions.FootToDecimal(Convert.ToDouble(num2));
+            num1 = Conversions.FootToDecimal(num1);
+            num2 = Conversions.FootToDecimal(num2);
             var response = num1 * num2;
             return Math.Round((Conversions.DecimalToFoot(response)), 4);
          }
@@ -53,12 +53,12 @@ namespace DetailerCalculator
          }
       }
 
-      public static double DivideNumbers(double num1, double num2, bool isDetailingMethod)
+      public static decimal DivideNumbers(decimal num1, decimal num2, bool isDetailingMethod)
       {
          if (isDetailingMethod == true)
          {
-            num1 = Conversions.FootToDecimal(Convert.ToDouble(num1));
-            num2 = Conversions.FootToDecimal(Convert.ToDouble(num2));
+            num1 = Conversions.FootToDecimal(num1);
+            num2 = Conversions.FootToDecimal(num2);
             var response = num1 / num2;
             return Math.Round((Conversions.DecimalToFoot(response)), 4);
          }
@@ -68,7 +68,7 @@ namespace DetailerCalculator
          }
       }
 
-      public static double DoMath(string function, double num1, double num2, bool isDetailingMethod)
+      public static decimal DoMath(string function, decimal num1, decimal num2, bool isDetailingMethod)
       {
          switch (function)
          {
