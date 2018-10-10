@@ -416,7 +416,8 @@ namespace DetailerCalculator
 
          if (function == "d2f" || function == "f2d")
          {
-            var response = (function == "f2d") ? Conversions.FootToDecimal(Convert.ToDecimal(num2)) : Conversions.DecimalToFoot(Convert.ToDecimal(num2));
+            num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
+            var response = (function == "f2d") ? Conversions.FootToDecimal(Convert.ToDecimal(num1)) : Conversions.DecimalToFoot(Convert.ToDecimal(num1));
             OutputWindowStringBuilder(Math.Round(response, 4), 1);
          }
          else
