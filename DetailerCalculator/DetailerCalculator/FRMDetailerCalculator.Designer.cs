@@ -78,11 +78,14 @@
          this.RiseTextBox = new System.Windows.Forms.TextBox();
          this.RiseLabel = new System.Windows.Forms.Label();
          this.NewAngleButton = new System.Windows.Forms.Button();
+         this.RoundingNumberPicker = new System.Windows.Forms.NumericUpDown();
+         this.label1 = new System.Windows.Forms.Label();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
          this.SideToSidePanel.SuspendLayout();
          this.SidesToAnglePanel.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RoundingNumberPicker)).BeginInit();
          this.SuspendLayout();
          // 
          // DetailerCalculatorLabel
@@ -402,7 +405,7 @@
          this.OutputWindow.TextAlign = System.Drawing.ContentAlignment.BottomRight;
          this.OutputWindow.UseVisualStyleBackColor = true;
          this.OutputWindow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
-         this.OutputWindow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OuputWindowTextCopy);
+         this.OutputWindow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OutputWindowTextCopy);
          this.OutputWindow.MouseEnter += new System.EventHandler(this.OutputWindow_MouseEnter);
          this.OutputWindow.MouseHover += new System.EventHandler(this.OutputWindowClickToCopy);
          // 
@@ -664,11 +667,37 @@
          this.NewAngleButton.Visible = false;
          this.NewAngleButton.Click += new System.EventHandler(this.NewAngleButton_Click);
          // 
+         // RoundingNumberPicker
+         // 
+         this.RoundingNumberPicker.Location = new System.Drawing.Point(317, 113);
+         this.RoundingNumberPicker.Name = "RoundingNumberPicker";
+         this.RoundingNumberPicker.Size = new System.Drawing.Size(33, 20);
+         this.RoundingNumberPicker.TabIndex = 23;
+         this.RoundingNumberPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         this.RoundingNumberPicker.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+         this.RoundingNumberPicker.ValueChanged += new System.EventHandler(this.RoundingNumberPicker_ValueChanged);
+         // 
+         // label1
+         // 
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(256, 115);
+         this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(56, 13);
+         this.label1.TabIndex = 24;
+         this.label1.Text = "Rounding:";
+         // 
          // FRMDetailerCalculator
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(624, 370);
+         this.Controls.Add(this.label1);
+         this.Controls.Add(this.RoundingNumberPicker);
          this.Controls.Add(this.NewAngleButton);
          this.Controls.Add(this.RiseLabel);
          this.Controls.Add(this.RiseTextBox);
@@ -703,6 +732,7 @@
          this.MathButtonsPanel.ResumeLayout(false);
          this.SideToSidePanel.ResumeLayout(false);
          this.SidesToAnglePanel.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.RoundingNumberPicker)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -759,6 +789,8 @@
       private System.Windows.Forms.TextBox RiseTextBox;
       private System.Windows.Forms.Label RiseLabel;
       private System.Windows.Forms.Button NewAngleButton;
+      private System.Windows.Forms.NumericUpDown RoundingNumberPicker;
+      private System.Windows.Forms.Label label1;
    }
 }
 
