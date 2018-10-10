@@ -181,10 +181,10 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
+            decimal outputWindowDecimal;
             try
             {
-               decimal outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
-               if (outputWindowDecimal == 0)
+               if (UserEntryBox.Text == "")
                {
                   outputWindowDecimal = _OutputWindowList[_OutputWindowList.Count - 1];
                }
