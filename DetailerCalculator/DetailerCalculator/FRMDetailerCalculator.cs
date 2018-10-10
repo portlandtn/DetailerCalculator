@@ -82,22 +82,22 @@ namespace DetailerCalculator
 
       public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
       {
-         SetAngles(1);
+         SetAngles(1, _Angle1.Angle);
       }
 
       private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         SetAngles(2);
+         SetAngles(2, _Angle2.Angle);
       }
 
       private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         SetAngles(3);
+         SetAngles(3, _Angle3.Angle);
       }
 
       private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
       {
-         SetAngles(4);
+         SetAngles(4, _Angle4.Angle);
       }
 
       private void OverwriteAngleButton_Click(object sender, EventArgs e)
@@ -113,7 +113,7 @@ namespace DetailerCalculator
 
          if (matches.Count > 0)
          {
-            WarningNumbericEntryOnlyLabel.Visible = true;
+            WarningNumericEntryOnlyLabel.Visible = true;
             UserEntryBox.Text = "";
          }
       }
@@ -347,7 +347,7 @@ namespace DetailerCalculator
 
       private void UserEntryLostFocus(object sender, EventArgs e)
       {
-         WarningNumbericEntryOnlyLabel.Visible = false;
+         WarningNumericEntryOnlyLabel.Visible = false;
       }
 
       private void OutputWindowTextCopy(object sender, MouseEventArgs e)
@@ -356,8 +356,9 @@ namespace DetailerCalculator
          {
             Clipboard.SetText(OutputWindow.Text);
          }
-         catch (Exception)
+         catch (Exception ex)
          {
+            MessageBox.Show(ex.Message);
             return;
          }
       }
@@ -367,18 +368,9 @@ namespace DetailerCalculator
 
       }
 
-      private void SetBaseRiseToAngle(decimal bayse, decimal rise)
-      {
-         var radians = AnglesTrig.BaseRiseToRadian(bayse, rise);
-         var angle = Conversions.RadiansToAngle(radians);
-         OverWriteAngleTextBox.Text = Convert.ToString(angle);
-         OutputWindow.Text = Convert.ToString(angle);
-      }
-
       private void OutputWindowStringBuilder()
       {
                OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
-
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
@@ -432,29 +424,10 @@ namespace DetailerCalculator
          OutputWindowStringBuilder(response, 1);
       }
 
-      private void SetAngles(int angleNumber)
+      private void SetAngles(int angleNumber, decimal actualAngle)
       {
-         switch (angleNumber)
-         {
-            case 1:
-               _ActiveAngle.ActiveAngle = 1;
-               _CurrentAngle.Angle = _Angle1.Angle;
-               break;
-            case 2:
-               _ActiveAngle.ActiveAngle = 2;
-               _CurrentAngle.Angle = _Angle2.Angle;
-               break;
-            case 3:
-               _ActiveAngle.ActiveAngle = 3;
-               _CurrentAngle.Angle = _Angle3.Angle;
-               break;
-            case 4:
-               _ActiveAngle.ActiveAngle = 4;
-               _CurrentAngle.Angle = _Angle4.Angle;
-               break;
-            default:
-               break;
-         }
+         _ActiveAngle.ActiveAngle = angleNumber;
+         _CurrentAngle.Angle = actualAngle;
       }
 
       private void SwapButton_Click(object sender, EventArgs e)

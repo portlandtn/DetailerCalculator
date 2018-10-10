@@ -72,7 +72,7 @@
          this.SlopeTextBox = new System.Windows.Forms.TextBox();
          this.AngleLabel = new System.Windows.Forms.Label();
          this.On12Label = new System.Windows.Forms.Label();
-         this.WarningNumbericEntryOnlyLabel = new System.Windows.Forms.Label();
+         this.WarningNumericEntryOnlyLabel = new System.Windows.Forms.Label();
          this.BaseTextBox = new System.Windows.Forms.TextBox();
          this.BaseLabel = new System.Windows.Forms.Label();
          this.RiseTextBox = new System.Windows.Forms.TextBox();
@@ -602,15 +602,15 @@
          // 
          // WarningNumbericEntryOnlyLabel
          // 
-         this.WarningNumbericEntryOnlyLabel.AutoSize = true;
-         this.WarningNumbericEntryOnlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.WarningNumbericEntryOnlyLabel.Location = new System.Drawing.Point(12, 196);
-         this.WarningNumbericEntryOnlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-         this.WarningNumbericEntryOnlyLabel.Name = "WarningNumbericEntryOnlyLabel";
-         this.WarningNumbericEntryOnlyLabel.Size = new System.Drawing.Size(220, 13);
-         this.WarningNumbericEntryOnlyLabel.TabIndex = 17;
-         this.WarningNumbericEntryOnlyLabel.Text = "Numbers and operators allowed only!!";
-         this.WarningNumbericEntryOnlyLabel.Visible = false;
+         this.WarningNumericEntryOnlyLabel.AutoSize = true;
+         this.WarningNumericEntryOnlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.WarningNumericEntryOnlyLabel.Location = new System.Drawing.Point(12, 196);
+         this.WarningNumericEntryOnlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+         this.WarningNumericEntryOnlyLabel.Name = "WarningNumbericEntryOnlyLabel";
+         this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(220, 13);
+         this.WarningNumericEntryOnlyLabel.TabIndex = 17;
+         this.WarningNumericEntryOnlyLabel.Text = "Numbers and operators allowed only!!";
+         this.WarningNumericEntryOnlyLabel.Visible = false;
          // 
          // BaseTextBox
          // 
@@ -703,7 +703,7 @@
          this.Controls.Add(this.RiseTextBox);
          this.Controls.Add(this.BaseLabel);
          this.Controls.Add(this.BaseTextBox);
-         this.Controls.Add(this.WarningNumbericEntryOnlyLabel);
+         this.Controls.Add(this.WarningNumericEntryOnlyLabel);
          this.Controls.Add(this.On12Label);
          this.Controls.Add(this.AngleLabel);
          this.Controls.Add(this.SlopeTextBox);
@@ -782,7 +782,7 @@
       private System.Windows.Forms.TextBox SlopeTextBox;
       private System.Windows.Forms.Label AngleLabel;
       private System.Windows.Forms.Label On12Label;
-      private System.Windows.Forms.Label WarningNumbericEntryOnlyLabel;
+      private System.Windows.Forms.Label WarningNumericEntryOnlyLabel;
       private System.Windows.Forms.Button SwapButton;
       private System.Windows.Forms.TextBox BaseTextBox;
       private System.Windows.Forms.Label BaseLabel;
