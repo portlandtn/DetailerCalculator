@@ -407,7 +407,6 @@
          this.OutputWindow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
          this.OutputWindow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OutputWindowTextCopy);
          this.OutputWindow.MouseEnter += new System.EventHandler(this.OutputWindow_MouseEnter);
-         this.OutputWindow.MouseHover += new System.EventHandler(this.OutputWindowClickToCopy);
          // 
          // SideToSidePanel
          // 

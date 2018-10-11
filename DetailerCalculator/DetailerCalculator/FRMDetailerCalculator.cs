@@ -17,6 +17,7 @@ namespace DetailerCalculator
 {
    public partial class FRMDetailerCalculator : Form
    {
+      //Initialize settings for four angles, the current active angle, the method of math being used, how many decimal places are fixed.
       Settings _Angle1 = new Settings();
       Settings _Angle2 = new Settings();
       Settings _Angle3 = new Settings();
@@ -34,6 +35,8 @@ namespace DetailerCalculator
 
       private void FRMDetailerCalculator_Load(object sender, EventArgs e)
       {
+         //Restores angles from previous session (soon to be output window text).
+         //Defaults active angle back to the first angle, math method back to detailing.
          RestoreSettings();
          _ActiveAngle.ActiveAngle = 1;
          _MathMethod.IsDetailingMathMethod = true;
@@ -78,47 +81,6 @@ namespace DetailerCalculator
       private void DecimalToFootButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("d2f");
-      }
-
-      public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
-      {
-         SetAngles(1, _Angle1.Angle);
-      }
-
-      private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
-      {
-         SetAngles(2, _Angle2.Angle);
-      }
-
-      private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
-      {
-         SetAngles(3, _Angle3.Angle);
-      }
-
-      private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
-      {
-         SetAngles(4, _Angle4.Angle);
-      }
-
-      private void OverwriteAngleButton_Click(object sender, EventArgs e)
-      {
-
-         SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-      }
-
-      private void UserEntryBox_TextChanged(object sender, EventArgs e)
-      {
-         Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
-         MatchCollection matches = regex.Matches(UserEntryBox.Text);
-         if (UserEntryBox.Text.Contains("F"))
-         {
-            return;
-         }
-         else if (matches.Count > 0)
-         {
-            WarningNumericEntryOnlyLabel.Visible = true;
-            UserEntryBox.Text = "";
-         }
       }
 
       private void AddButton_Click(object sender, EventArgs e)
@@ -178,6 +140,12 @@ namespace DetailerCalculator
          NewAngleButton.Visible = false;
       }
 
+      private void OverwriteAngleButton_Click(object sender, EventArgs e)
+      {
+         //Sets the angle text, fixed to four decimal places.
+         SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
+      }
+
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
       {
          if (e.KeyCode == Keys.Enter)
@@ -210,8 +178,8 @@ namespace DetailerCalculator
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
          {
-            var num1 = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
-            var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+            var num1 = MathFunctions.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
+            var num2 = MathFunctions.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
             decimal response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
             OutputWindowStringBuilder(response, 2);
@@ -239,7 +207,7 @@ namespace DetailerCalculator
          {
             try
             {
-               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
                BaseTextBox.Text = "";
                RiseTextBox.Text = "";
             }
@@ -267,7 +235,7 @@ namespace DetailerCalculator
             }
             else
             {
-               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
                OverWriteAngleTextBox.Text = "";
                SlopeTextBox.Text = "";
                e.Handled = true;
@@ -277,8 +245,75 @@ namespace DetailerCalculator
          }
       }
 
+      private void RiseTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            try
+            {
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
+               BaseTextBox.Text = "";
+               RiseTextBox.Text = "";
+            }
+            catch (Exception)
+            {
+               return;
+            }
+            finally
+            {
+               UserEntryBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
+         }
+      }
+
+      private void UserEntryBox_TextChanged(object sender, EventArgs e)
+      {
+         //Checks to make sure the text entered is valid. If not, an error label appears telling the user to try again and clears the textbox.
+         Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
+         MatchCollection matches = regex.Matches(UserEntryBox.Text);
+         if (UserEntryBox.Text.Contains("F"))
+         {
+            return;
+         }
+         else if (matches.Count > 0)
+         {
+            WarningNumericEntryOnlyLabel.Visible = true;
+            UserEntryBox.Text = "";
+         }
+      }
+
+      public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
+      {
+         //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
+         SetAngles(1, _Angle1.Angle);
+      }
+
+      private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
+      {
+         //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
+
+         SetAngles(2, _Angle2.Angle);
+      }
+
+      private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
+      {
+         //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
+
+         SetAngles(3, _Angle3.Angle);
+      }
+
+      private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
+      {
+         //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
+
+         SetAngles(4, _Angle4.Angle);
+      }
+
       private void SlopeTextBox_TextChanged(object sender, EventArgs e)
       {
+         //Automatically calculates the roof slope, based on text entered in the slope textbox (based on 1'-0" base)
          if (SlopeTextBox.Text == "")
          {
             OverWriteAngleTextBox.Text = "";
@@ -310,6 +345,8 @@ namespace DetailerCalculator
 
       private void BaseTextBox_TextChanged(object sender, EventArgs e)
       {
+         //Calculates the angle based on the base and rise angle entered.
+         //This is only active when the BRtoA button is pressed.
          if (BaseTextBox.Text == "")
          {
             OverWriteAngleTextBox.Text = "";
@@ -334,6 +371,8 @@ namespace DetailerCalculator
 
       private void RiseTextBox_TextChanged(object sender, EventArgs e)
       {
+         //Calculates the angle based on the base and rise angle entered.
+         //This is only active when the BRtoA button is pressed.
          if (RiseTextBox.Text == "")
          {
             OverWriteAngleTextBox.Text = "";
@@ -358,18 +397,21 @@ namespace DetailerCalculator
 
       private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
       {
+         //Sets the fixed decimals in settings with the prefix "F"
          _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
          SetOutputListRounding();
       }
 
       private void OutputWindow_MouseEnter(object sender, EventArgs e)
       {
+         //Output window is actually a button. This keeps the color from changing when you hover over it.
          Button b = (Button)sender;
          b.FlatAppearance.MouseOverBackColor = Color.Transparent;
       }
 
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
+         //Saves all settings from the current session for retrieval later.
          Properties.Settings.Default["Angle1"] = _Angle1.Angle;
          Properties.Settings.Default["Angle2"] = _Angle2.Angle;
          Properties.Settings.Default["Angle3"] = _Angle3.Angle;
@@ -381,6 +423,7 @@ namespace DetailerCalculator
 
       public void RestoreSettings()
       {
+         //Restores settings from the previous session. (angles, fixed decimals). Output window text is still in progress.
          OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
 
          _Angle1.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle1"]);
@@ -397,46 +440,33 @@ namespace DetailerCalculator
          RoundingNumberPicker.Value = Convert.ToDecimal(_FixedDecimal.FixedDecimals.Substring(1));
       }
 
-      public void SetAngleLabelsText(int activeAngle)
+      private void SetAngleLabelsText(int activeAngle, decimal angleValue)
       {
+         //Sets angle label text to the overwrite textbox. Sets the angle in settings to the value as well.
          switch (activeAngle)
          {
             case 1:
-               _Angle1.Angle = Convert.ToDecimal(OverWriteAngleTextBox.Text);
-               var angle = Math.Round(_Angle1.Angle, 4);
-               Angle1Label.Text = Convert.ToString(angle);
-               _CurrentAngle.Angle = _Angle1.Angle;
-               SlopeTextBox.Text = "";
-               OverWriteAngleTextBox.Text = "";
+               _Angle1.Angle = angleValue;
+               Angle1Label.Text = Convert.ToString(Math.Round(_Angle1.Angle, 4));
                break;
             case 2:
-               _Angle2.Angle = Convert.ToDecimal(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle2.Angle, 4);
-               Angle2Label.Text = Convert.ToString(angle);
-               _CurrentAngle.Angle = _Angle2.Angle;
-               SlopeTextBox.Text = "";
-               OverWriteAngleTextBox.Text = "";
+               _Angle2.Angle = angleValue;
+               Angle2Label.Text = Convert.ToString(Math.Round(_Angle2.Angle, 4));
                break;
             case 3:
-               _Angle3.Angle = Convert.ToDecimal(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle3.Angle, 4);
-               Angle3Label.Text = Convert.ToString(angle);
-               _CurrentAngle.Angle = _Angle3.Angle;
-               SlopeTextBox.Text = "";
-               OverWriteAngleTextBox.Text = "";
+               _Angle3.Angle = angleValue;
+               Angle3Label.Text = Convert.ToString(Math.Round(_Angle3.Angle, 4));
                break;
             case 4:
-               _Angle4.Angle = Convert.ToDecimal(OverWriteAngleTextBox.Text);
-               angle = Math.Round(_Angle4.Angle, 4);
-               Angle4Label.Text = Convert.ToString(angle);
-               _CurrentAngle.Angle = _Angle4.Angle;
-               SlopeTextBox.Text = "";
-               OverWriteAngleTextBox.Text = "";
+               _Angle4.Angle = angleValue;
+               Angle4Label.Text = Convert.ToString(Math.Round(_Angle4.Angle, 4));
                break;
             default:
-               MessageBox.Show("Angle was not detected");
                break;
          }
+         _CurrentAngle.Angle = angleValue;
+         SlopeTextBox.Text = "";
+         OverWriteAngleTextBox.Text = "";
       }
 
       private void UserEntryLostFocus(object sender, EventArgs e)
@@ -457,29 +487,23 @@ namespace DetailerCalculator
          }
       }
 
-      private void OutputWindowClickToCopy(object sender, EventArgs e)
-      {
-
-      }
-
       private void OutputWindowStringBuilder()
       {
-         //Used for the Drop Button
+         //Used for the Drop Button only
          OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-         //var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-
+         //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
          while (numbersToReplace > 0)
          {
             _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
             numbersToReplace--;
          }
          _OutputWindowList.Add(numberToAdd);
-         //OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
 
+         //Creates a temporary list that stores the formatted data. This shows on the Output Window only and is recycled everytime the list is modified.
          var list = new List<decimal>();
          foreach (var item in _OutputWindowList)
          {
@@ -492,18 +516,21 @@ namespace DetailerCalculator
 
       private void FunctionButtonClick(string function)
       {
-         var num1 = Settings.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
-         var num2 = Settings.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         //Calculates which numbers to use based on the function being performed.
+         var num0 = MathFunctions.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         var num1 = MathFunctions.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
+         var num2 = MathFunctions.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
 
          if (function == "d2f" || function == "f2d")
          {
-            num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
+            //If it's a simple conversion, one number is replaced with the new number.
             var response = (function == "f2d") ? Conversions.FootToDecimal(Convert.ToDecimal(num1)) : Conversions.DecimalToFoot(Convert.ToDecimal(num1));
             OutputWindowStringBuilder(response, 1);
          }
          else
          {
-            decimal response = MathFunctions.DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
+            //If math is required, two numbers are replaced with the answer from both.
+            decimal response = MathFunctions.DoMath(function, num2, num0, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
             OutputWindowStringBuilder(response, 2);
          }
@@ -511,13 +538,15 @@ namespace DetailerCalculator
 
       private void FunctionButtonClick(string function, decimal angle)
       {
-         var num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
-         var response = Settings.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
+         //Overloaded function that determines angles.
+         var num1 = MathFunctions.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
+         var response = MathFunctions.TrigFunctionButtonClick(num1, angle, function, _MathMethod.IsDetailingMathMethod);
          OutputWindowStringBuilder(response, 1);
       }
 
       private void SetAngles(int angleNumber, decimal actualAngle)
       {
+         //Sets current and active angles for use in math based on radio button selection.
          _ActiveAngle.ActiveAngle = angleNumber;
          _CurrentAngle.Angle = actualAngle;
       }
@@ -529,6 +558,7 @@ namespace DetailerCalculator
 
       private void SwapBtn(decimal num1, decimal num2)
       {
+         //Takes the last two numbers in the Output Window and swaps their places.
          var numB = num1;
          var numA = num2;
          _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
@@ -543,34 +573,12 @@ namespace DetailerCalculator
          decimal angle = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
          angle = Conversions.RadiansToAngle(angle);
          OverWriteAngleTextBox.Text = Convert.ToString(angle);
-         SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-      }
-
-      private void RiseTextBox_KeyDown(object sender, KeyEventArgs e)
-      {
-         if (e.KeyCode == Keys.Enter)
-         {
-            try
-            {
-               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-               BaseTextBox.Text = "";
-               RiseTextBox.Text = "";
-            }
-            catch (Exception)
-            {
-               return;
-            }
-            finally
-            {
-               UserEntryBox.Text = "";
-               e.Handled = true;
-               e.SuppressKeyPress = true;
-            }
-         }
+         SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
       }
 
       private void SetOutputListRounding()
       {
+         //Creates a temporary list and iterates through the main list to come up with new numbers. This happens at every modification of the Output Window.
          var tempList = new List<decimal>();
 
          foreach (var item in _OutputWindowList)
@@ -583,6 +591,7 @@ namespace DetailerCalculator
 
       private void DropLastNumber()
       {
+         //Removes the last number in the Output Window. If the window is blank, the exception is ignored.
          try
          {
             _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
@@ -591,7 +600,7 @@ namespace DetailerCalculator
          catch (Exception)
          {
             return;
-         }         
+         }
       }
    }
 }

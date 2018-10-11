@@ -7,6 +7,9 @@ namespace UnitTests
    [TestClass]
    public class ConversionsTests
    {
+      /// <summary>
+      /// Checks foot to decimal conversions.
+      /// </summary>
       [TestMethod]
       public void FootToDecimal_UnitTest()
       {
@@ -33,6 +36,9 @@ namespace UnitTests
          Assert.AreEqual(expectedDecimal4, decimal4);
       }
 
+      /// <summary>
+      /// Checks decimal to foot conversions.
+      /// </summary>
       [TestMethod]
       public void DecimalToFoot_UnitTest()
       {
@@ -59,6 +65,9 @@ namespace UnitTests
          Assert.AreEqual(expectedFoot4, foot4);
       }
 
+      /// <summary>
+      /// Checks angle to radians conversions
+      /// </summary>
       [TestMethod]
       public void AngleToRadians_UnitTest()
       {
@@ -85,6 +94,9 @@ namespace UnitTests
          Assert.AreEqual(expectedRadians4, radians4);
       }
 
+      /// <summary>
+      /// Checks radians to angle conversions
+      /// </summary>
       [TestMethod]
       public void RadiansToAngle_UnitTest()
       {
@@ -111,6 +123,9 @@ namespace UnitTests
          Assert.AreEqual(expectedAngle4, angle4);
       }
 
+      /// <summary>
+      /// Checks to make sure the response is the negative number of the initial entry.
+      /// </summary>
       [TestMethod]
       public void ChangeToNegative_Positve_UnitTest()
       {
