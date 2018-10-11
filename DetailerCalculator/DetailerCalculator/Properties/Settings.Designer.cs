@@ -105,5 +105,16 @@ namespace DetailerCalculator.Properties {
                 this["FixedDecimal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection StringCollection {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["StringCollection"]));
+            }
+            set {
+                this["StringCollection"] = value;
+            }
+        }
     }
 }

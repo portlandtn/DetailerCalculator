@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace UnitTests
 {
    [TestClass]
-   public class Settings_UnitTests
+   public class SettingsTests
    {
      [TestMethod]
      public void DetermineSingleNumberForMath_NonEmptyList_UnitTest()

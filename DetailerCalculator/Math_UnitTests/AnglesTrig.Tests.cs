@@ -5,7 +5,7 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   public class AnglesTrig_UnitTests
+   public class AnglesTrigTests
    {
       [TestMethod]
       public void BaseRiseToRadian_UnitTest()

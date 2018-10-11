@@ -5,7 +5,7 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   public class SideSidesTrig_UnitTests
+   public class SideSidesTrigTests
    {
       [TestMethod]
       public void BaseRiseToSlope_UnitTest()

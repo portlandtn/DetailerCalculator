@@ -5,7 +5,7 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   public class Conversions_UnitTests
+   public class ConversionsTests
    {
       [TestMethod]
       public void FootToDecimal_UnitTest()

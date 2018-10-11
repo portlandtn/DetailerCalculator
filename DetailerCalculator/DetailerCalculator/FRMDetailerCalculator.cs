@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using System.Reflection;
 using System.Globalization;
+using System.Collections.Specialized;
 
 namespace DetailerCalculator
 {
@@ -232,6 +233,29 @@ namespace DetailerCalculator
          }
       }
 
+      private void BaseTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            try
+            {
+               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
+               BaseTextBox.Text = "";
+               RiseTextBox.Text = "";
+            }
+            catch (Exception)
+            {
+               return;
+            }
+            finally
+            {
+               UserEntryBox.Text = "";
+               e.Handled = true;
+               e.SuppressKeyPress = true;
+            }
+         }
+      }
+
       private void OverwiteAngleTextBox_KeyDown(object sender, KeyEventArgs e)
       {
          if (e.KeyCode == Keys.Enter)
@@ -282,6 +306,66 @@ namespace DetailerCalculator
       private void StandardMethodRadioButton_CheckedChanged(object sender, EventArgs e)
       {
          _MathMethod.IsDetailingMathMethod = StandardMethodRadioButton.Checked ? false : true;
+      }
+
+      private void BaseTextBox_TextChanged(object sender, EventArgs e)
+      {
+         if (BaseTextBox.Text == "")
+         {
+            OverWriteAngleTextBox.Text = "";
+            return;
+         }
+         if (RiseTextBox.Text != "")
+         {
+            try
+            {
+               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+               var angle = Conversions.RadiansToAngle(radians);
+               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+            }
+            catch (Exception)
+            {
+               BaseTextBox.Text = "";
+               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               return;
+            }
+         }
+      }
+
+      private void RiseTextBox_TextChanged(object sender, EventArgs e)
+      {
+         if (RiseTextBox.Text == "")
+         {
+            OverWriteAngleTextBox.Text = "";
+            return;
+         }
+         if (BaseTextBox.Text != "")
+         {
+            try
+            {
+               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+               var angle = Conversions.RadiansToAngle(radians);
+               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+            }
+            catch (Exception)
+            {
+               RiseTextBox.Text = "";
+               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               return;
+            }
+         }
+      }
+
+      private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
+      {
+         _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
+         SetOutputListRounding();
+      }
+
+      private void OutputWindow_MouseEnter(object sender, EventArgs e)
+      {
+         Button b = (Button)sender;
+         b.FlatAppearance.MouseOverBackColor = Color.Transparent;
       }
 
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
@@ -454,41 +538,12 @@ namespace DetailerCalculator
          OutputWindowStringBuilder(numA, 0);
       }
 
-      private void OutputWindow_MouseEnter(object sender, EventArgs e)
-      {
-         Button b = (Button)sender;
-         b.FlatAppearance.MouseOverBackColor = Color.Transparent;
-      }
-
       private void BaseRiseToAngle()
       {
          decimal angle = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
          angle = Conversions.RadiansToAngle(angle);
          OverWriteAngleTextBox.Text = Convert.ToString(angle);
          SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-      }
-
-      private void BaseTextBox_KeyDown(object sender, KeyEventArgs e)
-      {
-         if (e.KeyCode == Keys.Enter)
-         {
-            try
-            {
-               SetAngleLabelsText(_ActiveAngle.ActiveAngle);
-               BaseTextBox.Text = "";
-               RiseTextBox.Text = "";
-            }
-            catch (Exception)
-            {
-               return;
-            }
-            finally
-            {
-               UserEntryBox.Text = "";
-               e.Handled = true;
-               e.SuppressKeyPress = true;
-            }
-         }
       }
 
       private void RiseTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -512,60 +567,6 @@ namespace DetailerCalculator
                e.SuppressKeyPress = true;
             }
          }
-      }
-
-      private void BaseTextBox_TextChanged(object sender, EventArgs e)
-      {
-         if (BaseTextBox.Text == "")
-         {
-            OverWriteAngleTextBox.Text = "";
-            return;
-         }
-         if (RiseTextBox.Text != "")
-         {
-            try
-            {
-               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-               var angle = Conversions.RadiansToAngle(radians);
-               OverWriteAngleTextBox.Text = Convert.ToString(angle);
-            }
-            catch (Exception)
-            {
-               BaseTextBox.Text = "";
-               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-               return;
-            }
-         }
-      }
-
-      private void RiseTextBox_TextChanged(object sender, EventArgs e)
-      {
-         if (RiseTextBox.Text == "")
-         {
-            OverWriteAngleTextBox.Text = "";
-            return;
-         }
-         if (BaseTextBox.Text != "")
-         {
-            try
-            {
-               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-               var angle = Conversions.RadiansToAngle(radians);
-               OverWriteAngleTextBox.Text = Convert.ToString(angle);
-            }
-            catch (Exception)
-            {
-               RiseTextBox.Text = "";
-               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-               return;
-            }
-         }
-      }
-
-      private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
-      {
-         _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
-         SetOutputListRounding();
       }
 
       private void SetOutputListRounding()

@@ -5,7 +5,7 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   class DetailerCalculator_UnitTests
+   class DetailerCalculatorTests
    {
 
    }

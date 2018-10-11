@@ -5,7 +5,7 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   public class Math_Unit_Tests
+   public class MathTests
    {
       [TestMethod]
       public void Add_Standard_UnitTest()
