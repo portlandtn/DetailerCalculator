@@ -381,32 +381,27 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder()
       {
+         //Used for the Drop Button
          OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
+         var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
          switch (numbersToReplace)
          {
             case 1:
                _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-               _OutputWindowList.Add(Convert.ToDecimal(outputText));
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
                break;
             case 2:
                _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
                _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-               _OutputWindowList.Add(Convert.ToDecimal(outputText));
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
                break;
             default:
-               outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-               _OutputWindowList.Add(Convert.ToDecimal(outputText));
-               OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
                break;
          }
+         _OutputWindowList.Add(Convert.ToDecimal(outputText));
+         OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
       }
 
       private void FunctionButtonClick(string function)
@@ -590,8 +585,15 @@ namespace DetailerCalculator
 
       private void DropLastNumber()
       {
-         _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-         OutputWindowStringBuilder();
+         try
+         {
+            _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+            OutputWindowStringBuilder();
+         }
+         catch (Exception)
+         {
+            return;
+         }         
       }
    }
 }
