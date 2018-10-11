@@ -127,7 +127,7 @@ namespace DetailerCalculator
 
       private void PlusMinusButton_Click(object sender, EventArgs e)
       {
-         OutputWindowStringBuilder(Conversions.ChangeToNegative_Positive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
+         OutputWindowStringBuilder(Conversions.ChangeToNegativePositive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
       }
 
       private void NewAngleButton_Click(object sender, EventArgs e)

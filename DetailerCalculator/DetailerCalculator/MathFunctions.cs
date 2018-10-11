@@ -15,11 +15,11 @@ namespace DetailerCalculator
             num1 = Conversions.FootToDecimal(num1);
             num2 = Conversions.FootToDecimal(num2);
             var response = num1 + num2;
-            return Math.Round((Conversions.DecimalToFoot(response)), 4);
+            return Conversions.DecimalToFoot(response);
          }
          else
          {
-            return Math.Round(num1 + num2, 4);
+            return num1 + num2;
          }
       }
 
@@ -30,11 +30,11 @@ namespace DetailerCalculator
             num1 = Conversions.FootToDecimal(num1);
             num2 = Conversions.FootToDecimal(num2);
             var response = num1 - num2;
-            return Math.Round((Conversions.DecimalToFoot(response)), 4);
+            return Conversions.DecimalToFoot(response);
          }
          else
          {
-            return Math.Round(num1 - num2, 4);
+            return num1 - num2;
          }
       }
 
@@ -45,11 +45,11 @@ namespace DetailerCalculator
             num1 = Conversions.FootToDecimal(num1);
             num2 = Conversions.FootToDecimal(num2);
             var response = num1 * num2;
-            return Math.Round((Conversions.DecimalToFoot(response)), 4);
+            return Conversions.DecimalToFoot(response);
          }
          else
          {
-            return Math.Round(num1 * num2, 4);
+            return num1 * num2;
          }
       }
 
@@ -60,11 +60,11 @@ namespace DetailerCalculator
             num1 = Conversions.FootToDecimal(num1);
             num2 = Conversions.FootToDecimal(num2);
             var response = num1 / num2;
-            return Math.Round((Conversions.DecimalToFoot(response)), 4);
+            return Conversions.DecimalToFoot(response);
          }
          else
          {
-            return Math.Round(num1 / num2, 4);
+            return num1 / num2;
          }
       }
 

@@ -127,7 +127,7 @@ namespace UnitTests
       /// Checks to make sure the response is the negative number of the initial entry.
       /// </summary>
       [TestMethod]
-      public void ChangeToNegative_Positve_UnitTest()
+      public void ChangeToNegative_PositveUnitTest()
       {
          //Arrange
          var num1 = 21m;
@@ -136,8 +136,9 @@ namespace UnitTests
          var expectedResponse2 = 18m;
 
          //Act
-         var response1 = Conversions.ChangeToNegative_Positive(num1);
-         var response2 = Conversions.ChangeToNegative_Positive(num2);
+         var response = Conversions.ChangeToNegativePositive(num1);
+         var response1 = Conversions.ChangeToNegativePositive(num1);
+         var response2 = Conversions.ChangeToNegativePositive(num2);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);

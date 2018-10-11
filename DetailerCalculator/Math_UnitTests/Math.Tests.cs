@@ -305,6 +305,7 @@ namespace UnitTests
 
          //Act
          var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+         response = Math.Round(response, 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -322,6 +323,7 @@ namespace UnitTests
 
          //Act
          var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+         response = Math.Round(response, 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -372,6 +374,7 @@ namespace UnitTests
 
          //Act
          var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+         response = Math.Round(response, 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -389,6 +392,7 @@ namespace UnitTests
 
          //Act
          var response = MathFunctions.DoMath(function, num1, num2, detailingMath);
+         response = Math.Round(response, 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

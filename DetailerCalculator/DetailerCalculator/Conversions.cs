@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DetailerCalculator
 {
@@ -46,7 +47,7 @@ namespace DetailerCalculator
          sixteenths = sixteenths - tempInches;
          sixteenths = sixteenths * 16;
          sixteenths = sixteenths / 10000;
-         if(sixteenths >= 0.00155m)
+         if (sixteenths >= 0.00155m)
          {
             inches = inches + 0.01m;
             sixteenths = 0;
@@ -70,7 +71,7 @@ namespace DetailerCalculator
          return radians * 180 / Convert.ToDecimal(Math.PI);
       }
 
-      public static decimal ChangeToNegative_Positive(decimal num)
+      public static decimal ChangeToNegativePositive(decimal num)
       {
          try
          {

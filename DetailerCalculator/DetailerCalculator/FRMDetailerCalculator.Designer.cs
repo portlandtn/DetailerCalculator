@@ -599,13 +599,13 @@
          this.On12Label.TabIndex = 16;
          this.On12Label.Text = ":12";
          // 
-         // WarningNumbericEntryOnlyLabel
+         // WarningNumericEntryOnlyLabel
          // 
          this.WarningNumericEntryOnlyLabel.AutoSize = true;
          this.WarningNumericEntryOnlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.WarningNumericEntryOnlyLabel.Location = new System.Drawing.Point(12, 196);
          this.WarningNumericEntryOnlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-         this.WarningNumericEntryOnlyLabel.Name = "WarningNumbericEntryOnlyLabel";
+         this.WarningNumericEntryOnlyLabel.Name = "WarningNumericEntryOnlyLabel";
          this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(220, 13);
          this.WarningNumericEntryOnlyLabel.TabIndex = 17;
          this.WarningNumericEntryOnlyLabel.Text = "Numbers and operators allowed only!!";
