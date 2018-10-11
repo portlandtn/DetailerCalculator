@@ -5,8 +5,22 @@ using System;
 namespace UnitTests
 {
    [TestClass]
-   public class SideSidesTrigTests
+   public class TrigTests
    {
+      [TestMethod]
+      public void BaseRiseToRadian_UnitTest()
+      {
+         //Arrange
+         var bayse = 12m;
+         var rise = 1m;
+         var expectedRadian = 0.0831m;
+
+         //Act
+         var radian = Math.Round(TrigFunctions.BaseRiseToRadian(bayse, rise), 4);
+
+         //Assert
+         Assert.AreEqual(expectedRadian, radian);
+      }
       [TestMethod]
       public void BaseRiseToSlope_UnitTest()
       {
@@ -16,7 +30,7 @@ namespace UnitTests
          var expectedResponse = 5m;
 
          //Act
-         var response = Math.Round(SidesTrig.BaseRiseToSlope(bayse, userRise), 4);
+         var response = Math.Round(TrigFunctions.BaseRiseToSlope(bayse, userRise), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -31,7 +45,7 @@ namespace UnitTests
          var expectedResponse = 13.4164m;
 
          //Act
-         var response = Math.Round(SidesTrig.BaseToSlope(bayse, angle), 4);
+         var response = Math.Round(TrigFunctions.BaseToSlope(bayse, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -47,7 +61,7 @@ namespace UnitTests
          var expectedResponse = 2.105m;
 
          //Act
-         var response = Math.Round(SidesTrig.BaseToRise(bayse, angle), 4);
+         var response = Math.Round(TrigFunctions.BaseToRise(bayse, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -63,7 +77,7 @@ namespace UnitTests
          var expectedResponse = 4.846m;
 
          //Act
-         var response = Math.Round(SidesTrig.SlopeToBase(slope, angle), 4);
+         var response = Math.Round(TrigFunctions.SlopeToBase(slope, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -79,7 +93,7 @@ namespace UnitTests
          var expectedResponse = 4.3m;
 
          //Act
-         var response = Math.Round(SidesTrig.SlopeToRise(slope, angle), 4);
+         var response = Math.Round(TrigFunctions.SlopeToRise(slope, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -95,7 +109,7 @@ namespace UnitTests
          var expectedResponse = 3.3541m;
 
          //Act
-         var response = Math.Round(SidesTrig.RiseToSlope(rise, angle), 4);
+         var response = Math.Round(TrigFunctions.RiseToSlope(rise, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
@@ -111,7 +125,7 @@ namespace UnitTests
          var expectedResponse = 2.42m;
 
          //Act
-         var response = Math.Round(SidesTrig.RiseToBase(rise, angle), 4);
+         var response = Math.Round(TrigFunctions.RiseToBase(rise, angle), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

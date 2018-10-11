@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace DetailerCalculator
 {
-   public class SidesTrig
+   public class TrigFunctions
    {
+      public static decimal BaseRiseToRadian(decimal bayse, decimal rise)
+      {
+         return Convert.ToDecimal(Math.Atan(Convert.ToDouble(rise / bayse)));
+      }
+
       public static decimal BaseRiseToSlope(decimal bayse, decimal rise)
       {
          return Convert.ToDecimal(Math.Sqrt(Convert.ToDouble((bayse * bayse) + (rise * rise))));

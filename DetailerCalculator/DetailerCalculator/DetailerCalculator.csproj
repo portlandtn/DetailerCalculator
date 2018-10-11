@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Settings.cs" />
-    <Compile Include="AnglesTrig.cs" />
     <Compile Include="FRMDetailerCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +95,7 @@
     <Compile Include="MathFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SidesTrig.cs" />
+    <Compile Include="TrigFunctions.cs" />
     <Compile Include="Conversions.cs" />
     <EmbeddedResource Include="FRMDetailerCalculator.resx">
       <DependentUpon>FRMDetailerCalculator.cs</DependentUpon>

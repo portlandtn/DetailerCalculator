@@ -15,6 +15,9 @@ using System.Collections.Specialized;
 
 namespace DetailerCalculator
 {
+   /// <summary>
+   /// Main Form. Calculator that takes user input and does various math and trig operations.
+   /// </summary>
    public partial class FRMDetailerCalculator : Form
    {
       //Initialize settings for four angles, the current active angle, the method of math being used, how many decimal places are fixed.
@@ -28,6 +31,9 @@ namespace DetailerCalculator
       Settings _FixedDecimal = new Settings();
       List<decimal> _OutputWindowList = new List<decimal>();
 
+      /// <summary>
+      /// Initializes the main form.
+      /// </summary>
       public FRMDetailerCalculator()
       {
          InitializeComponent();
@@ -284,7 +290,7 @@ namespace DetailerCalculator
          }
       }
 
-      public void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
+      private void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
       {
          //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
          SetAngles(1, _Angle1.Angle);
@@ -321,7 +327,7 @@ namespace DetailerCalculator
          }
          try
          {
-            var radians = AnglesTrig.BaseRiseToRadian(12, Convert.ToDecimal(SlopeTextBox.Text));
+            var radians = TrigFunctions.BaseRiseToRadian(12, Convert.ToDecimal(SlopeTextBox.Text));
             var angle = Conversions.RadiansToAngle(radians);
             OverWriteAngleTextBox.Text = Convert.ToString(angle);
          }
@@ -356,7 +362,7 @@ namespace DetailerCalculator
          {
             try
             {
-               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+               var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
                var angle = Conversions.RadiansToAngle(radians);
                OverWriteAngleTextBox.Text = Convert.ToString(angle);
             }
@@ -382,7 +388,7 @@ namespace DetailerCalculator
          {
             try
             {
-               var radians = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+               var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
                var angle = Conversions.RadiansToAngle(radians);
                OverWriteAngleTextBox.Text = Convert.ToString(angle);
             }
@@ -421,7 +427,7 @@ namespace DetailerCalculator
          Properties.Settings.Default.Save();
       }
 
-      public void RestoreSettings()
+      private void RestoreSettings()
       {
          //Restores settings from the previous session. (angles, fixed decimals). Output window text is still in progress.
          OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
@@ -570,7 +576,7 @@ namespace DetailerCalculator
 
       private void BaseRiseToAngle()
       {
-         decimal angle = AnglesTrig.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+         decimal angle = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
          angle = Conversions.RadiansToAngle(angle);
          OverWriteAngleTextBox.Text = Convert.ToString(angle);
          SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));

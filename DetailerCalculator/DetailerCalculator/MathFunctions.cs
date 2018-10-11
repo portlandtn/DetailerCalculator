@@ -119,17 +119,17 @@ namespace DetailerCalculator
          switch (function)
          {
             case "b2s":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.BaseToSlope(num, angle)) : SidesTrig.BaseToSlope(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.BaseToSlope(num, angle)) : TrigFunctions.BaseToSlope(num, angle);
             case "b2r":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.BaseToRise(num, angle)) : SidesTrig.BaseToRise(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.BaseToRise(num, angle)) : TrigFunctions.BaseToRise(num, angle);
             case "s2b":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.SlopeToBase(num, angle)) : SidesTrig.SlopeToBase(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.SlopeToBase(num, angle)) : TrigFunctions.SlopeToBase(num, angle);
             case "s2r":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.SlopeToRise(num, angle)) : SidesTrig.SlopeToRise(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.SlopeToRise(num, angle)) : TrigFunctions.SlopeToRise(num, angle);
             case "r2b":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.RiseToBase(num, angle)) : SidesTrig.RiseToBase(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.RiseToBase(num, angle)) : TrigFunctions.RiseToBase(num, angle);
             case "r2s":
-               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(SidesTrig.RiseToSlope(num, angle)) : SidesTrig.RiseToSlope(num, angle);
+               return (isDetailingMathMethod == true) ? Conversions.DecimalToFoot(TrigFunctions.RiseToSlope(num, angle)) : TrigFunctions.RiseToSlope(num, angle);
             default:
                return 0;
          }
