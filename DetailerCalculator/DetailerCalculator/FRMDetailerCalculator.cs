@@ -584,7 +584,8 @@ namespace DetailerCalculator
 
       private void SetOutputListRounding()
       {
-         //Creates a temporary list and iterates through the main list to come up with new numbers. This happens at every modification of the Output Window.
+         //Creates a temporary list and iterates through the main list to come up with new numbers. 
+         //This happens at every modification of the Output Window.
          var tempList = new List<decimal>();
 
          foreach (var item in _OutputWindowList)

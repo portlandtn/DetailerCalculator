@@ -4,9 +4,15 @@ using System;
 
 namespace UnitTests
 {
+   /// <summary>
+   /// Tests designed to test all trig calculations.
+   /// </summary>
    [TestClass]
    public class TrigTests
    {
+      /// <summary>
+      /// Should return radians, based on a base and rise input.
+      /// </summary>
       [TestMethod]
       public void BaseRiseToRadian_UnitTest()
       {
@@ -21,6 +27,10 @@ namespace UnitTests
          //Assert
          Assert.AreEqual(expectedRadian, radian);
       }
+
+      /// <summary>
+      /// Should return the slope, based onthe base and rise input.
+      /// </summary>
       [TestMethod]
       public void BaseRiseToSlope_UnitTest()
       {
@@ -36,6 +46,9 @@ namespace UnitTests
          Assert.AreEqual(expectedResponse, response);
       }
 
+      /// <summary>
+      /// Should return the slope, based on the angle and base input.
+      /// </summary>
       [TestMethod]
       public void BaseToSlope_UnitTest()
       {
@@ -49,9 +62,11 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
 
+      /// <summary>
+      /// Should return rise, based on the angle and rise input.
+      /// </summary>
       [TestMethod]
       public void BaseToRise_UnitTest()
       {
@@ -65,9 +80,11 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
 
+      /// <summary>
+      /// Should return the base, based on the slope and angle input.
+      /// </summary>
       [TestMethod]
       public void SlopeToBase_UnitTest()
       {
@@ -81,9 +98,11 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
-
+      
+      /// <summary>
+      /// Should return the rise, based on the slope and angle input.
+      /// </summary>
       [TestMethod]
       public void SlopeToRise_UnitTest()
       {
@@ -97,9 +116,11 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
 
+      /// <summary>
+      /// Should return the slope, based on the rise and angle input.
+      /// </summary>
       [TestMethod]
       public void RisetoSlope_UnitTest()
       {
@@ -113,9 +134,11 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
 
+      /// <summary>
+      /// Should return the base, based on the angle and rise input.
+      /// </summary>
       [TestMethod]
       public void RiseToBase_UnitTest()
       {
@@ -129,7 +152,6 @@ namespace UnitTests
 
          //Assert
          Assert.AreEqual(expectedResponse, response);
-
       }
    }
 }
