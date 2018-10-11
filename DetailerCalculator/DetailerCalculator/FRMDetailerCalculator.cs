@@ -430,7 +430,6 @@ namespace DetailerCalculator
       private void RestoreSettings()
       {
          //Restores settings from the previous session. (angles, fixed decimals). Output window text is still in progress.
-         OutputWindow.Text = Convert.ToString(Properties.Settings.Default["OutputWindow"]);
 
          _Angle1.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle1"]);
          _Angle2.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle2"]);

@@ -25,17 +25,6 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection OutputWindow {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["OutputWindow"]));
-            }
-            set {
-                this["OutputWindow"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public decimal Angle1 {
             get {
