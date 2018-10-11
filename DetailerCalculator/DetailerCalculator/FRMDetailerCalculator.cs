@@ -191,7 +191,6 @@ namespace DetailerCalculator
                else
                {
                   var fixedDecimal = _FixedDecimal.FixedDecimals;
-                  UserEntryBox.Text = Convert.ToDecimal(UserEntryBox.Text).ToString(fixedDecimal, CultureInfo.InvariantCulture);
                   outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
                }
                OutputWindowStringBuilder(outputWindowDecimal, 0);
@@ -387,21 +386,24 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-         var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-         switch (numbersToReplace)
+         //var outputText = numberToAdd.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+
+         while (numbersToReplace > 0)
          {
-            case 1:
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               break;
-            case 2:
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               break;
-            default:
-               break;
+            _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+            numbersToReplace--;
          }
-         _OutputWindowList.Add(Convert.ToDecimal(outputText));
-         OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+         _OutputWindowList.Add(numberToAdd);
+         //OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+
+         var list = new List<decimal>();
+         foreach (var item in _OutputWindowList)
+         {
+            var itemString = item.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+            list.Add(Convert.ToDecimal(itemString));
+            OutputWindow.Text = "";
+            OutputWindow.Text = string.Join(Environment.NewLine, list);
+         }
       }
 
       private void FunctionButtonClick(string function)
@@ -413,13 +415,13 @@ namespace DetailerCalculator
          {
             num1 = Settings.DetermineFirstNumberForMath(1, _OutputWindowList.Count, _OutputWindowList);
             var response = (function == "f2d") ? Conversions.FootToDecimal(Convert.ToDecimal(num1)) : Conversions.DecimalToFoot(Convert.ToDecimal(num1));
-            OutputWindowStringBuilder(Math.Round(response, 4), 1);
+            OutputWindowStringBuilder(response, 1);
          }
          else
          {
             decimal response = MathFunctions.DoMath(function, num1, num2, _MathMethod.IsDetailingMathMethod);
             UserEntryBox.Text = "";
-            OutputWindowStringBuilder(Math.Round(response, 4), 2);
+            OutputWindowStringBuilder(response, 2);
          }
       }
 
@@ -563,23 +565,18 @@ namespace DetailerCalculator
       private void RoundingNumberPicker_ValueChanged(object sender, EventArgs e)
       {
          _FixedDecimal.FixedDecimals = "F" + RoundingNumberPicker.Value;
-         SetOutputListRounding(_OutputWindowList);
+         SetOutputListRounding();
       }
 
-      private void SetOutputListRounding(List<decimal> outputWindowList)
+      private void SetOutputListRounding()
       {
          var tempList = new List<decimal>();
 
-         foreach (var item in outputWindowList)
+         foreach (var item in _OutputWindowList)
          {
             var outputText = item.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
             tempList.Add(Convert.ToDecimal(outputText));
             OutputWindow.Text = string.Join(Environment.NewLine, tempList);
-         }
-         _OutputWindowList.Clear();
-         foreach (var item in tempList)
-         {
-            _OutputWindowList.Add(item);
          }
       }
 
