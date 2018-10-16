@@ -505,7 +505,16 @@ namespace DetailerCalculator
       private void OutputWindowStringBuilder()
       {
          //Used for the Drop Button only
-         OutputWindow.Text = string.Join(Environment.NewLine, _OutputWindowList);
+
+         //Creates a temporary list that stores the formatted data. This shows on the Output Window only and is recycled everytime the list is modified.
+         var list = new List<decimal>();
+         foreach (var item in _OutputWindowList)
+         {
+            var itemString = item.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
+            list.Add(Convert.ToDecimal(itemString));
+            OutputWindow.Text = "";
+            OutputWindow.Text = string.Join(Environment.NewLine, list);
+         }
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
@@ -647,6 +656,11 @@ namespace DetailerCalculator
       private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
       {
          SaveSettings();
+         SettingsSavedLabel.Visible = true;
+         SettingsSavedLabel.Update();
+         System.Threading.Thread.Sleep(1000);
+         SettingsSavedLabel.Visible = false;
+         SettingsSavedLabel.Update();
       }
 
       private void DropToolStripMenuItem_Click(object sender, EventArgs e)
