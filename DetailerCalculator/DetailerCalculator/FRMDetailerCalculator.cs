@@ -504,37 +504,32 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder()
       {
-         //Used for the Drop Button only
-
-         //Creates a temporary list that stores the formatted data. This shows on the Output Window only and is recycled everytime the list is modified.
-         var list = new List<decimal>();
-         foreach (var item in _OutputWindowList)
-         {
-            var itemString = item.ToString(_FixedDecimal.FixedDecimals, CultureInfo.InvariantCulture);
-            list.Add(Convert.ToDecimal(itemString));
-            OutputWindow.Text = "";
-            OutputWindow.Text = string.Join(Environment.NewLine, list);
-         }
+         //This method is used for the Drop function only
+         TempListBuilder();
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-         //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
-         while (numbersToReplace > 0)
-         {
-            try
+            //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
+            while (numbersToReplace > 0)
             {
-               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-               numbersToReplace--;
+               try
+               {
+                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+                  numbersToReplace--;
+               }
+               catch (Exception)
+               {
+                  return;
+               }
             }
-            catch (Exception)
-            {
-               return;
-            }
-         }
-         _OutputWindowList.Add(numberToAdd);
+            _OutputWindowList.Add(numberToAdd);
 
-         //Creates a temporary list that stores the formatted data. This shows on the Output Window only and is recycled everytime the list is modified.
+         TempListBuilder();
+      }
+
+      private void TempListBuilder()
+      {
          var list = new List<decimal>();
          foreach (var item in _OutputWindowList)
          {
