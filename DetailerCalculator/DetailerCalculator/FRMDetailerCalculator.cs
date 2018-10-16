@@ -52,36 +52,43 @@ namespace DetailerCalculator
       private void BaseToRiseButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("b2r", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void BaseToSlopeButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("b2s", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void SlopeToBaseButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("s2b", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void SlopeToRiseButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("s2r", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void RiseToSlopeButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("r2s", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void RiseToBaseButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("r2b", _CurrentAngle.Angle);
+         UserEntryBox.Focus();
       }
 
       private void FootToDecimalButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("f2d");
+         UserEntryBox.Focus();
       }
 
       private void DecimalToFootButton_Click(object sender, EventArgs e)
@@ -92,32 +99,38 @@ namespace DetailerCalculator
       private void AddButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("Add");
+         UserEntryBox.Focus();
       }
 
       private void SubtractButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("Subtract");
+         UserEntryBox.Focus();
       }
 
       private void MultiplyButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("Multiply");
+         UserEntryBox.Focus();
       }
 
       private void DivideButton_Click(object sender, EventArgs e)
       {
          FunctionButtonClick("Divide");
+         UserEntryBox.Focus();
       }
 
       private void DropButton_Click(object sender, EventArgs e)
       {
          DropLastNumber();
+         UserEntryBox.Focus();
       }
 
       private void ClearAllButton_Click(object sender, EventArgs e)
       {
          _OutputWindowList.Clear();
          OutputWindow.Text = "";
+         UserEntryBox.Focus();
       }
 
       private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
@@ -129,11 +142,13 @@ namespace DetailerCalculator
          RiseTextBox.Visible = true;
          RiseTextBox.Text = "";
          NewAngleButton.Visible = true;
+         BaseTextBox.Focus();
       }
 
       private void PlusMinusButton_Click(object sender, EventArgs e)
       {
          OutputWindowStringBuilder(Conversions.ChangeToNegativePositive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
+         UserEntryBox.Focus();
       }
 
       private void NewAngleButton_Click(object sender, EventArgs e)
@@ -144,12 +159,14 @@ namespace DetailerCalculator
          RiseLabel.Visible = false;
          RiseTextBox.Visible = false;
          NewAngleButton.Visible = false;
+         UserEntryBox.Focus();
       }
 
       private void OverwriteAngleButton_Click(object sender, EventArgs e)
       {
          //Sets the angle text, fixed to four decimal places.
          SetAngleLabelsText(_ActiveAngle.ActiveAngle, Convert.ToDecimal(OverWriteAngleTextBox.Text));
+         UserEntryBox.Focus();
       }
 
       private void EntryBox_KeyDown(object sender, KeyEventArgs e)
@@ -417,14 +434,7 @@ namespace DetailerCalculator
 
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
-         //Saves all settings from the current session for retrieval later.
-         Properties.Settings.Default["Angle1"] = _Angle1.Angle;
-         Properties.Settings.Default["Angle2"] = _Angle2.Angle;
-         Properties.Settings.Default["Angle3"] = _Angle3.Angle;
-         Properties.Settings.Default["Angle4"] = _Angle4.Angle;
-         Properties.Settings.Default["CurrentAngle"] = _Angle1.Angle;
-         Properties.Settings.Default["FixedDecimal"] = _FixedDecimal.FixedDecimals;
-         Properties.Settings.Default.Save();
+         SaveSettings();
       }
 
       private void RestoreSettings()
@@ -503,8 +513,15 @@ namespace DetailerCalculator
          //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
          while (numbersToReplace > 0)
          {
-            _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-            numbersToReplace--;
+            try
+            {
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               numbersToReplace--;
+            }
+            catch (Exception)
+            {
+               return;
+            }
          }
          _OutputWindowList.Add(numberToAdd);
 
@@ -607,6 +624,40 @@ namespace DetailerCalculator
          {
             return;
          }
+      }
+
+      private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         SaveSettings();
+         Application.Exit();
+      }
+
+      private void SaveSettings()
+      {
+         //Saves all settings from the current session for retrieval later.
+         Properties.Settings.Default["Angle1"] = _Angle1.Angle;
+         Properties.Settings.Default["Angle2"] = _Angle2.Angle;
+         Properties.Settings.Default["Angle3"] = _Angle3.Angle;
+         Properties.Settings.Default["Angle4"] = _Angle4.Angle;
+         Properties.Settings.Default["CurrentAngle"] = _Angle1.Angle;
+         Properties.Settings.Default["FixedDecimal"] = _FixedDecimal.FixedDecimals;
+         Properties.Settings.Default.Save();
+      }
+
+      private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         SaveSettings();
+      }
+
+      private void DropToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         DropLastNumber();
+      }
+
+      private void ClearScreenToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         OutputWindow.Text = "";
+         _OutputWindowList.Clear();
       }
    }
 }
