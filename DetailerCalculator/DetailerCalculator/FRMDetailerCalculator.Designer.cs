@@ -117,7 +117,7 @@
          this.MathMethodPanel.Controls.Add(this.StandardMethodRadioButton);
          this.MathMethodPanel.Controls.Add(this.DetailingMethodRadioButton);
          this.MathMethodPanel.Location = new System.Drawing.Point(10, 37);
-         this.MathMethodPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.MathMethodPanel.Margin = new System.Windows.Forms.Padding(2);
          this.MathMethodPanel.Name = "MathMethodPanel";
          this.MathMethodPanel.Size = new System.Drawing.Size(89, 81);
          this.MathMethodPanel.TabIndex = 1;
@@ -136,7 +136,7 @@
          // 
          this.StandardMethodRadioButton.AutoSize = true;
          this.StandardMethodRadioButton.Location = new System.Drawing.Point(3, 44);
-         this.StandardMethodRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.StandardMethodRadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.StandardMethodRadioButton.Name = "StandardMethodRadioButton";
          this.StandardMethodRadioButton.Size = new System.Drawing.Size(68, 17);
          this.StandardMethodRadioButton.TabIndex = 1;
@@ -150,7 +150,7 @@
          this.DetailingMethodRadioButton.AutoSize = true;
          this.DetailingMethodRadioButton.Checked = true;
          this.DetailingMethodRadioButton.Location = new System.Drawing.Point(3, 22);
-         this.DetailingMethodRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.DetailingMethodRadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.DetailingMethodRadioButton.Name = "DetailingMethodRadioButton";
          this.DetailingMethodRadioButton.Size = new System.Drawing.Size(66, 17);
          this.DetailingMethodRadioButton.TabIndex = 0;
@@ -172,7 +172,7 @@
          this.AnglePanel.Controls.Add(this.Angle2RadioButton);
          this.AnglePanel.Controls.Add(this.Angle1RadioButton);
          this.AnglePanel.Location = new System.Drawing.Point(466, 42);
-         this.AnglePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.AnglePanel.Margin = new System.Windows.Forms.Padding(2);
          this.AnglePanel.Name = "AnglePanel";
          this.AnglePanel.Size = new System.Drawing.Size(150, 112);
          this.AnglePanel.TabIndex = 2;
@@ -221,7 +221,7 @@
          // 
          this.Angle4RadioButton.AutoSize = true;
          this.Angle4RadioButton.Location = new System.Drawing.Point(2, 83);
-         this.Angle4RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Angle4RadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.Angle4RadioButton.Name = "Angle4RadioButton";
          this.Angle4RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle4RadioButton.TabIndex = 4;
@@ -234,7 +234,7 @@
          // 
          this.Angle3RadioButton.AutoSize = true;
          this.Angle3RadioButton.Location = new System.Drawing.Point(2, 63);
-         this.Angle3RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Angle3RadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.Angle3RadioButton.Name = "Angle3RadioButton";
          this.Angle3RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle3RadioButton.TabIndex = 3;
@@ -257,7 +257,7 @@
          // 
          this.Angle2RadioButton.AutoSize = true;
          this.Angle2RadioButton.Location = new System.Drawing.Point(2, 42);
-         this.Angle2RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Angle2RadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.Angle2RadioButton.Name = "Angle2RadioButton";
          this.Angle2RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle2RadioButton.TabIndex = 1;
@@ -271,7 +271,7 @@
          this.Angle1RadioButton.AutoSize = true;
          this.Angle1RadioButton.Checked = true;
          this.Angle1RadioButton.Location = new System.Drawing.Point(2, 22);
-         this.Angle1RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Angle1RadioButton.Margin = new System.Windows.Forms.Padding(2);
          this.Angle1RadioButton.Name = "Angle1RadioButton";
          this.Angle1RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle1RadioButton.TabIndex = 0;
@@ -292,7 +292,7 @@
          this.MathButtonsPanel.Controls.Add(this.SubtractButton);
          this.MathButtonsPanel.Controls.Add(this.AddButton);
          this.MathButtonsPanel.Location = new System.Drawing.Point(16, 254);
-         this.MathButtonsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.MathButtonsPanel.Margin = new System.Windows.Forms.Padding(2);
          this.MathButtonsPanel.Name = "MathButtonsPanel";
          this.MathButtonsPanel.Size = new System.Drawing.Size(211, 89);
          this.MathButtonsPanel.TabIndex = 3;
@@ -300,7 +300,7 @@
          // SwapButton
          // 
          this.SwapButton.Location = new System.Drawing.Point(3, 31);
-         this.SwapButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SwapButton.Margin = new System.Windows.Forms.Padding(2);
          this.SwapButton.Name = "SwapButton";
          this.SwapButton.Size = new System.Drawing.Size(63, 23);
          this.SwapButton.TabIndex = 9;
@@ -312,7 +312,7 @@
          // DecimalToFootButton
          // 
          this.DecimalToFootButton.Location = new System.Drawing.Point(138, 58);
-         this.DecimalToFootButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.DecimalToFootButton.Margin = new System.Windows.Forms.Padding(2);
          this.DecimalToFootButton.Name = "DecimalToFootButton";
          this.DecimalToFootButton.Size = new System.Drawing.Size(63, 23);
          this.DecimalToFootButton.TabIndex = 8;
@@ -324,7 +324,7 @@
          // PlusMinusButton
          // 
          this.PlusMinusButton.Location = new System.Drawing.Point(3, 58);
-         this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(2);
          this.PlusMinusButton.Name = "PlusMinusButton";
          this.PlusMinusButton.Size = new System.Drawing.Size(63, 23);
          this.PlusMinusButton.TabIndex = 6;
@@ -336,7 +336,7 @@
          // DivideButton
          // 
          this.DivideButton.Location = new System.Drawing.Point(138, 31);
-         this.DivideButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.DivideButton.Margin = new System.Windows.Forms.Padding(2);
          this.DivideButton.Name = "DivideButton";
          this.DivideButton.Size = new System.Drawing.Size(63, 23);
          this.DivideButton.TabIndex = 5;
@@ -348,7 +348,7 @@
          // MultiplyButton
          // 
          this.MultiplyButton.Location = new System.Drawing.Point(70, 31);
-         this.MultiplyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.MultiplyButton.Margin = new System.Windows.Forms.Padding(2);
          this.MultiplyButton.Name = "MultiplyButton";
          this.MultiplyButton.Size = new System.Drawing.Size(63, 23);
          this.MultiplyButton.TabIndex = 4;
@@ -360,7 +360,7 @@
          // FootToDecimalButton
          // 
          this.FootToDecimalButton.Location = new System.Drawing.Point(70, 58);
-         this.FootToDecimalButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.FootToDecimalButton.Margin = new System.Windows.Forms.Padding(2);
          this.FootToDecimalButton.Name = "FootToDecimalButton";
          this.FootToDecimalButton.Size = new System.Drawing.Size(63, 23);
          this.FootToDecimalButton.TabIndex = 3;
@@ -372,7 +372,7 @@
          // SubtractButton
          // 
          this.SubtractButton.Location = new System.Drawing.Point(138, 3);
-         this.SubtractButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SubtractButton.Margin = new System.Windows.Forms.Padding(2);
          this.SubtractButton.Name = "SubtractButton";
          this.SubtractButton.Size = new System.Drawing.Size(63, 23);
          this.SubtractButton.TabIndex = 2;
@@ -384,7 +384,7 @@
          // AddButton
          // 
          this.AddButton.Location = new System.Drawing.Point(70, 3);
-         this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.AddButton.Margin = new System.Windows.Forms.Padding(2);
          this.AddButton.Name = "AddButton";
          this.AddButton.Size = new System.Drawing.Size(63, 23);
          this.AddButton.TabIndex = 1;
@@ -396,7 +396,7 @@
          // UserEntryBox
          // 
          this.UserEntryBox.Location = new System.Drawing.Point(15, 231);
-         this.UserEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.UserEntryBox.Margin = new System.Windows.Forms.Padding(2);
          this.UserEntryBox.Name = "UserEntryBox";
          this.UserEntryBox.Size = new System.Drawing.Size(212, 20);
          this.UserEntryBox.TabIndex = 4;
@@ -409,7 +409,7 @@
          // 
          this.OutputWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.OutputWindow.Location = new System.Drawing.Point(259, 158);
-         this.OutputWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.OutputWindow.Margin = new System.Windows.Forms.Padding(2);
          this.OutputWindow.Name = "OutputWindow";
          this.OutputWindow.Size = new System.Drawing.Size(357, 222);
          this.OutputWindow.TabIndex = 5;
@@ -429,7 +429,7 @@
          this.SideToSidePanel.Controls.Add(this.BaseToSlopeButton);
          this.SideToSidePanel.Controls.Add(this.BaseToRiseButton);
          this.SideToSidePanel.Location = new System.Drawing.Point(10, 132);
-         this.SideToSidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SideToSidePanel.Margin = new System.Windows.Forms.Padding(2);
          this.SideToSidePanel.Name = "SideToSidePanel";
          this.SideToSidePanel.Size = new System.Drawing.Size(150, 81);
          this.SideToSidePanel.TabIndex = 8;
@@ -437,7 +437,7 @@
          // RiseToBaseButton
          // 
          this.RiseToBaseButton.Location = new System.Drawing.Point(64, 50);
-         this.RiseToBaseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.RiseToBaseButton.Margin = new System.Windows.Forms.Padding(2);
          this.RiseToBaseButton.Name = "RiseToBaseButton";
          this.RiseToBaseButton.Size = new System.Drawing.Size(56, 19);
          this.RiseToBaseButton.TabIndex = 5;
@@ -449,7 +449,7 @@
          // RiseToSlopeButton
          // 
          this.RiseToSlopeButton.Location = new System.Drawing.Point(64, 26);
-         this.RiseToSlopeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.RiseToSlopeButton.Margin = new System.Windows.Forms.Padding(2);
          this.RiseToSlopeButton.Name = "RiseToSlopeButton";
          this.RiseToSlopeButton.Size = new System.Drawing.Size(56, 19);
          this.RiseToSlopeButton.TabIndex = 4;
@@ -461,7 +461,7 @@
          // SlopeToRiseButton
          // 
          this.SlopeToRiseButton.Location = new System.Drawing.Point(64, 2);
-         this.SlopeToRiseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SlopeToRiseButton.Margin = new System.Windows.Forms.Padding(2);
          this.SlopeToRiseButton.Name = "SlopeToRiseButton";
          this.SlopeToRiseButton.Size = new System.Drawing.Size(56, 19);
          this.SlopeToRiseButton.TabIndex = 3;
@@ -473,7 +473,7 @@
          // SlopeToBaseButton
          // 
          this.SlopeToBaseButton.Location = new System.Drawing.Point(3, 49);
-         this.SlopeToBaseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SlopeToBaseButton.Margin = new System.Windows.Forms.Padding(2);
          this.SlopeToBaseButton.Name = "SlopeToBaseButton";
          this.SlopeToBaseButton.Size = new System.Drawing.Size(56, 19);
          this.SlopeToBaseButton.TabIndex = 2;
@@ -485,7 +485,7 @@
          // BaseToSlopeButton
          // 
          this.BaseToSlopeButton.Location = new System.Drawing.Point(3, 25);
-         this.BaseToSlopeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.BaseToSlopeButton.Margin = new System.Windows.Forms.Padding(2);
          this.BaseToSlopeButton.Name = "BaseToSlopeButton";
          this.BaseToSlopeButton.Size = new System.Drawing.Size(56, 19);
          this.BaseToSlopeButton.TabIndex = 1;
@@ -497,7 +497,7 @@
          // BaseToRiseButton
          // 
          this.BaseToRiseButton.Location = new System.Drawing.Point(3, 2);
-         this.BaseToRiseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.BaseToRiseButton.Margin = new System.Windows.Forms.Padding(2);
          this.BaseToRiseButton.Name = "BaseToRiseButton";
          this.BaseToRiseButton.Size = new System.Drawing.Size(56, 19);
          this.BaseToRiseButton.TabIndex = 0;
@@ -512,7 +512,7 @@
          this.SidesToAnglePanel.Controls.Add(this.DropButton);
          this.SidesToAnglePanel.Controls.Add(this.BaseRiseToAngleButton);
          this.SidesToAnglePanel.Location = new System.Drawing.Point(164, 132);
-         this.SidesToAnglePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SidesToAnglePanel.Margin = new System.Windows.Forms.Padding(2);
          this.SidesToAnglePanel.Name = "SidesToAnglePanel";
          this.SidesToAnglePanel.Size = new System.Drawing.Size(67, 81);
          this.SidesToAnglePanel.TabIndex = 9;
@@ -520,7 +520,7 @@
          // ClearAllButton
          // 
          this.ClearAllButton.Location = new System.Drawing.Point(3, 50);
-         this.ClearAllButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.ClearAllButton.Margin = new System.Windows.Forms.Padding(2);
          this.ClearAllButton.Name = "ClearAllButton";
          this.ClearAllButton.Size = new System.Drawing.Size(56, 19);
          this.ClearAllButton.TabIndex = 7;
@@ -532,7 +532,7 @@
          // DropButton
          // 
          this.DropButton.Location = new System.Drawing.Point(3, 26);
-         this.DropButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.DropButton.Margin = new System.Windows.Forms.Padding(2);
          this.DropButton.Name = "DropButton";
          this.DropButton.Size = new System.Drawing.Size(56, 19);
          this.DropButton.TabIndex = 6;
@@ -544,7 +544,7 @@
          // BaseRiseToAngleButton
          // 
          this.BaseRiseToAngleButton.Location = new System.Drawing.Point(2, 2);
-         this.BaseRiseToAngleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.BaseRiseToAngleButton.Margin = new System.Windows.Forms.Padding(2);
          this.BaseRiseToAngleButton.Name = "BaseRiseToAngleButton";
          this.BaseRiseToAngleButton.Size = new System.Drawing.Size(56, 19);
          this.BaseRiseToAngleButton.TabIndex = 5;
@@ -565,7 +565,7 @@
          // OverWriteAngleTextBox
          // 
          this.OverWriteAngleTextBox.Location = new System.Drawing.Point(386, 94);
-         this.OverWriteAngleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.OverWriteAngleTextBox.Margin = new System.Windows.Forms.Padding(2);
          this.OverWriteAngleTextBox.Name = "OverWriteAngleTextBox";
          this.OverWriteAngleTextBox.Size = new System.Drawing.Size(76, 20);
          this.OverWriteAngleTextBox.TabIndex = 11;
@@ -584,7 +584,7 @@
          // SlopeTextBox
          // 
          this.SlopeTextBox.Location = new System.Drawing.Point(385, 71);
-         this.SlopeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.SlopeTextBox.Margin = new System.Windows.Forms.Padding(2);
          this.SlopeTextBox.Name = "SlopeTextBox";
          this.SlopeTextBox.Size = new System.Drawing.Size(31, 20);
          this.SlopeTextBox.TabIndex = 14;
@@ -626,7 +626,7 @@
          // BaseTextBox
          // 
          this.BaseTextBox.Location = new System.Drawing.Point(196, 73);
-         this.BaseTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.BaseTextBox.Margin = new System.Windows.Forms.Padding(2);
          this.BaseTextBox.Name = "BaseTextBox";
          this.BaseTextBox.Size = new System.Drawing.Size(49, 20);
          this.BaseTextBox.TabIndex = 18;
@@ -648,7 +648,7 @@
          // RiseTextBox
          // 
          this.RiseTextBox.Location = new System.Drawing.Point(196, 98);
-         this.RiseTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.RiseTextBox.Margin = new System.Windows.Forms.Padding(2);
          this.RiseTextBox.Name = "RiseTextBox";
          this.RiseTextBox.Size = new System.Drawing.Size(49, 20);
          this.RiseTextBox.TabIndex = 20;
@@ -728,14 +728,14 @@
          // saveToolStripMenuItem
          // 
          this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-         this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+         this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
          this.saveToolStripMenuItem.Text = "Save";
          this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
          // 
          // exitToolStripMenuItem
          // 
          this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-         this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+         this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
          this.exitToolStripMenuItem.Text = "Exit";
          this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
          // 
@@ -774,13 +774,14 @@
          // generalGuidanceToolStripMenuItem
          // 
          this.generalGuidanceToolStripMenuItem.Name = "generalGuidanceToolStripMenuItem";
-         this.generalGuidanceToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+         this.generalGuidanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
          this.generalGuidanceToolStripMenuItem.Text = "General Guidance";
+         this.generalGuidanceToolStripMenuItem.Click += new System.EventHandler(this.GeneralGuidanceToolStripMenuItem_Click);
          // 
          // aboutToolStripMenuItem
          // 
          this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-         this.aboutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+         this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
          this.aboutToolStripMenuItem.Text = "About";
          // 
          // SettingsSavedLabel
@@ -826,7 +827,7 @@
          this.Controls.Add(this.menuStrip);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.MainMenuStrip = this.menuStrip;
-         this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Margin = new System.Windows.Forms.Padding(2);
          this.Name = "FRMDetailerCalculator";
          this.Text = "Detailer Calculator";
          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetailerCalculatorClosed);

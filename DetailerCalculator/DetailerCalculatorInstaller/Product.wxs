@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <Product Id="*" Name="Detailer Calculator"
+           Language="1033"
+           Version="18.0.0.2"
+           Manufacturer="Nucor Buildings Group"
+           UpgradeCode="ec3bdb47-79fb-4c7b-815c-1fb605a7037f">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="Detailer Calculator" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="PARENTFOLDER" Name="NBG" >
+          <Directory Id="APPLICATIONROOTDIRECTORY" Name="Detailer Calculator" />
+        </Directory>
+      </Directory>
+      <!-- Shortcut folders -->
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Detailer Calculator" />
+      </Directory>
+      <Component Id="DesktopShortcut" Guid="{FED0AFF8-B5B2-4091-9D0C-338C314C0A3E}">
+        <Shortcut Id="DesktopLink"
+                  Name="Detailer Calculator"
+                  Directory="DesktopFolder"
+                  Description="Calculator for detailers"
+                  Target="[APPLICATIONROOTDIRECTORY]DetailerCalculator.exe"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"
+                  Icon="DesktopFolderIcon"
+                  IconIndex="0" >
+          <!-- Only need the Icon spec once others will pick it up from here -->
+          <Icon Id="DesktopFolderIcon" SourceFile="$(var.DetailerCalculator.TargetPath)" />
+        </Shortcut>
+        <RemoveFolder Id="DesktopFolderIcon" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Nucor\Detailer Calculator" Name="Icon" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </Directory>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="{DE9C847A-73AA-48FF-92F4-A8FD3F707228}">
+        <Shortcut Id="AppMenuLink"
+                  Name="Detailer Calculator Shortcut"
+                  Target="[APPLICATIONROOTDIRECTORY]DetailerCalculator.exe"
+                  Description="Calculator for detailers"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY" >
+        </Shortcut>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Nucor\Detailer Calculator" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="APPLICATIONROOTDIRECTORY">
+      <Component Id="DetailerCalculator" Guid="*">
+        <File Source="$(var.DetailerCalculator.TargetPath)" KeyPath="yes" />
+      </Component>
+      <!--<Component Id="NBGSettingsComponent" Guid="*">
+        <File Source="$(var.SUP_Scripts.TargetDir)NBG.Settings.dll" />
+      </Component>
+      <Component Id="NBGSecurityComponent" Guid="*">
+        <File Source="$(var.SUP_Scripts.TargetDir)NBG.Framework.dll" />
+      </Component>
+      <Component Id="Au3Dll" Guid="*">
+        <File Source="$(var.SUP_Scripts.TargetDir)AutoITX3.dll"/>
+      </Component>-->
+      <!--<Component Id="Au3AssDll" Guid="*">
+        <File Source="$(var.AutoIT_Scripts.TargetDir)AutoITX3.Assembly.dll"/>
+      </Component>
+      <Component Id="Au3PowerShellDll" Guid="*">
+        <File Source="$(var.AutoIT_Scripts.TargetDir)AutoITX3.PowerShell.dll"/>
+      </Component>-->
+    </ComponentGroup>
+  </Fragment>
+</Wix>
+
+
+
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="DetailerCalculatorInstaller" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="e0507323-57cc-4c3f-8fcc-c934ee046c4e">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="DetailerCalculatorInstaller" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="DetailerCalculatorInstaller" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			--><!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. --><!--
+			--><!-- <Component Id="ProductComponent"> --><!--
+				--><!-- TODO: Insert files, registry keys, and other resources here. --><!--
+			--><!-- </Component> --><!--
+		</ComponentGroup>
+	</Fragment>
+</Wix>-->

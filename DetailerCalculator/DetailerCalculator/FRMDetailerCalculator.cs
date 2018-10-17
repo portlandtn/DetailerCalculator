@@ -505,6 +505,7 @@ namespace DetailerCalculator
       private void OutputWindowStringBuilder()
       {
          //This method is used for the Drop function only
+
          TempListBuilder();
       }
 
@@ -618,6 +619,11 @@ namespace DetailerCalculator
 
       private void DropLastNumber()
       {
+         if (_OutputWindowList.Count == 1)
+         {
+            _OutputWindowList.Clear();
+            OutputWindow.Text = "";
+         }
          //Removes the last number in the Output Window. If the window is blank, the exception is ignored.
          try
          {
@@ -667,6 +673,11 @@ namespace DetailerCalculator
       {
          OutputWindow.Text = "";
          _OutputWindowList.Clear();
+      }
+
+      private void GeneralGuidanceToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         Help.ShowHelp(this, "DetailingCalculatorHelp.chm");
       }
    }
 }

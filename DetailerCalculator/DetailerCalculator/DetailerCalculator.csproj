@@ -110,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
+    <Content Include="DetailingCalculatorHelp.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
