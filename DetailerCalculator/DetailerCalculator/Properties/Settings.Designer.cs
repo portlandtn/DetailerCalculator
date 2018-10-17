@@ -25,7 +25,7 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4.7636")]
         public decimal Angle1 {
             get {
                 return ((decimal)(this["Angle1"]));
@@ -37,7 +37,7 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4.7636")]
         public decimal Angle2 {
             get {
                 return ((decimal)(this["Angle2"]));
@@ -49,7 +49,7 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4.7636")]
         public decimal Angle3 {
             get {
                 return ((decimal)(this["Angle3"]));
@@ -61,7 +61,7 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4.7636")]
         public decimal Angle4 {
             get {
                 return ((decimal)(this["Angle4"]));
@@ -73,7 +73,7 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public decimal CurrentAngle {
             get {
                 return ((decimal)(this["CurrentAngle"]));
@@ -85,24 +85,13 @@ namespace DetailerCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F4")]
         public string FixedDecimal {
             get {
                 return ((string)(this["FixedDecimal"]));
             }
             set {
                 this["FixedDecimal"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection StringCollection {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["StringCollection"]));
-            }
-            set {
-                this["StringCollection"] = value;
             }
         }
     }

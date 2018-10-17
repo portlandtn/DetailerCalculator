@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DetailerCalculator_UnitTest
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "DetailerCalculatorInstaller", "DetailerCalculatorInstaller\DetailerCalculatorInstaller.wixproj", "{B75E2C96-26D7-49CC-B082-7C6172740E88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB68E84E-A327-4736-B02C-318FC1BDA1BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

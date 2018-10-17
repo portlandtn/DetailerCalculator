@@ -3,25 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="Angle1" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">4.7636</Value>
     </Setting>
     <Setting Name="Angle2" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">4.7636</Value>
     </Setting>
     <Setting Name="Angle3" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">4.7636</Value>
     </Setting>
     <Setting Name="Angle4" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">4.7636</Value>
     </Setting>
     <Setting Name="CurrentAngle" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="FixedDecimal" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="StringCollection" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">F4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

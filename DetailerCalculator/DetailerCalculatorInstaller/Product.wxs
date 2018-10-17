@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
-  <Product Id="*" Name="Detailer Calculator"
+  <Product Id="*" Name="DetailerCalculator"
            Language="1033"
            Version="18.0.0.2"
            Manufacturer="Nucor Buildings Group"
@@ -21,13 +21,13 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
         <Directory Id="PARENTFOLDER" Name="NBG" >
-          <Directory Id="APPLICATIONROOTDIRECTORY" Name="Detailer Calculator" />
+          <Directory Id="APPLICATIONROOTDIRECTORY" Name="DetailerCalculator" />
         </Directory>
       </Directory>
       <!-- Shortcut folders -->
       <Directory Id="DesktopFolder" Name="Desktop"/>
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="Detailer Calculator" />
+        <Directory Id="ApplicationProgramsFolder" Name="DetailerCalculator" />
       </Directory>
       <Component Id="DesktopShortcut" Guid="{FED0AFF8-B5B2-4091-9D0C-338C314C0A3E}">
         <Shortcut Id="DesktopLink"
@@ -42,7 +42,7 @@
           <Icon Id="DesktopFolderIcon" SourceFile="$(var.DetailerCalculator.TargetPath)" />
         </Shortcut>
         <RemoveFolder Id="DesktopFolderIcon" On="uninstall" />
-        <RegistryValue Root="HKCU" Key="Software\Nucor\Detailer Calculator" Name="Icon" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software\Nucor\DetailerCalculator" Name="Icon" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </Directory>
     <DirectoryRef Id="ApplicationProgramsFolder">
@@ -54,7 +54,7 @@
                   WorkingDirectory="APPLICATIONROOTDIRECTORY" >
         </Shortcut>
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Nucor\Detailer Calculator" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software\Nucor\DetailerCalculator" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
   </Fragment>
@@ -64,21 +64,9 @@
       <Component Id="DetailerCalculator" Guid="*">
         <File Source="$(var.DetailerCalculator.TargetPath)" KeyPath="yes" />
       </Component>
-      <!--<Component Id="NBGSettingsComponent" Guid="*">
-        <File Source="$(var.SUP_Scripts.TargetDir)NBG.Settings.dll" />
+      <Component Id="DetailingCalculatorHelpComponent" Guid="*">
+        <File Source="$(var.DetailerCalculator.TargetDir)DetailingCalculatorHelp.chm" />
       </Component>
-      <Component Id="NBGSecurityComponent" Guid="*">
-        <File Source="$(var.SUP_Scripts.TargetDir)NBG.Framework.dll" />
-      </Component>
-      <Component Id="Au3Dll" Guid="*">
-        <File Source="$(var.SUP_Scripts.TargetDir)AutoITX3.dll"/>
-      </Component>-->
-      <!--<Component Id="Au3AssDll" Guid="*">
-        <File Source="$(var.AutoIT_Scripts.TargetDir)AutoITX3.Assembly.dll"/>
-      </Component>
-      <Component Id="Au3PowerShellDll" Guid="*">
-        <File Source="$(var.AutoIT_Scripts.TargetDir)AutoITX3.PowerShell.dll"/>
-      </Component>-->
     </ComponentGroup>
   </Fragment>
 </Wix>

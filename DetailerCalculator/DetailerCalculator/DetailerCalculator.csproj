@@ -97,6 +97,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrigFunctions.cs" />
     <Compile Include="Conversions.cs" />
+    <Content Include="HelpMenu\GeneralGuidance.htm" />
+    <Content Include="HelpMenu\KeyboardEntry.htm" />
+    <Content Include="HelpMenu\MathFunctions.htm" />
+    <Content Include="HelpMenu\MathMethods.htm" />
+    <Content Include="HelpMenu\OutputWindow.htm" />
+    <Content Include="HelpMenu\Pictures\3_minus_6.png" />
+    <Content Include="HelpMenu\Pictures\6_and_3.png" />
+    <Content Include="HelpMenu\Pictures\After_Enter_Pressed.png" />
+    <Content Include="HelpMenu\Pictures\BaseRiseAnswer.png" />
+    <Content Include="HelpMenu\Pictures\BaseRisetoAngle.png" />
+    <Content Include="HelpMenu\Pictures\Difference_is_3.png" />
+    <Content Include="HelpMenu\Pictures\Enter_Pressed_Again.png" />
+    <Content Include="HelpMenu\Pictures\Enter_Text.png" />
+    <Content Include="HelpMenu\Pictures\MathMethods.png" />
+    <Content Include="HelpMenu\Pictures\Minus_Key.png" />
+    <Content Include="HelpMenu\Pictures\OutputWindow.png" />
+    <Content Include="HelpMenu\Pictures\Right Triangle.png" />
+    <Content Include="HelpMenu\Pictures\Slope.png" />
+    <Content Include="HelpMenu\Pictures\TrigFunctions.png" />
+    <Content Include="HelpMenu\TrigFunctions.htm" />
     <EmbeddedResource Include="FRMDetailerCalculator.resx">
       <DependentUpon>FRMDetailerCalculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,9 +130,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
-    <Content Include="DetailingCalculatorHelp.chm">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="DetailingCalculatorHelp.chm" />
+    <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
+    <None Include="HelpMenu\Index.hhk" />
+    <None Include="HelpMenu\Table of Contents.hhc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
