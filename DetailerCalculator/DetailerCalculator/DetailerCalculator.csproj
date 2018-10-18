@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FRMAboutPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMAboutPopUp.Designer.cs">
+      <DependentUpon>FRMAboutPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="FRMDetailerCalculator.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,9 @@
     <Content Include="HelpMenu\Pictures\Slope.png" />
     <Content Include="HelpMenu\Pictures\TrigFunctions.png" />
     <Content Include="HelpMenu\TrigFunctions.htm" />
+    <EmbeddedResource Include="FRMAboutPopUp.resx">
+      <DependentUpon>FRMAboutPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMDetailerCalculator.resx">
       <DependentUpon>FRMDetailerCalculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,7 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
-    <None Include="DetailingCalculatorHelp.chm" />
+    <None Include="DetailingCalculatorHelp.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
     <None Include="HelpMenu\Index.hhk" />
     <None Include="HelpMenu\Table of Contents.hhc" />

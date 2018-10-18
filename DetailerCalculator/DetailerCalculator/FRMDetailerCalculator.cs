@@ -678,7 +678,12 @@ namespace DetailerCalculator
       private void GeneralGuidanceToolStripMenuItem_Click(object sender, EventArgs e)
       {
          Help.ShowHelp(this, "DetailingCalculatorHelp.chm");
-         //Help.ShowHelp(this, "DetailingCalculatorHelp.chm");
+      }
+
+      private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         FRMAboutPopUp about = new FRMAboutPopUp();
+         about.Show();
       }
    }
 }

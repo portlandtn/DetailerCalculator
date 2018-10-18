@@ -3,7 +3,7 @@
   <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
   <Product Id="*" Name="DetailerCalculator"
            Language="1033"
-           Version="18.0.0.2"
+           Version="18.0.0.3"
            Manufacturer="Nucor Buildings Group"
            UpgradeCode="ec3bdb47-79fb-4c7b-815c-1fb605a7037f">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
