@@ -140,6 +140,7 @@
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
     <None Include="DetailingCalculatorHelp.chm" />
+    <None Include="HelpMenu\DetailingCalculatorHelp.chm" />
     <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
     <None Include="HelpMenu\Index.hhk" />
     <None Include="HelpMenu\Table of Contents.hhc" />
