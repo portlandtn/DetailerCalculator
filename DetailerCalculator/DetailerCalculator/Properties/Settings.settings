@@ -20,5 +20,8 @@
     <Setting Name="FixedDecimal" Type="System.String" Scope="User">
       <Value Profile="(Default)">F4</Value>
     </Setting>
+    <Setting Name="HaveSeenTrayIconInstructions" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -18,5 +18,7 @@ namespace DetailerCalculator
       public bool IsDetailingMathMethod { get; set; }
 
       public string FixedDecimals { get; set; }
+
+      public bool HaveSeenTrayIconInstructions { get; set; }
    }
 }

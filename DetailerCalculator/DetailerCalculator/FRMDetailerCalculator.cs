@@ -29,6 +29,7 @@ namespace DetailerCalculator
       Settings _MathMethod = new Settings();
       Settings _CurrentAngle = new Settings();
       Settings _FixedDecimal = new Settings();
+      Settings _GeneralSettings = new Settings();
       List<decimal> _OutputWindowList = new List<decimal>();
 
       /// <summary>
@@ -434,6 +435,13 @@ namespace DetailerCalculator
 
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
+         if (_GeneralSettings.HaveSeenTrayIconInstructions == false)
+         {
+            MessageBox.Show("This program has been minimized to the tray icon. Right-click the form to exit completely, or double-click to open again.", "Calculator Minimized", 
+               MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            _GeneralSettings.HaveSeenTrayIconInstructions = true;
+         }
+         Properties.Settings.Default["HaveSeenTrayIconInstructions"] = _GeneralSettings.HaveSeenTrayIconInstructions;
          SaveSettings();
          if (e.CloseReason == CloseReason.UserClosing)
          {
@@ -452,6 +460,7 @@ namespace DetailerCalculator
          _Angle4.Angle = Convert.ToDecimal(Properties.Settings.Default["Angle4"]);
          _CurrentAngle.Angle = Convert.ToDecimal(Properties.Settings.Default["CurrentAngle"]);
          _FixedDecimal.FixedDecimals = Convert.ToString(Properties.Settings.Default["FixedDecimal"]);
+         _GeneralSettings.HaveSeenTrayIconInstructions = Convert.ToBoolean(Properties.Settings.Default["HaveSeenTrayIconInstructions"]);
 
          Angle1Label.Text = Convert.ToString(Math.Round(_Angle1.Angle, 4));
          Angle2Label.Text = Convert.ToString(Math.Round(_Angle2.Angle, 4));

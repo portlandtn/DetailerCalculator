@@ -94,5 +94,17 @@ namespace DetailerCalculator.Properties {
                 this["FixedDecimal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HaveSeenTrayIconInstructions {
+            get {
+                return ((bool)(this["HaveSeenTrayIconInstructions"]));
+            }
+            set {
+                this["HaveSeenTrayIconInstructions"] = value;
+            }
+        }
     }
 }
