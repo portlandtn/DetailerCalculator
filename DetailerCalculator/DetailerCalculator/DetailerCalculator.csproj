@@ -139,9 +139,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
-    <None Include="DetailingCalculatorHelp.chm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="DetailingCalculatorHelp.chm" />
     <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
     <None Include="HelpMenu\Index.hhk" />
     <None Include="HelpMenu\Table of Contents.hhc" />
