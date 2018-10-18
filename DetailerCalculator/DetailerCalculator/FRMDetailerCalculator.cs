@@ -714,6 +714,7 @@ namespace DetailerCalculator
       private void ShowTheForm(object sender, MouseEventArgs e)
       {
          Show();
+         BringToFront();
       }
    }
 }
