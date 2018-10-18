@@ -435,6 +435,11 @@ namespace DetailerCalculator
       private void DetailerCalculatorClosed(object sender, FormClosingEventArgs e)
       {
          SaveSettings();
+         if (e.CloseReason == CloseReason.UserClosing)
+         {
+            Hide();
+            e.Cancel = true;
+         }
       }
 
       private void RestoreSettings()
@@ -511,20 +516,20 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-            //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
-            while (numbersToReplace > 0)
+         //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
+         while (numbersToReplace > 0)
+         {
+            try
             {
-               try
-               {
-                  _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
-                  numbersToReplace--;
-               }
-               catch (Exception)
-               {
-                  return;
-               }
+               _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
+               numbersToReplace--;
             }
-            _OutputWindowList.Add(numberToAdd);
+            catch (Exception)
+            {
+               return;
+            }
+         }
+         _OutputWindowList.Add(numberToAdd);
 
          TempListBuilder();
       }
@@ -684,6 +689,22 @@ namespace DetailerCalculator
       {
          FRMAboutPopUp about = new FRMAboutPopUp();
          about.Show();
+      }
+
+      private void RightClickMenu_Opening(object sender, CancelEventArgs e)
+      {
+
+      }
+
+      private void Exit_Click(object sender, EventArgs e)
+      {
+         SaveSettings();
+         Application.Exit();
+      }
+
+      private void ShowTheForm(object sender, MouseEventArgs e)
+      {
+         Show();
       }
    }
 }
