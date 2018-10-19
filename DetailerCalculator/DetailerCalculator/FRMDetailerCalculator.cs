@@ -378,17 +378,38 @@ namespace DetailerCalculator
          }
          if (RiseTextBox.Text != "")
          {
-            try
+            if (_MathMethod.IsDetailingMathMethod == true)
             {
-               var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-               var angle = Conversions.RadiansToAngle(radians);
-               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               try
+               {
+                  var decimalBase = Conversions.FootToDecimal(Convert.ToDecimal(BaseTextBox.Text));
+                  var decimalRise = Conversions.FootToDecimal(Convert.ToDecimal(RiseTextBox.Text));
+
+                  var radians = TrigFunctions.BaseRiseToRadian(decimalBase, decimalRise);
+                  var angle = Conversions.RadiansToAngle(radians);
+                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               }
+               catch (Exception)
+               {
+                  BaseTextBox.Text = "";
+                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+                  return;
+               }
             }
-            catch (Exception)
+            else
             {
-               BaseTextBox.Text = "";
-               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-               return;
+               try
+               {
+                  var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+                  var angle = Conversions.RadiansToAngle(radians);
+                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               }
+               catch (Exception)
+               {
+                  BaseTextBox.Text = "";
+                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+                  return;
+               }
             }
          }
       }
@@ -404,17 +425,51 @@ namespace DetailerCalculator
          }
          if (BaseTextBox.Text != "")
          {
-            try
+
+            if (_MathMethod.IsDetailingMathMethod == true)
             {
-               var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-               var angle = Conversions.RadiansToAngle(radians);
-               OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               try
+               {
+                  var decimalBase = Conversions.FootToDecimal(Convert.ToDecimal(BaseTextBox.Text));
+                  var decimalRise = Conversions.FootToDecimal(Convert.ToDecimal(RiseTextBox.Text));
+
+                  var radians = TrigFunctions.BaseRiseToRadian(decimalBase, decimalRise);
+                  var angle = Conversions.RadiansToAngle(radians);
+                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               }
+               catch (Exception)
+               {
+                  BaseTextBox.Text = "";
+                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+                  return;
+               }
             }
-            catch (Exception)
+            else
             {
-               RiseTextBox.Text = "";
-               MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-               return;
+               try
+               {
+                  var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+                  var angle = Conversions.RadiansToAngle(radians);
+                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               }
+               catch (Exception)
+               {
+                  RiseTextBox.Text = "";
+                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+                  return;
+               }
+               //   try
+               //   {
+               //      var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+               //      var angle = Conversions.RadiansToAngle(radians);
+               //      OverWriteAngleTextBox.Text = Convert.ToString(angle);
+               //   }
+               //   catch (Exception)
+               //   {
+               //      RiseTextBox.Text = "";
+               //      MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               //      return;
+               //   }
             }
          }
       }
