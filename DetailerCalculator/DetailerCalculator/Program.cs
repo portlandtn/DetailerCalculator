@@ -55,10 +55,10 @@ namespace DetailerCalculator
                   // note, you may want to time out here instead of waiting forever
                   // edited by acidzombie24
                   // mutex.WaitOne(Timeout.Infinite, false);
-                  hasHandle = mutex.WaitOne(2000, false);
+                  hasHandle = mutex.WaitOne(1000, false);
                   if (hasHandle == false)
                   {
-                     MessageBox.Show("This application is already running (check your tray icons.");
+                     MessageBox.Show("This application is already running. Double-click the tray icon to bring the calculator back up.");
                      throw new TimeoutException("Timeout waiting for exclusive access");
                   }
                }

@@ -369,108 +369,31 @@ namespace DetailerCalculator
 
       private void BaseTextBox_TextChanged(object sender, EventArgs e)
       {
-         //Calculates the angle based on the base and rise angle entered.
+         //Calculates the angle based on the base and rise entered.
          //This is only active when the BRtoA button is pressed.
          if (BaseTextBox.Text == "")
          {
             OverWriteAngleTextBox.Text = "";
             return;
          }
-         if (RiseTextBox.Text != "")
+         if (RiseTextBox.Text != "" && BaseTextBox.Text != "")
          {
-            if (_MathMethod.IsDetailingMathMethod == true)
-            {
-               try
-               {
-                  var decimalBase = Conversions.FootToDecimal(Convert.ToDecimal(BaseTextBox.Text));
-                  var decimalRise = Conversions.FootToDecimal(Convert.ToDecimal(RiseTextBox.Text));
-
-                  var radians = TrigFunctions.BaseRiseToRadian(decimalBase, decimalRise);
-                  var angle = Conversions.RadiansToAngle(radians);
-                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
-               }
-               catch (Exception)
-               {
-                  BaseTextBox.Text = "";
-                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-                  return;
-               }
-            }
-            else
-            {
-               try
-               {
-                  var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-                  var angle = Conversions.RadiansToAngle(radians);
-                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
-               }
-               catch (Exception)
-               {
-                  BaseTextBox.Text = "";
-                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-                  return;
-               }
-            }
+            BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
          }
       }
 
       private void RiseTextBox_TextChanged(object sender, EventArgs e)
       {
-         //Calculates the angle based on the base and rise angle entered.
+         //Calculates the angle based on the base and rise entered.
          //This is only active when the BRtoA button is pressed.
          if (RiseTextBox.Text == "")
          {
             OverWriteAngleTextBox.Text = "";
             return;
          }
-         if (BaseTextBox.Text != "")
+         if (RiseTextBox.Text != "" && BaseTextBox.Text != "")
          {
-
-            if (_MathMethod.IsDetailingMathMethod == true)
-            {
-               try
-               {
-                  var decimalBase = Conversions.FootToDecimal(Convert.ToDecimal(BaseTextBox.Text));
-                  var decimalRise = Conversions.FootToDecimal(Convert.ToDecimal(RiseTextBox.Text));
-
-                  var radians = TrigFunctions.BaseRiseToRadian(decimalBase, decimalRise);
-                  var angle = Conversions.RadiansToAngle(radians);
-                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
-               }
-               catch (Exception)
-               {
-                  BaseTextBox.Text = "";
-                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-                  return;
-               }
-            }
-            else
-            {
-               try
-               {
-                  var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-                  var angle = Conversions.RadiansToAngle(radians);
-                  OverWriteAngleTextBox.Text = Convert.ToString(angle);
-               }
-               catch (Exception)
-               {
-                  RiseTextBox.Text = "";
-                  MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-                  return;
-               }
-               //   try
-               //   {
-               //      var radians = TrigFunctions.BaseRiseToRadian(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
-               //      var angle = Conversions.RadiansToAngle(radians);
-               //      OverWriteAngleTextBox.Text = Convert.ToString(angle);
-               //   }
-               //   catch (Exception)
-               //   {
-               //      RiseTextBox.Text = "";
-               //      MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
-               //      return;
-               //   }
-            }
+            BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
          }
       }
 
@@ -493,7 +416,7 @@ namespace DetailerCalculator
          if (_GeneralSettings.HaveSeenTrayIconInstructions == false)
          {
             MessageBox.Show("This program has been minimized to the tray icon. Right-click the tray icon to exit completely, or double-click to open again. " +
-               "If you'd like to exit the calculator from here in the future, choose File, then Exit at the top.", "Calculator Minimized", 
+               "If you'd like to exit the calculator from here in the future, choose File, then Exit at the top.", "Calculator Minimized",
                MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             _GeneralSettings.HaveSeenTrayIconInstructions = true;
          }
@@ -771,6 +694,27 @@ namespace DetailerCalculator
       {
          Show();
          BringToFront();
+      }
+
+      private void BaseRiseCalc(decimal bayse, decimal rise)
+      {
+         if (_MathMethod.IsDetailingMathMethod == true)
+         {
+            bayse = Conversions.FootToDecimal(Convert.ToDecimal(bayse));
+            rise = Conversions.FootToDecimal(Convert.ToDecimal(rise));
+         }
+         try
+         {
+            var radians = TrigFunctions.BaseRiseToRadian(bayse, rise);
+            var angle = Conversions.RadiansToAngle(radians);
+            OverWriteAngleTextBox.Text = Convert.ToString(angle);
+         }
+         catch (Exception)
+         {
+            BaseTextBox.Text = "";
+            MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+            return;
+         }
       }
    }
 }
