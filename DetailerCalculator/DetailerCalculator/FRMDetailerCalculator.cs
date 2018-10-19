@@ -492,7 +492,8 @@ namespace DetailerCalculator
       {
          if (_GeneralSettings.HaveSeenTrayIconInstructions == false)
          {
-            MessageBox.Show("This program has been minimized to the tray icon. Right-click the form to exit completely, or double-click to open again.", "Calculator Minimized", 
+            MessageBox.Show("This program has been minimized to the tray icon. Right-click the tray icon to exit completely, or double-click to open again." +
+               "If you'd like to exit the calculator from here in the future, choose File, then Exit at the top.", "Calculator Minimized", 
                MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             _GeneralSettings.HaveSeenTrayIconInstructions = true;
          }
