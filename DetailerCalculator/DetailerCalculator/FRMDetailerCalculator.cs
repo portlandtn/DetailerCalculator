@@ -693,5 +693,10 @@ namespace DetailerCalculator
             return;
          }
       }
+
+      private void HipValleyButton_Click(object sender, EventArgs e)
+      {
+         MessageBox.Show("Feature Coming Soon");
+      }
    }
 }

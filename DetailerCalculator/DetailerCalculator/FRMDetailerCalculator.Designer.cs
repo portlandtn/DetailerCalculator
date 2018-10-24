@@ -94,7 +94,7 @@
          this.RightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.Exit = new System.Windows.Forms.ToolStripMenuItem();
          this.BRtoAPanel = new System.Windows.Forms.Panel();
-         this.label2 = new System.Windows.Forms.Label();
+         this.HipValleyButton = new System.Windows.Forms.Button();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
@@ -123,7 +123,7 @@
          this.MathMethodPanel.Controls.Add(this.DetailingMethodRadioButton);
          this.MathMethodPanel.Location = new System.Drawing.Point(15, 57);
          this.MathMethodPanel.Name = "MathMethodPanel";
-         this.MathMethodPanel.Size = new System.Drawing.Size(134, 125);
+         this.MathMethodPanel.Size = new System.Drawing.Size(120, 125);
          this.MathMethodPanel.TabIndex = 1;
          // 
          // MainMethodLabel
@@ -578,7 +578,7 @@
          // 
          // BaseTextBox
          // 
-         this.BaseTextBox.Location = new System.Drawing.Point(62, 33);
+         this.BaseTextBox.Location = new System.Drawing.Point(62, 4);
          this.BaseTextBox.Name = "BaseTextBox";
          this.BaseTextBox.Size = new System.Drawing.Size(72, 26);
          this.BaseTextBox.TabIndex = 0;
@@ -588,7 +588,7 @@
          // BaseLabel
          // 
          this.BaseLabel.AutoSize = true;
-         this.BaseLabel.Location = new System.Drawing.Point(5, 40);
+         this.BaseLabel.Location = new System.Drawing.Point(5, 11);
          this.BaseLabel.Name = "BaseLabel";
          this.BaseLabel.Size = new System.Drawing.Size(50, 20);
          this.BaseLabel.TabIndex = 19;
@@ -596,7 +596,7 @@
          // 
          // RiseTextBox
          // 
-         this.RiseTextBox.Location = new System.Drawing.Point(62, 70);
+         this.RiseTextBox.Location = new System.Drawing.Point(62, 41);
          this.RiseTextBox.Name = "RiseTextBox";
          this.RiseTextBox.Size = new System.Drawing.Size(72, 26);
          this.RiseTextBox.TabIndex = 1;
@@ -606,7 +606,7 @@
          // RiseLabel
          // 
          this.RiseLabel.AutoSize = true;
-         this.RiseLabel.Location = new System.Drawing.Point(10, 75);
+         this.RiseLabel.Location = new System.Drawing.Point(10, 46);
          this.RiseLabel.Name = "RiseLabel";
          this.RiseLabel.Size = new System.Drawing.Size(45, 20);
          this.RiseLabel.TabIndex = 21;
@@ -758,30 +758,32 @@
          // 
          // BRtoAPanel
          // 
-         this.BRtoAPanel.Controls.Add(this.label2);
          this.BRtoAPanel.Controls.Add(this.BaseLabel);
          this.BRtoAPanel.Controls.Add(this.BaseTextBox);
          this.BRtoAPanel.Controls.Add(this.RiseLabel);
          this.BRtoAPanel.Controls.Add(this.RiseTextBox);
-         this.BRtoAPanel.Location = new System.Drawing.Point(154, 91);
+         this.BRtoAPanel.Location = new System.Drawing.Point(357, 105);
          this.BRtoAPanel.Name = "BRtoAPanel";
-         this.BRtoAPanel.Size = new System.Drawing.Size(206, 109);
+         this.BRtoAPanel.Size = new System.Drawing.Size(149, 80);
          this.BRtoAPanel.TabIndex = 2;
          // 
-         // label2
+         // HipValleyButton
          // 
-         this.label2.AutoSize = true;
-         this.label2.Location = new System.Drawing.Point(20, 7);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(145, 20);
-         this.label2.TabIndex = 27;
-         this.label2.Text = "Base Rise to Angle";
+         this.HipValleyButton.Location = new System.Drawing.Point(234, 146);
+         this.HipValleyButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+         this.HipValleyButton.Name = "HipValleyButton";
+         this.HipValleyButton.Size = new System.Drawing.Size(112, 35);
+         this.HipValleyButton.TabIndex = 27;
+         this.HipValleyButton.Text = "Hip/Valley";
+         this.HipValleyButton.UseVisualStyleBackColor = true;
+         this.HipValleyButton.Click += new System.EventHandler(this.HipValleyButton_Click);
          // 
          // FRMDetailerCalculator
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(936, 614);
+         this.Controls.Add(this.HipValleyButton);
          this.Controls.Add(this.BRtoAPanel);
          this.Controls.Add(this.SettingsSavedLabel);
          this.Controls.Add(this.label1);
@@ -893,7 +895,7 @@
       private System.Windows.Forms.ContextMenuStrip RightClickMenu;
       private System.Windows.Forms.ToolStripMenuItem Exit;
       private System.Windows.Forms.Panel BRtoAPanel;
-      private System.Windows.Forms.Label label2;
+      private System.Windows.Forms.Button HipValleyButton;
    }
 }
 
