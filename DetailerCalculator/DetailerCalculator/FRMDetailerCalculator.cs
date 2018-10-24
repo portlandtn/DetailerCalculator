@@ -134,32 +134,9 @@ namespace DetailerCalculator
          UserEntryBox.Focus();
       }
 
-      private void BaseRiseToAngleButton_Click(object sender, EventArgs e)
-      {
-         BaseLabel.Visible = true;
-         BaseTextBox.Visible = true;
-         BaseTextBox.Text = "";
-         RiseLabel.Visible = true;
-         RiseTextBox.Visible = true;
-         RiseTextBox.Text = "";
-         NewAngleButton.Visible = true;
-         BaseTextBox.Focus();
-      }
-
       private void PlusMinusButton_Click(object sender, EventArgs e)
       {
          OutputWindowStringBuilder(Conversions.ChangeToNegativePositive(_OutputWindowList[_OutputWindowList.Count - 1]), 1);
-         UserEntryBox.Focus();
-      }
-
-      private void NewAngleButton_Click(object sender, EventArgs e)
-      {
-         BaseRiseToAngle();
-         BaseLabel.Visible = false;
-         BaseTextBox.Visible = false;
-         RiseLabel.Visible = false;
-         RiseTextBox.Visible = false;
-         NewAngleButton.Visible = false;
          UserEntryBox.Focus();
       }
 
