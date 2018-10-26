@@ -103,19 +103,19 @@
          this.WidthLabel = new System.Windows.Forms.Label();
          this.ThicknessLabel = new System.Windows.Forms.Label();
          this.CalcWeightPanel = new System.Windows.Forms.Panel();
-         this.EnterButton = new System.Windows.Forms.Button();
-         this.TotalWeightLabel = new System.Windows.Forms.Label();
-         this.InchLabel = new System.Windows.Forms.Label();
-         this.FeetLabel = new System.Windows.Forms.Label();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.InchRadioButtonLength = new System.Windows.Forms.RadioButton();
-         this.FeetRadioButtonLength = new System.Windows.Forms.RadioButton();
-         this.panel2 = new System.Windows.Forms.Panel();
-         this.FeetRadioButtonWidth = new System.Windows.Forms.RadioButton();
-         this.InchRadioButtonWidth = new System.Windows.Forms.RadioButton();
          this.panel3 = new System.Windows.Forms.Panel();
          this.FeetRadioButtonThickness = new System.Windows.Forms.RadioButton();
          this.InchRadioButtonThickness = new System.Windows.Forms.RadioButton();
+         this.panel2 = new System.Windows.Forms.Panel();
+         this.FeetRadioButtonWidth = new System.Windows.Forms.RadioButton();
+         this.InchRadioButtonWidth = new System.Windows.Forms.RadioButton();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.FeetRadioButtonLength = new System.Windows.Forms.RadioButton();
+         this.InchRadioButtonLength = new System.Windows.Forms.RadioButton();
+         this.FeetLabel = new System.Windows.Forms.Label();
+         this.InchLabel = new System.Windows.Forms.Label();
+         this.TotalWeightLabel = new System.Windows.Forms.Label();
+         this.EnterButton = new System.Windows.Forms.Button();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
@@ -126,9 +126,9 @@
          this.RightClickMenu.SuspendLayout();
          this.BRtoAPanel.SuspendLayout();
          this.CalcWeightPanel.SuspendLayout();
-         this.panel1.SuspendLayout();
-         this.panel2.SuspendLayout();
          this.panel3.SuspendLayout();
+         this.panel2.SuspendLayout();
+         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
          // DetailerCalculatorLabel
@@ -578,7 +578,7 @@
          // SlopeLabel
          // 
          this.SlopeLabel.AutoSize = true;
-         this.SlopeLabel.Location = new System.Drawing.Point(466, 138);
+         this.SlopeLabel.Location = new System.Drawing.Point(464, 138);
          this.SlopeLabel.Name = "SlopeLabel";
          this.SlopeLabel.Size = new System.Drawing.Size(48, 17);
          this.SlopeLabel.TabIndex = 13;
@@ -597,7 +597,7 @@
          // AngleLabel
          // 
          this.AngleLabel.AutoSize = true;
-         this.AngleLabel.Location = new System.Drawing.Point(466, 169);
+         this.AngleLabel.Location = new System.Drawing.Point(464, 169);
          this.AngleLabel.Name = "AngleLabel";
          this.AngleLabel.Size = new System.Drawing.Size(48, 17);
          this.AngleLabel.TabIndex = 15;
@@ -931,78 +931,36 @@
          this.CalcWeightPanel.Size = new System.Drawing.Size(233, 173);
          this.CalcWeightPanel.TabIndex = 34;
          // 
-         // EnterButton
+         // panel3
          // 
-         this.EnterButton.Location = new System.Drawing.Point(109, 138);
-         this.EnterButton.Margin = new System.Windows.Forms.Padding(4);
-         this.EnterButton.Name = "EnterButton";
-         this.EnterButton.Size = new System.Drawing.Size(58, 28);
-         this.EnterButton.TabIndex = 34;
-         this.EnterButton.Text = "Enter";
-         this.EnterButton.UseVisualStyleBackColor = true;
-         this.EnterButton.Visible = false;
-         this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
+         this.panel3.Controls.Add(this.FeetRadioButtonThickness);
+         this.panel3.Controls.Add(this.InchRadioButtonThickness);
+         this.panel3.Location = new System.Drawing.Point(151, 88);
+         this.panel3.Name = "panel3";
+         this.panel3.Size = new System.Drawing.Size(64, 26);
+         this.panel3.TabIndex = 38;
          // 
-         // TotalWeightLabel
+         // FeetRadioButtonThickness
          // 
-         this.TotalWeightLabel.AutoSize = true;
-         this.TotalWeightLabel.Location = new System.Drawing.Point(12, 115);
-         this.TotalWeightLabel.Name = "TotalWeightLabel";
-         this.TotalWeightLabel.Size = new System.Drawing.Size(96, 17);
-         this.TotalWeightLabel.TabIndex = 35;
-         this.TotalWeightLabel.Text = "Total Weight: ";
-         this.TotalWeightLabel.Visible = false;
+         this.FeetRadioButtonThickness.AutoSize = true;
+         this.FeetRadioButtonThickness.Location = new System.Drawing.Point(44, 4);
+         this.FeetRadioButtonThickness.Name = "FeetRadioButtonThickness";
+         this.FeetRadioButtonThickness.Size = new System.Drawing.Size(17, 16);
+         this.FeetRadioButtonThickness.TabIndex = 1;
+         this.FeetRadioButtonThickness.UseVisualStyleBackColor = true;
+         this.FeetRadioButtonThickness.Visible = false;
          // 
-         // InchLabel
+         // InchRadioButtonThickness
          // 
-         this.InchLabel.AutoSize = true;
-         this.InchLabel.Location = new System.Drawing.Point(148, 14);
-         this.InchLabel.Name = "InchLabel";
-         this.InchLabel.Size = new System.Drawing.Size(34, 17);
-         this.InchLabel.TabIndex = 36;
-         this.InchLabel.Text = "Inch";
-         this.InchLabel.Visible = false;
-         // 
-         // FeetLabel
-         // 
-         this.FeetLabel.AutoSize = true;
-         this.FeetLabel.Location = new System.Drawing.Point(188, 14);
-         this.FeetLabel.Name = "FeetLabel";
-         this.FeetLabel.Size = new System.Drawing.Size(36, 17);
-         this.FeetLabel.TabIndex = 37;
-         this.FeetLabel.Text = "Feet";
-         this.FeetLabel.Visible = false;
-         // 
-         // panel1
-         // 
-         this.panel1.Controls.Add(this.FeetRadioButtonLength);
-         this.panel1.Controls.Add(this.InchRadioButtonLength);
-         this.panel1.Location = new System.Drawing.Point(151, 34);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(64, 26);
-         this.panel1.TabIndex = 35;
-         // 
-         // InchRadioButtonLength
-         // 
-         this.InchRadioButtonLength.AutoSize = true;
-         this.InchRadioButtonLength.Location = new System.Drawing.Point(3, 4);
-         this.InchRadioButtonLength.Name = "InchRadioButtonLength";
-         this.InchRadioButtonLength.Size = new System.Drawing.Size(17, 16);
-         this.InchRadioButtonLength.TabIndex = 0;
-         this.InchRadioButtonLength.UseVisualStyleBackColor = true;
-         this.InchRadioButtonLength.Visible = false;
-         // 
-         // FeetRadioButtonLength
-         // 
-         this.FeetRadioButtonLength.AutoSize = true;
-         this.FeetRadioButtonLength.Checked = true;
-         this.FeetRadioButtonLength.Location = new System.Drawing.Point(44, 4);
-         this.FeetRadioButtonLength.Name = "FeetRadioButtonLength";
-         this.FeetRadioButtonLength.Size = new System.Drawing.Size(17, 16);
-         this.FeetRadioButtonLength.TabIndex = 1;
-         this.FeetRadioButtonLength.TabStop = true;
-         this.FeetRadioButtonLength.UseVisualStyleBackColor = true;
-         this.FeetRadioButtonLength.Visible = false;
+         this.InchRadioButtonThickness.AutoSize = true;
+         this.InchRadioButtonThickness.Checked = true;
+         this.InchRadioButtonThickness.Location = new System.Drawing.Point(3, 4);
+         this.InchRadioButtonThickness.Name = "InchRadioButtonThickness";
+         this.InchRadioButtonThickness.Size = new System.Drawing.Size(17, 16);
+         this.InchRadioButtonThickness.TabIndex = 0;
+         this.InchRadioButtonThickness.TabStop = true;
+         this.InchRadioButtonThickness.UseVisualStyleBackColor = true;
+         this.InchRadioButtonThickness.Visible = false;
          // 
          // panel2
          // 
@@ -1035,36 +993,78 @@
          this.InchRadioButtonWidth.UseVisualStyleBackColor = true;
          this.InchRadioButtonWidth.Visible = false;
          // 
-         // panel3
+         // panel1
          // 
-         this.panel3.Controls.Add(this.FeetRadioButtonThickness);
-         this.panel3.Controls.Add(this.InchRadioButtonThickness);
-         this.panel3.Location = new System.Drawing.Point(151, 88);
-         this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(64, 26);
-         this.panel3.TabIndex = 38;
+         this.panel1.Controls.Add(this.FeetRadioButtonLength);
+         this.panel1.Controls.Add(this.InchRadioButtonLength);
+         this.panel1.Location = new System.Drawing.Point(151, 34);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(64, 26);
+         this.panel1.TabIndex = 35;
          // 
-         // FeetRadioButtonThickness
+         // FeetRadioButtonLength
          // 
-         this.FeetRadioButtonThickness.AutoSize = true;
-         this.FeetRadioButtonThickness.Location = new System.Drawing.Point(44, 4);
-         this.FeetRadioButtonThickness.Name = "FeetRadioButtonThickness";
-         this.FeetRadioButtonThickness.Size = new System.Drawing.Size(17, 16);
-         this.FeetRadioButtonThickness.TabIndex = 1;
-         this.FeetRadioButtonThickness.UseVisualStyleBackColor = true;
-         this.FeetRadioButtonThickness.Visible = false;
+         this.FeetRadioButtonLength.AutoSize = true;
+         this.FeetRadioButtonLength.Checked = true;
+         this.FeetRadioButtonLength.Location = new System.Drawing.Point(44, 4);
+         this.FeetRadioButtonLength.Name = "FeetRadioButtonLength";
+         this.FeetRadioButtonLength.Size = new System.Drawing.Size(17, 16);
+         this.FeetRadioButtonLength.TabIndex = 1;
+         this.FeetRadioButtonLength.TabStop = true;
+         this.FeetRadioButtonLength.UseVisualStyleBackColor = true;
+         this.FeetRadioButtonLength.Visible = false;
          // 
-         // InchRadioButtonThickness
+         // InchRadioButtonLength
          // 
-         this.InchRadioButtonThickness.AutoSize = true;
-         this.InchRadioButtonThickness.Checked = true;
-         this.InchRadioButtonThickness.Location = new System.Drawing.Point(3, 4);
-         this.InchRadioButtonThickness.Name = "InchRadioButtonThickness";
-         this.InchRadioButtonThickness.Size = new System.Drawing.Size(17, 16);
-         this.InchRadioButtonThickness.TabIndex = 0;
-         this.InchRadioButtonThickness.TabStop = true;
-         this.InchRadioButtonThickness.UseVisualStyleBackColor = true;
-         this.InchRadioButtonThickness.Visible = false;
+         this.InchRadioButtonLength.AutoSize = true;
+         this.InchRadioButtonLength.Location = new System.Drawing.Point(3, 4);
+         this.InchRadioButtonLength.Name = "InchRadioButtonLength";
+         this.InchRadioButtonLength.Size = new System.Drawing.Size(17, 16);
+         this.InchRadioButtonLength.TabIndex = 0;
+         this.InchRadioButtonLength.UseVisualStyleBackColor = true;
+         this.InchRadioButtonLength.Visible = false;
+         // 
+         // FeetLabel
+         // 
+         this.FeetLabel.AutoSize = true;
+         this.FeetLabel.Location = new System.Drawing.Point(188, 14);
+         this.FeetLabel.Name = "FeetLabel";
+         this.FeetLabel.Size = new System.Drawing.Size(36, 17);
+         this.FeetLabel.TabIndex = 37;
+         this.FeetLabel.Text = "Feet";
+         this.FeetLabel.Visible = false;
+         // 
+         // InchLabel
+         // 
+         this.InchLabel.AutoSize = true;
+         this.InchLabel.Location = new System.Drawing.Point(148, 14);
+         this.InchLabel.Name = "InchLabel";
+         this.InchLabel.Size = new System.Drawing.Size(34, 17);
+         this.InchLabel.TabIndex = 36;
+         this.InchLabel.Text = "Inch";
+         this.InchLabel.Visible = false;
+         // 
+         // TotalWeightLabel
+         // 
+         this.TotalWeightLabel.AutoSize = true;
+         this.TotalWeightLabel.Location = new System.Drawing.Point(12, 115);
+         this.TotalWeightLabel.Name = "TotalWeightLabel";
+         this.TotalWeightLabel.Size = new System.Drawing.Size(96, 17);
+         this.TotalWeightLabel.TabIndex = 35;
+         this.TotalWeightLabel.Text = "Total Weight: ";
+         this.TotalWeightLabel.Visible = false;
+         // 
+         // EnterButton
+         // 
+         this.EnterButton.Location = new System.Drawing.Point(109, 138);
+         this.EnterButton.Margin = new System.Windows.Forms.Padding(4);
+         this.EnterButton.Name = "EnterButton";
+         this.EnterButton.Size = new System.Drawing.Size(58, 28);
+         this.EnterButton.TabIndex = 34;
+         this.EnterButton.Text = "Enter";
+         this.EnterButton.UseVisualStyleBackColor = true;
+         this.EnterButton.Visible = false;
+         this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
          // 
          // FRMDetailerCalculator
          // 
@@ -1117,12 +1117,12 @@
          this.BRtoAPanel.PerformLayout();
          this.CalcWeightPanel.ResumeLayout(false);
          this.CalcWeightPanel.PerformLayout();
-         this.panel1.ResumeLayout(false);
-         this.panel1.PerformLayout();
-         this.panel2.ResumeLayout(false);
-         this.panel2.PerformLayout();
          this.panel3.ResumeLayout(false);
          this.panel3.PerformLayout();
+         this.panel2.ResumeLayout(false);
+         this.panel2.PerformLayout();
+         this.panel1.ResumeLayout(false);
+         this.panel1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
