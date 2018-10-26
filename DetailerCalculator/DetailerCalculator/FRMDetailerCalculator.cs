@@ -789,7 +789,6 @@ namespace DetailerCalculator
          else
          {
             return Conversions.CalculateWeight(Convert.ToDecimal(LengthTextBox.Text), Convert.ToDecimal(WidthTextBox.Text), Convert.ToDecimal(ThicknessTextBox.Text));
-
          }
       }
 
@@ -811,6 +810,36 @@ namespace DetailerCalculator
          {
             item.Visible = visible;
          }
+      }
+
+      private void InchRadioButtonLength_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.LengthIsInFeet = InchRadioButtonLength.Checked ? false : true;
+      }
+
+      private void FeetRadioButtonLength_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.LengthIsInFeet = FeetRadioButtonLength.Checked ? true : false;
+      }
+
+      private void InchRadioButtonWidth_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.WidthIsInFeet = InchRadioButtonWidth.Checked ? false : true;
+      }
+
+      private void FeetRadioButtonWidth_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.LengthIsInFeet = FeetRadioButtonWidth.Checked ? true : false;
+      }
+
+      private void InchRadioButtonThickness_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.ThicknessIsInFeet = InchRadioButtonThickness.Checked ? false : true;
+      }
+
+      private void FeetRadioButtonThickness_CheckedChanged(object sender, EventArgs e)
+      {
+         _Settings.ThicknessIsInFeet = InchRadioButtonThickness.Checked ? true : false;
       }
    }
 }

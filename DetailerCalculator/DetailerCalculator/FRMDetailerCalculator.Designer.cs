@@ -949,6 +949,7 @@
          this.FeetRadioButtonThickness.TabIndex = 1;
          this.FeetRadioButtonThickness.UseVisualStyleBackColor = true;
          this.FeetRadioButtonThickness.Visible = false;
+         this.FeetRadioButtonThickness.CheckedChanged += new System.EventHandler(this.FeetRadioButtonThickness_CheckedChanged);
          // 
          // InchRadioButtonThickness
          // 
@@ -961,6 +962,7 @@
          this.InchRadioButtonThickness.TabStop = true;
          this.InchRadioButtonThickness.UseVisualStyleBackColor = true;
          this.InchRadioButtonThickness.Visible = false;
+         this.InchRadioButtonThickness.CheckedChanged += new System.EventHandler(this.InchRadioButtonThickness_CheckedChanged);
          // 
          // panel2
          // 
@@ -980,6 +982,7 @@
          this.FeetRadioButtonWidth.TabIndex = 1;
          this.FeetRadioButtonWidth.UseVisualStyleBackColor = true;
          this.FeetRadioButtonWidth.Visible = false;
+         this.FeetRadioButtonWidth.CheckedChanged += new System.EventHandler(this.FeetRadioButtonWidth_CheckedChanged);
          // 
          // InchRadioButtonWidth
          // 
@@ -992,6 +995,7 @@
          this.InchRadioButtonWidth.TabStop = true;
          this.InchRadioButtonWidth.UseVisualStyleBackColor = true;
          this.InchRadioButtonWidth.Visible = false;
+         this.InchRadioButtonWidth.CheckedChanged += new System.EventHandler(this.InchRadioButtonWidth_CheckedChanged);
          // 
          // panel1
          // 
@@ -1013,6 +1017,7 @@
          this.FeetRadioButtonLength.TabStop = true;
          this.FeetRadioButtonLength.UseVisualStyleBackColor = true;
          this.FeetRadioButtonLength.Visible = false;
+         this.FeetRadioButtonLength.CheckedChanged += new System.EventHandler(this.FeetRadioButtonLength_CheckedChanged);
          // 
          // InchRadioButtonLength
          // 
@@ -1023,6 +1028,7 @@
          this.InchRadioButtonLength.TabIndex = 0;
          this.InchRadioButtonLength.UseVisualStyleBackColor = true;
          this.InchRadioButtonLength.Visible = false;
+         this.InchRadioButtonLength.CheckedChanged += new System.EventHandler(this.InchRadioButtonLength_CheckedChanged);
          // 
          // FeetLabel
          // 
