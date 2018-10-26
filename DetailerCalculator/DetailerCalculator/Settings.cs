@@ -17,6 +17,12 @@ namespace DetailerCalculator
 
       public bool IsDetailingMathMethod { get; set; }
 
+      public bool WidthIsInFeet { get; set; }
+
+      public bool LengthIsInFeet { get; set; }
+
+      public bool ThicknessIsInFeet { get; set; }
+
       public string FixedDecimals { get; set; }
 
       public bool HaveSeenTrayIconInstructions { get; set; }

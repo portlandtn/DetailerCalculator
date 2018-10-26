@@ -110,5 +110,18 @@ namespace DetailerCalculator
             return 0;
          }
       }
+
+      /// <summary>
+      /// Uses three numbers to figure the weight of steel.
+      /// </summary>
+      /// <param name="length"></param>
+      /// <param name="width"></param>
+      /// <param name="thickness"></param>
+      /// <returns></returns>
+      public static decimal CalculateWeight(decimal length, decimal width, decimal thickness)
+      {
+         const decimal weightPerCubicInch = 0.2904m;
+         return weightPerCubicInch * length * width * thickness;
+      }
    }
 }

@@ -144,5 +144,20 @@ namespace UnitTests
          Assert.AreEqual(expectedResponse1, response1);
          Assert.AreEqual(expectedResponse2, response2);
       }
+
+      [TestMethod]
+      public void CalculateWeight()
+      {
+         //Arrange
+         var length = 2m;
+         var width = 3m;
+         var thickness = 0.375m;
+         var expectedResponse = 0.6534m;
+         //Act
+         var response = Conversions.CalculateWeight(length, width, thickness);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
    }
 }

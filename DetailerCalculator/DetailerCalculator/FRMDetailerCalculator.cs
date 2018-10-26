@@ -151,6 +151,7 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
+            WarningNumericEntryOnlyLabel.Visible = false;
             decimal outputWindowDecimal;
             try
             {
@@ -271,18 +272,23 @@ namespace DetailerCalculator
 
       private void UserEntryBox_TextChanged(object sender, EventArgs e)
       {
-         //Checks to make sure the text entered is valid. If not, an error label appears telling the user to try again and clears the textbox.
-         Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
-         MatchCollection matches = regex.Matches(UserEntryBox.Text);
-         if (UserEntryBox.Text.Contains("F"))
+         if (TextValidation(UserEntryBox.Text) == false)
          {
-            return;
-         }
-         else if (matches.Count > 0)
-         {
-            WarningNumericEntryOnlyLabel.Visible = true;
             UserEntryBox.Text = "";
+            WarningNumericEntryOnlyLabel.Visible = true;
          }
+         //Checks to make sure the text entered is valid. If not, an error label appears telling the user to try again and clears the textbox.
+         //Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
+         //MatchCollection matches = regex.Matches(UserEntryBox.Text);
+         //if (UserEntryBox.Text.Contains("F"))
+         //{
+         //   return;
+         //}
+         //else if (matches.Count > 0)
+         //{
+         //   WarningNumericEntryOnlyLabel.Visible = true;
+         //   UserEntryBox.Text = "";
+         //}
       }
 
       private void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
@@ -314,6 +320,11 @@ namespace DetailerCalculator
 
       private void SlopeTextBox_TextChanged(object sender, EventArgs e)
       {
+         if (TextValidation(SlopeTextBox.Text) == false)
+         {
+            SlopeTextBox.Text = "";
+            return;
+         }
          //Automatically calculates the roof slope, based on text entered in the slope textbox (based on 1'-0" base)
          if (SlopeTextBox.Text == "")
          {
@@ -346,6 +357,11 @@ namespace DetailerCalculator
 
       private void BaseTextBox_TextChanged(object sender, EventArgs e)
       {
+         if (TextValidation(BaseTextBox.Text) == false)
+         {
+            BaseTextBox.Text = "";
+            return;
+         }
          //Calculates the angle based on the base and rise entered.
          //This is only active when the BRtoA button is pressed.
          if (BaseTextBox.Text == "")
@@ -361,6 +377,11 @@ namespace DetailerCalculator
 
       private void RiseTextBox_TextChanged(object sender, EventArgs e)
       {
+         if (TextValidation(RiseTextBox.Text) == false)
+         {
+            RiseTextBox.Text = "";
+            //return;
+         }
          //Calculates the angle based on the base and rise entered.
          //This is only active when the BRtoA button is pressed.
          if (RiseTextBox.Text == "")
@@ -481,6 +502,10 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
+         if (_OutputWindowList.Count >= 16)
+         {
+            _OutputWindowList.RemoveAt(_OutputWindowList.Count - (_OutputWindowList.Count - 1));
+         }
          //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
          while (numbersToReplace > 0)
          {
@@ -697,6 +722,103 @@ namespace DetailerCalculator
       private void HipValleyButton_Click(object sender, EventArgs e)
       {
          MessageBox.Show("Feature Coming Soon");
+      }
+
+      private bool TextValidation(string textToCheck)
+      {
+         //Checks to make sure the text entered is valid. If not, an error label appears telling the user to try again and clears the textbox.
+         Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
+         MatchCollection matches = regex.Matches(textToCheck);
+         return matches.Count > 0 ? false : true;
+      }
+
+      private void OverWriteAngleTextBox_TextChanged(object sender, EventArgs e)
+      {
+         if (TextValidation(OverWriteAngleTextBox.Text) == false)
+         {
+            OverWriteAngleTextBox.Text = "";
+         }
+      }
+
+      private void KeepOnTopCheckBox_CheckedChanged(object sender, EventArgs e)
+      {
+         TopMost = KeepOnTopCheckBox.Checked ? true : false;
+      }
+
+      private void CalculateWeightButton_Click(object sender, EventArgs e)
+      {
+         SetVisibility(true);
+
+         EnterButton.Visible = true;
+
+         CalculateWeightButton.Visible = false;
+         LengthTextBox.Focus();
+      }
+
+      private void EnterButton_Click(object sender, EventArgs e)
+      {
+         SetVisibility(false);
+
+         EnterButton.Visible = false;
+
+         CalculateWeightButton.Visible = true;
+         OutputWindowStringBuilder(CalcWeight(), 0);
+      }
+
+      private void Inches_CheckedChanged(object sender, EventArgs e)
+      {
+
+      }
+
+      private void LengthTextBox_TextChanged(object sender, EventArgs e)
+      {
+         TextValidation(LengthTextBox.Text);
+         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+      }
+
+      private void WidthTextBox_TextChanged(object sender, EventArgs e)
+      {
+         TextValidation(WidthTextBox.Text);
+         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+      }
+
+      private void ThicknessTextBox_TextChanged(object sender, EventArgs e)
+      {
+         TextValidation(ThicknessTextBox.Text);
+         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+      }
+
+      private decimal CalcWeight()
+      {
+         if (LengthTextBox.Text == "" || WidthTextBox.Text == "" || ThicknessTextBox.Text == "")
+         {
+            return 0;
+         }
+         else
+         {
+            return Conversions.CalculateWeight(Convert.ToDecimal(LengthTextBox.Text), Convert.ToDecimal(WidthTextBox.Text), Convert.ToDecimal(ThicknessTextBox.Text));
+
+         }
+      }
+
+      private void SetVisibility(bool visible)
+      {
+         List<Label> labels = new List<Label> { LengthLabel, WidthLabel, ThicknessLabel, TotalWeightLabel, InchLabel, FeetLabel };
+         List<TextBox> textBoxes = new List<TextBox> { LengthTextBox, WidthTextBox, ThicknessTextBox };
+         List<RadioButton> radioButtons = new List<RadioButton> { InchRadioButtonLength, FeetRadioButtonLength, InchRadioButtonThickness, InchRadioButtonWidth, FeetRadioButtonThickness, FeetRadioButtonWidth };
+
+         foreach (var item in labels)
+         {
+            item.Visible = visible;
+         }
+         foreach (var item in textBoxes)
+         {
+            item.Visible = visible;
+         }
+         foreach (var item in radioButtons)
+         {
+            item.Visible = visible;
+         }
       }
    }
 }
