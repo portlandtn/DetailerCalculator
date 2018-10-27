@@ -29,8 +29,6 @@ namespace DetailerCalculator
 
       public bool LengthIsInFeet { get; set; }
 
-      public bool ThicknessIsInFeet { get; set; }
-
       public string FixedDecimals { get; set; }
 
       public bool HaveSeenTrayIconInstructions { get; set; }

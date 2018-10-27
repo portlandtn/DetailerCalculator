@@ -123,6 +123,8 @@
     <Content Include="HelpMenu\Pictures\Slope.png" />
     <Content Include="HelpMenu\Pictures\TrigFunctions.png" />
     <Content Include="HelpMenu\TrigFunctions.htm" />
+    <None Include="Resources\Redo.png" />
+    <None Include="Resources\Undo.png" />
     <EmbeddedResource Include="FRMAboutPopUp.resx">
       <DependentUpon>FRMAboutPopUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
     <None Include="DetailingCalculatorHelp.chm" />

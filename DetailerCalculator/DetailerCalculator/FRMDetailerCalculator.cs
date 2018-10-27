@@ -34,11 +34,13 @@ namespace DetailerCalculator
 
       private void FRMDetailerCalculator_Load(object sender, EventArgs e)
       {
-         //Restores angles from previous session (soon to be output window text).
+         //Restores angles from previous session.
          //Defaults active angle back to the first angle, math method back to detailing.
          RestoreSettings();
          _Settings.ActiveAngle = 1;
          _Settings.IsDetailingMathMethod = true;
+         _Settings.LengthIsInFeet = true;
+         _Settings.WidthIsInFeet = false;
          ActiveControl = UserEntryBox;
       }
 
@@ -269,18 +271,6 @@ namespace DetailerCalculator
             UserEntryBox.Text = "";
             WarningNumericEntryOnlyLabel.Visible = true;
          }
-         //Checks to make sure the text entered is valid. If not, an error label appears telling the user to try again and clears the textbox.
-         //Regex regex = new Regex(@"[^0-9^.^\+^\-^\*^\/]");
-         //MatchCollection matches = regex.Matches(UserEntryBox.Text);
-         //if (UserEntryBox.Text.Contains("F"))
-         //{
-         //   return;
-         //}
-         //else if (matches.Count > 0)
-         //{
-         //   WarningNumericEntryOnlyLabel.Visible = true;
-         //   UserEntryBox.Text = "";
-         //}
       }
 
       private void Angle1RadioBox_CheckedChanged(object sender, EventArgs e)
@@ -427,7 +417,7 @@ namespace DetailerCalculator
          _Settings.Angle2 = Convert.ToDecimal(Properties.Settings.Default["Angle2"]);
          _Settings.Angle3 = Convert.ToDecimal(Properties.Settings.Default["Angle3"]);
          _Settings.Angle4 = Convert.ToDecimal(Properties.Settings.Default["Angle4"]);
-         _Settings.Angle1 = Convert.ToDecimal(Properties.Settings.Default["CurrentAngle"]);
+         _Settings.CurrentAngle = Convert.ToDecimal(Properties.Settings.Default["CurrentAngle"]);
          _Settings.FixedDecimals = Convert.ToString(Properties.Settings.Default["FixedDecimal"]);
          _Settings.HaveSeenTrayIconInstructions = Convert.ToBoolean(Properties.Settings.Default["HaveSeenTrayIconInstructions"]);
 
@@ -456,7 +446,7 @@ namespace DetailerCalculator
                Angle3Label.Text = Convert.ToString(Math.Round(_Settings.Angle3, 4));
                break;
             case 4:
-               _Settings.Angle1 = angleValue;
+               _Settings.Angle4 = angleValue;
                Angle4Label.Text = Convert.ToString(Math.Round(_Settings.Angle4, 4));
                break;
             default:
@@ -741,7 +731,7 @@ namespace DetailerCalculator
       {
          SetVisibility(true);
 
-         EnterButton.Visible = true;
+         PushToOutputWindowButton.Visible = true;
 
          CalculateWeightButton.Visible = false;
          LengthTextBox.Focus();
@@ -751,15 +741,13 @@ namespace DetailerCalculator
       {
          SetVisibility(false);
 
-         EnterButton.Visible = false;
+         PushToOutputWindowButton.Visible = false;
 
          CalculateWeightButton.Visible = true;
          OutputWindowStringBuilder(CalcWeight(), 0);
-      }
-
-      private void Inches_CheckedChanged(object sender, EventArgs e)
-      {
-
+         LengthTextBox.Text = "";
+         WidthTextBox.Text = "";
+         ThicknessNumberPicker.Value = 0;
       }
 
       private void LengthTextBox_TextChanged(object sender, EventArgs e)
@@ -774,29 +762,57 @@ namespace DetailerCalculator
          TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
       }
 
-      private void ThicknessTextBox_TextChanged(object sender, EventArgs e)
-      {
-         TextValidation(ThicknessTextBox.Text);
-         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
-      }
-
       private decimal CalcWeight()
       {
-         if (LengthTextBox.Text == "" || WidthTextBox.Text == "" || ThicknessTextBox.Text == "")
+         decimal width;
+         decimal length;
+         decimal thickness;
+
+         if (LengthTextBox.Text == "" || WidthTextBox.Text == "" || ThicknessNumberPicker.Value == 0)
          {
             return 0;
          }
-         else
+         length = Convert.ToDecimal(LengthTextBox.Text);
+         width = Convert.ToDecimal(WidthTextBox.Text);
+         try
          {
-            return Conversions.CalculateWeight(Convert.ToDecimal(LengthTextBox.Text), Convert.ToDecimal(WidthTextBox.Text), Convert.ToDecimal(ThicknessTextBox.Text));
+            thickness = Convert.ToDecimal(ThicknessNumberPicker.Value);
          }
+         catch (Exception)
+         {
+
+         }
+         finally
+         {
+            thickness = 0;
+         }
+
+
+            if (_Settings.IsDetailingMathMethod == true)
+            {
+               length = Conversions.FootToDecimal(length);
+               width = Conversions.FootToDecimal(width);
+               thickness = Conversions.FootToDecimal(thickness);
+            }
+            if (InchRadioButtonLength.Checked == false)
+            {
+               length = length / 12;
+            }
+            if (InchRadioButtonWidth.Checked == false)
+            {
+               width = width / 12;
+            }
+         
+
+         return Conversions.CalculateWeight(Convert.ToDecimal(LengthTextBox.Text), Convert.ToDecimal(WidthTextBox.Text), Convert.ToDecimal(ThicknessNumberPicker.Value));
+
       }
 
       private void SetVisibility(bool visible)
       {
          List<Label> labels = new List<Label> { LengthLabel, WidthLabel, ThicknessLabel, TotalWeightLabel, InchLabel, FeetLabel };
-         List<TextBox> textBoxes = new List<TextBox> { LengthTextBox, WidthTextBox, ThicknessTextBox };
-         List<RadioButton> radioButtons = new List<RadioButton> { InchRadioButtonLength, FeetRadioButtonLength, InchRadioButtonThickness, InchRadioButtonWidth, FeetRadioButtonThickness, FeetRadioButtonWidth };
+         List<TextBox> textBoxes = new List<TextBox> { LengthTextBox, WidthTextBox, };
+         List<RadioButton> radioButtons = new List<RadioButton> { InchRadioButtonLength, FeetRadioButtonLength, InchRadioButtonWidth, FeetRadioButtonWidth };
 
          foreach (var item in labels)
          {
@@ -810,6 +826,8 @@ namespace DetailerCalculator
          {
             item.Visible = visible;
          }
+
+         ThicknessNumberPicker.Visible = visible;
       }
 
       private void InchRadioButtonLength_CheckedChanged(object sender, EventArgs e)
@@ -832,14 +850,9 @@ namespace DetailerCalculator
          _Settings.LengthIsInFeet = FeetRadioButtonWidth.Checked ? true : false;
       }
 
-      private void InchRadioButtonThickness_CheckedChanged(object sender, EventArgs e)
+      private void ThicknessNumberPicker_ValueChanged(object sender, EventArgs e)
       {
-         _Settings.ThicknessIsInFeet = InchRadioButtonThickness.Checked ? false : true;
-      }
-
-      private void FeetRadioButtonThickness_CheckedChanged(object sender, EventArgs e)
-      {
-         _Settings.ThicknessIsInFeet = InchRadioButtonThickness.Checked ? true : false;
+         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
       }
    }
 }
