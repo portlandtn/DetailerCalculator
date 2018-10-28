@@ -123,6 +123,7 @@
     <Content Include="HelpMenu\Pictures\Slope.png" />
     <Content Include="HelpMenu\Pictures\TrigFunctions.png" />
     <Content Include="HelpMenu\TrigFunctions.htm" />
+    <None Include="DetailingCalculatorHelp.chm" />
     <None Include="Resources\Redo.png" />
     <None Include="Resources\Undo.png" />
     <EmbeddedResource Include="FRMAboutPopUp.resx">
@@ -142,8 +143,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="DetailerCalculator_TemporaryKey.pfx" />
-    <None Include="DetailingCalculatorHelp.chm" />
-    <None Include="HelpMenu\DetailingCalculatorHelp.chm" />
     <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
     <None Include="HelpMenu\Index.hhk" />
     <None Include="HelpMenu\Table of Contents.hhc" />
