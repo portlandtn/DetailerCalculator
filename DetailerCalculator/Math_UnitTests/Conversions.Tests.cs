@@ -11,7 +11,7 @@ namespace UnitTests
       /// Checks foot to decimal conversions.
       /// </summary>
       [TestMethod]
-      public void FootToDecimal_UnitTest()
+      public void FootToDecimal()
       {
          //Arrange
          var foot1 = 4.06m;
@@ -40,7 +40,7 @@ namespace UnitTests
       /// Checks decimal to foot conversions.
       /// </summary>
       [TestMethod]
-      public void DecimalToFoot_UnitTest()
+      public void DecimalToFoot()
       {
          //Arrange
          var decNumber1 = 4.5m;
@@ -69,7 +69,7 @@ namespace UnitTests
       /// Checks angle to radians conversions
       /// </summary>
       [TestMethod]
-      public void AngleToRadians_UnitTest()
+      public void AngleToRadians()
       {
          //Arrange
          var angle1 = 4.7623m;
@@ -98,7 +98,7 @@ namespace UnitTests
       /// Checks radians to angle conversions
       /// </summary>
       [TestMethod]
-      public void RadiansToAngle_UnitTest()
+      public void RadiansToAngle()
       {
          //Arrange
          var radians1 = 0.2501m;
@@ -127,7 +127,7 @@ namespace UnitTests
       /// Checks to make sure the response is the negative number of the initial entry.
       /// </summary>
       [TestMethod]
-      public void ChangeToNegative_PositveUnitTest()
+      public void ChangeToNegative_Positve()
       {
          //Arrange
          var num1 = 21m;
@@ -146,15 +146,64 @@ namespace UnitTests
       }
 
       [TestMethod]
-      public void CalculateWeight()
+      public void DetermineDimensionForCalc_DimensionIsInFeetAndIsDetailingMethod()
       {
          //Arrange
-         var length = 2m;
-         var width = 3m;
-         var thickness = 0.375m;
-         var expectedResponse = 0.6534m;
+         var dimension = 12.0600m;
+         var isDetailingMathMethod = true;
+         var dimensionIsInFeet = true;
+         var expectedResponse = 150m;
+
          //Act
-         var response = Conversions.CalculateWeight(length, width, thickness);
+         var response = Math.Round(Conversions.DetermineDimensionForWeightCalculations(dimension, isDetailingMathMethod, dimensionIsInFeet),4);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DetermineDimensionForCalc_DimensionIsNotInFeetAndIsDetailingMethod()
+      {
+         //Arrange
+         var dimension = 150m;
+         var isDetailingMathMethod = true;
+         var dimensionIsInFeet = false;
+         var expectedResponse = 150m;
+
+         //Act
+         var response = Math.Round(Conversions.DetermineDimensionForWeightCalculations(dimension, isDetailingMathMethod, dimensionIsInFeet), 4);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DetermineDimensionForCalc_DimensionsIsNotInFeetAndIsNotDetailingMethod()
+      {
+         //Arrange
+         var dimension = 150m;
+         var isDetailingMathMethod = false;
+         var dimensionIsInFeet = false;
+         var expectedResponse = 150m;
+
+         //Act
+         var response = Math.Round(Conversions.DetermineDimensionForWeightCalculations(dimension, isDetailingMathMethod, dimensionIsInFeet), 4);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void DetermineDimensionForCalc_DimensionIsInFeetAndIsNotDetailingMethod()
+      {
+         //Arrange
+         var dimension = 12.5m;
+         var isDetailingMathMethod = false;
+         var dimensionIsInFeet = true;
+         var expectedResponse = 150m;
+
+         //Act
+         var response = Math.Round(Conversions.DetermineDimensionForWeightCalculations(dimension, isDetailingMathMethod, dimensionIsInFeet), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

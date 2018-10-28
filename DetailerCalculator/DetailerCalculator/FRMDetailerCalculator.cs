@@ -744,7 +744,7 @@ namespace DetailerCalculator
          PushToOutputWindowButton.Visible = false;
 
          CalculateWeightButton.Visible = true;
-         OutputWindowStringBuilder(CalcWeight(), 0);
+         OutputWindowStringBuilder(DetermineWeight(), 0);
          LengthTextBox.Text = "";
          WidthTextBox.Text = "";
          ThicknessNumberPicker.Value = 0;
@@ -752,60 +752,17 @@ namespace DetailerCalculator
 
       private void LengthTextBox_TextChanged(object sender, EventArgs e)
       {
-         TextValidation(LengthTextBox.Text);
-         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+         DetermineWeight();
       }
 
       private void WidthTextBox_TextChanged(object sender, EventArgs e)
       {
-         TextValidation(WidthTextBox.Text);
-         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+         DetermineWeight();
       }
 
-      private decimal CalcWeight()
+      private void ThicknessNumberPicker_ValueChanged(object sender, EventArgs e)
       {
-         decimal width;
-         decimal length;
-         decimal thickness;
-
-         if (LengthTextBox.Text == "" || WidthTextBox.Text == "" || ThicknessNumberPicker.Value == 0)
-         {
-            return 0;
-         }
-         length = Convert.ToDecimal(LengthTextBox.Text);
-         width = Convert.ToDecimal(WidthTextBox.Text);
-         try
-         {
-            thickness = Convert.ToDecimal(ThicknessNumberPicker.Value);
-         }
-         catch (Exception)
-         {
-
-         }
-         finally
-         {
-            thickness = 0;
-         }
-
-
-            if (_Settings.IsDetailingMathMethod == true)
-            {
-               length = Conversions.FootToDecimal(length);
-               width = Conversions.FootToDecimal(width);
-               thickness = Conversions.FootToDecimal(thickness);
-            }
-            if (InchRadioButtonLength.Checked == false)
-            {
-               length = length / 12;
-            }
-            if (InchRadioButtonWidth.Checked == false)
-            {
-               width = width / 12;
-            }
-         
-
-         return Conversions.CalculateWeight(Convert.ToDecimal(LengthTextBox.Text), Convert.ToDecimal(WidthTextBox.Text), Convert.ToDecimal(ThicknessNumberPicker.Value));
-
+         DetermineWeight();
       }
 
       private void SetVisibility(bool visible)
@@ -847,12 +804,28 @@ namespace DetailerCalculator
 
       private void FeetRadioButtonWidth_CheckedChanged(object sender, EventArgs e)
       {
-         _Settings.LengthIsInFeet = FeetRadioButtonWidth.Checked ? true : false;
+         _Settings.WidthIsInFeet = FeetRadioButtonWidth.Checked ? true : false;
       }
 
-      private void ThicknessNumberPicker_ValueChanged(object sender, EventArgs e)
+      private decimal DetermineWeight()
       {
-         TotalWeightLabel.Text = "Weight: " + Convert.ToString(CalcWeight());
+         decimal weight;
+         if (WidthTextBox.Text == "" || LengthTextBox.Text == "" || ThicknessNumberPicker.Value == 0)
+         {
+            weight = 0;
+         }
+         else
+         {
+            var length = Conversions.DetermineDimensionForWeightCalculations(Convert.ToDecimal(LengthTextBox.Text),
+               _Settings.IsDetailingMathMethod,
+               _Settings.LengthIsInFeet);
+            var width = Conversions.DetermineDimensionForWeightCalculations(Convert.ToDecimal(WidthTextBox.Text),
+               _Settings.IsDetailingMathMethod,
+               _Settings.WidthIsInFeet);
+            weight = MathFunctions.CalculateWeight(width, length, ThicknessNumberPicker.Value);
+         }
+         TotalWeightLabel.Text = "Weight: " + Convert.ToString(Math.Round(weight, 6));
+         return weight;
       }
    }
 }

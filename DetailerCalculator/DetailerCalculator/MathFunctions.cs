@@ -210,5 +210,11 @@ namespace DetailerCalculator
                return 0;
          }
       }
+
+      public static decimal CalculateWeight(decimal width, decimal length, decimal thickness)
+      {
+         const decimal weightPerCubicInch = 0.2904m;
+         return length * width * thickness * weightPerCubicInch;
+      }
    }
 }

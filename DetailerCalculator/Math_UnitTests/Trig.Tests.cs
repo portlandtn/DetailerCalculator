@@ -14,7 +14,7 @@ namespace UnitTests
       /// Should return radians, based on a base and rise input.
       /// </summary>
       [TestMethod]
-      public void BaseRiseToRadian_UnitTest()
+      public void BaseRiseToRadian()
       {
          //Arrange
          var bayse = 12m;
@@ -32,7 +32,7 @@ namespace UnitTests
       /// Should return the slope, based onthe base and rise input.
       /// </summary>
       [TestMethod]
-      public void BaseRiseToSlope_UnitTest()
+      public void BaseRiseToSlope()
       {
          //Arrange
          var bayse = 3m;
@@ -50,7 +50,7 @@ namespace UnitTests
       /// Should return the slope, based on the angle and base input.
       /// </summary>
       [TestMethod]
-      public void BaseToSlope_UnitTest()
+      public void BaseToSlope()
       {
          //Arrange
          var bayse = 12m;
@@ -68,7 +68,7 @@ namespace UnitTests
       /// Should return rise, based on the angle and rise input.
       /// </summary>
       [TestMethod]
-      public void BaseToRise_UnitTest()
+      public void BaseToRise()
       {
          //Arrange
          var bayse = 4.21m;
@@ -86,7 +86,7 @@ namespace UnitTests
       /// Should return the base, based on the slope and angle input.
       /// </summary>
       [TestMethod]
-      public void SlopeToBase_UnitTest()
+      public void SlopeToBase()
       {
          //Arrange
          var slope = 5.418m;
@@ -104,7 +104,7 @@ namespace UnitTests
       /// Should return the rise, based on the slope and angle input.
       /// </summary>
       [TestMethod]
-      public void SlopeToRise_UnitTest()
+      public void SlopeToRise()
       {
          //Arrange
          var slope = 9.615m;
@@ -122,7 +122,7 @@ namespace UnitTests
       /// Should return the slope, based on the rise and angle input.
       /// </summary>
       [TestMethod]
-      public void RisetoSlope_UnitTest()
+      public void RisetoSlope()
       {
          //Arrange
          var rise = 1.5m;
@@ -140,7 +140,7 @@ namespace UnitTests
       /// Should return the base, based on the angle and rise input.
       /// </summary>
       [TestMethod]
-      public void RiseToBase_UnitTest()
+      public void RiseToBase()
       {
          //Arrange
          var rise = 1.21m;

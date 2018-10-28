@@ -15,7 +15,7 @@ namespace UnitTests
       /// Returns the sum of two numbers based on traditional math.
       /// </summary>
       [TestMethod]
-      public void Add_Standard_UnitTest()
+      public void Add_Standard()
       {
          //Arrange
          bool isDetailingMethod = false;
@@ -49,7 +49,7 @@ namespace UnitTests
       /// Returns the sum of two numbers based on detailing formatted numbers.
       /// </summary>
       [TestMethod]
-      public void Add_Detailing_UnitTest()
+      public void Add_Detailing()
       {
          //Arrange
          bool isDetailingMethod = true;
@@ -84,7 +84,7 @@ namespace UnitTests
       /// Returns the difference of two numbers based on traditional math.
       /// </summary>
       [TestMethod]
-      public void Subtract_Standard_UnitTest()
+      public void Subtract_Standard()
       {
          //Arrange
          bool isDetailingMethod = false;
@@ -119,7 +119,7 @@ namespace UnitTests
       /// Returns the difference of two numbers based on numbers formatted to detailing standards.
       /// </summary>
       [TestMethod]
-      public void Subtract_Detailing_UnitTest()
+      public void Subtract_Detailing()
       {
          //Arrange
          bool isDetailingMethod = true;
@@ -154,7 +154,7 @@ namespace UnitTests
       /// Returns the product of two numbers based on traditional math.
       /// </summary>
       [TestMethod]
-      public void Multiply_Standard_UnitTest()
+      public void Multiply_Standard()
       {
          //Arrange
          bool isDetailingMethod = false;
@@ -188,7 +188,7 @@ namespace UnitTests
       /// Returns the product of two numbers based on detailing formatted numbers.
       /// </summary>
       [TestMethod]
-      public void Multiply_Detailing_UnitTest()
+      public void Multiply_Detailing()
       {
          //Arrange
          bool isDetailingMethod = true;
@@ -222,7 +222,7 @@ namespace UnitTests
       /// Returns the quotient of two numbers based on traditional math.
       /// </summary>
       [TestMethod]
-      public void Divide_Standard_UnitTest()
+      public void Divide_Standard()
       {
          //Arrange
          bool isDetailingMethod = false;
@@ -256,7 +256,7 @@ namespace UnitTests
       /// Returns the quotient of two numbers based on detailing formatted numbers.
       /// </summary>
       [TestMethod]
-      public void Divide_Detailing_UnitTest()
+      public void Divide_Detailing()
       {
          //Arrange
          bool isDetailingMethod = true;
@@ -290,7 +290,7 @@ namespace UnitTests
       /// Returns the sum of two numbers using standard math, based on the function input "add".
       /// </summary>
       [TestMethod]
-      public void DoMath_Standard_Add_UnitTest()
+      public void DoMath_Standard_Add()
       {
          //Arrange
          var function = "Add";
@@ -310,7 +310,7 @@ namespace UnitTests
       /// Returns the difference of two numbers using standard math, based on the function input "subtract".
       /// </summary>
       [TestMethod]
-      public void DoMath_Standard_Subtract_UnitTest()
+      public void DoMath_Standard_Subtract()
       {
          //Arrange
          var function = "Subtract";
@@ -330,7 +330,7 @@ namespace UnitTests
       /// Returns the product of two numbers using standard math, based on the function input "multiply".
       /// </summary>
       [TestMethod]
-      public void DoMath_Standard_Multiply_UnitTest()
+      public void DoMath_Standard_Multiply()
       {
          //Arrange
          var function = "Multiply";
@@ -351,7 +351,7 @@ namespace UnitTests
       /// Returns the quotient of two numbers using standard math, based on the function input "divide".
       /// </summary>
       [TestMethod]
-      public void DoMath_Standard_Divide_UnitTest()
+      public void DoMath_Standard_Divide()
       {
          //Arrange
          var function = "Divide";
@@ -372,7 +372,7 @@ namespace UnitTests
       /// Returns the sum of two numbers using detailing formatted numbers, based on the function input of "add".
       /// </summary>
       [TestMethod]
-      public void DoMath_Detailing_Add_UnitTest()
+      public void DoMath_Detailing_Add()
       {
          //Arrange
          var function = "Add";
@@ -392,7 +392,7 @@ namespace UnitTests
       /// Returns the difference of two numbers using detailing formatted numbers, based on the function input of "subtract".
       /// </summary>
       [TestMethod]
-      public void DoMath_Detailing_Subtract_UnitTest()
+      public void DoMath_Detailing_Subtract()
       {
          //Arrange
          var function = "Subtract";
@@ -412,7 +412,7 @@ namespace UnitTests
       /// Returns the product of two numbers using detailing formatted numbers, based on the function input of "multiply".
       /// </summary>
       [TestMethod]
-      public void DoMath_Detailing_Multiply_UnitTest()
+      public void DoMath_Detailing_Multiply()
       {
          //Arrange
          var function = "Multiply";
@@ -433,7 +433,7 @@ namespace UnitTests
       /// Returns the quotient of two numbers using detailing formatted numbers, based on the function input of "divide".
       /// </summary>
       [TestMethod]
-      public void DoMath_Detailing_Divide_UnitTest()
+      public void DoMath_Detailing_Divide()
       {
          //Arrange
          var function = "Divide";
@@ -455,7 +455,7 @@ namespace UnitTests
       /// or the next one up, if two numbers are required.
       /// </summary>
       [TestMethod]
-      public void DetermineSingleNumberForMath_NonEmptyList_UnitTest()
+      public void DetermineSingleNumberForMath_NonEmptyList()
       {
          //Arrange
          var list = new List<decimal> { 1m, 18m, 42m, 21m };
@@ -477,7 +477,7 @@ namespace UnitTests
       /// Checks that the number returned is 0 when determining numbers for math because the list is empty.
       /// </summary>
       [TestMethod]
-      public void DetermineSingleNumberForMath_EmptyList_UnitTest()
+      public void DetermineSingleNumberForMath_EmptyList()
       {
          //Arrange
          var list = new List<decimal> { };
@@ -498,7 +498,7 @@ namespace UnitTests
       /// Checks that the second number used for math is the last number in the list.
       /// </summary>
       [TestMethod]
-      public void DetermineSecondNumberForMath_NonEmptyList_UnitTest()
+      public void DetermineSecondNumberForMath_NonEmptyList()
       {
          //Arrange
          var list = new List<decimal> { 1m, 18m, 42m, 21m };
@@ -517,7 +517,7 @@ namespace UnitTests
       /// Checks that the return is 0 because the list is empty.
       /// </summary>
       [TestMethod]
-      public void DetermineSecondNumberForMath_EmptyList_UnitTest()
+      public void DetermineSecondNumberForMath_EmptyList()
       {
          //Arrange
          var list = new List<decimal> { };
@@ -535,7 +535,7 @@ namespace UnitTests
       /// Checks that the returned value is 0 because the list is empty.
       /// </summary>
       [TestMethod]
-      public void FootToDecimalButtonClick_EmptyList_UnitTest()
+      public void FootToDecimalButtonClick_EmptyList()
       {
          //Arrange
          var list = new List<decimal> { };
@@ -553,7 +553,7 @@ namespace UnitTests
       /// Checks that the number returned is the decimal format of the last number in the list.
       /// </summary>
       [TestMethod]
-      public void FootToDecimalButtonClick_NonEmptyList_UnitTest()
+      public void FootToDecimalButtonClick_NonEmptyList()
       {
          //Arrange
          var list = new List<decimal> { 1.0204m, 2.0608m, 3.1112m };
@@ -572,7 +572,7 @@ namespace UnitTests
       /// Checks that the number returned is 0 because the list is empty.
       /// </summary>
       [TestMethod]
-      public void DecimalToFoot_EmptyList_UnitTest()
+      public void DecimalToFoot_EmptyList()
       {
          //Arrange
          var list = new List<decimal> { };
@@ -590,7 +590,7 @@ namespace UnitTests
       /// Checks that the number rerturned is the foot format oft he last number in the list.
       /// </summary>
       [TestMethod]
-      public void DecimalToFoot_NonEmptyList_UnitTest()
+      public void DecimalToFoot_NonEmptyList()
       {
          //Arrange
          var list = new List<decimal> { 13.2154m, 16.5m, 21.0208m };
@@ -609,7 +609,7 @@ namespace UnitTests
       /// Checks that the number returned is the slope dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_b2s__Standard_UnitTest()
+      public void TrigFunctionButtonClick_b2s__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -630,7 +630,7 @@ namespace UnitTests
       /// Checks that the number returned is the rise dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_b2r__Standard_UnitTest()
+      public void TrigFunctionButtonClick_b2r__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -651,7 +651,7 @@ namespace UnitTests
       /// Checks that the number returned is the base dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_s2b__Standard_UnitTest()
+      public void TrigFunctionButtonClick_s2b__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -672,7 +672,7 @@ namespace UnitTests
       /// Checks that the number returned is the rise dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_s2r__Standard_UnitTest()
+      public void TrigFunctionButtonClick_s2r__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -693,7 +693,7 @@ namespace UnitTests
       /// Checks that the number returned is the base dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_r2b__Standard_UnitTest()
+      public void TrigFunctionButtonClick_r2b__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -714,7 +714,7 @@ namespace UnitTests
       /// Checks that the number returned is the slope dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_r2s__Standard_UnitTest()
+      public void TrigFunctionButtonClick_r2s__Standard()
       {
          //Arrange
          var num = 1.0204m;
@@ -735,7 +735,7 @@ namespace UnitTests
       /// Checks that the number returned is the slope dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_b2s__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_b2s__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -756,7 +756,7 @@ namespace UnitTests
       /// Checks that the number returned is the rise dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_b2r__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_b2r__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -777,7 +777,7 @@ namespace UnitTests
       /// Checks that the number returned is the base dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_s2b__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_s2b__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -798,7 +798,7 @@ namespace UnitTests
       /// Checks that the number returned is the rise dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_s2r__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_s2r__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -819,7 +819,7 @@ namespace UnitTests
       /// Checks that the number returned is the base dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_r2b__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_r2b__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -840,7 +840,7 @@ namespace UnitTests
       /// Checks that the number returned is the slope dimension based on the angle and number entered, in detailing number format.
       /// </summary>
       [TestMethod]
-      public void TrigFunctionButtonClick_r2s__Detailing_UnitTest()
+      public void TrigFunctionButtonClick_r2s__Detailing()
       {
          //Arrange
          var num = 1.0204m;
@@ -852,6 +852,22 @@ namespace UnitTests
          //Act
          var response = MathFunctions.TrigFunctionButtonClick(num, angle, function, isDetailingMathMethod);
          response = Math.Round(response, 4);
+
+         //Assert
+         Assert.AreEqual(expectedResponse, response);
+      }
+
+      [TestMethod]
+      public void CalculateWeight()
+      {
+         //Arrange
+         var width = 8m;
+         var length = 210m;
+         var thickness = 0.125m;
+         var expectedResponse = 60.984m;
+
+         //Act
+         var response = Math.Round(MathFunctions.CalculateWeight(width, length, thickness),4);
 
          //Assert
          Assert.AreEqual(expectedResponse, response);

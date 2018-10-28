@@ -118,10 +118,11 @@ namespace DetailerCalculator
       /// <param name="width"></param>
       /// <param name="thickness"></param>
       /// <returns></returns>
-      public static decimal CalculateWeight(decimal length, decimal width, decimal thickness)
+      public static decimal DetermineDimensionForWeightCalculations(decimal dimension, bool isDetailingMathMethod, bool dimensionIsInFeet)
       {
-         const decimal weightPerCubicInch = 0.2904m;
-         return weightPerCubicInch * length * width * thickness;
+         return dimensionIsInFeet == false
+            ? dimension
+            : isDetailingMathMethod == true ? FootToDecimal(dimension) * 12 : dimension * 12;
       }
    }
 }

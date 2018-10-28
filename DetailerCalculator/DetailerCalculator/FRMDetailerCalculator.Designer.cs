@@ -1015,9 +1015,9 @@
          this.TotalWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.TotalWeightLabel.Location = new System.Drawing.Point(16, 115);
          this.TotalWeightLabel.Name = "TotalWeightLabel";
-         this.TotalWeightLabel.Size = new System.Drawing.Size(127, 20);
+         this.TotalWeightLabel.Size = new System.Drawing.Size(89, 20);
          this.TotalWeightLabel.TabIndex = 35;
-         this.TotalWeightLabel.Text = "Total Weight: ";
+         this.TotalWeightLabel.Text = "Weight: 0";
          this.TotalWeightLabel.Visible = false;
          // 
          // PushToOutputWindowButton
