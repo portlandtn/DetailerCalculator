@@ -63,7 +63,7 @@
     <StartupObject>DetailerCalculator.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>DetailerCalculator_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
@@ -142,9 +142,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DetailerCalculator_TemporaryKey.pfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="DetailerCalculator_TemporaryKey.pfx" />
     <None Include="HelpMenu\DetailingCalculatorHelp.hhp" />
     <None Include="HelpMenu\Index.hhk" />
     <None Include="HelpMenu\Table of Contents.hhc" />
