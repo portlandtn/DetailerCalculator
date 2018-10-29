@@ -106,5 +106,16 @@ namespace DetailerCalculator.Properties {
                 this["HaveSeenTrayIconInstructions"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection OutputWindowStringCollection {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["OutputWindowStringCollection"]));
+            }
+            set {
+                this["OutputWindowStringCollection"] = value;
+            }
+        }
     }
 }
