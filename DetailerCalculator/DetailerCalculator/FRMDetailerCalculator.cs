@@ -23,6 +23,7 @@ namespace DetailerCalculator
       //Initialize settings for four angles, the current active angle, the method of math being used, how many decimal places are fixed.
       List<decimal> _OutputWindowList = new List<decimal>();
       Settings _Settings = new Settings();
+      Stack<List<decimal>> undoRedoStack = new Stack<List<decimal>>();
 
       /// <summary>
       /// Initializes the main form.
@@ -478,16 +479,19 @@ namespace DetailerCalculator
       private void OutputWindowStringBuilder()
       {
          //This method is used for the Drop function only
-
-         TempListBuilder();
+         OutputWindowTextBuilder();
+         undoRedoStack.Push(_OutputWindowList);
+         UndoButton.Enabled = true;
       }
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-         if (_OutputWindowList.Count >= 16)
-         {
-            _OutputWindowList.RemoveAt(_OutputWindowList.Count - (_OutputWindowList.Count - 1));
-         }
+         //const int maxItemsInWindow = 16;
+         //if (_OutputWindowList.Count >= maxItemsInWindow)
+         //{
+         //   _OutputWindowList.RemoveAt(0);
+         //}
+
          //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
          while (numbersToReplace > 0)
          {
@@ -503,19 +507,56 @@ namespace DetailerCalculator
          }
          _OutputWindowList.Add(numberToAdd);
 
-         TempListBuilder();
+         OutputWindowTextBuilder();
+         undoRedoStack.Push(_OutputWindowList);
       }
 
-      private void TempListBuilder()
+      private void OutputWindowTextBuilder()
       {
          var list = new List<decimal>();
-         foreach (var item in _OutputWindowList)
+         const int maxItemsInWindow = 16;
+
+         OutputWindow.Text = "";
+
+         if (_OutputWindowList.Count() <= maxItemsInWindow)
          {
-            var itemString = item.ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
-            list.Add(Convert.ToDecimal(itemString));
-            OutputWindow.Text = "";
-            OutputWindow.Text = string.Join(Environment.NewLine, list);
+            foreach (var item in _OutputWindowList)
+            {
+               var itemString = item.ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
+               list.Add(Convert.ToDecimal(itemString));
+               OutputWindow.Text = "";
+               OutputWindow.Text = string.Join(Environment.NewLine, list);
+            }
          }
+         else
+         {
+            try
+            {
+               for (int i = maxItemsInWindow; i >= 0; i--)
+               {
+                  var itemString = _OutputWindowList[_OutputWindowList.Count() - i].ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
+                  list.Add(Convert.ToDecimal(itemString));
+                  OutputWindow.Text = string.Join(Environment.NewLine, list);
+               }
+            }
+            catch (Exception)
+            {
+               for (int i = maxItemsInWindow; i >= 0; i--)
+               {
+                  var itemString = _OutputWindowList[_OutputWindowList.Count() - i - 1].ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
+                  list.Add(Convert.ToDecimal(itemString));
+                  OutputWindow.Text = string.Join(Environment.NewLine, list);
+               }
+            }
+         }
+
+         //foreach (var item in _OutputWindowList)
+         //{
+         //   var itemString = item.ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
+         //   list.Add(Convert.ToDecimal(itemString));
+         //   OutputWindow.Text = "";
+         //   OutputWindow.Text = string.Join(Environment.NewLine, list);
+         //}
       }
 
       private void FunctionButtonClick(string function)
@@ -826,6 +867,25 @@ namespace DetailerCalculator
          }
          TotalWeightLabel.Text = "Weight: " + Convert.ToString(Math.Round(weight, 6));
          return weight;
+      }
+
+      private void UndoButton_Click(object sender, EventArgs e)
+      {
+         UndoButton.Enabled = undoRedoStack.Count < 1 ? false : true;
+         undoRedoStack.Pop();
+         _OutputWindowList.Clear();
+         List<decimal> list = new List<decimal>();
+
+         list = undoRedoStack.Peek();
+         foreach (var item in list)
+         {
+            OutputWindowStringBuilder(item, 0);
+         }
+      }
+
+      private void RedoButton_Click(object sender, EventArgs e)
+      {
+
       }
    }
 }

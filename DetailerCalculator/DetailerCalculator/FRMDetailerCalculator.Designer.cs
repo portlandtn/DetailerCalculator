@@ -83,6 +83,8 @@
          this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.clearScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,6 +104,7 @@
          this.WidthLabel = new System.Windows.Forms.Label();
          this.ThicknessLabel = new System.Windows.Forms.Label();
          this.CalcWeightPanel = new System.Windows.Forms.Panel();
+         this.ThicknessNumberPicker = new System.Windows.Forms.NumericUpDown();
          this.panel2 = new System.Windows.Forms.Panel();
          this.FeetRadioButtonWidth = new System.Windows.Forms.RadioButton();
          this.InchRadioButtonWidth = new System.Windows.Forms.RadioButton();
@@ -112,11 +115,8 @@
          this.InchLabel = new System.Windows.Forms.Label();
          this.TotalWeightLabel = new System.Windows.Forms.Label();
          this.PushToOutputWindowButton = new System.Windows.Forms.Button();
-         this.ThicknessNumberPicker = new System.Windows.Forms.NumericUpDown();
          this.RedoButton = new System.Windows.Forms.Button();
          this.UndoButton = new System.Windows.Forms.Button();
-         this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.MathMethodPanel.SuspendLayout();
          this.AnglePanel.SuspendLayout();
          this.MathButtonsPanel.SuspendLayout();
@@ -127,9 +127,9 @@
          this.RightClickMenu.SuspendLayout();
          this.BRtoAPanel.SuspendLayout();
          this.CalcWeightPanel.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ThicknessNumberPicker)).BeginInit();
          this.panel2.SuspendLayout();
          this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ThicknessNumberPicker)).BeginInit();
          this.SuspendLayout();
          // 
          // DetailerCalculatorLabel
@@ -734,17 +734,29 @@
          this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
          this.editToolStripMenuItem.Text = "Edit";
          // 
+         // undoToolStripMenuItem
+         // 
+         this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+         this.undoToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.undoToolStripMenuItem.Text = "Undo";
+         // 
+         // redoToolStripMenuItem
+         // 
+         this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+         this.redoToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.redoToolStripMenuItem.Text = "Redo";
+         // 
          // dropToolStripMenuItem
          // 
          this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
-         this.dropToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+         this.dropToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
          this.dropToolStripMenuItem.Text = "Drop";
          this.dropToolStripMenuItem.Click += new System.EventHandler(this.DropToolStripMenuItem_Click);
          // 
          // clearScreenToolStripMenuItem
          // 
          this.clearScreenToolStripMenuItem.Name = "clearScreenToolStripMenuItem";
-         this.clearScreenToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+         this.clearScreenToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
          this.clearScreenToolStripMenuItem.Text = "Clear Screen";
          this.clearScreenToolStripMenuItem.Click += new System.EventHandler(this.ClearScreenToolStripMenuItem_Click);
          // 
@@ -923,6 +935,21 @@
          this.CalcWeightPanel.Size = new System.Drawing.Size(233, 173);
          this.CalcWeightPanel.TabIndex = 34;
          // 
+         // ThicknessNumberPicker
+         // 
+         this.ThicknessNumberPicker.DecimalPlaces = 4;
+         this.ThicknessNumberPicker.Increment = new decimal(new int[] {
+            625,
+            0,
+            0,
+            262144});
+         this.ThicknessNumberPicker.Location = new System.Drawing.Point(81, 91);
+         this.ThicknessNumberPicker.Name = "ThicknessNumberPicker";
+         this.ThicknessNumberPicker.Size = new System.Drawing.Size(72, 22);
+         this.ThicknessNumberPicker.TabIndex = 35;
+         this.ThicknessNumberPicker.Visible = false;
+         this.ThicknessNumberPicker.ValueChanged += new System.EventHandler(this.ThicknessNumberPicker_ValueChanged);
+         // 
          // panel2
          // 
          this.panel2.Controls.Add(this.FeetRadioButtonWidth);
@@ -1032,21 +1059,6 @@
          this.PushToOutputWindowButton.Visible = false;
          this.PushToOutputWindowButton.Click += new System.EventHandler(this.EnterButton_Click);
          // 
-         // ThicknessNumberPicker
-         // 
-         this.ThicknessNumberPicker.DecimalPlaces = 4;
-         this.ThicknessNumberPicker.Increment = new decimal(new int[] {
-            625,
-            0,
-            0,
-            262144});
-         this.ThicknessNumberPicker.Location = new System.Drawing.Point(81, 91);
-         this.ThicknessNumberPicker.Name = "ThicknessNumberPicker";
-         this.ThicknessNumberPicker.Size = new System.Drawing.Size(72, 22);
-         this.ThicknessNumberPicker.TabIndex = 35;
-         this.ThicknessNumberPicker.Visible = false;
-         this.ThicknessNumberPicker.ValueChanged += new System.EventHandler(this.ThicknessNumberPicker_ValueChanged);
-         // 
          // RedoButton
          // 
          this.RedoButton.BackgroundImage = global::DetailerCalculator.Properties.Resources.Redo;
@@ -1057,6 +1069,7 @@
          this.RedoButton.Size = new System.Drawing.Size(25, 25);
          this.RedoButton.TabIndex = 35;
          this.RedoButton.UseVisualStyleBackColor = true;
+         this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
          // 
          // UndoButton
          // 
@@ -1068,18 +1081,7 @@
          this.UndoButton.Size = new System.Drawing.Size(25, 25);
          this.UndoButton.TabIndex = 6;
          this.UndoButton.UseVisualStyleBackColor = true;
-         // 
-         // undoToolStripMenuItem
-         // 
-         this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-         this.undoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-         this.undoToolStripMenuItem.Text = "Undo";
-         // 
-         // redoToolStripMenuItem
-         // 
-         this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-         this.redoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-         this.redoToolStripMenuItem.Text = "Redo";
+         this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
          // 
          // FRMDetailerCalculator
          // 
@@ -1134,11 +1136,11 @@
          this.BRtoAPanel.PerformLayout();
          this.CalcWeightPanel.ResumeLayout(false);
          this.CalcWeightPanel.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ThicknessNumberPicker)).EndInit();
          this.panel2.ResumeLayout(false);
          this.panel2.PerformLayout();
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ThicknessNumberPicker)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
