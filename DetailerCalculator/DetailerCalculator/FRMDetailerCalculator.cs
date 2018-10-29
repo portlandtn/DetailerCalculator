@@ -486,12 +486,6 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder(decimal numberToAdd, int numbersToReplace)
       {
-         //const int maxItemsInWindow = 16;
-         //if (_OutputWindowList.Count >= maxItemsInWindow)
-         //{
-         //   _OutputWindowList.RemoveAt(0);
-         //}
-
          //Updates the main list with values entered on the User Entry Textbox, removing numbers and replacing them as necessary, based on function.
          while (numbersToReplace > 0)
          {
@@ -509,6 +503,7 @@ namespace DetailerCalculator
 
          OutputWindowTextBuilder();
          undoRedoStack.Push(_OutputWindowList);
+         UndoButton.Enabled = true;
       }
 
       private void OutputWindowTextBuilder()
@@ -539,7 +534,7 @@ namespace DetailerCalculator
                   OutputWindow.Text = string.Join(Environment.NewLine, list);
                }
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException)
             {
                for (int i = maxItemsInWindow; i >= 0; i--)
                {
@@ -549,14 +544,6 @@ namespace DetailerCalculator
                }
             }
          }
-
-         //foreach (var item in _OutputWindowList)
-         //{
-         //   var itemString = item.ToString(_Settings.FixedDecimals, CultureInfo.InvariantCulture);
-         //   list.Add(Convert.ToDecimal(itemString));
-         //   OutputWindow.Text = "";
-         //   OutputWindow.Text = string.Join(Environment.NewLine, list);
-         //}
       }
 
       private void FunctionButtonClick(string function)

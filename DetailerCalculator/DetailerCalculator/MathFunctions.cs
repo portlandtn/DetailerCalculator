@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DetailerCalculator
 {
@@ -18,19 +15,9 @@ namespace DetailerCalculator
       /// <param name="num2"></param>
       /// <param name="isDetailingMethod"></param>
       /// <returns></returns>
-      public static decimal AddNumbers(decimal num1, decimal num2, bool isDetailingMethod)
+      public static decimal AddNumbers(decimal num1, decimal num2)
       {
-         if (isDetailingMethod == true)
-         {
-            num1 = Conversions.FootToDecimal(num1);
-            num2 = Conversions.FootToDecimal(num2);
-            var response = num1 + num2;
-            return Conversions.DecimalToFoot(response);
-         }
-         else
-         {
             return num1 + num2;
-         }
       }
 
       /// <summary>
@@ -40,19 +27,9 @@ namespace DetailerCalculator
       /// <param name="num2"></param>
       /// <param name="isDetailingMethod"></param>
       /// <returns></returns>
-      public static decimal SubtractNumbers(decimal num1, decimal num2, bool isDetailingMethod)
+      public static decimal SubtractNumbers(decimal num1, decimal num2)
       {
-         if (isDetailingMethod == true)
-         {
-            num1 = Conversions.FootToDecimal(num1);
-            num2 = Conversions.FootToDecimal(num2);
-            var response = num1 - num2;
-            return Conversions.DecimalToFoot(response);
-         }
-         else
-         {
             return num1 - num2;
-         }
       }
 
       /// <summary>
@@ -62,19 +39,9 @@ namespace DetailerCalculator
       /// <param name="num2"></param>
       /// <param name="isDetailingMethod"></param>
       /// <returns></returns>
-      public static decimal MultiplyNumbers(decimal num1, decimal num2, bool isDetailingMethod)
+      public static decimal MultiplyNumbers(decimal num1, decimal num2)
       {
-         if (isDetailingMethod == true)
-         {
-            num1 = Conversions.FootToDecimal(num1);
-            num2 = Conversions.FootToDecimal(num2);
-            var response = num1 * num2;
-            return Conversions.DecimalToFoot(response);
-         }
-         else
-         {
             return num1 * num2;
-         }
       }
 
       /// <summary>
@@ -84,19 +51,9 @@ namespace DetailerCalculator
       /// <param name="num2"></param>
       /// <param name="isDetailingMethod"></param>
       /// <returns></returns>
-      public static decimal DivideNumbers(decimal num1, decimal num2, bool isDetailingMethod)
+      public static decimal DivideNumbers(decimal num1, decimal num2)
       {
-         if (isDetailingMethod == true)
-         {
-            num1 = Conversions.FootToDecimal(num1);
-            num2 = Conversions.FootToDecimal(num2);
-            var response = num1 / num2;
-            return Conversions.DecimalToFoot(response);
-         }
-         else
-         {
             return num1 / num2;
-         }
       }
 
       /// <summary>
@@ -109,19 +66,31 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal DoMath(string function, decimal num1, decimal num2, bool isDetailingMethod)
       {
+         if (isDetailingMethod == true)
+         {
+            num1 = Conversions.FootToDecimal(num1);
+            num2 = Conversions.FootToDecimal(num2);
+         }
+         decimal response;
          switch (function)
          {
             case "Add":
-               return AddNumbers(num1, num2, isDetailingMethod);
+               response = AddNumbers(num1, num2);
+               break;
             case "Subtract":
-               return SubtractNumbers(num1, num2, isDetailingMethod);
+               response =  SubtractNumbers(num1, num2);
+               break;
             case "Multiply":
-               return MultiplyNumbers(num1, num2, isDetailingMethod);
+               response = MultiplyNumbers(num1, num2);
+               break;
             case "Divide":
-               return DivideNumbers(num1, num2, isDetailingMethod);
+               response = DivideNumbers(num1, num2);
+               break;
             default:
-               return 0;
+               response = 0;
+               break;
          }
+         return (isDetailingMethod == true) ? Conversions.DecimalToFoot(response) : response;
       }
 
       /// <summary>
@@ -159,7 +128,7 @@ namespace DetailerCalculator
       }
 
       /// <summary>
-      /// Returns the decimal value from the last number in the Output Window list. If there is no number, it returns 0.
+      /// Returns the decimal value from the last number in the Output Window list. If the number does not exist, it returns 0.
       /// </summary>
       /// <param name="outputWindowListCount"></param>
       /// <param name="outputWindowList"></param>
@@ -170,7 +139,7 @@ namespace DetailerCalculator
       }
 
       /// <summary>
-      /// Returns the ft-in-16 value from the last number in the Output Window list. If there is no number, it returns 0.
+      /// Returns the ft-in-16 value from the last number in the Output Window list. If the number does not exist, it returns 0.
       /// </summary>
       /// <param name="outputWindowListCount"></param>
       /// <param name="outputWindowList"></param>
@@ -187,7 +156,7 @@ namespace DetailerCalculator
       /// <param name="angle"></param>
       /// <param name="function"></param>
       /// <param name="isDetailingMathMethod"></param>
-      /// <returns></returns>
+      /// <returns>Returns a number.</returns>
       public static decimal TrigFunctionButtonClick(decimal num, decimal angle, string function, bool isDetailingMathMethod)
       {
          num = (isDetailingMathMethod == true) ? Conversions.FootToDecimal(num) : num;
@@ -211,6 +180,13 @@ namespace DetailerCalculator
          }
       }
 
+      /// <summary>
+      /// Uses width, length, and thickness to determine weight.
+      /// </summary>
+      /// <param name="width"></param>
+      /// <param name="length"></param>
+      /// <param name="thickness"></param>
+      /// <returns>Decimal value of width, length and thickness multiplied by 0.2904.</returns>
       public static decimal CalculateWeight(decimal width, decimal length, decimal thickness)
       {
          const decimal weightPerCubicInch = 0.2904m;

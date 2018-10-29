@@ -28,12 +28,10 @@ namespace DetailerCalculator
          inches = inch_feet / 12;
 
          //determine sixteenths
-         decimal sixteenths = userEntry - feet - (inch_feet / 100);
-         sixteenths = sixteenths * 10000 / 16 / 12;
+         decimal sixteenths = (userEntry - feet - (inch_feet / 100)) * 10000 / 16 / 12;
 
          //Add them up
          return feet + inches + sixteenths;
-
       }
 
       /// <summary>
@@ -43,23 +41,15 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal DecimalToFoot(decimal userEntry)
       {
-
          //determine feet
          decimal feet = Math.Truncate(userEntry);
 
-         //determine inches
-         decimal inches = userEntry - feet;
-         inches = inches * 12;
-         inches = Math.Truncate(inches);
-         inches = inches / 100;
+         decimal inches = Math.Truncate((userEntry - feet) * 12)/100;
 
          //determine sixteenths
-         decimal sixteenths = userEntry - feet;
-         sixteenths = sixteenths * 12;
+         decimal sixteenths = (userEntry - feet) * 12;
          decimal tempInches = Math.Truncate(sixteenths);
-         sixteenths = sixteenths - tempInches;
-         sixteenths = sixteenths * 16;
-         sixteenths = sixteenths / 10000;
+         sixteenths = ((sixteenths - tempInches) * 16) / 10000;
          if (sixteenths >= 0.00155m)
          {
             inches = inches + 0.01m;
@@ -81,7 +71,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal AngleToRadians(decimal angle)
       {
-         return angle * Convert.ToDecimal(Math.PI)/180;
+         return angle * Convert.ToDecimal(Math.PI) / 180;
       }
 
       /// <summary>

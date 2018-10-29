@@ -11,14 +11,10 @@ namespace UnitTests
    [TestClass]
    public class MathTests
    {
-      /// <summary>
-      /// Returns the sum of two numbers based on traditional math.
-      /// </summary>
       [TestMethod]
       public void Add_Standard()
       {
          //Arrange
-         bool isDetailingMethod = false;
          var num1a = 22.1115m;
          var num1b = 0.0005m;
          var expectedResponse1 = 22.112m;
@@ -33,45 +29,10 @@ namespace UnitTests
          var expectedResponse4 = -3.566m;
 
          //Act
-         var response1 = Math.Round(MathFunctions.AddNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.AddNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.AddNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.AddNumbers(num4a, num4b, isDetailingMethod), 4);
-
-         //Assert
-         Assert.AreEqual(expectedResponse1, response1);
-         Assert.AreEqual(expectedResponse2, response2);
-         Assert.AreEqual(expectedResponse3, response3);
-         Assert.AreEqual(expectedResponse4, response4);
-      }
-
-      /// <summary>
-      /// Returns the sum of two numbers based on detailing formatted numbers.
-      /// </summary>
-      [TestMethod]
-      public void Add_Detailing()
-      {
-         //Arrange
-         bool isDetailingMethod = true;
-         var num1a = 22.1115m;
-         var num1b = 0.0005m;
-         var expectedResponse1 = 23.0004m;
-         var num2a = 52.0208m;
-         var num2b = 0.1113m;
-         var expectedResponse2 = 53.0205m;
-         var num3a = 17.1111m;
-         var num3b = 6.0908m;
-         var expectedResponse3 = 24.0903m;
-         var num4a = 16.0005m;
-         var num4b = -18.0208m;
-         var expectedResponse4 = -2.0203m;
-
-
-         //Act
-         var response1 = Math.Round(MathFunctions.AddNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.AddNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.AddNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.AddNumbers(num4a, num4b, isDetailingMethod), 4);
+         var response1 = Math.Round(MathFunctions.AddNumbers(num1a, num1b), 4);
+         var response2 = Math.Round(MathFunctions.AddNumbers(num2a, num2b), 4);
+         var response3 = Math.Round(MathFunctions.AddNumbers(num3a, num3b), 4);
+         var response4 = Math.Round(MathFunctions.AddNumbers(num4a, num4b), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);
@@ -87,7 +48,6 @@ namespace UnitTests
       public void Subtract_Standard()
       {
          //Arrange
-         bool isDetailingMethod = false;
          var num1a = 23.1102m;
          var num1b = 0.0005m;
          var expectedResponse1 = 23.1097m;
@@ -103,10 +63,10 @@ namespace UnitTests
 
 
          //Act
-         var response1 = Math.Round(MathFunctions.SubtractNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.SubtractNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.SubtractNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.SubtractNumbers(num4a, num4b, isDetailingMethod), 4);
+         var response1 = Math.Round(MathFunctions.SubtractNumbers(num1a, num1b), 4);
+         var response2 = Math.Round(MathFunctions.SubtractNumbers(num2a, num2b), 4);
+         var response3 = Math.Round(MathFunctions.SubtractNumbers(num3a, num3b), 4);
+         var response4 = Math.Round(MathFunctions.SubtractNumbers(num4a, num4b), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);
@@ -115,49 +75,10 @@ namespace UnitTests
          Assert.AreEqual(expectedResponse4, response4);
       }
 
-      /// <summary>
-      /// Returns the difference of two numbers based on numbers formatted to detailing standards.
-      /// </summary>
-      [TestMethod]
-      public void Subtract_Detailing()
-      {
-         //Arrange
-         bool isDetailingMethod = true;
-         var num1a = 23.1102m;
-         var num1b = 0.0005m;
-         var expectedResponse1 = 23.1013m;
-         var num2a = 14.0508m;
-         var num2b = 0.0009m;
-         var expectedResponse2 = 14.0415m;
-         var num3a = 89.1011m;
-         var num3b = 69.1115m;
-         var expectedResponse3 = 19.1012m;
-         var num4a = 11.0208m;
-         var num4b = -25.0603m;
-         var expectedResponse4 = 36.0811m;
-
-
-         //Act
-         var response1 = Math.Round(MathFunctions.SubtractNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.SubtractNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.SubtractNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.SubtractNumbers(num4a, num4b, isDetailingMethod), 4);
-
-         //Assert
-         Assert.AreEqual(expectedResponse1, response1);
-         Assert.AreEqual(expectedResponse2, response2);
-         Assert.AreEqual(expectedResponse3, response3);
-         Assert.AreEqual(expectedResponse4, response4);
-      }
-
-      /// <summary>
-      /// Returns the product of two numbers based on traditional math.
-      /// </summary>
       [TestMethod]
       public void Multiply_Standard()
       {
          //Arrange
-         bool isDetailingMethod = false;
          var num1a = 51m;
          var num1b = 25m;
          var expectedResponse1 = 1275m;
@@ -172,10 +93,10 @@ namespace UnitTests
          var expectedResponse4 = -187.0832m;
 
          //Act
-         var response1 = Math.Round(MathFunctions.MultiplyNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.MultiplyNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.MultiplyNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.MultiplyNumbers(num4a, num4b, isDetailingMethod), 4);
+         var response1 = Math.Round(MathFunctions.MultiplyNumbers(num1a, num1b), 4);
+         var response2 = Math.Round(MathFunctions.MultiplyNumbers(num2a, num2b), 4);
+         var response3 = Math.Round(MathFunctions.MultiplyNumbers(num3a, num3b), 4);
+         var response4 = Math.Round(MathFunctions.MultiplyNumbers(num4a, num4b), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);
@@ -184,48 +105,10 @@ namespace UnitTests
          Assert.AreEqual(expectedResponse4, response4);
       }
 
-      /// <summary>
-      /// Returns the product of two numbers based on detailing formatted numbers.
-      /// </summary>
-      [TestMethod]
-      public void Multiply_Detailing()
-      {
-         //Arrange
-         bool isDetailingMethod = true;
-         var num1a = 23.1102m;
-         var num1b = 0.0005m;
-         var expectedResponse1 = 0.0708m;
-         var num2a = 11.0508m;
-         var num2b = 1.0204m;
-         var expectedResponse2 = 13.0704m;
-         var num3a = 16.1115m;
-         var num3b = 21.0212m;
-         var expectedResponse3 = 360.0907m;
-         var num4a = 11.1110m;
-         var num4b = -2.0608m;
-         var expectedResponse4 = -30.0501m;
-
-         //Act
-         var response1 = Math.Round(MathFunctions.MultiplyNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.MultiplyNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.MultiplyNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.MultiplyNumbers(num4a, num4b, isDetailingMethod), 4);
-
-         //Assert
-         Assert.AreEqual(expectedResponse1, response1);
-         Assert.AreEqual(expectedResponse2, response2);
-         Assert.AreEqual(expectedResponse3, response3);
-         Assert.AreEqual(expectedResponse4, response4);
-      }
-
-      /// <summary>
-      /// Returns the quotient of two numbers based on traditional math.
-      /// </summary>
       [TestMethod]
       public void Divide_Standard()
       {
          //Arrange
-         bool isDetailingMethod = false;
          var num1a = 6m;
          var num1b = 3m;
          var expectedResponse1 = 2m;
@@ -240,44 +123,10 @@ namespace UnitTests
          var expectedResponse4 = -0.2934m;
 
          //Act
-         var response1 = Math.Round(MathFunctions.DivideNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.DivideNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.DivideNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.DivideNumbers(num4a, num4b, isDetailingMethod), 4);
-
-         //Assert
-         Assert.AreEqual(expectedResponse1, response1);
-         Assert.AreEqual(expectedResponse2, response2);
-         Assert.AreEqual(expectedResponse3, response3);
-         Assert.AreEqual(expectedResponse4, response4);
-      }
-
-      /// <summary>
-      /// Returns the quotient of two numbers based on detailing formatted numbers.
-      /// </summary>
-      [TestMethod]
-      public void Divide_Detailing()
-      {
-         //Arrange
-         bool isDetailingMethod = true;
-         var num1a = 23.1102m;
-         var num1b = 0.0005m;
-         var expectedResponse1 = 918.0910m;
-         var num2a = 16.0508m;
-         var num2b = 10.0507m;
-         var expectedResponse2 = 1.0614m;
-         var num3a = 41.1115m;
-         var num3b = 0.0003m;
-         var expectedResponse3 = 2687.08m;
-         var num4a = 1.1112m;
-         var num4b = -0.0012m;
-         var expectedResponse4 = -31.08m;
-
-         //Act
-         var response1 = Math.Round(MathFunctions.DivideNumbers(num1a, num1b, isDetailingMethod), 4);
-         var response2 = Math.Round(MathFunctions.DivideNumbers(num2a, num2b, isDetailingMethod), 4);
-         var response3 = Math.Round(MathFunctions.DivideNumbers(num3a, num3b, isDetailingMethod), 4);
-         var response4 = Math.Round(MathFunctions.DivideNumbers(num4a, num4b, isDetailingMethod), 4);
+         var response1 = Math.Round(MathFunctions.DivideNumbers(num1a, num1b), 4);
+         var response2 = Math.Round(MathFunctions.DivideNumbers(num2a, num2b), 4);
+         var response3 = Math.Round(MathFunctions.DivideNumbers(num3a, num3b), 4);
+         var response4 = Math.Round(MathFunctions.DivideNumbers(num4a, num4b), 4);
 
          //Assert
          Assert.AreEqual(expectedResponse1, response1);

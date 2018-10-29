@@ -41,9 +41,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal BaseToSlope(decimal bayse, decimal angleA)
       {
-         var angleB = 90 - angleA;
-         var radianB = Conversions.AngleToRadians(angleB);
-         return bayse / Convert.ToDecimal((Math.Sin(Convert.ToDouble(radianB))));
+         return bayse / Convert.ToDecimal((Math.Sin(Convert.ToDouble(Conversions.AngleToRadians(90 - angleA)))));
       }
 
       /// <summary>
@@ -54,9 +52,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal BaseToRise(decimal bayse, decimal angleA)
       {
-         var angleB = 90 - angleA;
-         var radianB = Conversions.AngleToRadians(angleB);
-         return bayse / Convert.ToDecimal(Math.Tan(Convert.ToDouble(radianB)));
+         return bayse / Convert.ToDecimal(Math.Tan(Convert.ToDouble(Conversions.AngleToRadians(90 - angleA))));
       }
 
       /// <summary>
@@ -67,8 +63,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal SlopeToBase(decimal slope, decimal angleA)
       {
-         var radianA = Conversions.AngleToRadians(angleA);
-         return Convert.ToDecimal(Math.Cos(Convert.ToDouble(radianA))) * slope;
+         return Convert.ToDecimal(Math.Cos(Convert.ToDouble(Conversions.AngleToRadians(angleA)))) * slope;
       }
 
       /// <summary>
@@ -79,8 +74,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal SlopeToRise(decimal slope, decimal angleA)
       {
-         var radianA = Conversions.AngleToRadians(angleA);
-         return Convert.ToDecimal(Math.Sin(Convert.ToDouble(radianA))) * slope;
+         return Convert.ToDecimal(Math.Sin(Convert.ToDouble(Conversions.AngleToRadians(angleA)))) * slope;
       }
 
       /// <summary>
@@ -91,8 +85,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal RiseToBase(decimal rise, decimal angleA)
       {
-         var radianA = Conversions.AngleToRadians(angleA);
-         return rise / Convert.ToDecimal(Math.Tan(Convert.ToDouble(radianA)));
+         return rise / Convert.ToDecimal(Math.Tan(Convert.ToDouble(Conversions.AngleToRadians(angleA))));
       }
 
       /// <summary>
@@ -103,8 +96,7 @@ namespace DetailerCalculator
       /// <returns></returns>
       public static decimal RiseToSlope(decimal rise, decimal angleA)
       {
-         var radianA = Conversions.AngleToRadians(angleA);
-         return rise / Convert.ToDecimal(Math.Sin(Convert.ToDouble(radianA)));
+         return rise / Convert.ToDecimal(Math.Sin(Convert.ToDouble(Conversions.AngleToRadians(angleA))));
       }
    }
 }
