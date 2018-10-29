@@ -499,7 +499,7 @@ namespace DetailerCalculator
 
       private void OutputWindowStringBuilder()
       {
-         //This method is used for the Drop function only
+         //This method is used for the Drop function and restoring numbers from previous session only.
          OutputWindowTextBuilder();
          undoRedoStack.Push(_OutputWindowList);
          UndoButton.Enabled = true;
@@ -683,13 +683,13 @@ namespace DetailerCalculator
          }
 
          //Saves all settings from the current session for retrieval later.
-         Properties.Settings.Default["Angle1"] = _Settings.Angle1;
-         Properties.Settings.Default["Angle2"] = _Settings.Angle2;
-         Properties.Settings.Default["Angle3"] = _Settings.Angle3;
-         Properties.Settings.Default["Angle4"] = _Settings.Angle4;
-         Properties.Settings.Default["CurrentAngle"] = _Settings.CurrentAngle;
-         Properties.Settings.Default["FixedDecimal"] = _Settings.FixedDecimals;
-         Properties.Settings.Default["OutputWindowStringCollection"] = stringCollection;
+         Properties.Settings.Default.Angle1 = _Settings.Angle1;
+         Properties.Settings.Default.Angle2 = _Settings.Angle2;
+         Properties.Settings.Default.Angle3 = _Settings.Angle3;
+         Properties.Settings.Default.Angle4 = _Settings.Angle4;
+         Properties.Settings.Default.CurrentAngle = _Settings.CurrentAngle;
+         Properties.Settings.Default.FixedDecimal = _Settings.FixedDecimals;
+         Properties.Settings.Default.OutputWindowStringCollection = stringCollection;
          Properties.Settings.Default.Save();
       }
 
