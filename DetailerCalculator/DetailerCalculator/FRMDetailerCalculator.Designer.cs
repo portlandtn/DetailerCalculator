@@ -136,9 +136,10 @@
          // 
          this.DetailerCalculatorLabel.AutoSize = true;
          this.DetailerCalculatorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DetailerCalculatorLabel.Location = new System.Drawing.Point(288, 25);
+         this.DetailerCalculatorLabel.Location = new System.Drawing.Point(216, 20);
+         this.DetailerCalculatorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.DetailerCalculatorLabel.Name = "DetailerCalculatorLabel";
-         this.DetailerCalculatorLabel.Size = new System.Drawing.Size(250, 32);
+         this.DetailerCalculatorLabel.Size = new System.Drawing.Size(191, 26);
          this.DetailerCalculatorLabel.TabIndex = 0;
          this.DetailerCalculatorLabel.Text = "Detailer Calculator";
          // 
@@ -147,28 +148,29 @@
          this.MathMethodPanel.Controls.Add(this.MainMethodLabel);
          this.MathMethodPanel.Controls.Add(this.StandardMethodRadioButton);
          this.MathMethodPanel.Controls.Add(this.DetailingMethodRadioButton);
-         this.MathMethodPanel.Location = new System.Drawing.Point(13, 33);
-         this.MathMethodPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.MathMethodPanel.Location = new System.Drawing.Point(10, 27);
+         this.MathMethodPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.MathMethodPanel.Name = "MathMethodPanel";
-         this.MathMethodPanel.Size = new System.Drawing.Size(96, 100);
+         this.MathMethodPanel.Size = new System.Drawing.Size(72, 81);
          this.MathMethodPanel.TabIndex = 1;
          // 
          // MainMethodLabel
          // 
          this.MainMethodLabel.AutoSize = true;
-         this.MainMethodLabel.Location = new System.Drawing.Point(4, 4);
+         this.MainMethodLabel.Location = new System.Drawing.Point(3, 3);
+         this.MainMethodLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.MainMethodLabel.Name = "MainMethodLabel";
-         this.MainMethodLabel.Size = new System.Drawing.Size(90, 17);
+         this.MainMethodLabel.Size = new System.Drawing.Size(70, 13);
          this.MainMethodLabel.TabIndex = 0;
          this.MainMethodLabel.Text = "Math Method";
          // 
          // StandardMethodRadioButton
          // 
          this.StandardMethodRadioButton.AutoSize = true;
-         this.StandardMethodRadioButton.Location = new System.Drawing.Point(4, 54);
-         this.StandardMethodRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.StandardMethodRadioButton.Location = new System.Drawing.Point(3, 44);
+         this.StandardMethodRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.StandardMethodRadioButton.Name = "StandardMethodRadioButton";
-         this.StandardMethodRadioButton.Size = new System.Drawing.Size(87, 21);
+         this.StandardMethodRadioButton.Size = new System.Drawing.Size(68, 17);
          this.StandardMethodRadioButton.TabIndex = 1;
          this.StandardMethodRadioButton.Text = "Standard";
          this.StandardMethodRadioButton.UseVisualStyleBackColor = true;
@@ -179,10 +181,10 @@
          // 
          this.DetailingMethodRadioButton.AutoSize = true;
          this.DetailingMethodRadioButton.Checked = true;
-         this.DetailingMethodRadioButton.Location = new System.Drawing.Point(4, 27);
-         this.DetailingMethodRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.DetailingMethodRadioButton.Location = new System.Drawing.Point(3, 22);
+         this.DetailingMethodRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.DetailingMethodRadioButton.Name = "DetailingMethodRadioButton";
-         this.DetailingMethodRadioButton.Size = new System.Drawing.Size(84, 21);
+         this.DetailingMethodRadioButton.Size = new System.Drawing.Size(66, 17);
          this.DetailingMethodRadioButton.TabIndex = 0;
          this.DetailingMethodRadioButton.TabStop = true;
          this.DetailingMethodRadioButton.Text = "Detailing";
@@ -200,55 +202,59 @@
          this.AnglePanel.Controls.Add(this.Angle3RadioButton);
          this.AnglePanel.Controls.Add(this.Angle2RadioButton);
          this.AnglePanel.Controls.Add(this.Angle1RadioButton);
-         this.AnglePanel.Location = new System.Drawing.Point(621, 76);
-         this.AnglePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.AnglePanel.Location = new System.Drawing.Point(466, 62);
+         this.AnglePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.AnglePanel.Name = "AnglePanel";
-         this.AnglePanel.Size = new System.Drawing.Size(200, 111);
+         this.AnglePanel.Size = new System.Drawing.Size(150, 90);
          this.AnglePanel.TabIndex = 2;
          // 
          // Angle4Label
          // 
          this.Angle4Label.AutoSize = true;
-         this.Angle4Label.Location = new System.Drawing.Point(81, 90);
+         this.Angle4Label.Location = new System.Drawing.Point(61, 73);
+         this.Angle4Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.Angle4Label.Name = "Angle4Label";
-         this.Angle4Label.Size = new System.Drawing.Size(16, 17);
+         this.Angle4Label.Size = new System.Drawing.Size(13, 13);
          this.Angle4Label.TabIndex = 15;
          this.Angle4Label.Text = "0";
          // 
          // Angle3Label
          // 
          this.Angle3Label.AutoSize = true;
-         this.Angle3Label.Location = new System.Drawing.Point(81, 64);
+         this.Angle3Label.Location = new System.Drawing.Point(61, 52);
+         this.Angle3Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.Angle3Label.Name = "Angle3Label";
-         this.Angle3Label.Size = new System.Drawing.Size(16, 17);
+         this.Angle3Label.Size = new System.Drawing.Size(13, 13);
          this.Angle3Label.TabIndex = 14;
          this.Angle3Label.Text = "0";
          // 
          // Angle2Label
          // 
          this.Angle2Label.AutoSize = true;
-         this.Angle2Label.Location = new System.Drawing.Point(81, 38);
+         this.Angle2Label.Location = new System.Drawing.Point(61, 31);
+         this.Angle2Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.Angle2Label.Name = "Angle2Label";
-         this.Angle2Label.Size = new System.Drawing.Size(16, 17);
+         this.Angle2Label.Size = new System.Drawing.Size(13, 13);
          this.Angle2Label.TabIndex = 13;
          this.Angle2Label.Text = "0";
          // 
          // Angle1Label
          // 
          this.Angle1Label.AutoSize = true;
-         this.Angle1Label.Location = new System.Drawing.Point(81, 12);
+         this.Angle1Label.Location = new System.Drawing.Point(61, 10);
+         this.Angle1Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.Angle1Label.Name = "Angle1Label";
-         this.Angle1Label.Size = new System.Drawing.Size(16, 17);
+         this.Angle1Label.Size = new System.Drawing.Size(13, 13);
          this.Angle1Label.TabIndex = 12;
          this.Angle1Label.Text = "0";
          // 
          // Angle4RadioButton
          // 
          this.Angle4RadioButton.AutoSize = true;
-         this.Angle4RadioButton.Location = new System.Drawing.Point(3, 87);
-         this.Angle4RadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.Angle4RadioButton.Location = new System.Drawing.Point(2, 71);
+         this.Angle4RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.Angle4RadioButton.Name = "Angle4RadioButton";
-         this.Angle4RadioButton.Size = new System.Drawing.Size(85, 21);
+         this.Angle4RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle4RadioButton.TabIndex = 3;
          this.Angle4RadioButton.Text = "Angle 4: ";
          this.Angle4RadioButton.UseVisualStyleBackColor = true;
@@ -258,10 +264,10 @@
          // Angle3RadioButton
          // 
          this.Angle3RadioButton.AutoSize = true;
-         this.Angle3RadioButton.Location = new System.Drawing.Point(3, 62);
-         this.Angle3RadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.Angle3RadioButton.Location = new System.Drawing.Point(2, 50);
+         this.Angle3RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.Angle3RadioButton.Name = "Angle3RadioButton";
-         this.Angle3RadioButton.Size = new System.Drawing.Size(85, 21);
+         this.Angle3RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle3RadioButton.TabIndex = 2;
          this.Angle3RadioButton.Text = "Angle 3: ";
          this.Angle3RadioButton.UseVisualStyleBackColor = true;
@@ -271,10 +277,10 @@
          // Angle2RadioButton
          // 
          this.Angle2RadioButton.AutoSize = true;
-         this.Angle2RadioButton.Location = new System.Drawing.Point(3, 36);
-         this.Angle2RadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.Angle2RadioButton.Location = new System.Drawing.Point(2, 29);
+         this.Angle2RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.Angle2RadioButton.Name = "Angle2RadioButton";
-         this.Angle2RadioButton.Size = new System.Drawing.Size(85, 21);
+         this.Angle2RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle2RadioButton.TabIndex = 1;
          this.Angle2RadioButton.Text = "Angle 2: ";
          this.Angle2RadioButton.UseVisualStyleBackColor = true;
@@ -285,10 +291,10 @@
          // 
          this.Angle1RadioButton.AutoSize = true;
          this.Angle1RadioButton.Checked = true;
-         this.Angle1RadioButton.Location = new System.Drawing.Point(3, 10);
-         this.Angle1RadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.Angle1RadioButton.Location = new System.Drawing.Point(2, 8);
+         this.Angle1RadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.Angle1RadioButton.Name = "Angle1RadioButton";
-         this.Angle1RadioButton.Size = new System.Drawing.Size(85, 21);
+         this.Angle1RadioButton.Size = new System.Drawing.Size(67, 17);
          this.Angle1RadioButton.TabIndex = 0;
          this.Angle1RadioButton.TabStop = true;
          this.Angle1RadioButton.Text = "Angle 1: ";
@@ -306,18 +312,18 @@
          this.MathButtonsPanel.Controls.Add(this.FootToDecimalButton);
          this.MathButtonsPanel.Controls.Add(this.SubtractButton);
          this.MathButtonsPanel.Controls.Add(this.AddButton);
-         this.MathButtonsPanel.Location = new System.Drawing.Point(13, 406);
-         this.MathButtonsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.MathButtonsPanel.Location = new System.Drawing.Point(10, 330);
+         this.MathButtonsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.MathButtonsPanel.Name = "MathButtonsPanel";
-         this.MathButtonsPanel.Size = new System.Drawing.Size(281, 110);
+         this.MathButtonsPanel.Size = new System.Drawing.Size(211, 89);
          this.MathButtonsPanel.TabIndex = 3;
          // 
          // SwapButton
          // 
-         this.SwapButton.Location = new System.Drawing.Point(4, 38);
-         this.SwapButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SwapButton.Location = new System.Drawing.Point(3, 31);
+         this.SwapButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SwapButton.Name = "SwapButton";
-         this.SwapButton.Size = new System.Drawing.Size(84, 28);
+         this.SwapButton.Size = new System.Drawing.Size(63, 23);
          this.SwapButton.TabIndex = 2;
          this.SwapButton.Text = "Swap";
          this.SwapButton.UseVisualStyleBackColor = true;
@@ -326,10 +332,10 @@
          // 
          // DecimalToFootButton
          // 
-         this.DecimalToFootButton.Location = new System.Drawing.Point(184, 71);
-         this.DecimalToFootButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.DecimalToFootButton.Location = new System.Drawing.Point(138, 58);
+         this.DecimalToFootButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.DecimalToFootButton.Name = "DecimalToFootButton";
-         this.DecimalToFootButton.Size = new System.Drawing.Size(84, 28);
+         this.DecimalToFootButton.Size = new System.Drawing.Size(63, 23);
          this.DecimalToFootButton.TabIndex = 7;
          this.DecimalToFootButton.Text = "Dec to Ft";
          this.DecimalToFootButton.UseVisualStyleBackColor = true;
@@ -338,10 +344,10 @@
          // 
          // PlusMinusButton
          // 
-         this.PlusMinusButton.Location = new System.Drawing.Point(4, 71);
-         this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.PlusMinusButton.Location = new System.Drawing.Point(3, 58);
+         this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.PlusMinusButton.Name = "PlusMinusButton";
-         this.PlusMinusButton.Size = new System.Drawing.Size(84, 28);
+         this.PlusMinusButton.Size = new System.Drawing.Size(63, 23);
          this.PlusMinusButton.TabIndex = 5;
          this.PlusMinusButton.Text = "+/-";
          this.PlusMinusButton.UseVisualStyleBackColor = true;
@@ -350,10 +356,10 @@
          // 
          // DivideButton
          // 
-         this.DivideButton.Location = new System.Drawing.Point(184, 38);
-         this.DivideButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.DivideButton.Location = new System.Drawing.Point(138, 31);
+         this.DivideButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.DivideButton.Name = "DivideButton";
-         this.DivideButton.Size = new System.Drawing.Size(84, 28);
+         this.DivideButton.Size = new System.Drawing.Size(63, 23);
          this.DivideButton.TabIndex = 4;
          this.DivideButton.Text = "Divide";
          this.DivideButton.UseVisualStyleBackColor = true;
@@ -362,10 +368,10 @@
          // 
          // MultiplyButton
          // 
-         this.MultiplyButton.Location = new System.Drawing.Point(93, 38);
-         this.MultiplyButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.MultiplyButton.Location = new System.Drawing.Point(70, 31);
+         this.MultiplyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.MultiplyButton.Name = "MultiplyButton";
-         this.MultiplyButton.Size = new System.Drawing.Size(84, 28);
+         this.MultiplyButton.Size = new System.Drawing.Size(63, 23);
          this.MultiplyButton.TabIndex = 3;
          this.MultiplyButton.Text = "Multiply";
          this.MultiplyButton.UseVisualStyleBackColor = true;
@@ -374,10 +380,10 @@
          // 
          // FootToDecimalButton
          // 
-         this.FootToDecimalButton.Location = new System.Drawing.Point(93, 71);
-         this.FootToDecimalButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.FootToDecimalButton.Location = new System.Drawing.Point(70, 58);
+         this.FootToDecimalButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.FootToDecimalButton.Name = "FootToDecimalButton";
-         this.FootToDecimalButton.Size = new System.Drawing.Size(84, 28);
+         this.FootToDecimalButton.Size = new System.Drawing.Size(63, 23);
          this.FootToDecimalButton.TabIndex = 6;
          this.FootToDecimalButton.Text = "Ft to Dec";
          this.FootToDecimalButton.UseVisualStyleBackColor = true;
@@ -386,10 +392,10 @@
          // 
          // SubtractButton
          // 
-         this.SubtractButton.Location = new System.Drawing.Point(184, 4);
-         this.SubtractButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SubtractButton.Location = new System.Drawing.Point(138, 3);
+         this.SubtractButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SubtractButton.Name = "SubtractButton";
-         this.SubtractButton.Size = new System.Drawing.Size(84, 28);
+         this.SubtractButton.Size = new System.Drawing.Size(63, 23);
          this.SubtractButton.TabIndex = 1;
          this.SubtractButton.Text = "Subtract";
          this.SubtractButton.UseVisualStyleBackColor = true;
@@ -398,10 +404,10 @@
          // 
          // AddButton
          // 
-         this.AddButton.Location = new System.Drawing.Point(93, 4);
-         this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.AddButton.Location = new System.Drawing.Point(70, 3);
+         this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.AddButton.Name = "AddButton";
-         this.AddButton.Size = new System.Drawing.Size(84, 28);
+         this.AddButton.Size = new System.Drawing.Size(63, 23);
          this.AddButton.TabIndex = 0;
          this.AddButton.Text = "Add";
          this.AddButton.UseVisualStyleBackColor = true;
@@ -410,10 +416,10 @@
          // 
          // UserEntryBox
          // 
-         this.UserEntryBox.Location = new System.Drawing.Point(20, 350);
-         this.UserEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.UserEntryBox.Location = new System.Drawing.Point(15, 284);
+         this.UserEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.UserEntryBox.Name = "UserEntryBox";
-         this.UserEntryBox.Size = new System.Drawing.Size(281, 22);
+         this.UserEntryBox.Size = new System.Drawing.Size(212, 20);
          this.UserEntryBox.TabIndex = 5;
          this.UserEntryBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
          this.UserEntryBox.TextChanged += new System.EventHandler(this.UserEntryBox_TextChanged);
@@ -423,10 +429,10 @@
          // OutputWindow
          // 
          this.OutputWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.OutputWindow.Location = new System.Drawing.Point(345, 242);
-         this.OutputWindow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.OutputWindow.Location = new System.Drawing.Point(259, 197);
+         this.OutputWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.OutputWindow.Name = "OutputWindow";
-         this.OutputWindow.Size = new System.Drawing.Size(476, 274);
+         this.OutputWindow.Size = new System.Drawing.Size(357, 223);
          this.OutputWindow.TabIndex = 5;
          this.OutputWindow.Text = "0";
          this.OutputWindow.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -443,18 +449,18 @@
          this.SideToSidePanel.Controls.Add(this.SlopeToBaseButton);
          this.SideToSidePanel.Controls.Add(this.BaseToSlopeButton);
          this.SideToSidePanel.Controls.Add(this.BaseToRiseButton);
-         this.SideToSidePanel.Location = new System.Drawing.Point(13, 226);
-         this.SideToSidePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SideToSidePanel.Location = new System.Drawing.Point(10, 184);
+         this.SideToSidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SideToSidePanel.Name = "SideToSidePanel";
-         this.SideToSidePanel.Size = new System.Drawing.Size(200, 100);
+         this.SideToSidePanel.Size = new System.Drawing.Size(150, 81);
          this.SideToSidePanel.TabIndex = 8;
          // 
          // RiseToBaseButton
          // 
-         this.RiseToBaseButton.Location = new System.Drawing.Point(85, 62);
-         this.RiseToBaseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.RiseToBaseButton.Location = new System.Drawing.Point(64, 50);
+         this.RiseToBaseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.RiseToBaseButton.Name = "RiseToBaseButton";
-         this.RiseToBaseButton.Size = new System.Drawing.Size(75, 23);
+         this.RiseToBaseButton.Size = new System.Drawing.Size(56, 19);
          this.RiseToBaseButton.TabIndex = 5;
          this.RiseToBaseButton.Text = "R to B";
          this.RiseToBaseButton.UseVisualStyleBackColor = true;
@@ -463,10 +469,10 @@
          // 
          // RiseToSlopeButton
          // 
-         this.RiseToSlopeButton.Location = new System.Drawing.Point(85, 32);
-         this.RiseToSlopeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.RiseToSlopeButton.Location = new System.Drawing.Point(64, 26);
+         this.RiseToSlopeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.RiseToSlopeButton.Name = "RiseToSlopeButton";
-         this.RiseToSlopeButton.Size = new System.Drawing.Size(75, 23);
+         this.RiseToSlopeButton.Size = new System.Drawing.Size(56, 19);
          this.RiseToSlopeButton.TabIndex = 3;
          this.RiseToSlopeButton.Text = "R to S";
          this.RiseToSlopeButton.UseVisualStyleBackColor = true;
@@ -475,10 +481,10 @@
          // 
          // SlopeToRiseButton
          // 
-         this.SlopeToRiseButton.Location = new System.Drawing.Point(85, 2);
-         this.SlopeToRiseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SlopeToRiseButton.Location = new System.Drawing.Point(64, 2);
+         this.SlopeToRiseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SlopeToRiseButton.Name = "SlopeToRiseButton";
-         this.SlopeToRiseButton.Size = new System.Drawing.Size(75, 23);
+         this.SlopeToRiseButton.Size = new System.Drawing.Size(56, 19);
          this.SlopeToRiseButton.TabIndex = 1;
          this.SlopeToRiseButton.Text = "S to R";
          this.SlopeToRiseButton.UseVisualStyleBackColor = true;
@@ -487,10 +493,10 @@
          // 
          // SlopeToBaseButton
          // 
-         this.SlopeToBaseButton.Location = new System.Drawing.Point(4, 60);
-         this.SlopeToBaseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SlopeToBaseButton.Location = new System.Drawing.Point(3, 49);
+         this.SlopeToBaseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SlopeToBaseButton.Name = "SlopeToBaseButton";
-         this.SlopeToBaseButton.Size = new System.Drawing.Size(75, 23);
+         this.SlopeToBaseButton.Size = new System.Drawing.Size(56, 19);
          this.SlopeToBaseButton.TabIndex = 4;
          this.SlopeToBaseButton.Text = "S to B";
          this.SlopeToBaseButton.UseVisualStyleBackColor = true;
@@ -499,10 +505,10 @@
          // 
          // BaseToSlopeButton
          // 
-         this.BaseToSlopeButton.Location = new System.Drawing.Point(4, 30);
-         this.BaseToSlopeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.BaseToSlopeButton.Location = new System.Drawing.Point(3, 24);
+         this.BaseToSlopeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.BaseToSlopeButton.Name = "BaseToSlopeButton";
-         this.BaseToSlopeButton.Size = new System.Drawing.Size(75, 23);
+         this.BaseToSlopeButton.Size = new System.Drawing.Size(56, 19);
          this.BaseToSlopeButton.TabIndex = 2;
          this.BaseToSlopeButton.Text = "B to S";
          this.BaseToSlopeButton.UseVisualStyleBackColor = true;
@@ -511,10 +517,10 @@
          // 
          // BaseToRiseButton
          // 
-         this.BaseToRiseButton.Location = new System.Drawing.Point(4, 2);
-         this.BaseToRiseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.BaseToRiseButton.Location = new System.Drawing.Point(3, 2);
+         this.BaseToRiseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.BaseToRiseButton.Name = "BaseToRiseButton";
-         this.BaseToRiseButton.Size = new System.Drawing.Size(75, 23);
+         this.BaseToRiseButton.Size = new System.Drawing.Size(56, 19);
          this.BaseToRiseButton.TabIndex = 0;
          this.BaseToRiseButton.Text = "B to R";
          this.BaseToRiseButton.UseVisualStyleBackColor = true;
@@ -525,18 +531,18 @@
          // 
          this.SidesToAnglePanel.Controls.Add(this.ClearAllButton);
          this.SidesToAnglePanel.Controls.Add(this.DropButton);
-         this.SidesToAnglePanel.Location = new System.Drawing.Point(219, 226);
-         this.SidesToAnglePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SidesToAnglePanel.Location = new System.Drawing.Point(164, 184);
+         this.SidesToAnglePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SidesToAnglePanel.Name = "SidesToAnglePanel";
-         this.SidesToAnglePanel.Size = new System.Drawing.Size(89, 65);
+         this.SidesToAnglePanel.Size = new System.Drawing.Size(67, 53);
          this.SidesToAnglePanel.TabIndex = 9;
          // 
          // ClearAllButton
          // 
-         this.ClearAllButton.Location = new System.Drawing.Point(7, 32);
-         this.ClearAllButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.ClearAllButton.Location = new System.Drawing.Point(5, 26);
+         this.ClearAllButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.ClearAllButton.Name = "ClearAllButton";
-         this.ClearAllButton.Size = new System.Drawing.Size(75, 23);
+         this.ClearAllButton.Size = new System.Drawing.Size(56, 19);
          this.ClearAllButton.TabIndex = 2;
          this.ClearAllButton.Text = "Clear All";
          this.ClearAllButton.UseVisualStyleBackColor = true;
@@ -545,10 +551,10 @@
          // 
          // DropButton
          // 
-         this.DropButton.Location = new System.Drawing.Point(7, 2);
-         this.DropButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.DropButton.Location = new System.Drawing.Point(5, 2);
+         this.DropButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.DropButton.Name = "DropButton";
-         this.DropButton.Size = new System.Drawing.Size(75, 23);
+         this.DropButton.Size = new System.Drawing.Size(56, 19);
          this.DropButton.TabIndex = 1;
          this.DropButton.Text = "Drop";
          this.DropButton.UseVisualStyleBackColor = true;
@@ -557,10 +563,9 @@
          // 
          // OverwriteAngleButton
          // 
-         this.OverwriteAngleButton.Location = new System.Drawing.Point(515, 150);
-         this.OverwriteAngleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.OverwriteAngleButton.Location = new System.Drawing.Point(386, 122);
          this.OverwriteAngleButton.Name = "OverwriteAngleButton";
-         this.OverwriteAngleButton.Size = new System.Drawing.Size(100, 28);
+         this.OverwriteAngleButton.Size = new System.Drawing.Size(75, 23);
          this.OverwriteAngleButton.TabIndex = 3;
          this.OverwriteAngleButton.Text = "Overwrite";
          this.OverwriteAngleButton.UseVisualStyleBackColor = true;
@@ -568,10 +573,10 @@
          // 
          // OverWriteAngleTextBox
          // 
-         this.OverWriteAngleTextBox.Location = new System.Drawing.Point(515, 121);
-         this.OverWriteAngleTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.OverWriteAngleTextBox.Location = new System.Drawing.Point(386, 98);
+         this.OverWriteAngleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.OverWriteAngleTextBox.Name = "OverWriteAngleTextBox";
-         this.OverWriteAngleTextBox.Size = new System.Drawing.Size(100, 22);
+         this.OverWriteAngleTextBox.Size = new System.Drawing.Size(76, 20);
          this.OverWriteAngleTextBox.TabIndex = 2;
          this.OverWriteAngleTextBox.TextChanged += new System.EventHandler(this.OverWriteAngleTextBox_TextChanged);
          this.OverWriteAngleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OverwiteAngleTextBox_KeyDown);
@@ -579,18 +584,19 @@
          // SlopeLabel
          // 
          this.SlopeLabel.AutoSize = true;
-         this.SlopeLabel.Location = new System.Drawing.Point(464, 94);
+         this.SlopeLabel.Location = new System.Drawing.Point(348, 76);
+         this.SlopeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.SlopeLabel.Name = "SlopeLabel";
-         this.SlopeLabel.Size = new System.Drawing.Size(48, 17);
+         this.SlopeLabel.Size = new System.Drawing.Size(37, 13);
          this.SlopeLabel.TabIndex = 13;
          this.SlopeLabel.Text = "Slope:";
          // 
          // SlopeTextBox
          // 
-         this.SlopeTextBox.Location = new System.Drawing.Point(515, 91);
-         this.SlopeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.SlopeTextBox.Location = new System.Drawing.Point(386, 74);
+         this.SlopeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.SlopeTextBox.Name = "SlopeTextBox";
-         this.SlopeTextBox.Size = new System.Drawing.Size(40, 22);
+         this.SlopeTextBox.Size = new System.Drawing.Size(31, 20);
          this.SlopeTextBox.TabIndex = 1;
          this.SlopeTextBox.TextChanged += new System.EventHandler(this.SlopeTextBox_TextChanged);
          this.SlopeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OverwiteAngleTextBox_KeyDown);
@@ -598,18 +604,20 @@
          // AngleLabel
          // 
          this.AngleLabel.AutoSize = true;
-         this.AngleLabel.Location = new System.Drawing.Point(464, 126);
+         this.AngleLabel.Location = new System.Drawing.Point(348, 102);
+         this.AngleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.AngleLabel.Name = "AngleLabel";
-         this.AngleLabel.Size = new System.Drawing.Size(48, 17);
+         this.AngleLabel.Size = new System.Drawing.Size(37, 13);
          this.AngleLabel.TabIndex = 15;
          this.AngleLabel.Text = "Angle:";
          // 
          // On12Label
          // 
          this.On12Label.AutoSize = true;
-         this.On12Label.Location = new System.Drawing.Point(560, 94);
+         this.On12Label.Location = new System.Drawing.Point(420, 76);
+         this.On12Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.On12Label.Name = "On12Label";
-         this.On12Label.Size = new System.Drawing.Size(28, 17);
+         this.On12Label.Size = new System.Drawing.Size(22, 13);
          this.On12Label.TabIndex = 16;
          this.On12Label.Text = ":12";
          // 
@@ -617,19 +625,20 @@
          // 
          this.WarningNumericEntryOnlyLabel.AutoSize = true;
          this.WarningNumericEntryOnlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.WarningNumericEntryOnlyLabel.Location = new System.Drawing.Point(124, 330);
+         this.WarningNumericEntryOnlyLabel.Location = new System.Drawing.Point(93, 268);
+         this.WarningNumericEntryOnlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.WarningNumericEntryOnlyLabel.Name = "WarningNumericEntryOnlyLabel";
-         this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(174, 17);
+         this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(138, 13);
          this.WarningNumericEntryOnlyLabel.TabIndex = 17;
          this.WarningNumericEntryOnlyLabel.Text = "Numbers allowed only!!";
          this.WarningNumericEntryOnlyLabel.Visible = false;
          // 
          // BaseTextBox
          // 
-         this.BaseTextBox.Location = new System.Drawing.Point(48, 2);
-         this.BaseTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.BaseTextBox.Location = new System.Drawing.Point(36, 2);
+         this.BaseTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.BaseTextBox.Name = "BaseTextBox";
-         this.BaseTextBox.Size = new System.Drawing.Size(64, 22);
+         this.BaseTextBox.Size = new System.Drawing.Size(49, 20);
          this.BaseTextBox.TabIndex = 0;
          this.BaseTextBox.TextChanged += new System.EventHandler(this.BaseTextBox_TextChanged);
          this.BaseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BaseTextBox_KeyDown);
@@ -637,18 +646,19 @@
          // BaseLabel
          // 
          this.BaseLabel.AutoSize = true;
-         this.BaseLabel.Location = new System.Drawing.Point(3, 5);
+         this.BaseLabel.Location = new System.Drawing.Point(2, 4);
+         this.BaseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.BaseLabel.Name = "BaseLabel";
-         this.BaseLabel.Size = new System.Drawing.Size(44, 17);
+         this.BaseLabel.Size = new System.Drawing.Size(34, 13);
          this.BaseLabel.TabIndex = 19;
          this.BaseLabel.Text = "Base:";
          // 
          // RiseTextBox
          // 
-         this.RiseTextBox.Location = new System.Drawing.Point(48, 33);
-         this.RiseTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.RiseTextBox.Location = new System.Drawing.Point(36, 27);
+         this.RiseTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.RiseTextBox.Name = "RiseTextBox";
-         this.RiseTextBox.Size = new System.Drawing.Size(64, 22);
+         this.RiseTextBox.Size = new System.Drawing.Size(49, 20);
          this.RiseTextBox.TabIndex = 1;
          this.RiseTextBox.TextChanged += new System.EventHandler(this.RiseTextBox_TextChanged);
          this.RiseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RiseTextBox_KeyDown);
@@ -656,18 +666,18 @@
          // RiseLabel
          // 
          this.RiseLabel.AutoSize = true;
-         this.RiseLabel.Location = new System.Drawing.Point(5, 36);
+         this.RiseLabel.Location = new System.Drawing.Point(4, 29);
+         this.RiseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.RiseLabel.Name = "RiseLabel";
-         this.RiseLabel.Size = new System.Drawing.Size(40, 17);
+         this.RiseLabel.Size = new System.Drawing.Size(31, 13);
          this.RiseLabel.TabIndex = 21;
          this.RiseLabel.Text = "Rise:";
          // 
          // RoundingNumberPicker
          // 
-         this.RoundingNumberPicker.Location = new System.Drawing.Point(423, 210);
-         this.RoundingNumberPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.RoundingNumberPicker.Location = new System.Drawing.Point(317, 171);
          this.RoundingNumberPicker.Name = "RoundingNumberPicker";
-         this.RoundingNumberPicker.Size = new System.Drawing.Size(44, 22);
+         this.RoundingNumberPicker.Size = new System.Drawing.Size(33, 20);
          this.RoundingNumberPicker.TabIndex = 4;
          this.RoundingNumberPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
          this.RoundingNumberPicker.Value = new decimal(new int[] {
@@ -680,9 +690,10 @@
          // label1
          // 
          this.label1.AutoSize = true;
-         this.label1.Location = new System.Drawing.Point(341, 214);
+         this.label1.Location = new System.Drawing.Point(256, 174);
+         this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(73, 17);
+         this.label1.Size = new System.Drawing.Size(56, 13);
          this.label1.TabIndex = 24;
          this.label1.Text = "Rounding:";
          // 
@@ -695,8 +706,8 @@
             this.helpToolStripMenuItem});
          this.menuStrip.Location = new System.Drawing.Point(0, 0);
          this.menuStrip.Name = "menuStrip";
-         this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-         this.menuStrip.Size = new System.Drawing.Size(829, 28);
+         this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+         this.menuStrip.Size = new System.Drawing.Size(622, 24);
          this.menuStrip.TabIndex = 0;
          this.menuStrip.Text = "menuStrip1";
          // 
@@ -706,20 +717,20 @@
             this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
          this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-         this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+         this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
          this.fileToolStripMenuItem.Text = "File";
          // 
          // saveToolStripMenuItem
          // 
          this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-         this.saveToolStripMenuItem.Size = new System.Drawing.Size(115, 26);
+         this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
          this.saveToolStripMenuItem.Text = "Save";
          this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
          // 
          // exitToolStripMenuItem
          // 
          this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-         this.exitToolStripMenuItem.Size = new System.Drawing.Size(115, 26);
+         this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
          this.exitToolStripMenuItem.Text = "Exit";
          this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
          // 
@@ -731,32 +742,32 @@
             this.dropToolStripMenuItem,
             this.clearScreenToolStripMenuItem});
          this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-         this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+         this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
          this.editToolStripMenuItem.Text = "Edit";
          // 
          // undoToolStripMenuItem
          // 
          this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-         this.undoToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.undoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
          this.undoToolStripMenuItem.Text = "Undo";
          // 
          // redoToolStripMenuItem
          // 
          this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-         this.redoToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.redoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
          this.redoToolStripMenuItem.Text = "Redo";
          // 
          // dropToolStripMenuItem
          // 
          this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
-         this.dropToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.dropToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
          this.dropToolStripMenuItem.Text = "Drop";
          this.dropToolStripMenuItem.Click += new System.EventHandler(this.DropToolStripMenuItem_Click);
          // 
          // clearScreenToolStripMenuItem
          // 
          this.clearScreenToolStripMenuItem.Name = "clearScreenToolStripMenuItem";
-         this.clearScreenToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+         this.clearScreenToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
          this.clearScreenToolStripMenuItem.Text = "Clear Screen";
          this.clearScreenToolStripMenuItem.Click += new System.EventHandler(this.ClearScreenToolStripMenuItem_Click);
          // 
@@ -766,20 +777,20 @@
             this.generalGuidanceToolStripMenuItem,
             this.aboutToolStripMenuItem});
          this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-         this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+         this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
          this.helpToolStripMenuItem.Text = "Help";
          // 
          // generalGuidanceToolStripMenuItem
          // 
          this.generalGuidanceToolStripMenuItem.Name = "generalGuidanceToolStripMenuItem";
-         this.generalGuidanceToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+         this.generalGuidanceToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
          this.generalGuidanceToolStripMenuItem.Text = "General Guidance";
          this.generalGuidanceToolStripMenuItem.Click += new System.EventHandler(this.GeneralGuidanceToolStripMenuItem_Click);
          // 
          // aboutToolStripMenuItem
          // 
          this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-         this.aboutToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+         this.aboutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
          this.aboutToolStripMenuItem.Text = "About";
          this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
          // 
@@ -788,10 +799,9 @@
          this.SettingsSavedLabel.AutoSize = true;
          this.SettingsSavedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SettingsSavedLabel.ForeColor = System.Drawing.Color.Red;
-         this.SettingsSavedLabel.Location = new System.Drawing.Point(268, 239);
-         this.SettingsSavedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+         this.SettingsSavedLabel.Location = new System.Drawing.Point(201, 194);
          this.SettingsSavedLabel.Name = "SettingsSavedLabel";
-         this.SettingsSavedLabel.Size = new System.Drawing.Size(313, 46);
+         this.SettingsSavedLabel.Size = new System.Drawing.Size(254, 37);
          this.SettingsSavedLabel.TabIndex = 26;
          this.SettingsSavedLabel.Text = "Settings Saved!";
          this.SettingsSavedLabel.Visible = false;
@@ -810,13 +820,13 @@
          this.RightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Exit});
          this.RightClickMenu.Name = "contextMenuStrip1";
-         this.RightClickMenu.Size = new System.Drawing.Size(103, 28);
+         this.RightClickMenu.Size = new System.Drawing.Size(93, 26);
          this.RightClickMenu.Opening += new System.ComponentModel.CancelEventHandler(this.RightClickMenu_Opening);
          // 
          // Exit
          // 
          this.Exit.Name = "Exit";
-         this.Exit.Size = new System.Drawing.Size(102, 24);
+         this.Exit.Size = new System.Drawing.Size(92, 22);
          this.Exit.Text = "Exit";
          this.Exit.Click += new System.EventHandler(this.Exit_Click);
          // 
@@ -826,18 +836,17 @@
          this.BRtoAPanel.Controls.Add(this.BaseTextBox);
          this.BRtoAPanel.Controls.Add(this.RiseLabel);
          this.BRtoAPanel.Controls.Add(this.RiseTextBox);
-         this.BRtoAPanel.Location = new System.Drawing.Point(348, 96);
-         this.BRtoAPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.BRtoAPanel.Location = new System.Drawing.Point(261, 78);
+         this.BRtoAPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.BRtoAPanel.Name = "BRtoAPanel";
-         this.BRtoAPanel.Size = new System.Drawing.Size(116, 62);
+         this.BRtoAPanel.Size = new System.Drawing.Size(87, 50);
          this.BRtoAPanel.TabIndex = 2;
          // 
          // HipValleyButton
          // 
-         this.HipValleyButton.Location = new System.Drawing.Point(221, 298);
-         this.HipValleyButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.HipValleyButton.Location = new System.Drawing.Point(166, 242);
          this.HipValleyButton.Name = "HipValleyButton";
-         this.HipValleyButton.Size = new System.Drawing.Size(100, 28);
+         this.HipValleyButton.Size = new System.Drawing.Size(75, 23);
          this.HipValleyButton.TabIndex = 27;
          this.HipValleyButton.Text = "Hip/Valley";
          this.HipValleyButton.UseVisualStyleBackColor = true;
@@ -846,10 +855,10 @@
          // KeepOnTopCheckBox
          // 
          this.KeepOnTopCheckBox.AutoSize = true;
-         this.KeepOnTopCheckBox.Location = new System.Drawing.Point(707, 49);
-         this.KeepOnTopCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.KeepOnTopCheckBox.Location = new System.Drawing.Point(530, 40);
+         this.KeepOnTopCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.KeepOnTopCheckBox.Name = "KeepOnTopCheckBox";
-         this.KeepOnTopCheckBox.Size = new System.Drawing.Size(115, 21);
+         this.KeepOnTopCheckBox.Size = new System.Drawing.Size(90, 17);
          this.KeepOnTopCheckBox.TabIndex = 28;
          this.KeepOnTopCheckBox.Text = "Keep On Top";
          this.KeepOnTopCheckBox.UseVisualStyleBackColor = true;
@@ -857,10 +866,9 @@
          // 
          // CalculateWeightButton
          // 
-         this.CalculateWeightButton.Location = new System.Drawing.Point(4, 138);
-         this.CalculateWeightButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.CalculateWeightButton.Location = new System.Drawing.Point(3, 112);
          this.CalculateWeightButton.Name = "CalculateWeightButton";
-         this.CalculateWeightButton.Size = new System.Drawing.Size(97, 28);
+         this.CalculateWeightButton.Size = new System.Drawing.Size(75, 23);
          this.CalculateWeightButton.TabIndex = 29;
          this.CalculateWeightButton.Text = "Calc Weight";
          this.CalculateWeightButton.UseVisualStyleBackColor = true;
@@ -868,20 +876,20 @@
          // 
          // LengthTextBox
          // 
-         this.LengthTextBox.Location = new System.Drawing.Point(81, 33);
-         this.LengthTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.LengthTextBox.Location = new System.Drawing.Point(61, 27);
+         this.LengthTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.LengthTextBox.Name = "LengthTextBox";
-         this.LengthTextBox.Size = new System.Drawing.Size(72, 22);
+         this.LengthTextBox.Size = new System.Drawing.Size(55, 20);
          this.LengthTextBox.TabIndex = 0;
          this.LengthTextBox.Visible = false;
          this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
          // 
          // WidthTextBox
          // 
-         this.WidthTextBox.Location = new System.Drawing.Point(81, 63);
-         this.WidthTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.WidthTextBox.Location = new System.Drawing.Point(61, 51);
+         this.WidthTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.WidthTextBox.Name = "WidthTextBox";
-         this.WidthTextBox.Size = new System.Drawing.Size(72, 22);
+         this.WidthTextBox.Size = new System.Drawing.Size(55, 20);
          this.WidthTextBox.TabIndex = 1;
          this.WidthTextBox.Visible = false;
          this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
@@ -889,9 +897,10 @@
          // LengthLabel
          // 
          this.LengthLabel.AutoSize = true;
-         this.LengthLabel.Location = new System.Drawing.Point(17, 36);
+         this.LengthLabel.Location = new System.Drawing.Point(13, 29);
+         this.LengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.LengthLabel.Name = "LengthLabel";
-         this.LengthLabel.Size = new System.Drawing.Size(56, 17);
+         this.LengthLabel.Size = new System.Drawing.Size(43, 13);
          this.LengthLabel.TabIndex = 22;
          this.LengthLabel.Text = "Length:";
          this.LengthLabel.Visible = false;
@@ -899,9 +908,10 @@
          // WidthLabel
          // 
          this.WidthLabel.AutoSize = true;
-         this.WidthLabel.Location = new System.Drawing.Point(25, 66);
+         this.WidthLabel.Location = new System.Drawing.Point(19, 54);
+         this.WidthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.WidthLabel.Name = "WidthLabel";
-         this.WidthLabel.Size = new System.Drawing.Size(48, 17);
+         this.WidthLabel.Size = new System.Drawing.Size(38, 13);
          this.WidthLabel.TabIndex = 32;
          this.WidthLabel.Text = "Width:";
          this.WidthLabel.Visible = false;
@@ -909,9 +919,10 @@
          // ThicknessLabel
          // 
          this.ThicknessLabel.AutoSize = true;
-         this.ThicknessLabel.Location = new System.Drawing.Point(1, 94);
+         this.ThicknessLabel.Location = new System.Drawing.Point(1, 76);
+         this.ThicknessLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.ThicknessLabel.Name = "ThicknessLabel";
-         this.ThicknessLabel.Size = new System.Drawing.Size(72, 17);
+         this.ThicknessLabel.Size = new System.Drawing.Size(56, 13);
          this.ThicknessLabel.TabIndex = 33;
          this.ThicknessLabel.Text = "Thickness";
          this.ThicknessLabel.Visible = false;
@@ -931,10 +942,10 @@
          this.CalcWeightPanel.Controls.Add(this.WidthLabel);
          this.CalcWeightPanel.Controls.Add(this.WidthTextBox);
          this.CalcWeightPanel.Controls.Add(this.LengthLabel);
-         this.CalcWeightPanel.Location = new System.Drawing.Point(112, 48);
-         this.CalcWeightPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.CalcWeightPanel.Location = new System.Drawing.Point(84, 39);
+         this.CalcWeightPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.CalcWeightPanel.Name = "CalcWeightPanel";
-         this.CalcWeightPanel.Size = new System.Drawing.Size(233, 174);
+         this.CalcWeightPanel.Size = new System.Drawing.Size(175, 141);
          this.CalcWeightPanel.TabIndex = 34;
          // 
          // ThicknessNumberPicker
@@ -945,10 +956,10 @@
             0,
             0,
             262144});
-         this.ThicknessNumberPicker.Location = new System.Drawing.Point(81, 91);
-         this.ThicknessNumberPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.ThicknessNumberPicker.Location = new System.Drawing.Point(61, 74);
+         this.ThicknessNumberPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.ThicknessNumberPicker.Name = "ThicknessNumberPicker";
-         this.ThicknessNumberPicker.Size = new System.Drawing.Size(72, 22);
+         this.ThicknessNumberPicker.Size = new System.Drawing.Size(54, 20);
          this.ThicknessNumberPicker.TabIndex = 2;
          this.ThicknessNumberPicker.Visible = false;
          this.ThicknessNumberPicker.ValueChanged += new System.EventHandler(this.ThicknessNumberPicker_ValueChanged);
@@ -957,19 +968,19 @@
          // 
          this.panel2.Controls.Add(this.FeetRadioButtonWidth);
          this.panel2.Controls.Add(this.InchRadioButtonWidth);
-         this.panel2.Location = new System.Drawing.Point(161, 62);
-         this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.panel2.Location = new System.Drawing.Point(121, 50);
+         this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(64, 26);
+         this.panel2.Size = new System.Drawing.Size(48, 21);
          this.panel2.TabIndex = 36;
          // 
          // FeetRadioButtonWidth
          // 
          this.FeetRadioButtonWidth.AutoSize = true;
-         this.FeetRadioButtonWidth.Location = new System.Drawing.Point(44, 4);
-         this.FeetRadioButtonWidth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.FeetRadioButtonWidth.Location = new System.Drawing.Point(33, 3);
+         this.FeetRadioButtonWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.FeetRadioButtonWidth.Name = "FeetRadioButtonWidth";
-         this.FeetRadioButtonWidth.Size = new System.Drawing.Size(17, 16);
+         this.FeetRadioButtonWidth.Size = new System.Drawing.Size(14, 13);
          this.FeetRadioButtonWidth.TabIndex = 1;
          this.FeetRadioButtonWidth.UseVisualStyleBackColor = true;
          this.FeetRadioButtonWidth.Visible = false;
@@ -979,10 +990,10 @@
          // 
          this.InchRadioButtonWidth.AutoSize = true;
          this.InchRadioButtonWidth.Checked = true;
-         this.InchRadioButtonWidth.Location = new System.Drawing.Point(3, 4);
-         this.InchRadioButtonWidth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.InchRadioButtonWidth.Location = new System.Drawing.Point(2, 3);
+         this.InchRadioButtonWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.InchRadioButtonWidth.Name = "InchRadioButtonWidth";
-         this.InchRadioButtonWidth.Size = new System.Drawing.Size(17, 16);
+         this.InchRadioButtonWidth.Size = new System.Drawing.Size(14, 13);
          this.InchRadioButtonWidth.TabIndex = 0;
          this.InchRadioButtonWidth.TabStop = true;
          this.InchRadioButtonWidth.UseVisualStyleBackColor = true;
@@ -993,20 +1004,20 @@
          // 
          this.panel1.Controls.Add(this.FeetRadioButtonLength);
          this.panel1.Controls.Add(this.InchRadioButtonLength);
-         this.panel1.Location = new System.Drawing.Point(161, 34);
-         this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.panel1.Location = new System.Drawing.Point(121, 28);
+         this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(64, 26);
+         this.panel1.Size = new System.Drawing.Size(48, 21);
          this.panel1.TabIndex = 35;
          // 
          // FeetRadioButtonLength
          // 
          this.FeetRadioButtonLength.AutoSize = true;
          this.FeetRadioButtonLength.Checked = true;
-         this.FeetRadioButtonLength.Location = new System.Drawing.Point(44, 4);
-         this.FeetRadioButtonLength.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.FeetRadioButtonLength.Location = new System.Drawing.Point(33, 3);
+         this.FeetRadioButtonLength.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.FeetRadioButtonLength.Name = "FeetRadioButtonLength";
-         this.FeetRadioButtonLength.Size = new System.Drawing.Size(17, 16);
+         this.FeetRadioButtonLength.Size = new System.Drawing.Size(14, 13);
          this.FeetRadioButtonLength.TabIndex = 1;
          this.FeetRadioButtonLength.TabStop = true;
          this.FeetRadioButtonLength.UseVisualStyleBackColor = true;
@@ -1016,10 +1027,10 @@
          // InchRadioButtonLength
          // 
          this.InchRadioButtonLength.AutoSize = true;
-         this.InchRadioButtonLength.Location = new System.Drawing.Point(3, 4);
-         this.InchRadioButtonLength.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.InchRadioButtonLength.Location = new System.Drawing.Point(2, 3);
+         this.InchRadioButtonLength.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.InchRadioButtonLength.Name = "InchRadioButtonLength";
-         this.InchRadioButtonLength.Size = new System.Drawing.Size(17, 16);
+         this.InchRadioButtonLength.Size = new System.Drawing.Size(14, 13);
          this.InchRadioButtonLength.TabIndex = 0;
          this.InchRadioButtonLength.UseVisualStyleBackColor = true;
          this.InchRadioButtonLength.Visible = false;
@@ -1028,9 +1039,10 @@
          // FeetLabel
          // 
          this.FeetLabel.AutoSize = true;
-         this.FeetLabel.Location = new System.Drawing.Point(197, 14);
+         this.FeetLabel.Location = new System.Drawing.Point(148, 11);
+         this.FeetLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.FeetLabel.Name = "FeetLabel";
-         this.FeetLabel.Size = new System.Drawing.Size(36, 17);
+         this.FeetLabel.Size = new System.Drawing.Size(28, 13);
          this.FeetLabel.TabIndex = 37;
          this.FeetLabel.Text = "Feet";
          this.FeetLabel.Visible = false;
@@ -1038,9 +1050,10 @@
          // InchLabel
          // 
          this.InchLabel.AutoSize = true;
-         this.InchLabel.Location = new System.Drawing.Point(157, 14);
+         this.InchLabel.Location = new System.Drawing.Point(118, 11);
+         this.InchLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.InchLabel.Name = "InchLabel";
-         this.InchLabel.Size = new System.Drawing.Size(34, 17);
+         this.InchLabel.Size = new System.Drawing.Size(28, 13);
          this.InchLabel.TabIndex = 36;
          this.InchLabel.Text = "Inch";
          this.InchLabel.Visible = false;
@@ -1049,34 +1062,34 @@
          // 
          this.TotalWeightLabel.AutoSize = true;
          this.TotalWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.TotalWeightLabel.Location = new System.Drawing.Point(16, 114);
+         this.TotalWeightLabel.Location = new System.Drawing.Point(12, 93);
+         this.TotalWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
          this.TotalWeightLabel.Name = "TotalWeightLabel";
-         this.TotalWeightLabel.Size = new System.Drawing.Size(89, 20);
+         this.TotalWeightLabel.Size = new System.Drawing.Size(77, 17);
          this.TotalWeightLabel.TabIndex = 35;
          this.TotalWeightLabel.Text = "Weight: 0";
          this.TotalWeightLabel.Visible = false;
          // 
          // PushToOutputWindowButton
          // 
-         this.PushToOutputWindowButton.Location = new System.Drawing.Point(109, 138);
-         this.PushToOutputWindowButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+         this.PushToOutputWindowButton.Location = new System.Drawing.Point(84, 112);
          this.PushToOutputWindowButton.Name = "PushToOutputWindowButton";
-         this.PushToOutputWindowButton.Size = new System.Drawing.Size(120, 28);
+         this.PushToOutputWindowButton.Size = new System.Drawing.Size(90, 23);
          this.PushToOutputWindowButton.TabIndex = 3;
          this.PushToOutputWindowButton.Text = "Push To Output";
          this.PushToOutputWindowButton.UseVisualStyleBackColor = true;
          this.PushToOutputWindowButton.Visible = false;
-         this.PushToOutputWindowButton.Click += new System.EventHandler(this.EnterButton_Click);
+         this.PushToOutputWindowButton.Click += new System.EventHandler(this.PushToOutputButton_Click);
          // 
          // RedoButton
          // 
          this.RedoButton.BackgroundImage = global::DetailerCalculator.Properties.Resources.Redo;
          this.RedoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
          this.RedoButton.Enabled = false;
-         this.RedoButton.Location = new System.Drawing.Point(652, 206);
-         this.RedoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.RedoButton.Location = new System.Drawing.Point(489, 167);
+         this.RedoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.RedoButton.Name = "RedoButton";
-         this.RedoButton.Size = new System.Drawing.Size(25, 25);
+         this.RedoButton.Size = new System.Drawing.Size(19, 20);
          this.RedoButton.TabIndex = 35;
          this.RedoButton.UseVisualStyleBackColor = true;
          this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
@@ -1086,19 +1099,19 @@
          this.UndoButton.BackgroundImage = global::DetailerCalculator.Properties.Resources.Undo;
          this.UndoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
          this.UndoButton.Enabled = false;
-         this.UndoButton.Location = new System.Drawing.Point(621, 206);
-         this.UndoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.UndoButton.Location = new System.Drawing.Point(466, 167);
+         this.UndoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.UndoButton.Name = "UndoButton";
-         this.UndoButton.Size = new System.Drawing.Size(25, 25);
+         this.UndoButton.Size = new System.Drawing.Size(19, 20);
          this.UndoButton.TabIndex = 6;
          this.UndoButton.UseVisualStyleBackColor = true;
          this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
          // 
          // FRMDetailerCalculator
          // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(829, 526);
+         this.ClientSize = new System.Drawing.Size(622, 427);
          this.Controls.Add(this.DetailerCalculatorLabel);
          this.Controls.Add(this.RedoButton);
          this.Controls.Add(this.UndoButton);
@@ -1126,7 +1139,7 @@
          this.Controls.Add(this.menuStrip);
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.MainMenuStrip = this.menuStrip;
-         this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+         this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
          this.Name = "FRMDetailerCalculator";
          this.Text = "Detailer Calculator";
          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetailerCalculatorClosed);

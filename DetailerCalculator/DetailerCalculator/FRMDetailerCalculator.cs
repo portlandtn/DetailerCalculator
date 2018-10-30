@@ -44,6 +44,7 @@ namespace DetailerCalculator
          _Settings.IsDetailingMathMethod = true;
          _Settings.LengthIsInFeet = true;
          _Settings.WidthIsInFeet = false;
+         _Settings.WeightFormIsShown = false;
          ActiveControl = UserEntryBox;
       }
 
@@ -791,25 +792,29 @@ namespace DetailerCalculator
 
       private void CalculateWeightButton_Click(object sender, EventArgs e)
       {
-         SetVisibility(true);
-
-         PushToOutputWindowButton.Visible = true;
-
-         CalculateWeightButton.Visible = false;
-         LengthTextBox.Focus();
+         if (_Settings.WeightFormIsShown == false)
+         {
+            _Settings.WeightFormIsShown = true;
+            SetVisibility(true);
+            CalculateWeightButton.Text = "Hide Weight";
+            LengthTextBox.Focus();
+         }
+         else
+         {
+            _Settings.WeightFormIsShown = false;
+            SetVisibility(false);
+            CalculateWeightButton.Text = "Calc Weight";
+            UserEntryBox.Focus();
+         }
       }
 
-      private void EnterButton_Click(object sender, EventArgs e)
+      private void PushToOutputButton_Click(object sender, EventArgs e)
       {
-         SetVisibility(false);
-
-         PushToOutputWindowButton.Visible = false;
-
-         CalculateWeightButton.Visible = true;
          OutputWindowStringBuilder(DetermineWeight(), 0);
          LengthTextBox.Text = "";
          WidthTextBox.Text = "";
          ThicknessNumberPicker.Value = 0;
+         UserEntryBox.Focus();
       }
 
       private void LengthTextBox_TextChanged(object sender, EventArgs e)
@@ -847,6 +852,7 @@ namespace DetailerCalculator
          }
 
          ThicknessNumberPicker.Visible = visible;
+         PushToOutputWindowButton.Visible = visible;
       }
 
       private void InchRadioButtonLength_CheckedChanged(object sender, EventArgs e)

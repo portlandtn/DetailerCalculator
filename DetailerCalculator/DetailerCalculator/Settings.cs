@@ -23,6 +23,8 @@ namespace DetailerCalculator
 
       public int ActiveAngle { get; set; }
 
+      public bool WeightFormIsShown { get; set; }
+
       public bool IsDetailingMathMethod { get; set; }
 
       public bool WidthIsInFeet { get; set; }
