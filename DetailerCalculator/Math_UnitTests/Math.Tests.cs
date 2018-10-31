@@ -12,7 +12,7 @@ namespace UnitTests
    public class MathTests
    {
       [TestMethod]
-      public void Add_Standard()
+      public void Add()
       {
          //Arrange
          var num1a = 22.1115m;
@@ -45,7 +45,7 @@ namespace UnitTests
       /// Returns the difference of two numbers based on traditional math.
       /// </summary>
       [TestMethod]
-      public void Subtract_Standard()
+      public void Subtract()
       {
          //Arrange
          var num1a = 23.1102m;
@@ -76,7 +76,7 @@ namespace UnitTests
       }
 
       [TestMethod]
-      public void Multiply_Standard()
+      public void Multiply()
       {
          //Arrange
          var num1a = 51m;
@@ -106,7 +106,7 @@ namespace UnitTests
       }
 
       [TestMethod]
-      public void Divide_Standard()
+      public void Divide()
       {
          //Arrange
          var num1a = 6m;
@@ -502,6 +502,12 @@ namespace UnitTests
       [TestMethod]
       public void TrigFunctionButtonClick_s2b__Standard()
       {
+         IEnumerable<string> foo;
+         ICollection<string> foo2;
+         IList<string> foo3 = new List<string>();
+         IDictionary<string, string> foo4;
+         List<string> foo5;
+
          //Arrange
          var num = 1.0204m;
          var angle = 14.036243m;
