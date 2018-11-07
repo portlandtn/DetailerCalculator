@@ -149,40 +149,14 @@ namespace DetailerCalculator
       {
          if (e.KeyCode == Keys.Enter)
          {
-            WarningNumericEntryOnlyLabel.Visible = false;
-            decimal outputWindowDecimal;
-            try
-            {
-               if (UserEntryBox.Text == "")
-               {
-                  outputWindowDecimal = _OutputWindowList[_OutputWindowList.Count - 1];
-               }
-               else
-               {
-                  var fixedDecimal = _Settings.FixedDecimals;
-                  outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
-               }
-               OutputWindowStringBuilder(outputWindowDecimal, 0);
-            }
-            catch (Exception)
-            {
-               return;
-            }
-            finally
-            {
-               UserEntryBox.Text = "";
-               e.Handled = true;
-               e.SuppressKeyPress = true;
-            }
+            EnterKeyPressed();
+            e.Handled = true;
+            e.SuppressKeyPress = true;
          }
 
          if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide)
          {
-            var num1 = MathFunctions.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
-            var num2 = MathFunctions.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
-            decimal response = MathFunctions.DoMath(Convert.ToString(e.KeyCode), num1, num2, _Settings.IsDetailingMathMethod);
-            UserEntryBox.Text = "";
-            OutputWindowStringBuilder(response, 2);
+            MathKeyPressed(e.KeyCode);
             e.Handled = true;
             e.SuppressKeyPress = true;
          }
@@ -196,8 +170,44 @@ namespace DetailerCalculator
          if (e.KeyCode == Keys.Delete)
          {
             UserEntryBox.Text = "";
-            e.SuppressKeyPress = true;
             DropLastNumber();
+            e.SuppressKeyPress = true;
+         }
+      }
+
+      private void MathKeyPressed(Keys keyCode)
+      {
+         var num1 = MathFunctions.DetermineFirstNumberForMath(2, _OutputWindowList.Count, _OutputWindowList);
+         var num2 = MathFunctions.DetermineSecondNumberForMath(_OutputWindowList.Count, _OutputWindowList);
+         decimal response = MathFunctions.DoMath(Convert.ToString(keyCode), num1, num2, _Settings.IsDetailingMathMethod);
+         UserEntryBox.Text = "";
+         OutputWindowStringBuilder(response, 2);
+      }
+
+      private void EnterKeyPressed()
+      {
+         WarningNumericEntryOnlyLabel.Visible = false;
+         decimal outputWindowDecimal;
+         try
+         {
+            if (UserEntryBox.Text == "")
+            {
+               outputWindowDecimal = _OutputWindowList[_OutputWindowList.Count - 1];
+            }
+            else
+            {
+               var fixedDecimal = _Settings.FixedDecimals;
+               outputWindowDecimal = Convert.ToDecimal(UserEntryBox.Text);
+            }
+            OutputWindowStringBuilder(outputWindowDecimal, 0);
+         }
+         catch (Exception)
+         {
+            return;
+         }
+         finally
+         {
+            UserEntryBox.Text = "";
          }
       }
 
@@ -411,10 +421,7 @@ namespace DetailerCalculator
       private void RestoreSettings()
       {
          //Restores settings from the previous session. (angles, fixed decimals). Output window text is still in progress.
-
-         
-
-            _Settings.Angle1 = Convert.ToDecimal(Properties.Settings.Default.Angle1);
+         _Settings.Angle1 = Convert.ToDecimal(Properties.Settings.Default.Angle1);
          _Settings.Angle2 = Convert.ToDecimal(Properties.Settings.Default.Angle2);
          _Settings.Angle3 = Convert.ToDecimal(Properties.Settings.Default.Angle3);
          _Settings.Angle4 = Convert.ToDecimal(Properties.Settings.Default.Angle4);
