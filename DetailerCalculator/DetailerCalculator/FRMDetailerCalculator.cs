@@ -265,7 +265,7 @@ namespace DetailerCalculator
                BaseTextBox.Text = "";
                RiseTextBox.Text = "";
             }
-            catch (Exception)
+            catch (FormatException)
             {
                return;
             }
