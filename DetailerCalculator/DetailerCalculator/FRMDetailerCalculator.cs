@@ -201,7 +201,7 @@ namespace DetailerCalculator
             }
             OutputWindowStringBuilder(outputWindowDecimal, 0);
          }
-         catch (Exception)
+         catch (ArgumentOutOfRangeException)
          {
             return;
          }
@@ -221,7 +221,7 @@ namespace DetailerCalculator
                BaseTextBox.Text = "";
                RiseTextBox.Text = "";
             }
-            catch (Exception)
+            catch (FormatException)
             {
                return;
             }
@@ -362,7 +362,17 @@ namespace DetailerCalculator
          }
          if (RiseTextBox.Text != "" && BaseTextBox.Text != "")
          {
-            BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+            try
+            {
+               BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+            }
+            catch (FormatException fe)
+            {
+               MessageBox.Show(fe.Message.ToString() + Environment.NewLine + "Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               RiseTextBox.Text = "";
+               BaseTextBox.Text = "";
+            }
+
          }
       }
 
@@ -379,7 +389,16 @@ namespace DetailerCalculator
          }
          if (RiseTextBox.Text != "" && BaseTextBox.Text != "")
          {
-            BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+            try
+            {
+               BaseRiseCalc(Convert.ToDecimal(BaseTextBox.Text), Convert.ToDecimal(RiseTextBox.Text));
+            }
+            catch (FormatException fe)
+            {
+               MessageBox.Show(fe.Message.ToString() + Environment.NewLine + "Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+               RiseTextBox.Text = "";
+               BaseTextBox.Text = "";
+            }
          }
       }
 
@@ -520,7 +539,7 @@ namespace DetailerCalculator
                _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
                numbersToReplace--;
             }
-            catch (Exception)
+            catch (ArgumentNullException)
             {
                return;
             }
@@ -667,7 +686,7 @@ namespace DetailerCalculator
             _OutputWindowList.RemoveAt(_OutputWindowList.Count - 1);
             OutputWindowStringBuilder();
          }
-         catch (Exception)
+         catch (ArgumentNullException)
          {
             return;
          }
@@ -760,10 +779,10 @@ namespace DetailerCalculator
             var angle = Conversions.RadiansToAngle(radians);
             OverWriteAngleTextBox.Text = Convert.ToString(angle);
          }
-         catch (Exception)
+         catch (FormatException fe)
          {
             BaseTextBox.Text = "";
-            MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+            MessageBox.Show(fe.Message.ToString() + Environment.NewLine + "Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
             return;
          }
       }
