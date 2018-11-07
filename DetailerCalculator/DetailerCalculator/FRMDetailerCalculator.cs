@@ -495,9 +495,9 @@ namespace DetailerCalculator
          {
             Clipboard.SetText(OutputWindow.Text);
          }
-         catch (Exception ex)
+         catch (ArgumentNullException ex)
          {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show(ex.Message + Environment.NewLine + "Clicking this box copies text, but it cannot copy an emptry box. Please try again.");
             return;
          }
       }
