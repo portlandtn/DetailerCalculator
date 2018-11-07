@@ -296,21 +296,18 @@ namespace DetailerCalculator
       private void Angle2RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
-
          SetActiveAngle(2, _Settings.Angle2);
       }
 
       private void Angle3RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
-
          SetActiveAngle(3, _Settings.Angle3);
       }
 
       private void Angle4RadioButton_CheckedChanged(object sender, EventArgs e)
       {
          //Changes the settings to make the current active angle # match the radio button, as well as the angle value used for calculations.
-
          SetActiveAngle(4, _Settings.Angle4);
       }
 
@@ -333,10 +330,10 @@ namespace DetailerCalculator
             var angle = Conversions.RadiansToAngle(radians);
             OverWriteAngleTextBox.Text = Convert.ToString(angle);
          }
-         catch (Exception)
+         catch (FormatException fe)
          {
             SlopeTextBox.Text = "";
-            MessageBox.Show("Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
+            MessageBox.Show(fe.Message.ToString() + Environment.NewLine + "Please include a 0 before any number smaller than 1. (i.e. 0.5 instead of .5)");
             return;
          }
       }
