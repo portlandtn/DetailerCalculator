@@ -34,7 +34,5 @@ namespace DetailerCalculator
       public string FixedDecimals { get; set; }
 
       public bool HaveSeenTrayIconInstructions { get; set; }
-
-      public Stack<List<decimal>> UndoRedoSettings { get; set; }
    }
 }
