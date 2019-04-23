@@ -24,10 +24,10 @@ namespace UnitTests
          var expectedDecimal4 = -118.1667m;
 
          //Act
-         var decimal1 = Math.Round(Conversions.FootToDecimal(foot1), 4);
-         var decimal2 = Math.Round(Conversions.FootToDecimal(foot2), 4);
-         var decimal3 = Math.Round(Conversions.FootToDecimal(foot3), 4);
-         var decimal4 = Math.Round(Conversions.FootToDecimal(foot4), 4);
+         var decimal1 = Math.Round(Conversions.FootToDecimalFoot(foot1), 4);
+         var decimal2 = Math.Round(Conversions.FootToDecimalFoot(foot2), 4);
+         var decimal3 = Math.Round(Conversions.FootToDecimalFoot(foot3), 4);
+         var decimal4 = Math.Round(Conversions.FootToDecimalFoot(foot4), 4);
 
          //Assert
          Assert.AreEqual(expectedDecimal1, decimal1);
@@ -53,10 +53,10 @@ namespace UnitTests
          var expectedFoot4 = -118.02m;
 
          //Act
-         var foot1 = Math.Round(Conversions.DecimalToFoot(decNumber1), 4);
-         var foot2 = Math.Round(Conversions.DecimalToFoot(decNumber2), 4);
-         var foot3 = Math.Round(Conversions.DecimalToFoot(decNumber3), 4);
-         var foot4 = Math.Round(Conversions.DecimalToFoot(decNumber4), 4);
+         var foot1 = Math.Round(Conversions.DecimalFootToFoot(decNumber1), 4);
+         var foot2 = Math.Round(Conversions.DecimalFootToFoot(decNumber2), 4);
+         var foot3 = Math.Round(Conversions.DecimalFootToFoot(decNumber3), 4);
+         var foot4 = Math.Round(Conversions.DecimalFootToFoot(decNumber4), 4);
 
          //Assert
          Assert.AreEqual(expectedFoot1, foot1);
@@ -208,5 +208,63 @@ namespace UnitTests
          //Assert
          Assert.AreEqual(expectedResponse, response);
       }
-   }
+
+        /// <summary>
+        /// Checks foot to decimal conversions.
+        /// </summary>
+        [TestMethod]
+        public void FootToDecInchTest()
+        {
+            //Arrange
+            var foot1 = 4.06m;
+            var expectedDecimal1 = 54m;
+            var foot2 = 4.0608m;
+            var expectedDecimal2 = 54.5m;
+            var foot3 = 144.0802m;
+            var expectedDecimal3 = 1736.125m;
+            var foot4 = -118.02m;
+            var expectedDecimal4 = -1418m;
+
+            //Act
+            var decimal1 = Math.Round(Conversions.FootToDecimalInch(foot1), 4);
+            var decimal2 = Math.Round(Conversions.FootToDecimalInch(foot2), 4);
+            var decimal3 = Math.Round(Conversions.FootToDecimalInch(foot3), 4);
+            var decimal4 = Math.Round(Conversions.FootToDecimalInch(foot4), 4);
+
+            //Assert
+            Assert.AreEqual(expectedDecimal1, decimal1);
+            Assert.AreEqual(expectedDecimal2, decimal2);
+            Assert.AreEqual(expectedDecimal3, decimal3);
+            Assert.AreEqual(expectedDecimal4, decimal4);
+        }
+
+        /// <summary>
+        /// Checks decimal to foot conversions.
+        /// </summary>
+        [TestMethod]
+        public void DecInchToFootTest()
+        {
+            //Arrange
+            var decimal1 = 54m;
+            var expectedFoot1 = 4.06m;
+            var decimal2 = 54.5m;
+            var expectedFoot2 = 4.0608m;
+            var decimal3 = 1736.125m;
+            var expectedFoot3 = 144.0802m;
+            var decimal4 = -1418m;
+            var expectedFoot4 = -118.02m;
+
+            //Act
+            var foot1 = Math.Round(Conversions.DecimalInchToFoot(decimal1), 4);
+            var foot2 = Math.Round(Conversions.DecimalInchToFoot(decimal2), 4);
+            var foot3 = Math.Round(Conversions.DecimalInchToFoot(decimal3), 4);
+            var foot4 = Math.Round(Conversions.DecimalInchToFoot(decimal4), 4);
+
+            //Assert
+            Assert.AreEqual(expectedFoot1, foot1);
+            Assert.AreEqual(expectedFoot2, foot2);
+            Assert.AreEqual(expectedFoot3, foot3);
+            Assert.AreEqual(expectedFoot4, foot4);
+        }
+    }
 }
