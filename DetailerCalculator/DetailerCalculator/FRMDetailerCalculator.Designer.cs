@@ -45,6 +45,8 @@
             this.Angle2RadioButton = new System.Windows.Forms.RadioButton();
             this.Angle1RadioButton = new System.Windows.Forms.RadioButton();
             this.MathButtonsPanel = new System.Windows.Forms.Panel();
+            this.FootToDecimalInchButton = new System.Windows.Forms.Button();
+            this.DecimalInchToFootButton = new System.Windows.Forms.Button();
             this.SwapButton = new System.Windows.Forms.Button();
             this.DecimalFootToFootButton = new System.Windows.Forms.Button();
             this.PlusMinusButton = new System.Windows.Forms.Button();
@@ -115,8 +117,7 @@
             this.PushToOutputWindowButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
             this.UndoButton = new System.Windows.Forms.Button();
-            this.DecimalInchToFootButton = new System.Windows.Forms.Button();
-            this.FootToDecimalInchButton = new System.Windows.Forms.Button();
+            this.ConversionToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.MathMethodPanel.SuspendLayout();
             this.AnglePanel.SuspendLayout();
             this.MathButtonsPanel.SuspendLayout();
@@ -320,6 +321,32 @@
             this.MathButtonsPanel.Size = new System.Drawing.Size(279, 111);
             this.MathButtonsPanel.TabIndex = 3;
             // 
+            // FootToDecimalInchButton
+            // 
+            this.FootToDecimalInchButton.Location = new System.Drawing.Point(12, 85);
+            this.FootToDecimalInchButton.Margin = new System.Windows.Forms.Padding(2);
+            this.FootToDecimalInchButton.Name = "FootToDecimalInchButton";
+            this.FootToDecimalInchButton.Size = new System.Drawing.Size(63, 23);
+            this.FootToDecimalInchButton.TabIndex = 9;
+            this.FootToDecimalInchButton.Text = "F2D(inch)";
+            this.ConversionToolTip.SetToolTip(this.FootToDecimalInchButton, "Converts an architectural number in inches to\r\n a standard number in inches (i.e." +
+        " 14.06 = 174.00)");
+            this.FootToDecimalInchButton.UseVisualStyleBackColor = true;
+            this.FootToDecimalInchButton.Click += new System.EventHandler(this.FootToDecimalInchButton_Click);
+            // 
+            // DecimalInchToFootButton
+            // 
+            this.DecimalInchToFootButton.Location = new System.Drawing.Point(79, 85);
+            this.DecimalInchToFootButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DecimalInchToFootButton.Name = "DecimalInchToFootButton";
+            this.DecimalInchToFootButton.Size = new System.Drawing.Size(63, 23);
+            this.DecimalInchToFootButton.TabIndex = 8;
+            this.DecimalInchToFootButton.Text = "D2F(Inch)";
+            this.ConversionToolTip.SetToolTip(this.DecimalInchToFootButton, "Converts a standard number in feet to\r\nan architectural format (i.e. 174.00 = 14." +
+        "06)");
+            this.DecimalInchToFootButton.UseVisualStyleBackColor = true;
+            this.DecimalInchToFootButton.Click += new System.EventHandler(this.DecimalInchToFootButton_Click);
+            // 
             // SwapButton
             // 
             this.SwapButton.Location = new System.Drawing.Point(79, 30);
@@ -340,6 +367,8 @@
             this.DecimalFootToFootButton.Size = new System.Drawing.Size(63, 23);
             this.DecimalFootToFootButton.TabIndex = 7;
             this.DecimalFootToFootButton.Text = "D2F(Foot)";
+            this.ConversionToolTip.SetToolTip(this.DecimalFootToFootButton, "Converts a standard number in feet to\r\nan architectural number in feet (i.e. 14.5" +
+        " = 14.06)");
             this.DecimalFootToFootButton.UseVisualStyleBackColor = true;
             this.DecimalFootToFootButton.Click += new System.EventHandler(this.DecimalToFootButton_Click);
             this.DecimalFootToFootButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -388,6 +417,8 @@
             this.FootToDecimalFootButton.Size = new System.Drawing.Size(63, 23);
             this.FootToDecimalFootButton.TabIndex = 6;
             this.FootToDecimalFootButton.Text = "F2D(Foot)";
+            this.ConversionToolTip.SetToolTip(this.FootToDecimalFootButton, "Converts an architectural number in feet to\r\na standard number in feet (i.e. 14.0" +
+        "6 = 14.5)");
             this.FootToDecimalFootButton.UseVisualStyleBackColor = true;
             this.FootToDecimalFootButton.Click += new System.EventHandler(this.FootToDecimalButton_Click);
             this.FootToDecimalFootButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -631,9 +662,9 @@
             this.WarningNumericEntryOnlyLabel.Location = new System.Drawing.Point(93, 268);
             this.WarningNumericEntryOnlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WarningNumericEntryOnlyLabel.Name = "WarningNumericEntryOnlyLabel";
-            this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(138, 13);
+            this.WarningNumericEntryOnlyLabel.Size = new System.Drawing.Size(130, 13);
             this.WarningNumericEntryOnlyLabel.TabIndex = 17;
-            this.WarningNumericEntryOnlyLabel.Text = "Numbers allowed only!!";
+            this.WarningNumericEntryOnlyLabel.Text = "Numbers allowed only";
             this.WarningNumericEntryOnlyLabel.Visible = false;
             // 
             // BaseTextBox
@@ -1099,28 +1130,6 @@
             this.UndoButton.Visible = false;
             this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
             // 
-            // DecimalInchToFootButton
-            // 
-            this.DecimalInchToFootButton.Location = new System.Drawing.Point(79, 85);
-            this.DecimalInchToFootButton.Margin = new System.Windows.Forms.Padding(2);
-            this.DecimalInchToFootButton.Name = "DecimalInchToFootButton";
-            this.DecimalInchToFootButton.Size = new System.Drawing.Size(63, 23);
-            this.DecimalInchToFootButton.TabIndex = 8;
-            this.DecimalInchToFootButton.Text = "D2F(Inch)";
-            this.DecimalInchToFootButton.UseVisualStyleBackColor = true;
-            this.DecimalInchToFootButton.Click += new System.EventHandler(this.DecimalInchToFootButton_Click);
-            // 
-            // FootToDecimalInchButton
-            // 
-            this.FootToDecimalInchButton.Location = new System.Drawing.Point(12, 85);
-            this.FootToDecimalInchButton.Margin = new System.Windows.Forms.Padding(2);
-            this.FootToDecimalInchButton.Name = "FootToDecimalInchButton";
-            this.FootToDecimalInchButton.Size = new System.Drawing.Size(63, 23);
-            this.FootToDecimalInchButton.TabIndex = 9;
-            this.FootToDecimalInchButton.Text = "F2D(inch)";
-            this.FootToDecimalInchButton.UseVisualStyleBackColor = true;
-            this.FootToDecimalInchButton.Click += new System.EventHandler(this.FootToDecimalInchButton_Click);
-            // 
             // FRMDetailerCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1273,6 +1282,7 @@
       private System.Windows.Forms.Button RedoButton;
         private System.Windows.Forms.Button DecimalInchToFootButton;
         private System.Windows.Forms.Button FootToDecimalInchButton;
+        private System.Windows.Forms.ToolTip ConversionToolTip;
     }
 }
 
