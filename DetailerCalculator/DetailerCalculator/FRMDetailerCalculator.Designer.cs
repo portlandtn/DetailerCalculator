@@ -117,7 +117,7 @@
             this.PushToOutputWindowButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
             this.UndoButton = new System.Windows.Forms.Button();
-            this.ConversionToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.StandardToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.MathMethodPanel.SuspendLayout();
             this.AnglePanel.SuspendLayout();
             this.MathButtonsPanel.SuspendLayout();
@@ -154,6 +154,7 @@
             this.MathMethodPanel.Name = "MathMethodPanel";
             this.MathMethodPanel.Size = new System.Drawing.Size(72, 81);
             this.MathMethodPanel.TabIndex = 1;
+            this.StandardToolTip.SetToolTip(this.MathMethodPanel, "Detailing method: 1.0204 = 1\'-2 1/4\"\r\nStandard method: 1.1875 = 1\'-2 1/4\"");
             // 
             // MainMethodLabel
             // 
@@ -208,6 +209,7 @@
             this.AnglePanel.Name = "AnglePanel";
             this.AnglePanel.Size = new System.Drawing.Size(150, 90);
             this.AnglePanel.TabIndex = 2;
+            this.StandardToolTip.SetToolTip(this.AnglePanel, "Angle selected will be used for converting numbers\r\nthat require trig.");
             // 
             // Angle4Label
             // 
@@ -329,7 +331,7 @@
             this.FootToDecimalInchButton.Size = new System.Drawing.Size(63, 23);
             this.FootToDecimalInchButton.TabIndex = 9;
             this.FootToDecimalInchButton.Text = "F2D(inch)";
-            this.ConversionToolTip.SetToolTip(this.FootToDecimalInchButton, "Converts an architectural number in inches to\r\n a standard number in inches (i.e." +
+            this.StandardToolTip.SetToolTip(this.FootToDecimalInchButton, "Converts an architectural number in inches to\r\n a standard number in inches (i.e." +
         " 14.06 = 174.00)");
             this.FootToDecimalInchButton.UseVisualStyleBackColor = true;
             this.FootToDecimalInchButton.Click += new System.EventHandler(this.FootToDecimalInchButton_Click);
@@ -342,7 +344,7 @@
             this.DecimalInchToFootButton.Size = new System.Drawing.Size(63, 23);
             this.DecimalInchToFootButton.TabIndex = 8;
             this.DecimalInchToFootButton.Text = "D2F(Inch)";
-            this.ConversionToolTip.SetToolTip(this.DecimalInchToFootButton, "Converts a standard number in feet to\r\nan architectural format (i.e. 174.00 = 14." +
+            this.StandardToolTip.SetToolTip(this.DecimalInchToFootButton, "Converts a standard number in feet to\r\nan architectural format (i.e. 174.00 = 14." +
         "06)");
             this.DecimalInchToFootButton.UseVisualStyleBackColor = true;
             this.DecimalInchToFootButton.Click += new System.EventHandler(this.DecimalInchToFootButton_Click);
@@ -355,6 +357,8 @@
             this.SwapButton.Size = new System.Drawing.Size(63, 23);
             this.SwapButton.TabIndex = 2;
             this.SwapButton.Text = "Swap";
+            this.StandardToolTip.SetToolTip(this.SwapButton, "Takes the bottom two numbers in the output window\r\nand forces them to swap places" +
+        ".");
             this.SwapButton.UseVisualStyleBackColor = true;
             this.SwapButton.Click += new System.EventHandler(this.SwapButton_Click);
             this.SwapButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -367,7 +371,7 @@
             this.DecimalFootToFootButton.Size = new System.Drawing.Size(63, 23);
             this.DecimalFootToFootButton.TabIndex = 7;
             this.DecimalFootToFootButton.Text = "D2F(Foot)";
-            this.ConversionToolTip.SetToolTip(this.DecimalFootToFootButton, "Converts a standard number in feet to\r\nan architectural number in feet (i.e. 14.5" +
+            this.StandardToolTip.SetToolTip(this.DecimalFootToFootButton, "Converts a standard number in feet to\r\nan architectural number in feet (i.e. 14.5" +
         " = 14.06)");
             this.DecimalFootToFootButton.UseVisualStyleBackColor = true;
             this.DecimalFootToFootButton.Click += new System.EventHandler(this.DecimalToFootButton_Click);
@@ -381,6 +385,8 @@
             this.PlusMinusButton.Size = new System.Drawing.Size(63, 23);
             this.PlusMinusButton.TabIndex = 5;
             this.PlusMinusButton.Text = "+/-";
+            this.StandardToolTip.SetToolTip(this.PlusMinusButton, "Changes the bottom number in the output window to\r\neither a negative or positive " +
+        "number.");
             this.PlusMinusButton.UseVisualStyleBackColor = true;
             this.PlusMinusButton.Click += new System.EventHandler(this.PlusMinusButton_Click);
             this.PlusMinusButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -393,6 +399,8 @@
             this.DivideButton.Size = new System.Drawing.Size(63, 23);
             this.DivideButton.TabIndex = 4;
             this.DivideButton.Text = "Divide";
+            this.StandardToolTip.SetToolTip(this.DivideButton, "Divides the bottom the bottom number by the next \r\nhigher number using either the" +
+        " detailing or standard \r\nmath method, depending on which one is selected.");
             this.DivideButton.UseVisualStyleBackColor = true;
             this.DivideButton.Click += new System.EventHandler(this.DivideButton_Click);
             this.DivideButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -405,6 +413,8 @@
             this.MultiplyButton.Size = new System.Drawing.Size(63, 23);
             this.MultiplyButton.TabIndex = 3;
             this.MultiplyButton.Text = "Multiply";
+            this.StandardToolTip.SetToolTip(this.MultiplyButton, "Multiplies the bottom two numbers together using \r\neither the detailing or standa" +
+        "rd math method, \r\ndepending on which one is selected.");
             this.MultiplyButton.UseVisualStyleBackColor = true;
             this.MultiplyButton.Click += new System.EventHandler(this.MultiplyButton_Click);
             this.MultiplyButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -417,7 +427,7 @@
             this.FootToDecimalFootButton.Size = new System.Drawing.Size(63, 23);
             this.FootToDecimalFootButton.TabIndex = 6;
             this.FootToDecimalFootButton.Text = "F2D(Foot)";
-            this.ConversionToolTip.SetToolTip(this.FootToDecimalFootButton, "Converts an architectural number in feet to\r\na standard number in feet (i.e. 14.0" +
+            this.StandardToolTip.SetToolTip(this.FootToDecimalFootButton, "Converts an architectural number in feet to\r\na standard number in feet (i.e. 14.0" +
         "6 = 14.5)");
             this.FootToDecimalFootButton.UseVisualStyleBackColor = true;
             this.FootToDecimalFootButton.Click += new System.EventHandler(this.FootToDecimalButton_Click);
@@ -432,6 +442,8 @@
             this.SubtractButton.Size = new System.Drawing.Size(63, 23);
             this.SubtractButton.TabIndex = 1;
             this.SubtractButton.Text = "Subtract";
+            this.StandardToolTip.SetToolTip(this.SubtractButton, "Subtracts  the bottom number from the next higher number\r\nusing either the detail" +
+        "ing or standard math method, depending\r\non which one is selected.");
             this.SubtractButton.UseVisualStyleBackColor = true;
             this.SubtractButton.Click += new System.EventHandler(this.SubtractButton_Click);
             this.SubtractButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -444,6 +456,8 @@
             this.AddButton.Size = new System.Drawing.Size(63, 23);
             this.AddButton.TabIndex = 0;
             this.AddButton.Text = "Add";
+            this.StandardToolTip.SetToolTip(this.AddButton, "Adds the bottom two numbers together using either\r\nthe detailing or standard math" +
+        " method, depending\r\non which one is selected.");
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             this.AddButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -456,6 +470,8 @@
             this.UserEntryBox.Size = new System.Drawing.Size(212, 20);
             this.UserEntryBox.TabIndex = 5;
             this.UserEntryBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.StandardToolTip.SetToolTip(this.UserEntryBox, "Only numbers with decimals are allowed here. Press\r\nenter on the keyboard to plac" +
+        "e the number in the\r\noutput window to perform mathematical operations.");
             this.UserEntryBox.TextChanged += new System.EventHandler(this.UserEntryBox_TextChanged);
             this.UserEntryBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
             this.UserEntryBox.Leave += new System.EventHandler(this.UserEntryLostFocus);
@@ -470,6 +486,8 @@
             this.OutputWindow.TabIndex = 5;
             this.OutputWindow.Text = "0";
             this.OutputWindow.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.StandardToolTip.SetToolTip(this.OutputWindow, "Output window. You can click here to copy the contents\r\nand paste it into any doc" +
+        "ument.");
             this.OutputWindow.UseVisualStyleBackColor = true;
             this.OutputWindow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
             this.OutputWindow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OutputWindowTextCopy);
@@ -497,6 +515,8 @@
             this.RiseToBaseButton.Size = new System.Drawing.Size(56, 19);
             this.RiseToBaseButton.TabIndex = 5;
             this.RiseToBaseButton.Text = "R to B";
+            this.StandardToolTip.SetToolTip(this.RiseToBaseButton, "Converts the bottom number in the output window to\r\nthe base, based on the bottom" +
+        " number being the rise.\r\nIt uses the angle selected at the top-right.");
             this.RiseToBaseButton.UseVisualStyleBackColor = true;
             this.RiseToBaseButton.Click += new System.EventHandler(this.RiseToBaseButton_Click);
             this.RiseToBaseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -509,6 +529,8 @@
             this.RiseToSlopeButton.Size = new System.Drawing.Size(56, 19);
             this.RiseToSlopeButton.TabIndex = 3;
             this.RiseToSlopeButton.Text = "R to S";
+            this.StandardToolTip.SetToolTip(this.RiseToSlopeButton, "Converts the bottom number in the output window to\r\nthe slope, based on the botto" +
+        "m number being the rise.\r\nIt uses the angle selected at the top-right.");
             this.RiseToSlopeButton.UseVisualStyleBackColor = true;
             this.RiseToSlopeButton.Click += new System.EventHandler(this.RiseToSlopeButton_Click);
             this.RiseToSlopeButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -521,6 +543,8 @@
             this.SlopeToRiseButton.Size = new System.Drawing.Size(56, 19);
             this.SlopeToRiseButton.TabIndex = 1;
             this.SlopeToRiseButton.Text = "S to R";
+            this.StandardToolTip.SetToolTip(this.SlopeToRiseButton, "Converts the bottom number in the output window to\r\nthe rise, based on the bottom" +
+        " number being the slope.\r\nIt uses the angle selected at the top-right.");
             this.SlopeToRiseButton.UseVisualStyleBackColor = true;
             this.SlopeToRiseButton.Click += new System.EventHandler(this.SlopeToRiseButton_Click);
             this.SlopeToRiseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -533,6 +557,8 @@
             this.SlopeToBaseButton.Size = new System.Drawing.Size(56, 19);
             this.SlopeToBaseButton.TabIndex = 4;
             this.SlopeToBaseButton.Text = "S to B";
+            this.StandardToolTip.SetToolTip(this.SlopeToBaseButton, "Converts the bottom number in the output window to\r\nthe base, based on the bottom" +
+        " number being the slope.\r\nIt uses the angle selected at the top-right.");
             this.SlopeToBaseButton.UseVisualStyleBackColor = true;
             this.SlopeToBaseButton.Click += new System.EventHandler(this.SlopeToBaseButton_Click);
             this.SlopeToBaseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -545,6 +571,8 @@
             this.BaseToSlopeButton.Size = new System.Drawing.Size(56, 19);
             this.BaseToSlopeButton.TabIndex = 2;
             this.BaseToSlopeButton.Text = "B to S";
+            this.StandardToolTip.SetToolTip(this.BaseToSlopeButton, "Converts the bottom number in the output window to\r\nthe slope, based on the botto" +
+        "m number being the base.\r\nIt uses the angle selected at the top-right.");
             this.BaseToSlopeButton.UseVisualStyleBackColor = true;
             this.BaseToSlopeButton.Click += new System.EventHandler(this.BaseToSlopeButton_Click);
             this.BaseToSlopeButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -557,6 +585,8 @@
             this.BaseToRiseButton.Size = new System.Drawing.Size(56, 19);
             this.BaseToRiseButton.TabIndex = 0;
             this.BaseToRiseButton.Text = "B to R";
+            this.StandardToolTip.SetToolTip(this.BaseToRiseButton, "Converts the bottom number in the output window to\r\nthe rise, based on the bottom" +
+        " number being the base.\r\nIt uses the angle selected at the top-right.");
             this.BaseToRiseButton.UseVisualStyleBackColor = true;
             this.BaseToRiseButton.Click += new System.EventHandler(this.BaseToRiseButton_Click);
             this.BaseToRiseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -579,6 +609,7 @@
             this.ClearAllButton.Size = new System.Drawing.Size(56, 19);
             this.ClearAllButton.TabIndex = 2;
             this.ClearAllButton.Text = "Clear All";
+            this.StandardToolTip.SetToolTip(this.ClearAllButton, "Erases all numbers in the output window.");
             this.ClearAllButton.UseVisualStyleBackColor = true;
             this.ClearAllButton.Click += new System.EventHandler(this.ClearAllButton_Click);
             this.ClearAllButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -591,6 +622,7 @@
             this.DropButton.Size = new System.Drawing.Size(56, 19);
             this.DropButton.TabIndex = 1;
             this.DropButton.Text = "Drop";
+            this.StandardToolTip.SetToolTip(this.DropButton, "Deletes the bottom number in the output window.");
             this.DropButton.UseVisualStyleBackColor = true;
             this.DropButton.Click += new System.EventHandler(this.DropButton_Click);
             this.DropButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntryBox_KeyDown);
@@ -602,6 +634,7 @@
             this.OverwriteAngleButton.Size = new System.Drawing.Size(75, 23);
             this.OverwriteAngleButton.TabIndex = 3;
             this.OverwriteAngleButton.Text = "Overwrite";
+            this.StandardToolTip.SetToolTip(this.OverwriteAngleButton, "Writes the angle above to the selected angle on the right");
             this.OverwriteAngleButton.UseVisualStyleBackColor = true;
             this.OverwriteAngleButton.Click += new System.EventHandler(this.OverwriteAngleButton_Click);
             // 
@@ -612,6 +645,9 @@
             this.OverWriteAngleTextBox.Name = "OverWriteAngleTextBox";
             this.OverWriteAngleTextBox.Size = new System.Drawing.Size(76, 20);
             this.OverWriteAngleTextBox.TabIndex = 2;
+            this.StandardToolTip.SetToolTip(this.OverWriteAngleTextBox, "Calculated automatically based on the Slope on a\r\n12-inch base or the customer ba" +
+        "se/rise dimensions\r\nentered. You can also manually input an angle.\r\nThe angle se" +
+        "lected will be overwritten.");
             this.OverWriteAngleTextBox.TextChanged += new System.EventHandler(this.OverWriteAngleTextBox_TextChanged);
             this.OverWriteAngleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OverwiteAngleTextBox_KeyDown);
             // 
@@ -632,6 +668,8 @@
             this.SlopeTextBox.Name = "SlopeTextBox";
             this.SlopeTextBox.Size = new System.Drawing.Size(31, 20);
             this.SlopeTextBox.TabIndex = 1;
+            this.StandardToolTip.SetToolTip(this.SlopeTextBox, "Standard slope on a 12 inch base (enter the rise\r\ndimension here based the base b" +
+        "eing 12 inches)");
             this.SlopeTextBox.TextChanged += new System.EventHandler(this.SlopeTextBox_TextChanged);
             this.SlopeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OverwiteAngleTextBox_KeyDown);
             // 
@@ -674,6 +712,8 @@
             this.BaseTextBox.Name = "BaseTextBox";
             this.BaseTextBox.Size = new System.Drawing.Size(49, 20);
             this.BaseTextBox.TabIndex = 0;
+            this.StandardToolTip.SetToolTip(this.BaseTextBox, "Base dimension in feet or inches format (must be the\r\nsame format used on the ris" +
+        "e textbox)");
             this.BaseTextBox.TextChanged += new System.EventHandler(this.BaseTextBox_TextChanged);
             this.BaseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BaseTextBox_KeyDown);
             // 
@@ -694,6 +734,8 @@
             this.RiseTextBox.Name = "RiseTextBox";
             this.RiseTextBox.Size = new System.Drawing.Size(49, 20);
             this.RiseTextBox.TabIndex = 1;
+            this.StandardToolTip.SetToolTip(this.RiseTextBox, "Rise dimension in feet or inches format (must be the\r\nsame format used on the bas" +
+        "e textbox)");
             this.RiseTextBox.TextChanged += new System.EventHandler(this.RiseTextBox_TextChanged);
             this.RiseTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RiseTextBox_KeyDown);
             // 
@@ -714,6 +756,7 @@
             this.RoundingNumberPicker.Size = new System.Drawing.Size(33, 20);
             this.RoundingNumberPicker.TabIndex = 4;
             this.RoundingNumberPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StandardToolTip.SetToolTip(this.RoundingNumberPicker, "Number of decimals to round to.");
             this.RoundingNumberPicker.Value = new decimal(new int[] {
             4,
             0,
@@ -869,6 +912,7 @@
             this.HipValleyButton.Size = new System.Drawing.Size(75, 23);
             this.HipValleyButton.TabIndex = 27;
             this.HipValleyButton.Text = "Hip/Valley";
+            this.StandardToolTip.SetToolTip(this.HipValleyButton, "Opens hip/valley worksheet (feature coming soon).");
             this.HipValleyButton.UseVisualStyleBackColor = true;
             this.HipValleyButton.Visible = false;
             this.HipValleyButton.Click += new System.EventHandler(this.HipValleyButton_Click);
@@ -882,6 +926,8 @@
             this.KeepOnTopCheckBox.Size = new System.Drawing.Size(90, 17);
             this.KeepOnTopCheckBox.TabIndex = 28;
             this.KeepOnTopCheckBox.Text = "Keep On Top";
+            this.StandardToolTip.SetToolTip(this.KeepOnTopCheckBox, "Check this box to keep this calculator on top, regardless\r\nof what windows are op" +
+        "en.");
             this.KeepOnTopCheckBox.UseVisualStyleBackColor = true;
             this.KeepOnTopCheckBox.CheckedChanged += new System.EventHandler(this.KeepOnTopCheckBox_CheckedChanged);
             // 
@@ -892,6 +938,7 @@
             this.CalculateWeightButton.Size = new System.Drawing.Size(75, 23);
             this.CalculateWeightButton.TabIndex = 29;
             this.CalculateWeightButton.Text = "Calc Weight";
+            this.StandardToolTip.SetToolTip(this.CalculateWeightButton, "Uses the length, width, and thickness, to determine the \r\nweight.");
             this.CalculateWeightButton.UseVisualStyleBackColor = true;
             this.CalculateWeightButton.Click += new System.EventHandler(this.CalculateWeightButton_Click);
             // 
@@ -994,6 +1041,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(48, 21);
             this.panel2.TabIndex = 36;
+            this.StandardToolTip.SetToolTip(this.panel2, "Choose whether your input is in feet-decimal or \r\ninch-decimal.\r\n(i.e. inch-decim" +
+        "al = 14.5 inches\r\n       foot-decimal = 1.2083 feet)");
             // 
             // FeetRadioButtonWidth
             // 
@@ -1030,6 +1079,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(48, 21);
             this.panel1.TabIndex = 35;
+            this.StandardToolTip.SetToolTip(this.panel1, "Choose whether your input is in feet-decimal or \r\ninch-decimal.\r\n(i.e. inch-decim" +
+        "al = 14.5 inches\r\n       foot-decimal = 1.2083 feet)");
             // 
             // FeetRadioButtonLength
             // 
@@ -1098,6 +1149,8 @@
             this.PushToOutputWindowButton.Size = new System.Drawing.Size(90, 23);
             this.PushToOutputWindowButton.TabIndex = 3;
             this.PushToOutputWindowButton.Text = "Push To Output";
+            this.StandardToolTip.SetToolTip(this.PushToOutputWindowButton, "Takes the weight calculated and pushes the number\r\nto the output window to allow " +
+        "you to perform\r\nmathematical operations on it.");
             this.PushToOutputWindowButton.UseVisualStyleBackColor = true;
             this.PushToOutputWindowButton.Visible = false;
             this.PushToOutputWindowButton.Click += new System.EventHandler(this.PushToOutputButton_Click);
@@ -1282,7 +1335,7 @@
       private System.Windows.Forms.Button RedoButton;
         private System.Windows.Forms.Button DecimalInchToFootButton;
         private System.Windows.Forms.Button FootToDecimalInchButton;
-        private System.Windows.Forms.ToolTip ConversionToolTip;
+        private System.Windows.Forms.ToolTip StandardToolTip;
     }
 }
 
