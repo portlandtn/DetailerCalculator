@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "units": "inches/feet as named; angles in degrees; detailing notation feet.inchesSixteenths",
+  "cases": [
+    {
+      "id": "sixteenths-to-inches",
+      "operation": "footToDecimalInch",
+      "args": [
+        12.0608
+      ],
+      "expected": 150.5,
+      "tolerance": 1e-09,
+      "basis": "12*12 + 6 + 8/16"
+    },
+    {
+      "id": "negative-sixteenths",
+      "operation": "footToDecimalFoot",
+      "args": [
+        -12.0608
+      ],
+      "expected": -12.541666666666668,
+      "tolerance": 1e-10,
+      "basis": "-(12 + 6/12 + 8/(16*12))"
+    },
+    {
+      "id": "inches-to-detailing",
+      "operation": "decimalInchToFoot",
+      "args": [
+        54.5
+      ],
+      "expected": 4.0608,
+      "tolerance": 1e-10,
+      "basis": "54.5 inches = 4 feet + 6 inches + 8/16 inch"
+    },
+    {
+      "id": "rounding-carry",
+      "operation": "decimalFootToFoot",
+      "args": [
+        0.9999
+      ],
+      "expected": 1,
+      "tolerance": 1e-10,
+      "basis": "11.9988 inches rounds through sixteenths carry to one foot"
+    },
+    {
+      "id": "negative-inches",
+      "operation": "footToDecimalInch",
+      "args": [
+        -1.0608
+      ],
+      "expected": -18.5,
+      "tolerance": 1e-10,
+      "basis": "-(12 + 6 + 8/16)"
+    },
+    {
+      "id": "rpn-subtract",
+      "operation": "subtract",
+      "args": [
+        6,
+        3
+      ],
+      "expected": 3,
+      "tolerance": 0,
+      "basis": "Second-from-top minus top: 6 - 3"
+    },
+    {
+      "id": "rpn-divide",
+      "operation": "divide",
+      "args": [
+        6,
+        3
+      ],
+      "expected": 2,
+      "tolerance": 0,
+      "basis": "Second-from-top divided by top: 6/3"
+    },
+    {
+      "id": "negative-add",
+      "operation": "add",
+      "args": [
+        -6,
+        3
+      ],
+      "expected": -3,
+      "tolerance": 0,
+      "basis": "-6 + 3"
+    },
+    {
+      "id": "right-triangle",
+      "operation": "baseRiseToSlope",
+      "args": [
+        3,
+        4
+      ],
+      "expected": 5,
+      "tolerance": 1e-10,
+      "basis": "sqrt(3^2+4^2)=5"
+    },
+    {
+      "id": "slope-to-rise",
+      "operation": "s2r",
+      "args": [
+        10,
+        30
+      ],
+      "expected": 5,
+      "tolerance": 1e-09,
+      "basis": "10*sin(30 degrees)=5"
+    },
+    {
+      "id": "base-to-rise",
+      "operation": "b2r",
+      "args": [
+        6,
+        45
+      ],
+      "expected": 6,
+      "tolerance": 1e-09,
+      "basis": "6*tan(45 degrees)=6"
+    }
+  ]
+}
